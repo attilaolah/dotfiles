@@ -1,0 +1,5 @@
+media-gfx/graphicsmagick -imagemagick
+net-libs/libgadu -ssl
+net-libs/xulrunner -qt4
+www-client/firefox -qt4
+x11-libs/cairo -qt4

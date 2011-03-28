@@ -1,0 +1,11 @@
+app-portage/layman ~amd64
+sys-apps/baselayout ~amd64
+sys-apps/hwinfo ~amd64
+sys-apps/openrc ~amd64
+sys-apps/portage ~amd64
+sys-apps/sysvinit ~amd64
+sys-devel/gcc ~amd64
+sys-fs/btrfs-progs ~amd64
+sys-kernel/gentoo-sources ~amd64
+sys-kernel/linux-headers ~amd64
+sys-libs/glibc ~amd64
