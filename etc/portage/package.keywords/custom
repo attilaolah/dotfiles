@@ -117,6 +117,7 @@ media-libs/mediastreamer ~amd64
 media-libs/mesa ~amd64
 media-libs/opencv ~amd64
 media-libs/phonon ~amd64
+media-libs/phonon-vlc ~amd64
 media-libs/sk1libs ~amd64
 media-libs/tiff ~amd64
 media-libs/vigra ~amd64
@@ -125,7 +126,6 @@ media-libs/x264-encoder ~amd64
 media-plugins/kipi-plugins ~amd64
 media-sound/alsa-headers ~amd64
 media-sound/lame ~amd64
-media-sound/phonon-vlc ~amd64
 media-sound/pulseaudio ~amd64
 media-video/ffmpeg ~amd64
 media-video/mkvtoolnix ~amd64
