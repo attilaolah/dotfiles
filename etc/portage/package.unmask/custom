@@ -23,12 +23,13 @@
 =games-emulation/dosbox-9999
 # WayLand live
 =x11-base/wayland-9999
-=x11-drivers/xf86-video-ati-9999
-=x11-drivers/xf86-input-keyboard-9999
-=x11-drivers/xf86-input-synaptics-9999
-=x11-drivers/xf86-input-mouse-9999
 =x11-drivers/xf86-input-evdev-9999
-#=x11-proto/randrproto-9999
+=x11-drivers/xf86-input-keyboard-9999
+=x11-drivers/xf86-input-mouse-9999
+=x11-drivers/xf86-input-synaptics-9999
+=x11-drivers/xf86-video-ati-9999
+=x11-libs/libxkbcommon-9999
+=x11-proto/randrproto-9999
 =x11-proto/xextproto-9999
 # Vim stuff
 =app-vim/vim-addon-manager-9999
