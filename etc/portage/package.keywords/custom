@@ -166,6 +166,7 @@ net-wireless/wpa_supplicant ~amd64
 sci-geosciences/gdal-grass ~amd64
 sci-geosciences/grass ~amd64
 sci-geosciences/josm ~amd64
+sci-geosciences/josm-plugins ~amd64
 sci-geosciences/mapnik ~amd64
 sci-geosciences/qgis ~amd64
 sci-libs/geos ~amd64
