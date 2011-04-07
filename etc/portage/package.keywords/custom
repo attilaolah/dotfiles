@@ -104,6 +104,7 @@ media-gfx/xloadimage ~amd64
 media-libs/alsa-lib ~amd64
 media-libs/faad2 ~amd64
 media-libs/fontconfig ~amd64
+media-libs/freeimage ~amd64
 media-libs/freetype ~amd64
 media-libs/glew ~amd64
 media-libs/jpeg ~amd64

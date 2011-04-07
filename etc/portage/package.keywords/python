@@ -17,6 +17,7 @@ dev-python/jinja ~amd64
 dev-python/lockfile ~amd64
 dev-python/logilab-common ~amd64
 dev-python/lxml ~amd64
+dev-python/mahotas ~amd64
 dev-python/markdown ~amd64
 dev-python/nose ~amd64
 dev-python/oauth ~amd64
@@ -30,6 +31,7 @@ dev-python/pycrypto ~amd64
 dev-python/pycurl ~amd64
 dev-python/pyflakes ~amd64
 dev-python/pylint ~amd64
+dev-python/pymorph ~amd64
 dev-python/pypcap ~amd64
 dev-python/pysvn ~amd64
 dev-python/python-daemon ~amd64
