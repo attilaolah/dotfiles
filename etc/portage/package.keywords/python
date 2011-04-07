@@ -1,3 +1,5 @@
+app-admin/eselect-python ~amd64
+app-admin/python-updater ~amd64
 dev-lang/python ~amd64
 dev-python/PyQt4 ~amd64
 dev-python/astng ~amd64
