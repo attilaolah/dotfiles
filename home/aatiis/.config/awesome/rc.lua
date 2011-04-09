@@ -35,17 +35,17 @@ modkey = "Mod4"
 layouts =
 {
     awful.layout.suit.magnifier,
-    awful.layout.suit.max.fullscreen,
-    awful.layout.suit.spiral,
-    awful.layout.suit.spiral.dwindle,
-    awful.layout.suit.tile,
-    awful.layout.suit.tile.left,
-    awful.layout.suit.tile.bottom,
-    awful.layout.suit.tile.top,
-    awful.layout.suit.fair,
-    awful.layout.suit.fair.horizontal,
+    awful.layout.suit.max,
     awful.layout.suit.floating,
-    awful.layout.suit.max
+    awful.layout.suit.max.fullscreen
+    -- awful.layout.suit.spiral,
+    -- awful.layout.suit.spiral.dwindle,
+    -- awful.layout.suit.tile,
+    -- awful.layout.suit.tile.left,
+    -- awful.layout.suit.tile.bottom,
+    -- awful.layout.suit.tile.top,
+    -- awful.layout.suit.fair,
+    -- awful.layout.suit.fair.horizontal,
 }
 -- }}}
 
@@ -54,7 +54,18 @@ layouts =
 tags = {}
 for s = 1, screen.count() do
     -- Each screen has its own tag table.
-    tags[s] = awful.tag({ '[ C ]', '[ 1 ]', '[ 2 ]', '[ 3 ]', '[ 4 ]', '[ 5 ]'}, s, awful.layout.suit.tile)
+    tags[s] = awful.tag(
+        { '[ C ]', '[ 1 ]', '[ 2 ]', '[ 3 ]', '[ 4 ]', '[ 5 ]'},
+        s,
+        {
+            awful.layout.suit.max,
+            awful.layout.suit.magnifier,
+            awful.layout.suit.max,
+            awful.layout.suit.max,
+            awful.layout.suit.max,
+            awful.layout.suit.max,
+        }
+    )
 end
 -- }}}
 
