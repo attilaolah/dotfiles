@@ -13,7 +13,7 @@ beautiful.init("/home/aatiis/.config/awesome/theme.lua")
 
 -- Register commands for later
 printscr   = "ksnapshot"
-console    = "konsole"
+konsole    = "konsole"
 urxvt      = "urxvt -e byobu -U"
 
 chromium   = "chromium"
