@@ -6,6 +6,7 @@
 =mail-client/thunderbird-3.3_alpha3-r1
 =net-libs/xulrunner-2.0
 # Opera
+=www-client/opera-11.10.2064
 =www-client/opera-11.10.2079
 # XDM
 =x11-apps/xdm-1.1.9

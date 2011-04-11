@@ -90,6 +90,7 @@ kde-misc/polkit-kde-kcmodules ~amd64
 mail-client/alpine ~amd64
 mail-client/thunderbird ~amd64
 media-fonts/font-util ~amd64
+media-fonts/takao-fonts ~amd64
 media-gfx/autotrace ~amd64
 media-gfx/blender ~amd64
 media-gfx/gimp ~amd64
@@ -151,6 +152,7 @@ net-misc/tor ~amd64
 net-nds/rpcbind ~amd64
 net-p2p/i2p ~amd64
 net-p2p/ktorrent ~amd64
+net-p2p/linuxdcpp ~amd64
 net-p2p/microdc2 ~amd64
 net-p2p/rtorrent ~amd64
 net-print/cups ~amd64
@@ -188,6 +190,7 @@ sys-libs/glibc ~amd64
 sys-libs/ncurses ~amd64
 sys-libs/zlib ~amd64
 sys-power/acpitool ~amd64
+virtual/ffmpeg ~amd64
 virtual/jdk ~amd64
 virtual/opengl ~amd64
 www-client/chromium ~amd64
