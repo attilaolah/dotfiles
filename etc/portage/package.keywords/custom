@@ -138,6 +138,7 @@ net-libs/libinfinity ~amd64
 net-libs/libktorrent ~amd64
 net-libs/libmsn ~amd64
 net-libs/libssh ~amd64
+net-libs/libtorrent ~amd64
 net-libs/opal ~amd64
 net-libs/ortp ~amd64
 net-libs/ptlib ~amd64
@@ -244,6 +245,7 @@ x11-libs/pixman ~amd64
 x11-libs/qt-declarative ~amd64
 x11-libs/xcb-util ~amd64
 x11-misc/efax-gtk ~amd64
+x11-misc/util-macros ~amd64
 x11-plugins/enigmail ~amd64
 x11-proto/fixesproto ~amd64
 x11-proto/kbproto ~amd64
