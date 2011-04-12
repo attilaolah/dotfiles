@@ -16,11 +16,11 @@ SRC_URI="http://pypi.python.org/packages/source/m/${PN}/${P}.tar.gz"
 LICENSE="GPL"
 SLOT="0"
 KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~ppc ~ppc64 ~sparc ~x86 ~x86-fbsd"
-IUSE="+imread"
+IUSE="+freeimage"
 
 DEPEND="dev-python/numpy
 	sci-libs/scipy
-	imread? ( media-libs/freeimage )"
+	freeimage? ( media-libs/freeimage )"
 RDEPEND="${DEPEND}"
 
 python_enable_pyc
