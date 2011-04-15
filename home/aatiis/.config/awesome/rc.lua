@@ -20,6 +20,8 @@ chromium   = "chromium"
 firefox    = "firefox"
 opera      = "opera"
 
+wallpaper  = "/home/aatiis/pics/chwall"
+
 nautilus   = "nautilus -n"
 xcompmgr   = "xcompmgr -c -C -f -F -D 2.5 -l -2 -t -2 -r 2 -o 0.25"
 powerman   = "gnome-power-manager"
@@ -230,6 +232,7 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey,           }, "'",       function () awful.util.spawn(chromium)        end),
     awful.key({ modkey,           }, "q",       function () awful.util.spawn(firefox)         end),
     awful.key({ modkey,           }, "j",       function () awful.util.spawn(opera)           end),
+    awful.key({ modkey, "Control" }, "w",       function () awful.util.spawn(wallpaper)       end),
     awful.key({ modkey, "Control" }, "r",       awesome.restart                                  ),
     awful.key({ modkey, "Shift"   }, "q",       awesome.quit                                     ),
 
