@@ -45,6 +45,7 @@ dev-python/twisted ~amd64
 dev-python/twisted-mail ~amd64
 dev-python/twisted-names ~amd64
 dev-python/twisted-web ~amd64
+dev-python/twisted-words ~amd64
 dev-python/virtualenv ~amd64
 dev-util/buildbot ~amd64
 net-zope/zope-fixers ~amd64
