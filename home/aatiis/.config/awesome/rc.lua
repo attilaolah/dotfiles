@@ -380,3 +380,4 @@ client.add_signal("unfocus", function(c) c.border_color = beautiful.border_norma
 awful.util.spawn(nautilus)
 awful.util.spawn(xcompmgr)
 awful.util.spawn(powerman)
+awful.util.spawn(wallpaper)
