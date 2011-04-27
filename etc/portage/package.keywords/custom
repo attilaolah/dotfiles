@@ -132,6 +132,7 @@ media-video/ffmpeg ~amd64
 media-video/mkvtoolnix ~amd64
 media-video/mplayer ~amd64
 net-analyzer/wireshark ~amd64
+net-dialup/hsfmodem ~amd64
 net-fs/nfs-utils ~amd64
 net-im/pidgin ~amd64
 net-im/skype ~amd64
@@ -245,6 +246,7 @@ x11-libs/pango ~amd64
 x11-libs/pixman ~amd64
 x11-libs/qt-declarative ~amd64
 x11-libs/xcb-util ~amd64
+x11-libs/xcb-util-wm ~amd64
 x11-misc/efax-gtk ~amd64
 x11-misc/util-macros ~amd64
 x11-plugins/enigmail ~amd64
