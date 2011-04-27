@@ -246,6 +246,7 @@ x11-libs/pango ~amd64
 x11-libs/pixman ~amd64
 x11-libs/qt-declarative ~amd64
 x11-libs/xcb-util ~amd64
+x11-libs/xcb-util-keysyms ~amd64
 x11-libs/xcb-util-renderutil ~amd64
 x11-libs/xcb-util-wm ~amd64
 x11-misc/efax-gtk ~amd64
