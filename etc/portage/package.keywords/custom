@@ -34,6 +34,7 @@ app-office/libreoffice ~amd64
 app-text/asciidoc ~amd64
 app-text/aspell ~amd64
 app-text/gnome-doc-utils ~amd64
+app-text/libwpd ~amd64
 app-vim/nginx-syntax ~amd64
 app-vim/vim-addon-manager ~amd64
 dev-db/desktopcouch ~amd64
@@ -115,6 +116,7 @@ media-libs/libmatroska ~amd64
 media-libs/libpano13 ~amd64
 media-libs/libpng ~amd64
 media-libs/libwebp ~amd64
+media-libs/libwpg ~amd64
 media-libs/mediastreamer ~amd64
 media-libs/mesa ~amd64
 media-libs/opencv ~amd64
@@ -123,6 +125,7 @@ media-libs/phonon-vlc ~amd64
 media-libs/sk1libs ~amd64
 media-libs/tiff ~amd64
 media-libs/vigra ~amd64
+media-libs/vo-aacenc ~amd64
 media-libs/x264 ~amd64
 media-libs/x264-encoder ~amd64
 media-plugins/kipi-plugins ~amd64
@@ -174,6 +177,7 @@ sci-geosciences/josm ~amd64
 sci-geosciences/josm-plugins ~amd64
 sci-geosciences/mapnik ~amd64
 sci-geosciences/qgis ~amd64
+sci-libs/flann ~amd64
 sci-libs/geos ~amd64
 sci-libs/primegen ~amd64
 sci-libs/qrupdate ~amd64
