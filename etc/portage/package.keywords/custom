@@ -114,6 +114,7 @@ media-libs/libass ~amd64
 media-libs/libmatroska ~amd64
 media-libs/libpano13 ~amd64
 media-libs/libpng ~amd64
+media-libs/libwebp ~amd64
 media-libs/mediastreamer ~amd64
 media-libs/mesa ~amd64
 media-libs/opencv ~amd64
@@ -245,6 +246,7 @@ x11-libs/libxkbcommon ~amd64
 x11-libs/pango ~amd64
 x11-libs/pixman ~amd64
 x11-libs/qt-declarative ~amd64
+x11-libs/startup-notification ~amd64
 x11-libs/xcb-util ~amd64
 x11-libs/xcb-util-image ~amd64
 x11-libs/xcb-util-keysyms ~amd64
