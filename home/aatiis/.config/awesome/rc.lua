@@ -25,6 +25,7 @@ wallpaper  = "/home/aatiis/pics/chwall"
 nautilus   = "nautilus -n"
 xcompmgr   = "xcompmgr -c -C -f -F -D 2.5 -l -2 -t -2 -r 2 -o 0.25"
 powerman   = "gnome-power-manager"
+networkman = "nm-applet"
 
 -- Default modkey.
 -- Usually, Mod4 is the key with a logo between Control and Alt.
@@ -377,7 +378,12 @@ client.add_signal("unfocus", function(c) c.border_color = beautiful.border_norma
 -- }}}
 
 -- Startup scripts:
-awful.util.spawn(nautilus)
-awful.util.spawn(xcompmgr)
-awful.util.spawn(powerman)
+-- Change the wallpaper:
 awful.util.spawn(wallpaper)
+-- Srtart the Nautilus desktop:
+awful.util.spawn(nautilus)
+-- Add basic composition:
+awful.util.spawn(xcompmgr)
+-- Gnome Power & Network management:
+awful.util.spawn(powerman)
+awful.util.spawn(networkman)
