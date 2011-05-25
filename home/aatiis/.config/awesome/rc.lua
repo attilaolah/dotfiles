@@ -26,6 +26,7 @@ nautilus   = "nautilus -n"
 xcompmgr   = "xcompmgr -c -C -f -F -D 2.5 -l -2 -t -2 -r 2 -o 0.25"
 powerman   = "gnome-power-manager"
 networkman = "nm-applet"
+dropbox    = "dropbox start"
 
 -- Default modkey.
 -- Usually, Mod4 is the key with a logo between Control and Alt.
@@ -384,6 +385,7 @@ awful.util.spawn(wallpaper)
 awful.util.spawn(nautilus)
 -- Add basic composition:
 awful.util.spawn(xcompmgr)
--- Gnome Power & Network management:
+-- Gnome Power & Network management, dropbox:
 awful.util.spawn(powerman)
 awful.util.spawn(networkman)
+awful.util.spawn(dropbox)
