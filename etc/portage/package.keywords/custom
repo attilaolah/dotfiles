@@ -30,6 +30,7 @@ app-emulation/virtualbox-modules ~amd64
 app-emulation/wine ~amd64
 app-emulation/winetricks ~amd64
 app-misc/byobu ~amd64
+app-misc/poclbm ~amd64
 app-mobilephone/obexftp ~amd64
 app-office/dia ~amd64
 app-office/libreoffice ~amd64
@@ -83,6 +84,7 @@ dev-util/boost-build ~amd64
 dev-util/chromium-tools
 dev-util/eclipse-sdk ~amd64
 dev-util/idutils ~amd64
+dev-util/nvidia-cuda-toolkit ~amd64
 dev-vcs/bzr ~amd64
 dev-vcs/mercurial ~amd64
 dev-vcs/qgit ~amd64
@@ -121,6 +123,7 @@ media-libs/freetype ~amd64
 media-libs/glew ~amd64
 media-libs/jpeg ~amd64
 media-libs/libass ~amd64
+media-libs/libjpeg-turbo ~amd64
 media-libs/libmatroska ~amd64
 media-libs/libpano13 ~amd64
 media-libs/libpng ~amd64
@@ -158,6 +161,7 @@ net-libs/libktorrent ~amd64
 net-libs/libmsn ~amd64
 net-libs/libssh ~amd64
 net-libs/libtorrent ~amd64
+net-libs/miniupnpc ~amd64
 net-libs/opal ~amd64
 net-libs/ortp ~amd64
 net-libs/ptlib ~amd64
@@ -174,6 +178,7 @@ net-misc/rabbitmq-server ~amd64
 net-misc/tor ~amd64
 net-misc/wicd ~amd64
 net-nds/rpcbind ~amd64
+net-p2p/bitcoin ~amd64
 net-p2p/i2p ~amd64
 net-p2p/ktorrent ~amd64
 net-p2p/linuxdcpp ~amd64
@@ -222,6 +227,7 @@ sys-auth/polkit-qt ~amd64
 sys-boot/unetbootin ~amd64
 sys-devel/binutils ~amd64
 sys-fs/udev ~amd64
+sys-libs/db ~amd64
 sys-libs/glibc ~amd64
 sys-libs/ncurses ~amd64
 sys-libs/zlib ~amd64
@@ -280,6 +286,7 @@ x11-libs/pango ~amd64
 x11-libs/pixman ~amd64
 x11-libs/qt-declarative ~amd64
 x11-libs/startup-notification ~amd64
+x11-libs/wxGTK ~amd64
 x11-libs/xcb-util ~amd64
 x11-libs/xcb-util-image ~amd64
 x11-libs/xcb-util-keysyms ~amd64

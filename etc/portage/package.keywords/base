@@ -1,3 +1,4 @@
+app-admin/syslog-ng ~amd64
 app-portage/layman ~amd64
 sys-apps/baselayout ~amd64
 sys-apps/hwinfo ~amd64
