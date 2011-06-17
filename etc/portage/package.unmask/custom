@@ -1,24 +1,22 @@
 # Chromium
-=www-client/chromium-13.0.772.0
+=www-client/chromium-13.0.782.24
 =dev-lang/v8-3.3.4
 # Firefox
-=mail-client/thunderbird-3.3_alpha3-r2
-=net-libs/xulrunner-2.0.1
-# Opera
-=www-client/opera-11.10.2092-r1
-# XDM
-=x11-apps/xdm-1.1.9
+=www-client/firefox-5.0_beta5
+=net-libs/xulrunner-5.0_beta5
+# Thunderbird
+=mail-client/thunderbird-5.0_beta1
 # Gobby RC versions & dependencies
-=app-editors/gobby-0.4.93
-=net-libs/libinfinity-0.4.2
+=app-editors/gobby-0.4.94
+=net-libs/libinfinity-0.5.0
 # Python 2.7 & 3.3
 =dev-lang/python-2.4.6
 =dev-lang/python-2.5.4-r4
 =dev-lang/python-2.6.6-r2
-=dev-lang/python-2.7.2_pre20110508
-=dev-lang/python-3.1.4_pre20110508
-=dev-lang/python-3.2.1_pre20110508
-=dev-lang/python-3.3_pre20110508
+=dev-lang/python-2.7.3_pre20110612
+=dev-lang/python-3.1.4
+=dev-lang/python-3.2.1_pre20110612
+=dev-lang/python-3.3_pre20110612
 # Boost
 =dev-libs/boost-1.46.1
 =dev-util/boost-build-1.46.1

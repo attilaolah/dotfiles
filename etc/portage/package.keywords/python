@@ -33,6 +33,7 @@ dev-python/pycrypto ~amd64
 dev-python/pycurl ~amd64
 dev-python/pyflakes ~amd64
 dev-python/pylint ~amd64
+dev-python/pymongo ~amd64
 dev-python/pymorph ~amd64
 dev-python/pyopencl ~amd64
 dev-python/pypcap ~amd64

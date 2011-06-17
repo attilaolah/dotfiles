@@ -1,1 +1,4 @@
-=net-p2p/bitcoin-9999
+=net-p2p/bitcoind-9999
+=net-p2p/wxbitcoin-9999
+=net-wireless/kismet-9999
+>=sys-kernel/genkernel-9999
