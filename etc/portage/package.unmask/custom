@@ -1,9 +1,10 @@
 # Chromium
-=www-client/chromium-13.0.782.24
-=dev-lang/v8-3.3.4
+=www-client/chromium-14.0.797.0
+=dev-lang/v8-3.4.3
 # Firefox
 =www-client/firefox-5.0_beta5
 =net-libs/xulrunner-5.0_beta5
+=dev-lang/spidermonkey-2.0.1
 # Thunderbird
 =mail-client/thunderbird-5.0_beta1
 # Gobby RC versions & dependencies
@@ -13,10 +14,10 @@
 =dev-lang/python-2.4.6
 =dev-lang/python-2.5.4-r4
 =dev-lang/python-2.6.6-r2
-=dev-lang/python-2.7.3_pre20110612
+=dev-lang/python-2.7.3_pre20110619
 =dev-lang/python-3.1.4
-=dev-lang/python-3.2.1_pre20110612
-=dev-lang/python-3.3_pre20110612
+=dev-lang/python-3.2.1_pre20110619
+=dev-lang/python-3.3_pre20110619
 # Boost
 =dev-libs/boost-1.46.1
 =dev-util/boost-build-1.46.1
