@@ -37,6 +37,7 @@ dev-python/pymongo ~amd64
 dev-python/pymorph ~amd64
 dev-python/pyopencl ~amd64
 dev-python/pypcap ~amd64
+dev-python/pypy ~amd64
 dev-python/pysvn ~amd64
 dev-python/python-daemon ~amd64
 dev-python/python-distutils-extra ~amd64
