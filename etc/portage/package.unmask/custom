@@ -1,9 +1,9 @@
 # Chromium
-=www-client/chromium-14.0.797.0
+=www-client/chromium-14.0.803.0
 =dev-lang/v8-3.4.3
 # Firefox
-=www-client/firefox-5.0_beta5
-=net-libs/xulrunner-5.0_beta5
+=www-client/firefox-5.0
+=net-libs/xulrunner-5.0
 =dev-lang/spidermonkey-2.0.1
 # Thunderbird
 =mail-client/thunderbird-5.0_beta1
