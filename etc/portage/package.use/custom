@@ -3,3 +3,4 @@ media-libs/opencv -gstreamer -v4l
 net-libs/xulrunner -qt4
 www-client/firefox -qt4
 x11-libs/cairo -qt4
+net-im/bitlbee -nss
