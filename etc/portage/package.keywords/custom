@@ -27,9 +27,15 @@ app-emulation/virtualbox ~amd64
 app-emulation/virtualbox-additions ~amd64
 app-emulation/virtualbox-extpack-oracle ~amd64
 app-emulation/virtualbox-modules ~amd64
+app-emulation/vmware-modules ~amd64
+app-emulation/vmware-player ~amd64
+app-emulation/vmware-server ~amd64
+app-emulation/vmware-tools ~amd64
+app-emulation/vmware-workstation ~amd64
 app-emulation/wine ~amd64
 app-emulation/winetricks ~amd64
 app-misc/byobu ~amd64
+app-misc/cpuminer ~amd64
 app-misc/poclbm ~amd64
 app-mobilephone/obexftp ~amd64
 app-office/dia ~amd64
@@ -42,8 +48,13 @@ app-text/libwpd ~amd64
 app-text/poppler-data ~amd64
 app-vim/nginx-syntax ~amd64
 app-vim/vim-addon-manager ~amd64
+dev-cpp/cairomm ~amd64
+dev-cpp/glibmm ~amd64
+dev-cpp/gtkmm ~amd64
+dev-cpp/pangomm ~amd64
 dev-db/desktopcouch ~amd64
 dev-db/libiodbc ~amd64
+dev-db/mongodb ~amd64
 dev-db/postgis ~amd64
 dev-db/postgresql-base ~amd64
 dev-db/postgresql-server ~amd64
@@ -53,7 +64,6 @@ dev-db/virtuoso-server ~amd64
 dev-java/rhino ~amd64
 dev-java/sun-jdk ~amd64
 dev-lang/erlang ~amd64
-dev-lang/nodejs ~amd64
 dev-lang/ruby ~amd64
 dev-lang/spidermonkey ~amd64
 dev-lang/v8
@@ -63,6 +73,8 @@ dev-libs/boost ~amd64
 dev-libs/dbus-glib ~amd64
 dev-libs/expat ~amd64
 dev-libs/glib ~amd64
+dev-libs/icu ~amd64
+dev-libs/jansson ~amd64
 dev-libs/json-glib ~amd64
 dev-libs/libattica ~amd64
 dev-libs/libebml ~amd64
@@ -74,6 +86,7 @@ dev-libs/nss ~amd64
 dev-libs/openssl ~amd64
 dev-libs/redland ~amd64
 dev-libs/shared-desktop-ontologies ~amd64
+dev-libs/soprano ~amd64
 dev-ruby/haml ~amd64
 dev-ruby/rake ~amd64
 dev-ruby/redcloth ~amd64
@@ -82,12 +95,15 @@ dev-ruby/rubygems ~amd64
 dev-util/argouml ~amd64
 dev-util/boost-build ~amd64
 dev-util/chromium-tools
+dev-util/cmake ~amd64
 dev-util/eclipse-sdk ~amd64
 dev-util/idutils ~amd64
+dev-util/lida ~amd64
 dev-util/nvidia-cuda-toolkit ~amd64
 dev-vcs/bzr ~amd64
 dev-vcs/mercurial ~amd64
 dev-vcs/qgit ~amd64
+dev-vcs/subversion ~amd64
 games-emulation/desmume ~amd64
 games-emulation/dolphin ~amd64
 games-emulation/dosbox ~amd64
@@ -124,7 +140,9 @@ media-libs/glew ~amd64
 media-libs/jpeg ~amd64
 media-libs/libass ~amd64
 media-libs/libjpeg-turbo ~amd64
+media-libs/libkgeomap ~amd64
 media-libs/libmatroska ~amd64
+media-libs/libmediawiki ~amd64
 media-libs/libpano13 ~amd64
 media-libs/libpng ~amd64
 media-libs/libwebp ~amd64
@@ -133,6 +151,7 @@ media-libs/mediastreamer ~amd64
 media-libs/mesa ~amd64
 media-libs/opencv ~amd64
 media-libs/phonon ~amd64
+media-libs/phonon-gstreamer ~amd64
 media-libs/phonon-vlc ~amd64
 media-libs/sk1libs ~amd64
 media-libs/tiff ~amd64
@@ -156,12 +175,14 @@ net-firewall/iptables ~amd64
 net-fs/nfs-utils ~amd64
 net-im/pidgin ~amd64
 net-im/skype ~amd64
+net-libs/libgadu ~amd64
 net-libs/libinfinity ~amd64
 net-libs/libktorrent ~amd64
 net-libs/libmsn ~amd64
 net-libs/libssh ~amd64
 net-libs/libtorrent ~amd64
 net-libs/miniupnpc ~amd64
+net-libs/nodejs ~amd64
 net-libs/opal ~amd64
 net-libs/ortp ~amd64
 net-libs/ptlib ~amd64
@@ -178,12 +199,12 @@ net-misc/rabbitmq-server ~amd64
 net-misc/tor ~amd64
 net-misc/wicd ~amd64
 net-nds/rpcbind ~amd64
-net-p2p/bitcoin ~amd64
 net-p2p/i2p ~amd64
 net-p2p/ktorrent ~amd64
 net-p2p/linuxdcpp ~amd64
 net-p2p/microdc2 ~amd64
 net-p2p/rtorrent ~amd64
+net-p2p/wxbitcoin ~amd64
 net-print/cnijfilter ~amd64
 net-print/cups ~amd64
 net-print/foomatic-db ~amd64
@@ -202,6 +223,7 @@ net-wireless/broadcom-sta ~amd64
 net-wireless/btscanner ~amd64
 net-wireless/kbluetooth ~amd64
 net-wireless/kismet ~amd64
+net-wireless/spectools ~amd64
 net-wireless/wpa_supplicant ~amd64
 sci-geosciences/gdal-grass ~amd64
 sci-geosciences/grass ~amd64
@@ -226,6 +248,7 @@ sys-auth/polkit ~amd64
 sys-auth/polkit-qt ~amd64
 sys-boot/unetbootin ~amd64
 sys-devel/binutils ~amd64
+sys-devel/llvm ~amd64
 sys-fs/udev ~amd64
 sys-libs/db ~amd64
 sys-libs/glibc ~amd64
@@ -263,6 +286,7 @@ x11-libs/cairo ~amd64
 x11-libs/fltk ~amd64
 x11-libs/gdk-pixbuf ~amd64
 x11-libs/gtk+ ~amd64
+x11-libs/gtksourceview ~amd64
 x11-libs/libICE ~amd64
 x11-libs/libSM ~amd64
 x11-libs/libX11 ~amd64
@@ -280,11 +304,13 @@ x11-libs/libXt ~amd64
 x11-libs/libXxf86vm ~amd64
 x11-libs/libdrm ~amd64
 x11-libs/libnotify ~amd64
+x11-libs/libview ~amd64
 x11-libs/libxcb ~amd64
 x11-libs/libxkbcommon ~amd64
 x11-libs/pango ~amd64
 x11-libs/pixman ~amd64
 x11-libs/qt-declarative ~amd64
+x11-libs/qwtpolar ~amd64
 x11-libs/startup-notification ~amd64
 x11-libs/wxGTK ~amd64
 x11-libs/xcb-util ~amd64
