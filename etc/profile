@@ -54,7 +54,7 @@ else
 	# Setup a bland default prompt.  Since this prompt should be useable
 	# on color and non-color terminals, as well as shells that don't
 	# understand sequences such as \h, don't put anything special in it.
-	PS1="${USER:-$(type whoami >/dev/null && whoami)}@$(type uname >/dev/null && uname -n) \$ "
+	PS1="${USER:-$(whoami 2>/dev/null)}@$(uname -n 2>/dev/null) \$ "
 fi
 
 for sh in /etc/profile.d/*.sh ; do
@@ -67,6 +67,8 @@ alias ll="ls -lah"
 alias l="ls -lh"
 alias ..="cd .."
 alias ...="cd ../.."
+alias ....="cd ../../.."
+alias .....="cd ../../../.."
 
 # Force Emacs to console mode
 #alias emacs="emacs -nw"
@@ -78,5 +80,5 @@ alias byobu="byobu -U"
 # Force OpenOffice.org styles
 export OOO_FORCE_DESKTOP=gnome
 
-# Fix Qt4 plugin dir for KDE 4.6.1
-export QT_PLUGIN_PATH=$HOME/.kde4/lib/kde4/plugins/:/usr/lib/kde4/plugins/
+# Fix Qt4 plugin dir for KDE 4
+export QT_PLUGIN_PATH=/usr/lib/kde4/plugins/
