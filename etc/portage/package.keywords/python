@@ -8,7 +8,9 @@ dev-python/cheetah ~amd64
 dev-python/coverage ~amd64
 dev-python/cython ~amd64
 dev-python/dbus-python ~amd64
+dev-python/decorator ~amd64
 dev-python/django ~amd64
+dev-python/docutils ~amd64
 dev-python/dpkt ~amd64
 dev-python/gdata ~amd64
 dev-python/ipdb ~amd64
@@ -40,12 +42,14 @@ dev-python/pylint ~amd64
 dev-python/pymongo ~amd64
 dev-python/pymorph ~amd64
 dev-python/pyopencl ~amd64
+dev-python/pyopenssl ~amd64
 dev-python/pypcap ~amd64
 dev-python/pypy ~amd64
 dev-python/pysvn ~amd64
 dev-python/python-daemon ~amd64
 dev-python/python-distutils-extra ~amd64
 dev-python/pytools ~amd64
+dev-python/pyzmq ~amd64
 dev-python/rope ~amd64
 dev-python/setuptools ~amd64
 dev-python/sip ~amd64
@@ -59,7 +63,9 @@ dev-python/twisted-mail ~amd64
 dev-python/twisted-names ~amd64
 dev-python/twisted-web ~amd64
 dev-python/twisted-words ~amd64
+dev-python/urwid ~amd64
 dev-python/virtualenv ~amd64
+dev-python/webob ~amd64
 dev-python/wxpython ~amd64
 dev-util/buildbot ~amd64
 net-zope/zope-fixers ~amd64

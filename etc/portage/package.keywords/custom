@@ -2,6 +2,7 @@ app-accessibility/espeak ~amd64
 app-admin/eselect-mesa ~amd64
 app-admin/eselect-postgresql ~amd64
 app-admin/eselect-ruby ~amd64
+app-admin/logrotate ~amd64
 app-admin/rlogd ~amd64
 app-arch/dpkg ~amd64
 app-arch/lzop ~amd64
