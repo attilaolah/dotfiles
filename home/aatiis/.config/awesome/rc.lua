@@ -20,14 +20,6 @@ chromium   = "chromium"
 firefox    = "firefox"
 opera      = "opera"
 
-wallpaper  = "/home/aatiis/pics/chwall"
-
-nautilus   = "nautilus -n"
-xcompmgr   = "xcompmgr -c -C -f -F -D 2.5 -l -2 -t -2 -r 2 -o 0.25"
-powerman   = "gnome-power-manager"
-networkman = "nm-applet"
-dropbox    = "dropbox start"
-
 -- Default modkey.
 -- Usually, Mod4 is the key with a logo between Control and Alt.
 -- If you do not like this or do not have such a key,
@@ -41,15 +33,15 @@ layouts =
     awful.layout.suit.magnifier,
     awful.layout.suit.max,
     awful.layout.suit.floating,
-    awful.layout.suit.max.fullscreen
-    -- awful.layout.suit.spiral,
-    -- awful.layout.suit.spiral.dwindle,
-    -- awful.layout.suit.tile,
-    -- awful.layout.suit.tile.left,
-    -- awful.layout.suit.tile.bottom,
-    -- awful.layout.suit.tile.top,
-    -- awful.layout.suit.fair,
-    -- awful.layout.suit.fair.horizontal,
+    awful.layout.suit.max.fullscreen,
+    awful.layout.suit.spiral,
+    awful.layout.suit.spiral.dwindle,
+    awful.layout.suit.tile,
+    awful.layout.suit.tile.left,
+    awful.layout.suit.tile.bottom,
+    awful.layout.suit.tile.top,
+    awful.layout.suit.fair,
+    awful.layout.suit.fair.horizontal
 }
 -- }}}
 
@@ -62,8 +54,8 @@ for s = 1, screen.count() do
         { '[ C ]', '[ 1 ]', '[ 2 ]', '[ 3 ]', '[ 4 ]', '[ 5 ]'},
         s,
         {
+            awful.layout.suit.tile.left,
             awful.layout.suit.max,
-            awful.layout.suit.magnifier,
             awful.layout.suit.max,
             awful.layout.suit.max,
             awful.layout.suit.max,
@@ -88,9 +80,10 @@ function heat_status ()
     local heat = string.match(line, "(%d+)")
     if heat then
         heat = tonumber(heat) / 1000
+        -- This works only for [25:105].
         table.insert(output, "<span color=\"#"
-            .. hex(255 * (heat - 40) / 65)
-            .. hex(255 * (105 - heat) / 65)
+            .. hex(255 * (heat - 20) / 80)
+            .. hex(255 * (105 - heat) / 80)
             .. "00\">" .. heat .. "&#8451;</span>")
     end
     return table.concat(output, " ")
@@ -234,9 +227,14 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey,           }, "'",       function () awful.util.spawn(chromium)        end),
     awful.key({ modkey,           }, "q",       function () awful.util.spawn(firefox)         end),
     awful.key({ modkey,           }, "j",       function () awful.util.spawn(opera)           end),
-    awful.key({ modkey, "Control" }, "w",       function () awful.util.spawn(wallpaper)       end),
     awful.key({ modkey, "Control" }, "r",       awesome.restart                                  ),
     awful.key({ modkey, "Shift"   }, "q",       awesome.quit                                     ),
+
+    -- Fn key combinations
+    awful.key({                   }, "XF86Tools",       function () awful.util.spawn("kmix")            end),
+    awful.key({                   }, "XF86Calculator",  function () awful.util.spawn("kshell")          end),
+    awful.key({                   }, "XF86Explorer",    function () awful.util.spawn("systemsettings")  end),
+
 
     awful.key({ modkey,           }, "l",       function () awful.tag.incmwfact( 0.05)        end),
     awful.key({ modkey,           }, "h",       function () awful.tag.incmwfact(-0.05)        end),
@@ -379,13 +377,10 @@ client.add_signal("unfocus", function(c) c.border_color = beautiful.border_norma
 -- }}}
 
 -- Startup scripts:
--- Change the wallpaper:
-awful.util.spawn(wallpaper)
--- Srtart the Nautilus desktop:
-awful.util.spawn(nautilus)
+-- Map Caps Lock -> Esc
+awful.util.spawn("xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape'")
 -- Add basic composition:
-awful.util.spawn(xcompmgr)
--- Gnome Power & Network management, dropbox:
-awful.util.spawn(powerman)
-awful.util.spawn(networkman)
-awful.util.spawn(dropbox)
+awful.util.spawn("xcompmgr -c -C -f -F -D 2.5 -l -2 -t -2 -r 2 -o 0.25")
+-- Gnome Network management, dropbox:
+awful.util.spawn("nm-applet")
+awful.util.spawn("dropbox start")
