@@ -46,3 +46,6 @@
 [submodule "bundle/markdown-folding"]
 	path = bundle/markdown-folding
 	url = git@github.com:nelstrom/vim-markdown-folding
+[submodule "coffeelint"]
+	path = coffeelint
+	url = https://github.com/clutchski/coffeelint

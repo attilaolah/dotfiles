@@ -1,6 +1,7 @@
 VIMDIR="$HOME/.vim"
 
-COFFEE="$VIMDIR/coffee-script/bin"
 LESS="$VIMDIR/less/bin"
+COFFEE="$VIMDIR/coffee-script/bin"
+COFFEELINT="$VIMDIR/coffeelint/bin"
 
-export PATH="$PATH:$COFFEE:$LESS"
+export PATH="$PATH:$LESS:$COFFEE:$COFFEELINT"
