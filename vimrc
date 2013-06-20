@@ -16,4 +16,6 @@ autocmd BufWritePost *.py call Flake8()
 set list
 
 " Shorter tabs:
-set tabstop=2
+set tabstop=4
+" This may be overwritten per file:
+set shiftwidth=4

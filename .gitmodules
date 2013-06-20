@@ -28,3 +28,12 @@
 [submodule "bundle/sleuth"]
 	path = bundle/sleuth
 	url = git@github.com:tpope/vim-sleuth
+[submodule "bundle/coffee-script"]
+	path = bundle/coffee-script
+	url = git@github.com:kchmck/vim-coffee-script
+[submodule "coffee-script"]
+	path = coffee-script
+	url = git@github.com:jashkenas/coffee-script
+[submodule "less"]
+	path = less
+	url = git@github.com:cloudhead/less.js
