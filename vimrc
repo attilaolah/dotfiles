@@ -35,5 +35,5 @@ nnoremap <Space> za
 vnoremap <Space> za
 
 " CoffeeScript options:
-"let coffee_compiler = '~/.vim/coffee-script/bin/coffee'
-"let coffee_linter = '~/.vim/coffeelint/bin/coffeelint'
+let coffee_compiler = $HOME . '/.vim/coffee-script/bin/coffee'
+let coffee_linter = $HOME . '/.vim/coffeelint/bin/coffeelint'
