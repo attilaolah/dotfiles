@@ -10,3 +10,6 @@
 [submodule "bundle/golang"]
 	path = bundle/golang
 	url = git@github.com:jnwhiteh/vim-golang
+[submodule "bundle/flake8"]
+	path = bundle/flake8
+	url = git@github.com:nvie/vim-flake8
