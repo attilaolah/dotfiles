@@ -37,3 +37,12 @@
 [submodule "less"]
 	path = less
 	url = git@github.com:cloudhead/less.js
+[submodule "bundle/literate-coffeescript"]
+	path = bundle/literate-coffeescript
+	url = git@github.com:mintplant/vim-literate-coffeescript
+[submodule "bundle/markdown"]
+	path = bundle/markdown
+	url = https://github.com/tpope/vim-markdown
+[submodule "bundle/markdown-folding"]
+	path = bundle/markdown-folding
+	url = git@github.com:nelstrom/vim-markdown-folding
