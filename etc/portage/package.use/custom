@@ -1,5 +1,0 @@
-media-gfx/graphicsmagick -imagemagick
-media-libs/opencv -gstreamer -v4l
-media-video/ffmpeg -openal
-net-im/bitlbee -nss
-x11-libs/cairo -qt4

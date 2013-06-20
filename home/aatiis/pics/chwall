@@ -1,7 +1,0 @@
-#!/bin/bash
-# Go to pics directory
-cd /home/aatiis/pics/wallpapers
-# Remove the old wallpaper
-rm current.jpg
-# Link a random new one
-ln -s `set -- */*.jpg && length=$# && random_num=$(( $RANDOM % ($length + 1) )) && echo ${!random_num}` current.jpg
