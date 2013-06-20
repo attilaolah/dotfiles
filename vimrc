@@ -11,3 +11,9 @@ filetype plugin indent on
 let g:flake8_max_line_length=120
 " Run Flake8 before saving .py files:
 autocmd BufWritePost *.py call Flake8()
+
+" Show whitespace:
+set list
+
+" Shorter tabs:
+set tabstop=2

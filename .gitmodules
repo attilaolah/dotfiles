@@ -25,3 +25,6 @@
 [submodule "bundle/css3-syntax"]
 	path = bundle/css3-syntax
 	url = git@github.com:hail2u/vim-css3-syntax
+[submodule "bundle/sleuth"]
+	path = bundle/sleuth
+	url = git@github.com:tpope/vim-sleuth
