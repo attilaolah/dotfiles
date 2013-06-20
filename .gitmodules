@@ -19,3 +19,9 @@
 [submodule "bundle/less"]
 	path = bundle/less
 	url = git@github.com:groenewege/vim-less
+[submodule "bundle/css-color"]
+	path = bundle/css-color
+	url = git@github.com:skammer/vim-css-color
+[submodule "bundle/css3-syntax"]
+	path = bundle/css3-syntax
+	url = git@github.com:hail2u/vim-css3-syntax
