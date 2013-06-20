@@ -49,3 +49,21 @@
 [submodule "coffeelint"]
 	path = coffeelint
 	url = https://github.com/clutchski/coffeelint
+[submodule "bundle/unimpaired"]
+	path = bundle/unimpaired
+	url = git@github.com:tpope/vim-unimpaired
+[submodule "bundle/repeat"]
+	path = bundle/repeat
+	url = git@github.com:tpope/vim-repeat
+[submodule "bundle/surround"]
+	path = bundle/surround
+	url = git@github.com:tpope/vim-surround
+[submodule "bundle/speeddating"]
+	path = bundle/speeddating
+	url = git@github.com:tpope/vim-speeddating
+[submodule "bundle/abolish"]
+	path = bundle/abolish
+	url = git@github.com:tpope/vim-abolish
+[submodule "bundle/commentary"]
+	path = bundle/commentary
+	url = git@github.com:tpope/vim-commentary
