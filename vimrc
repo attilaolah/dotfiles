@@ -5,9 +5,14 @@
 execute pathogen#infect()
 
 syntax on
-set background=dark
-colorscheme solarized
 filetype plugin indent on
+
+" Solarized theme:
+"set background=dark
+"colorscheme solarized
+
+" Highlight colour:
+highlight Search cterm=NONE ctermfg=grey ctermbg=blue
 
 " Longer lines in .py files:
 let g:flake8_max_line_length=120
