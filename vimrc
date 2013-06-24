@@ -5,6 +5,8 @@
 execute pathogen#infect()
 
 syntax on
+set background=dark
+colorscheme solarized
 filetype plugin indent on
 
 " Longer lines in .py files:
