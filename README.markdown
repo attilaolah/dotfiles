@@ -13,6 +13,8 @@ To make the required binaries available, add this line to `~/.bashrc`:
 
 To update submodules in the repo, run:
 
+	git submodule foreach git submodule init
+	git submodule foreach git submodule update
 	git submodule foreach git pull origin master
 
 To install dependencies, run:

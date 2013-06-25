@@ -13,11 +13,7 @@ filetype plugin indent on
 
 " Highlight colour:
 highlight Search cterm=NONE ctermfg=grey ctermbg=blue
-
-" Longer lines in .py files:
-let g:flake8_max_line_length=120
-" Run Flake8 before saving .py files:
-autocmd BufWritePost *.py call Flake8()
+highlight SpellBad cterm=NONE ctermfg=black ctermbg=yellow
 
 " Show line numbers:
 set number

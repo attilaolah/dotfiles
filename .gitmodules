@@ -10,9 +10,6 @@
 [submodule "bundle/golang"]
 	path = bundle/golang
 	url = git@github.com:jnwhiteh/vim-golang
-[submodule "bundle/flake8"]
-	path = bundle/flake8
-	url = git@github.com:nvie/vim-flake8
 [submodule "bundle/haml"]
 	path = bundle/haml
 	url = git@github.com:tpope/vim-haml
@@ -73,3 +70,6 @@
 [submodule "bundle/colors-solarized"]
 	path = bundle/colors-solarized
 	url = git@github.com:altercation/vim-colors-solarized
+[submodule "bundle/pyflakes"]
+	path = bundle/pyflakes
+	url = git@github.com:kevinw/pyflakes-vim
