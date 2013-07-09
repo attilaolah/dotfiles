@@ -21,6 +21,7 @@ To install dependencies, run:
 
 	sudo emerge --ask --tree \
 		dev-python/flake8 \
+		dev-python/jedi \
 		dev-ruby/sass \
 		net-libs/nodejs
 

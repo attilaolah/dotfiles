@@ -73,3 +73,6 @@
 [submodule "bundle/pyflakes"]
 	path = bundle/pyflakes
 	url = git@github.com:kevinw/pyflakes-vim
+[submodule "bundle/jedi"]
+	path = bundle/jedi
+	url = git@github.com:davidhalter/jedi-vim.git
