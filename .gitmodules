@@ -72,7 +72,7 @@
 	url = git@github.com:altercation/vim-colors-solarized
 [submodule "bundle/pyflakes"]
 	path = bundle/pyflakes
-	url = git@github.com:kevinw/pyflakes-vim
+	url = git@github.com:attilaolah/pyflakes-vim
 [submodule "bundle/jedi"]
 	path = bundle/jedi
 	url = git@github.com:davidhalter/jedi-vim.git
