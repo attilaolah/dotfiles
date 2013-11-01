@@ -75,4 +75,13 @@
 	url = git@github.com:attilaolah/pyflakes-vim
 [submodule "bundle/jedi"]
 	path = bundle/jedi
-	url = git@github.com:davidhalter/jedi-vim.git
+	url = git@github.com:davidhalter/jedi-vim
+[submodule "bundle/syntastic"]
+	path = bundle/syntastic
+	url = git@github.com:scrooloose/syntastic
+[submodule "bundle/tagbar"]
+	path = bundle/tagbar
+	url = git@github.com:majutsushi/tagbar
+[submodule "bundle/gotags"]
+	path = bundle/gotags
+	url = git@github.com:jstemmer/gotags

@@ -17,8 +17,6 @@ highlight SpellBad cterm=NONE ctermfg=black ctermbg=yellow
 
 " Show line numbers:
 set number
-" Show whitespace:
-set list
 
 " Shorter tabs:
 set tabstop=4
@@ -40,3 +38,18 @@ vnoremap <Space> za
 " CoffeeScript options:
 let coffee_compiler = $HOME . '/.vim/coffee-script/bin/coffee'
 let coffee_linter = $HOME . '/.vim/coffeelint/bin/coffeelint'
+
+" 120 character ruler
+set colorcolumn=120
+" Make sure characters under the ruler are clearly visible
+highlight ColorColumn ctermbg=red ctermfg=white
+match ColorColumn /\%120v./
+
+" Tagbar shortcut
+nmap <C-t> :TagbarToggle<CR>
+
+" Swap j/k, easier to navigate in dvp layout:
+nnoremap j k
+vnoremap j k
+nnoremap k j
+vnoremap k j
