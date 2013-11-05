@@ -1,10 +1,6 @@
-HISTFILE=~/.histfile
-HISTSIZE=4000
-SAVEHIST=4000
+source "$HOME/.oh-my-zsh/templates/zshrc.zsh-template"
 
-autoload -U colors && colors
-PS1="%{$fg[blue]%}%B%m%b %{$fg[green]%}%~ %{$reset_color%}%# "
-RPROMPT='[%*]'
+plugins=(cp go golang git github gitignore python tmux)
 
 setopt appendhistory autocd extendedglob notify
 bindkey -e
@@ -64,6 +60,7 @@ alias gp='git push'
 alias gre='git rev-parse HEAD'
 alias eg='$EDITOR .git/config'
 alias ungit="find . -name '.git' -exec rm -rf {} \;"
+disable -a gg
 function gg() {
     git commit -m "$*"
 }
