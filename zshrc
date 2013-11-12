@@ -35,7 +35,7 @@ setopt interactivecomments # pound sign in interactive prompt
 
 # Generic aliases
 alias o="xdg-open"
-alias ll="ls -lah"
+alias ll="ls -la"
 alias l="ls -lh"
 alias ...="cd ../.."
 alias ....="cd ../../.."
