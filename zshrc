@@ -4,23 +4,6 @@ ZSH=$HOME/.oh-my-zsh
 # Set name of the theme to load.
 ZSH_THEME="sorin"
 
-# Example aliases
-if [[ -x "`whence -p dircolors`" ]]; then
-  eval `dircolors`
-  alias ls='ls -F --color=auto'
-else
-  alias ls='ls -F'
-fi
-alias o="xdg-open"
-alias ll="ls -la"
-alias l="ls -lh"
-alias ...="cd ../.."
-alias ....="cd ../../.."
-alias .....="cd ../../../.."
-alias ......="cd ../../../../.."
-alias c="curl --dump-header -"
-alias gf="gofmt -w ."
-
 # Uncomment following line if you want to disable command autocorrection
 DISABLE_CORRECTION="true"
 
@@ -81,6 +64,23 @@ disable -a gg
 function gg() {
     git commit -m "$*"
 }
+
+# More aliases
+if [[ -x "`whence -p dircolors`" ]]; then
+  eval `dircolors`
+  alias ls='ls -F --color=auto'
+else
+  alias ls='ls -F'
+fi
+alias o="xdg-open"
+alias ll="ls -la"
+alias l="ls -lh"
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias .....="cd ../../../.."
+alias ......="cd ../../../../.."
+alias c="curl --dump-header -"
+alias gf="gofmt -w ."
 
 # Below is a custom theme, based on "sorin".
 
