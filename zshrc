@@ -15,7 +15,7 @@ COMPLETION_WAITING_DOTS="true"
 DISABLE_UNTRACKED_FILES_DIRTY="true"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-plugins=(cp go golang git github gitignore python tmux)
+plugins=(cp go git gitignore python)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -46,19 +46,12 @@ setopt interactivecomments # pound sign in interactive prompt
 
 # Git aliases
 alias g='git status'
-alias gb='git branch'
 alias gd='git diff'
-alias gdm='git diff master'
 alias gl='git log'
 alias ga='git add'
 alias gaa='git add -p .'
-alias gco='git checkout'
 alias gc='git commit -v'
-alias gca='git commit -v -a'
-alias gba='git branch -a'
 alias gp='git push'
-alias gre='git rev-parse HEAD'
-alias eg='$EDITOR .git/config'
 alias ungit="find . -name '.git' -exec rm -rf {} \;"
 disable -a gg
 function gg() {
@@ -73,8 +66,8 @@ else
   alias ls='ls -F'
 fi
 alias o="xdg-open"
-alias ll="ls -la"
 alias l="ls -lh"
+alias ll="ls -la"
 alias ...="cd ../.."
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
@@ -83,8 +76,6 @@ alias c="curl --dump-header -"
 alias gf="gofmt -w ."
 
 # Below is a custom theme, based on "sorin".
-
-
 if [[ "$TERM" != "dumb" ]] && [[ "$DISABLE_LS_COLORS" != "true" ]]; then
   MODE_INDICATOR="%{$fg_bold[red]%}❮%{$reset_color%}%{$fg[red]%}❮❮%{$reset_color%}"
   local return_status="%{$fg[red]%}%(?..=)%{$reset_color%}"
