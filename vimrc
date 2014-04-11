@@ -63,3 +63,10 @@ let project_vimrc = chomped_project_root."/.vimrc"
 if filereadable(project_vimrc)
   execute "source" project_vimrc
 endif
+
+nnoremap <silent> ,g :<C-u>Unite grep:. -buffer-name=search-buffer<CR>
+if executable('pt')
+  let g:unite_source_grep_command = 'pt'
+  let g:unite_source_grep_default_opts = '--nogroup --nocolor'
+  let g:unite_source_grep_recursive_opt = ''
+endif
