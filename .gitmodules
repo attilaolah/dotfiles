@@ -94,3 +94,6 @@
 [submodule "bundle/slim"]
 	path = bundle/slim
 	url = git@github.com:slim-template/vim-slim
+[submodule "bundle/unite"]
+	path = bundle/unite
+	url = git@github.com:Shougo/unite.vim
