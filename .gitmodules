@@ -97,3 +97,6 @@
 [submodule "bundle/unite"]
 	path = bundle/unite
 	url = git@github.com:Shougo/unite.vim
+[submodule "bundle/easy-align"]
+	path = bundle/easy-align
+	url = git@github.com:junegunn/vim-easy-align
