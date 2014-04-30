@@ -54,6 +54,9 @@ vnoremap j k
 nnoremap k j
 vnoremap k j
 
+" Alignment
+vnoremap a :EasyAlign<Return><Space><Return>
+vnoremap A :EasyAlign<Return>
 
 " Source a vimrc from git project root, https://gist.github.com/4617337
 let project_root = system("git rev-parse --show-toplevel")
