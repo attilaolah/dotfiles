@@ -44,17 +44,17 @@
 # when it's first managed.
 #
 # -------------------------------------------------------
-# [MaximizeTerminals] 
-# match := MatchClientClass ":client:" "lxterminal" 
-# match := MatchClientClass ":client:" "konsole" 
-# match := MatchClientClass ":client:" "urxvt" 
-# match := MatchClientClass ":client:" "xterm" 
-# match := MatchClientClass ":client:" "gnome-terminal" 
-#  
-# conjunction := no 
-#  
-# managed := FrameSlim ":client:"
-# managed := Maximize ":client:" 
+[MaximizeTerminals] 
+match := MatchClientClass ":client:" "lxterminal" 
+match := MatchClientClass ":client:" "konsole" 
+match := MatchClientClass ":client:" "urxvt" 
+match := MatchClientClass ":client:" "xterm" 
+match := MatchClientClass ":client:" "gnome-terminal" 
+ 
+conjunction := no 
+ 
+managed := FrameSlim ":client:"
+managed := Maximize ":client:" 
 # -------------------------------------------------------
 #
 # Here we name our hook "MaximizeTerminals". (You'll see this name if there was
