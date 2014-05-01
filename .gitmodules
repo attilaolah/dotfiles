@@ -100,3 +100,6 @@
 [submodule "bundle/easy-align"]
 	path = bundle/easy-align
 	url = git@github.com:junegunn/vim-easy-align
+[submodule "bundle/rubocop"]
+	path = bundle/rubocop
+	url = git@github.com:ngmy/vim-rubocop
