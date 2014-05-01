@@ -1,28 +1,27 @@
-# Vim configuration
+# .files
 
-Install this configuration like this:
+1. check out the repo
+2. update submodules<sup>2</sup>
+3. symlink dot files
+4. install system dependencies<sup>4</sup>
 
-	cd
-	git clone https://github.com/attilaolah/dotvim .vim
-	(cd .vim && git submodule init)
-	ln -s .vim/vimrc .vimrc
+----
 
-To make the required binaries available, add this line to `~/.bashrc`:
+### <sup>2</sup>updating submodules
 
-	source "$HOME/.vim/bashrc"
+```sh
+git submodule init
+git submodule update --recursive
+```
 
-To update submodules in the repo, run:
+### <sup>4</sup>installing dependencies
 
-	git submodule foreach git submodule init
-	git submodule foreach git submodule update
-	git submodule foreach git pull origin master
-
-To install dependencies, run:
-
-	sudo emerge --ask --tree \
-		dev-python/flake8 \
-		dev-python/jedi \
-		dev-ruby/sass \
-		net-libs/nodejs
+```sh
+sudo emerge --ask --tree \
+	dev-python/flake8 \
+	dev-python/jedi \
+	dev-ruby/sass \
+	net-libs/nodejs
+```
 
 Flake8 will pull in PEP8 and PyFlakes. Node.js is required by less.js.
