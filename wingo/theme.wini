@@ -105,9 +105,9 @@ a_minimize_color := $ACTIVE_BUTTON
 i_minimize_color := $INACTIVE_BUTTON
 
 [Borders]
-border_size := 4
-a_thin_color := $THIN_COLOR
-i_thin_color := $THIN_COLOR
+border_size := 2
+a_thin_color := 0x000000
+i_thin_color := 0x000000
 a_border_color := 0xff7f00
 i_border_color := 0xdfdcdf
 

@@ -72,8 +72,11 @@
 # be escaped with a backslash, e.g., \".
 #
 # N.B. The shell used can be changed in `options.wini`.
-Mod4-t := Shell "xterm"
-Mod1-F2 := Shell "gmrun"
+Mod4-r := Shell "gmrun"
+Mod4-return := Shell "gnome-terminal"
+Mod4-Shift-return := Shell "gnome-terminal -e bash"
+Mod4-Space := Shell "google-chrome"
+
 
 # You could also use Wingo's Shell command to execute commands on the fly.
 # In all likelihood, you should use a real launcher like `gmrun` or `dmenu`.
@@ -81,11 +84,11 @@ Mod1-F2 := Shell "gmrun"
 
 # Some basic window manager commands. Closing/maximizing can also be done with
 # buttons on fully decorated windows.
-Mod4-c := Close (GetActive)
+Mod4-w := Close (GetActive)
 Mod1-Shift-c := Quit
+Mod4-s := ToggleSticky (GetActive)
 Mod4-x := ToggleMaximize (GetActive)
-Mod1-f := ToggleFloating (GetActive)
-Mod1-s := ToggleSticky (GetActive)
+Mod4-f := ToggleFloating (GetActive)
 
 # WingoExec will allow you to execute *any* Wingo command.
 Mod4-Shift-r := WingoExec (Input "Wingo command:")
@@ -162,20 +165,20 @@ Mod1-Shift-r := MovePointerRelative 0 0
 # Your every day Alt-Tab. Use WingoHelp or `wingo-cmd --usage CycleClientNext`
 # to discover what each of the parameters means. (They specify which kinds of
 # clients should be shown.)
-Mod1-Tab := CycleClientNext "yes" "no" "yes"
-Mod1-Shift-Tab := CycleClientPrev "yes" "no" "yes"
+Mod4-Tab := CycleClientNext "yes" "no" "yes"
+Mod4-Shift-Tab := CycleClientPrev "yes" "no" "yes"
 
 # List all windows and focus/raise the selected client.
-Mod4-space := FocusRaise (SelectClient "Any" "no" "no" "yes")
+Mod1-Tab := FocusRaise (SelectClient "Any" "no" "no" "yes")
 
 # List all workspaces, and greedily switch to the one selected.
-Mod4-return := WorkspaceGreedy (SelectWorkspace "Prefix")
+#Mod4-return := WorkspaceGreedy (SelectWorkspace "Prefix")
 
 # List all workspaces, and greedily switch to the one selected with the
 # active window.
-Mod4-Shift-return := WorkspaceGreedyWithClient \
-                       (SelectWorkspace "Prefix") \
-                       (GetActive)
+#Mod4-Shift-return := WorkspaceGreedyWithClient \
+#                       (SelectWorkspace "Prefix") \
+#                       (GetActive)
 
 # Basic auto tiling commands. Auto tiling layouts are split into two panes:
 # "masters" and "slaves". The commands below revolve around adjusting the size
