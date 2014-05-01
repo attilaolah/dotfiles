@@ -90,3 +90,6 @@ ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[yellow]%}…%{$reset_color%}"
 ZSH_THEME_GIT_PROMPT_CLEAN=""
 
 RPROMPT="${return_status}%*"
+
+# Load user profile settings
+source "$HOME/.profile"
