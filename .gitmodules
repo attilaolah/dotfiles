@@ -1,5 +1,5 @@
 [submodule "pathogen"]
-	path = pathogen
+	path = .vim/pathogen
 	url = git@github.com:tpope/vim-pathogen
 [submodule "bundle/sensible"]
 	path = bundle/sensible
@@ -29,10 +29,10 @@
 	path = bundle/coffee-script
 	url = git@github.com:kchmck/vim-coffee-script
 [submodule "coffee-script"]
-	path = coffee-script
+	path = .vim/coffee-script
 	url = git@github.com:jashkenas/coffee-script
 [submodule "less"]
-	path = less
+	path = .vim/less
 	url = git@github.com:cloudhead/less.js
 [submodule "bundle/literate-coffeescript"]
 	path = bundle/literate-coffeescript
@@ -44,7 +44,7 @@
 	path = bundle/markdown-folding
 	url = git@github.com:nelstrom/vim-markdown-folding
 [submodule "coffeelint"]
-	path = coffeelint
+	path = .vim/coffeelint
 	url = https://github.com/clutchski/coffeelint
 [submodule "bundle/unimpaired"]
 	path = bundle/unimpaired
