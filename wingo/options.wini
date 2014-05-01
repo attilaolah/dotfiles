@@ -53,7 +53,7 @@ show_popup_errors := yes
 # indicate state changes, like when a the current workspace is changed.
 # Note that FYI messages only appear for a set amount of time (see "popup_time"
 # below) and then disappear. They never acquire focus.
-show_popup_fyi := yes
+show_popup_fyi := no
 
 # The time that an "FYI" message window stays visible in milliseconds.
 # After time expires, the message disappears.
