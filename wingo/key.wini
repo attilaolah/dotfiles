@@ -73,9 +73,9 @@
 #
 # N.B. The shell used can be changed in `options.wini`.
 Mod4-r := Shell "gmrun"
-Mod4-return := Shell "gnome-terminal"
-Mod4-Shift-return := Shell "gnome-terminal -e bash"
-Mod4-Space := Shell "google-chrome"
+Mod4-return := Shell "terminal"
+Mod4-Shift-return := Shell "terminal -e bash"
+Mod4-Space := Shell "browser"
 
 
 # You could also use Wingo's Shell command to execute commands on the fly.
