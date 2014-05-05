@@ -86,9 +86,9 @@ Mod4-Space := Shell "browser"
 # buttons on fully decorated windows.
 Mod4-w := Close (GetActive)
 Mod1-Shift-c := Quit
-Mod4-s := ToggleSticky (GetActive)
 Mod4-x := ToggleMaximize (GetActive)
 Mod4-f := ToggleFloating (GetActive)
+#Mod4-s := ToggleSticky (GetActive)
 
 # WingoExec will allow you to execute *any* Wingo command.
 Mod4-Shift-r := WingoExec (Input "Wingo command:")
@@ -136,12 +136,14 @@ Mod4-a := WorkspaceGreedy "1"
 Mod4-o := WorkspaceGreedy "2"
 Mod4-e := WorkspaceGreedy "3"
 Mod4-u := WorkspaceGreedy "4"
+Mod4-s := WorkspaceGreedy "8"
 
 # Same as above, but bring the active window with us.
 Mod4-Shift-a := WorkspaceGreedyWithClient "1" (GetActive)
 Mod4-Shift-o := WorkspaceGreedyWithClient "2" (GetActive)
 Mod4-Shift-e := WorkspaceGreedyWithClient "3" (GetActive)
 Mod4-Shift-u := WorkspaceGreedyWithClient "4" (GetActive)
+Mod4-Shift-s := WorkspaceGreedyWithClient "8" (GetActive)
 
 # Move focus to the workspace on the corresponding monitor. Monitor indices
 # start at 0 and are ordered by left to right, and then top to bottom.

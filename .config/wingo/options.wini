@@ -5,7 +5,7 @@
 [Options]
 # The list of workspaces to set upon startup. Workspaces can be added or
 # removed while Wingo is running.
-workspaces := 1 2 3 4
+workspaces := 1 2 3 4 8
 
 # The default layout that is used for all workspaces. Currently, the
 # only available layouts are: Floating, Vertical or Horizontal.
