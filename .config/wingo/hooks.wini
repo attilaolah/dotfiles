@@ -45,10 +45,6 @@
 #
 # -------------------------------------------------------
 [MaximizeTerminals]
-match := MatchClientClass ":client:" "lxterminal"
-match := MatchClientClass ":client:" "konsole"
-match := MatchClientClass ":client:" "urxvt"
-match := MatchClientClass ":client:" "xterm"
 match := MatchClientClass ":client:" "gnome-terminal"
 
 conjunction := no
@@ -79,7 +75,7 @@ match := True
 #startup := Shell "gkrellm"
 
 # Easter egg!
-startup := Dale
+#startup := Dale
 
 #[ForceFloating]
 # This hook matches certain windows, and forces them into the floating layout.
