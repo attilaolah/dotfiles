@@ -19,7 +19,7 @@ set tabstop=4
 " This may be overwritten per file:
 set shiftwidth=4
 
-" Enable wird menu:
+" Enable wild menu:
 set wildmenu
 
 " Incremen/decrement numbers using +/-:
