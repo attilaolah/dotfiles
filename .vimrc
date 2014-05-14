@@ -56,6 +56,7 @@ vnoremap A :EasyAlign<Return>
 
 " Go: run gfmt before saving
 let gofmt_command = "goimports"
+autocmd FileType go compiler go
 autocmd FileType go autocmd BufWritePre <buffer> Fmt
 autocmd BufNewFile *.go $read ~/.vim/templates/new.go
 
