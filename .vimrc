@@ -55,6 +55,7 @@ vnoremap a :EasyAlign<Return><Space><Return>
 vnoremap A :EasyAlign<Return>
 
 " Go: run gfmt before saving
+let gofmt_command = "goimports"
 autocmd FileType go autocmd BufWritePre <buffer> Fmt
 
 " Source a vimrc from git project root, https://gist.github.com/4617337
