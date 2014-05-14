@@ -103,3 +103,6 @@
 [submodule "bundle/rubocop"]
 	path = .vim/bundle/rubocop
 	url = git@github.com:ngmy/vim-rubocop
+[submodule "bundle/vimproc"]
+	path = bundle/vimproc
+	url = git@github.com:Shougo/vimproc.vim
