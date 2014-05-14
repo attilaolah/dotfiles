@@ -55,7 +55,7 @@ vnoremap a :EasyAlign<Return><Space><Return>
 vnoremap A :EasyAlign<Return>
 
 " Go: run gfmt before saving
-autocmd BufWritePre *.go :Fmt
+autocmd FileType go autocmd BufWritePre <buffer> Fmt
 
 " Source a vimrc from git project root, https://gist.github.com/4617337
 let project_root = system("git rev-parse --show-toplevel")
