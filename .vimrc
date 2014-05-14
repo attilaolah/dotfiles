@@ -54,6 +54,9 @@ vnoremap k j
 vnoremap a :EasyAlign<Return><Space><Return>
 vnoremap A :EasyAlign<Return>
 
+" Go: run gfmt before saving
+autocmd BufWritePre *.go :Fmt
+
 " Source a vimrc from git project root, https://gist.github.com/4617337
 let project_root = system("git rev-parse --show-toplevel")
 " System commands seem to have a trailing newline, so lets get rid of that
