@@ -7,10 +7,6 @@ execute pathogen#infect()
 syntax on
 filetype plugin indent on
 
-" Solarized theme:
-"set background=dark
-"colorscheme solarized
-
 " Highlight colour:
 highlight Search cterm=NONE ctermfg=grey ctermbg=blue
 highlight SpellBad cterm=NONE ctermfg=black ctermbg=yellow
