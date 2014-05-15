@@ -27,9 +27,9 @@ nnoremap + <C-a>
 nnoremap - <C-x>
 
 " Folding shortcuts:
-set foldlevelstart=0
 nnoremap <Space> za
 vnoremap <Space> za
+set foldlevelstart=99
 
 " CoffeeScript options:
 let coffee_compiler = $HOME . '/.vim/coffee-script/bin/coffee'
