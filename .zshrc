@@ -77,19 +77,16 @@ alias gf="gofmt -w ."
 
 # Below is a custom theme, based on "sorin".
 MODE_INDICATOR="%{$fg_bold[red]%}❮%{$reset_color%}%{$fg[red]%}❮❮%{$reset_color%}"
-local return_status="%{$fg[red]%}%(?..=)%{$reset_color%}"
 
 local prompt_jobs="%(1j.%{$fg[yellow]%}%j%{$reset_color%}%{$fg[red]%}z%{$reset_color%} .)"
 local prompt_host="%{$fg[cyan]%}%m%{$reset_color%}"
 local prompt_root="%(!.%{$fg_bold[red]%}#.%{$fg[green]%}$)%{$reset_color%}"
+local return_status="%{$fg[red]%}%(?..=)%{$reset_color%}"
+
 PROMPT='${prompt_jobs}${prompt_host}$(git_prompt_info) %~ ${prompt_root} '
+RPROMPT="${return_status}%*"
 
 ZSH_THEME_GIT_PROMPT_PREFIX=" %{$fg[blue]%}git%{$reset_color%}:%{$fg[red]%}"
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"
 ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[yellow]%}…%{$reset_color%}"
 ZSH_THEME_GIT_PROMPT_CLEAN=""
-
-RPROMPT="${return_status}%*"
-
-# Load user profile settings
-source "$HOME/.profile"
