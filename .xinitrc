@@ -8,6 +8,7 @@ wmname LG3D
 # DVP layout
 setxkbmap -layout us \
     -variant dvp \
+    -option model:thinkpad \
     -option compose:ralt \
     -option keypad:atm \
     -option numpad:shift3 \
