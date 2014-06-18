@@ -109,3 +109,6 @@
 [submodule ".vim/bundle/multiple-cursors"]
 	path = .vim/bundle/multiple-cursors
 	url = git@github.com:terryma/vim-multiple-cursors
+[submodule "hk"]
+	path = hk
+	url = git@github.com:heroku/hk
