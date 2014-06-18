@@ -5,6 +5,15 @@
 # Available from http://tools.suckless.org/wmname
 wmname LG3D
 
+# Auto-start
+stalonetray &
+
+# ThinkPad X200 Tablet ICC profile
+xcalib -d :0 ~/.color/icc/TPLCD.ICM
+
+# Nice cursor
+xsetroot -cursor_name left_ptr
+
 # DVP layout
 setxkbmap -layout us \
     -variant dvp \
@@ -21,14 +30,8 @@ if [ -f "$MYMODMAP" ]; then
     xmodmap "$MYMODMAP"
 fi
 
-# Nice cursor
-xsetroot -cursor_name left_ptr
-
 # Key repeat rate
 xset r rate 200 25
-
-# Composition
-#xcompmgr -c -C -l -2 -t -2 -r 2 -o .75 &
 
 # Start Wingo
 exec dbus-launch wingo
