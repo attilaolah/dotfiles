@@ -47,7 +47,6 @@ setopt interactivecomments # pound sign in interactive prompt
 # Git aliases
 alias g='git status'
 alias gd='git diff'
-alias gl='git log --graph --pretty=format:"%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset" --abbrev-commit'
 alias ga='git add'
 alias gaa='git add -p .'
 alias gc='git commit -v'
@@ -57,6 +56,7 @@ disable -a gg
 function gg() {
     git commit -m "$*"
 }
+alias gl='git log --graph --pretty=format:"%C(bold red)%h%C(reset)%C(yellow)%d%C(reset) %C(red)(%cr)%C(reset) %s — %C(blue)%ae%C(reset)" --abbrev-commit'
 
 # More aliases
 if [[ -x "`whence -p dircolors`" ]]; then
