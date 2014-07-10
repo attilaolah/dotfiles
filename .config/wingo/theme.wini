@@ -85,7 +85,7 @@ title_size := 27
 a_title_color := 0xd66b00 0xff9123
 i_title_color := 0xffffff
 
-border_size := 4
+border_size := 2
 a_border_color := $THIN_COLOR
 i_border_color := $THIN_COLOR
 
