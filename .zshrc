@@ -46,10 +46,11 @@ setopt interactivecomments # pound sign in interactive prompt
 
 # Git aliases
 alias g='git status'
-alias gd='git diff'
 alias ga='git add'
 alias gaa='git add -p .'
+alias gb='git branch -av'
 alias gc='git commit -v'
+alias gd='git diff'
 alias gp='git push'
 alias ungit="find . -name '.git' -exec rm -rf {} \;"
 disable -a gg
@@ -90,3 +91,5 @@ ZSH_THEME_GIT_PROMPT_PREFIX=" %{$fg[blue]%}git%{$reset_color%}:%{$fg[red]%}"
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"
 ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[yellow]%}…%{$reset_color%}"
 ZSH_THEME_GIT_PROMPT_CLEAN=""
+
+source $HOME/.profile
