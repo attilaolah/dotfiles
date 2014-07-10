@@ -6,6 +6,7 @@
 wmname LG3D
 
 # Auto-start
+nm-applet &
 stalonetray &
 
 # ThinkPad X200 Tablet ICC profile
