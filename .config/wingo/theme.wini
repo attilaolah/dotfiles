@@ -85,7 +85,7 @@ title_size := 27
 a_title_color := 0xd66b00 0xff9123
 i_title_color := 0xffffff
 
-border_size := 2
+border_size := 1
 a_border_color := $THIN_COLOR
 i_border_color := $THIN_COLOR
 
@@ -105,7 +105,7 @@ a_minimize_color := $ACTIVE_BUTTON
 i_minimize_color := $INACTIVE_BUTTON
 
 [Borders]
-border_size := 2
+border_size := 1
 a_thin_color := 0x000000
 i_thin_color := 0x000000
 a_border_color := 0xff7f00
@@ -119,8 +119,8 @@ i_border_color := 0x000000
 [Prompt]
 bg_color := 0x8e8e8e
 border_color := 0x585a5d
-border_size := 8
-padding := 15
+border_size := 2
+padding := 16
 font := /usr/share/fonts/TTF/DejaVuSansMono.ttf
 font_size := 17
 font_color := 0xffffff
