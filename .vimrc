@@ -1,11 +1,69 @@
 " Author: Attila Oláh
 " Email: attilaolah@gmail.com
 
-" Pathogen, should be at the top.
-execute pathogen#infect()
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+
+" let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
+
+Plugin 'Lokaltog/powerline'
+Plugin 'Shougo/unite.vim'
+Plugin 'Shougo/vimproc.vim'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'attilaolah/pyflakes-vim'
+Plugin 'davidhalter/jedi-vim'
+Plugin 'fatih/vim-go'
+Plugin 'groenewege/vim-less'
+Plugin 'hail2u/vim-css3-syntax'
+Plugin 'jstemmer/gotags'
+Plugin 'junegunn/vim-easy-align'
+Plugin 'kchmck/vim-coffee-script'
+Plugin 'majutsushi/tagbar'
+Plugin 'mintplant/vim-literate-coffeescript'
+Plugin 'nelstrom/vim-markdown-folding'
+Plugin 'ngmy/vim-rubocop'
+Plugin 'scrooloose/syntastic'
+Plugin 'skammer/vim-css-color'
+Plugin 'slim-template/vim-slim'
+Plugin 'sunaku/vim-ruby-minitest'
+Plugin 'terryma/vim-multiple-cursors'
+Plugin 'tpope/vim-abolish'
+Plugin 'tpope/vim-commentary'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-haml'
+Plugin 'tpope/vim-liquid'
+Plugin 'tpope/vim-markdown'
+Plugin 'tpope/vim-repeat'
+Plugin 'tpope/vim-sensible'
+Plugin 'tpope/vim-sleuth'
+Plugin 'tpope/vim-speeddating'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-unimpaired'
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+" To ignore plugin indent changes, instead use:
+"filetype plugin on
+"
+" Brief help
+" :PluginList       - lists configured plugins
+" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
+" :PluginSearch foo - searches for foo; append `!` to refresh local cache
+" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
+"
+" see :h vundle for more details or wiki for FAQ
+" Put your non-Plugin stuff after this line
 
 syntax on
-filetype plugin indent on
 
 highlight LineNr       cterm=NONE ctermfg=black ctermbg=NONE
 highlight Search       cterm=NONE ctermfg=grey  ctermbg=blue
@@ -61,10 +119,7 @@ vnoremap k j
 vnoremap A :EasyAlign<Return>
 vnoremap a :EasyAlign<Return><Space><Return>
 
-" Go: run gfmt before saving
-let gofmt_command = "goimports"
-autocmd FileType go compiler go
-autocmd FileType go autocmd BufWritePre <buffer> Fmt
+" Go: template
 autocmd BufNewFile *.go $read ~/.vim/templates/new.go
 
 " Ruby: autocomplete for minitest
