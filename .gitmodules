@@ -7,9 +7,6 @@
 [submodule "bundle/fugitive"]
 	path = .vim/bundle/fugitive
 	url = git@github.com:tpope/vim-fugitive
-[submodule "bundle/golang"]
-	path = .vim/bundle/golang
-	url = git@github.com:jnwhiteh/vim-golang
 [submodule "bundle/haml"]
 	path = .vim/bundle/haml
 	url = git@github.com:tpope/vim-haml
