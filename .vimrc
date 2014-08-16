@@ -125,7 +125,7 @@ vnoremap A :EasyAlign<Return>
 vnoremap a :EasyAlign<Return><Space><Return>
 
 " Go: template
-autocmd BufNewFile *.go $read ~/.vim/templates/new.go
+autocmd BufNewFile *.go 0r ~/.vim/templates/new.go
 
 " Ruby: autocomplete for minitest
 set completefunc=syntaxcomplete#Complete
