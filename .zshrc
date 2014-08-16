@@ -52,6 +52,7 @@ alias gb='git branch -av'
 alias gc='git commit -v'
 alias gd='git diff'
 alias gp='git push'
+alias gr='git remote -v'
 alias ungit="find . -name '.git' -exec rm -rf {} \;"
 disable -a gg
 function gg() {
