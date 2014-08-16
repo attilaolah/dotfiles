@@ -48,6 +48,11 @@ Plugin 'tpope/vim-speeddating'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-unimpaired'
 
+" UltiSnip engine
+Plugin 'SirVer/ultisnips'
+" Snippets are separated from the engine
+Plugin 'honza/vim-snippets'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -124,6 +129,14 @@ autocmd BufNewFile *.go $read ~/.vim/templates/new.go
 
 " Ruby: autocomplete for minitest
 set completefunc=syntaxcomplete#Complete
+
+" UltiSnip: Trigger configuration:
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+" If you want :UltiSnipsEdit to split your window:
+let g:UltiSnipsEditSplit="vertical"
+
 
 " Source a vimrc from git project root, https://gist.github.com/4617337
 let project_root = system("git rev-parse --show-toplevel")
