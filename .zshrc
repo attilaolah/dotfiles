@@ -74,7 +74,7 @@ alias ...="cd ../.."
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
 alias ......="cd ../../../../.."
-alias c="curl --dump-header -"
+alias c="curl -s --dump-header /dev/stderr"
 alias gf="gofmt -w ."
 
 # Below is a custom theme, based on "sorin".
