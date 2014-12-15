@@ -25,3 +25,7 @@ fi
 
 # Key repeat rate
 xset r rate 200 25
+
+# Move stalonetray
+killall stalonetray
+stalonetray &
