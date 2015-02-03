@@ -69,6 +69,9 @@ filetype plugin indent on    " required
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
 
+" XXX TODO: apparently there is some bug in vim-go, so force this:
+autocmd BufWritePre *.go call go#fmt#Format(1)
+
 syntax on
 
 highlight LineNr       cterm=NONE ctermfg=black ctermbg=NONE
