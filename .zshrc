@@ -20,6 +20,7 @@ plugins=(cp go git gitignore python)
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
+unsetopt nomatch
 setopt appendhistory autocd extendedglob notify
 bindkey -e
 
