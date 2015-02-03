@@ -25,9 +25,9 @@ setopt appendhistory autocd extendedglob notify
 bindkey -e
 
 autoload completeinword
-zstyle :compinstall filename '/home/aatiis/.zshrc'
-zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
-zstyle ':completion:*:killall:*' command 'ps -u $USER -o cmd'
+zstyle :compinstall filename "/home/aatiis/.zshrc"
+zstyle ":completion:*" matcher-list "m:{a-zA-Z}={A-Za-z}"
+zstyle ":completion:*:killall:*" command "ps -u $USER -o cmd"
 
 autoload select-word-style
 select-word-style shell
@@ -46,27 +46,27 @@ unsetopt caseglob
 setopt interactivecomments # pound sign in interactive prompt
 
 # Git aliases
-alias g='git status'
-alias ga='git add'
-alias gaa='git add -p .'
-alias gb='git branch -av'
-alias gc='git commit -v'
-alias gd='git diff'
-alias gp='git push'
-alias gr='git remote -v'
+alias g="git status"
+alias ga="git add"
+alias gaa="git add -p ."
+alias gb="git branch -av"
+alias gc="git commit -v"
+alias gd="git diff"
+alias gp="git push"
+alias gr="git remote -v"
 alias ungit="find . -name '.git' -exec rm -rf {} \;"
 disable -a gg
 function gg() {
     git commit -m "$*"
 }
-alias gl='git log --graph --pretty=format:"%C(bold red)%h%C(reset)%C(yellow)%d%C(reset) %C(red)(%cr)%C(reset) %s — %C(blue)%ae%C(reset)" --abbrev-commit'
+alias gl="git log --graph --pretty=format:'%C(bold red)%h%C(reset)%C(yellow)%d%C(reset) %C(red)(%cr)%C(reset) %s — %C(blue)%ae%C(reset)' --abbrev-commit"
 
 # More aliases
 if [[ -x "`whence -p dircolors`" ]]; then
   eval `dircolors`
-  alias ls='ls -F --color=auto'
+  alias ls="ls -F --color=auto"
 else
-  alias ls='ls -F'
+  alias ls="ls -F"
 fi
 alias o="xdg-open"
 alias l="ls -lh"
@@ -86,7 +86,7 @@ local prompt_host="%{$fg[cyan]%}%m%{$reset_color%}"
 local prompt_root="%(!.%{$fg_bold[red]%}#.%{$fg[green]%}$)%{$reset_color%}"
 local return_status="%{$fg[red]%}%(?..=)%{$reset_color%}"
 
-PROMPT='${prompt_jobs}${prompt_host}$(git_prompt_info) %~ ${prompt_root} '
+PROMPT="${prompt_jobs}${prompt_host}$(git_prompt_info) %~ ${prompt_root} "
 RPROMPT="${return_status}%*"
 
 ZSH_THEME_GIT_PROMPT_PREFIX=" %{$fg[blue]%}git%{$reset_color%}:%{$fg[red]%}"
