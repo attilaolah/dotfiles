@@ -5,7 +5,7 @@ setopt appendhistory autocd extendedglob notify
 bindkey -e
 
 autoload completeinword
-zstyle :compinstall filename "/home/aatiis/.zshrc"
+zstyle :compinstall filename "/home/attila/.zshrc"
 zstyle ":completion:*" matcher-list "m:{a-zA-Z}={A-Za-z}"
 zstyle ":completion:*:killall:*" command "ps -u $USER -o cmd"
 
@@ -46,5 +46,5 @@ local prompt_host="%{$fg[cyan]%}%m%{$reset_color%}"
 local prompt_root="%(!.%{$fg_bold[red]%}#.%{$fg[green]%}$)%{$reset_color%}"
 local return_status="%{$fg[red]%}%(?..=)%{$reset_color%}"
 
-PROMPT="${prompt_jobs}${prompt_host}$(git_prompt_info) %~ ${prompt_root} "
+PROMPT="${prompt_jobs}${prompt_host} %~ ${prompt_root} "
 RPROMPT="${return_status}%*"
