@@ -41,6 +41,8 @@ alias ......="cd ../../../../.."
 alias c="curl -s --dump-header /dev/stderr"
 
 # Below is a custom theme, based on "sorin".
+autoload -U colors && colors
+
 local prompt_jobs="%(1j.%{$fg[yellow]%}%j%{$reset_color%}%{$fg[red]%}z%{$reset_color%} .)"
 local prompt_host="%{$fg[cyan]%}%m%{$reset_color%}"
 local prompt_root="%(!.%{$fg_bold[red]%}#.%{$fg[green]%}$)%{$reset_color%}"
