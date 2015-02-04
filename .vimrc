@@ -21,6 +21,7 @@ Plugin 'altercation/vim-colors-solarized'
 Plugin 'attilaolah/pyflakes-vim'
 " Apparently conflicts with something:
 " Plugin 'davidhalter/jedi-vim'
+Plugin 'editorconfig/editorconfig-vim'
 Plugin 'fatih/vim-go'
 Plugin 'groenewege/vim-less'
 Plugin 'hail2u/vim-css3-syntax'
