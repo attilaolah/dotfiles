@@ -54,7 +54,8 @@ alias gc="git commit -v"
 alias gd="git diff"
 alias gp="git push"
 alias gr="git remote -v"
-alias ungit="find . -name '.git' -exec rm -rf {} \;"
+alias ungit="find . -name '.git*' -exec rm -rf {} \;"
+alias unbranch="git remote prune origin && git branch --merged | grep -v \"\*\" | xargs -n 1 git branch -d"
 disable -a gg
 function gg() {
     git commit -m "$*"
