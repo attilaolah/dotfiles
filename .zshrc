@@ -49,7 +49,7 @@ setopt interactivecomments # pound sign in interactive prompt
 alias g="git status"
 alias ga="git add"
 alias gaa="git add -p ."
-alias gb="git branch -av"
+alias gb="git branch -avv"
 alias gc="git commit -v"
 alias gd="git diff"
 alias gp="git push"
