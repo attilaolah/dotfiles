@@ -18,7 +18,7 @@ Plugin 'Shougo/unite.vim'
 Plugin 'Shougo/vimproc.vim'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'altercation/vim-colors-solarized'
-Plugin 'attilaolah/pyflakes-vim'
+Plugin 'bling/vim-airline'
 " Apparently conflicts with something:
 " Plugin 'davidhalter/jedi-vim'
 Plugin 'editorconfig/editorconfig-vim'
@@ -109,10 +109,6 @@ nnoremap <Space> za
 vnoremap <Space> za
 set foldlevelstart=99
 
-" CoffeeScript options
-let coffee_compiler = $HOME . '/.vim/coffee-script/bin/coffee'
-let coffee_linter   = $HOME . '/.vim/coffeelint/bin/coffeelint'
-
 " Ctrl+T: Tagbar shortcut
 nmap <C-t> :TagbarToggle<CR>
 
@@ -142,6 +138,11 @@ let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 " If you want :UltiSnipsEdit to split your window:
 let g:UltiSnipsEditSplit="vertical"
 
+
+" Airlune: Smart, 'straight' tabs:
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#left_sep = " "
+let g:airline#extensions#tabline#left_alt_sep = "|"
 
 " Source a vimrc from git project root, https://gist.github.com/4617337
 let project_root = system("git rev-parse --show-toplevel")
