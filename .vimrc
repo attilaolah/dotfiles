@@ -4,75 +4,55 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
+call plug#begin('~/.vim/plug')
 
-" let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
-
-Plugin 'Lokaltog/powerline'
-Plugin 'Shougo/unite.vim'
-Plugin 'Shougo/vimproc.vim'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'bling/vim-airline'
-" Apparently conflicts with something:
-" Plugin 'davidhalter/jedi-vim'
-Plugin 'editorconfig/editorconfig-vim'
-Plugin 'fatih/vim-go'
-Plugin 'groenewege/vim-less'
-Plugin 'hail2u/vim-css3-syntax'
-Plugin 'jstemmer/gotags'
-Plugin 'junegunn/vim-easy-align'
-Plugin 'kchmck/vim-coffee-script'
-Plugin 'majutsushi/tagbar'
-Plugin 'mintplant/vim-literate-coffeescript'
-Plugin 'nelstrom/vim-markdown-folding'
-Plugin 'ngmy/vim-rubocop'
-Plugin 'scrooloose/syntastic'
-Plugin 'slim-template/vim-slim'
-Plugin 'sunaku/vim-ruby-minitest'
-Plugin 'terryma/vim-multiple-cursors'
-Plugin 'tpope/vim-abolish'
-Plugin 'tpope/vim-commentary'
-Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-haml'
-Plugin 'tpope/vim-liquid'
-Plugin 'tpope/vim-markdown'
-Plugin 'tpope/vim-repeat'
-Plugin 'tpope/vim-sensible'
-Plugin 'tpope/vim-sleuth'
-Plugin 'tpope/vim-speeddating'
-Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-unimpaired'
+Plug 'Lokaltog/powerline'
+Plug 'Shougo/unite.vim'
+Plug 'Shougo/vimproc.vim'
+Plug 'airblade/vim-gitgutter'
+Plug 'altercation/vim-colors-solarized'
+Plug 'bling/vim-airline'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
+Plug 'groenewege/vim-less'
+Plug 'hail2u/vim-css3-syntax'
+Plug 'jstemmer/gotags'
+Plug 'junegunn/vim-easy-align'
+Plug 'kchmck/vim-coffee-script'
+Plug 'majutsushi/tagbar'
+Plug 'nelstrom/vim-markdown-folding'
+Plug 'ngmy/vim-rubocop'
+Plug 'python-mode/python-mode', { 'branch': 'develop' }
+Plug 'scrooloose/syntastic'
+Plug 'slim-template/vim-slim'
+Plug 'sunaku/vim-ruby-minitest'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'tpope/vim-abolish'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-haml'
+Plug 'tpope/vim-liquid'
+Plug 'tpope/vim-markdown'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-sensible'
+Plug 'tpope/vim-sleuth'
+Plug 'tpope/vim-speeddating'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-unimpaired'
 
 " UltiSnip engine
-Plugin 'SirVer/ultisnips'
+Plug 'SirVer/ultisnips'
 " Snippets are separated from the engine
-Plugin 'honza/vim-snippets'
+Plug 'honza/vim-snippets'
 
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
-" To ignore plugin indent changes, instead use:
-"filetype plugin on
-"
-" Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-"
-" see :h vundle for more details or wiki for FAQ
-" Put your non-Plugin stuff after this line
+" Initialize plugin system
+call plug#end()
+
+" To default to Python3 syntax
+"let g:pymode_python = 'python3'
 
 " XXX TODO: apparently there is some bug in vim-go, so force this:
 autocmd BufWritePre *.go call go#fmt#Format(1)
-
-syntax on
 
 highlight LineNr       cterm=NONE ctermfg=black ctermbg=NONE
 highlight Search       cterm=NONE ctermfg=grey  ctermbg=blue
@@ -124,9 +104,6 @@ vnoremap k j
 vnoremap A :EasyAlign<Return>
 vnoremap a :EasyAlign<Return><Space><Return>
 
-" Go: template
-autocmd BufNewFile *.go 0r ~/.vim/templates/new.go
-
 " Ruby: autocomplete for minitest
 set completefunc=syntaxcomplete#Complete
 
@@ -152,10 +129,10 @@ if filereadable(project_vimrc)
   execute "source" project_vimrc
 endif
 
-" ,g: Grep (using pt)
+" ,g: Grep (using ag)
 nnoremap <silent> ,g :<C-u>Unite grep:. -buffer-name=search-buffer<CR>
-if executable('pt')
-  let g:unite_source_grep_command = 'pt'
+if executable('ag')
+  let g:unite_source_grep_command = 'ag'
   let g:unite_source_grep_default_opts = '--nogroup --nocolor'
   let g:unite_source_grep_recursive_opt = ''
 endif
