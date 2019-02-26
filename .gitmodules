@@ -4,6 +4,3 @@
 [submodule "bundle/jedi"]
 	path = .vim/bundle/jedi
 	url = git@github.com:davidhalter/jedi-vim
-[submodule ".vim/bundle/Vundle.vim"]
-	path = .vim/bundle/Vundle.vim
-	url = git@github.com:gmarik/Vundle.vim

@@ -40,11 +40,6 @@ Plug 'tpope/vim-speeddating'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 
-" UltiSnip engine
-Plug 'SirVer/ultisnips'
-" Snippets are separated from the engine
-Plug 'honza/vim-snippets'
-
 " Initialize plugin system
 call plug#end()
 
@@ -107,15 +102,7 @@ vnoremap a :EasyAlign<Return><Space><Return>
 " Ruby: autocomplete for minitest
 set completefunc=syntaxcomplete#Complete
 
-" UltiSnip: Trigger configuration:
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-" If you want :UltiSnipsEdit to split your window:
-let g:UltiSnipsEditSplit="vertical"
-
-
-" Airlune: Smart, 'straight' tabs:
+" Airline: Smart, 'straight' tabs:
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_sep = " "
 let g:airline#extensions#tabline#left_alt_sep = "|"
