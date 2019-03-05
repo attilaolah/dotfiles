@@ -1,38 +1,5 @@
-# Requirements:
-# Clone github.com/robbyrussell/oh-my-zsh to ~/.oh-my-zsh.
-#
-# Or symlink it:
-#
-# cd
-# mkdir -p third_party/github.com/robbyrussell
-# pushd third_party/github.com/robbyrussell/oh-my-zsh
-# git clone git@github.com:robbyrussell/oh-my-zsh
-# popd
-#
-# ln -s third_party/github.com/robbyrussell/oh-my-zsh .oh-my-zsh
-ZSH=$HOME/.oh-my-zsh
-
-# Set name of the theme to load.
-ZSH_THEME="sorin"
-
-# Uncomment following line if you want to disable command autocorrection
-DISABLE_CORRECTION="true"
-
-# Uncomment following line if you want red dots to be displayed while waiting for completion
-COMPLETION_WAITING_DOTS="true"
-
-# Uncomment following line if you want to disable marking untracked files under
-# VCS as dirty. This makes repository status check for large repositories much faster.
-DISABLE_UNTRACKED_FILES_DIRTY="true"
-
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-plugins=(cp git gitignore go hg python)
-
-source $ZSH/oh-my-zsh.sh
-
-# Customize to your needs...
 unsetopt nomatch
-setopt appendhistory autocd extendedglob notify
+setopt appendhistory histignorealldups autocd notify
 bindkey -e
 
 _cli_fg() {
@@ -55,30 +22,29 @@ setopt incappendhistory
 setopt sharehistory
 setopt extendedhistory
 
-# superglobs
+# Enable superglobs:
 setopt extendedglob
 unsetopt caseglob
 
 setopt interactivecomments # pound sign in interactive prompt
 
-# Git aliases
+# Aliases for git:
 alias g="git status"
+
 alias ga="git add -p ."
 alias gb="git branch -avv"
 alias gc="git commit -v"
 alias gd="git diff"
+alias gl="git log --graph --pretty=format:'%C(bold red)%h%C(reset)%C(yellow)%d%C(reset) %C(red)(%cr)%C(reset) %s — %C(blue)%ae%C(reset)' --abbrev-commit"
 alias gp="git push"
 alias gr="git remote -v"
-alias ungit="find . -name '.git*' -exec rm -rf {} \;"
-alias unbranch="git remote prune origin && git branch --merged | grep -v \"\*\" | xargs -n 1 git branch -d"
 
-disable -a gl
-alias gl="git log --graph --pretty=format:'%C(bold red)%h%C(reset)%C(yellow)%d%C(reset) %C(red)(%cr)%C(reset) %s — %C(blue)%ae%C(reset)' --abbrev-commit"
-
-disable -a gg
 function gg() {
   git commit -m "$*"
 }
+
+alias ungit="find . -name '.git*' -exec rm -rf {} \;"
+alias unbranch="git remote prune origin && git branch --merged | grep -v \"\*\" | xargs -n 1 git branch -d"
 
 # More aliases
 if [[ -x "`whence -p dircolors`" ]]; then
@@ -97,21 +63,31 @@ alias ......="cd ../../../../.."
 alias c="curl -s --dump-header /dev/stderr"
 alias gf="gofmt -w ."
 
-# Below is a custom theme, based on "sorin".
-MODE_INDICATOR="%{$fg_bold[red]%}❮%{$reset_color%}%{$fg[red]%}❮❮%{$reset_color%}"
+# Fancy Ctrl+Z plugin from oh-my-zsh:
+# https://github.com/robbyrussell/oh-my-zsh/tree/master/plugins/fancy-ctrl-z
+fancy-ctrl-z () {
+  if [[ $#BUFFER -eq 0 ]]; then
+    BUFFER="fg"
+    zle accept-line
+  else
+    zle push-input
+    zle clear-screen
+  fi
+}
+zle -N fancy-ctrl-z
+bindkey '^Z' fancy-ctrl-z
+
+# Prompt
+
+autoload -U colors && colors
 
 local prompt_jobs="%(1j.%{$fg[yellow]%}%j%{$reset_color%}%{$fg[red]%}z%{$reset_color%} .)"
 local prompt_host="%{$fg[cyan]%}%m%{$reset_color%}"
 local prompt_root="%(!.%{$fg_bold[red]%}#.%{$fg[green]%}$)%{$reset_color%}"
 local return_status="%{$fg[red]%}%(?..=)%{$reset_color%}"
 
-PROMPT='${prompt_jobs}${prompt_host}$(git_prompt_info) %~ ${prompt_root} '
-RPROMPT='${return_status}%*'
-
-ZSH_THEME_GIT_PROMPT_PREFIX=" %{$fg[blue]%}git%{$reset_color%}:%{$fg[red]%}"
-ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"
-ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[yellow]%}…%{$reset_color%}"
-ZSH_THEME_GIT_PROMPT_CLEAN=""
+PROMPT="${prompt_jobs}${prompt_host} %~ ${prompt_root} "
+RPROMPT="${return_status}%*"
 
 source $HOME/.zshrc_work
 source $HOME/.profile
