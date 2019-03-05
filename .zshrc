@@ -1,4 +1,15 @@
-# Path to your oh-my-zsh configuration.
+# Requirements:
+# Clone github.com/robbyrussell/oh-my-zsh to ~/.oh-my-zsh.
+#
+# Or symlink it:
+#
+# cd
+# mkdir -p third_party/github.com/robbyrussell
+# pushd third_party/github.com/robbyrussell/oh-my-zsh
+# git clone git@github.com:robbyrussell/oh-my-zsh
+# popd
+#
+# ln -s third_party/github.com/robbyrussell/oh-my-zsh .oh-my-zsh
 ZSH=$HOME/.oh-my-zsh
 
 # Set name of the theme to load.
@@ -95,4 +106,5 @@ ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"
 ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[yellow]%}…%{$reset_color%}"
 ZSH_THEME_GIT_PROMPT_CLEAN=""
 
+source $HOME/.zshrc_work
 source $HOME/.profile
