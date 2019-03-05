@@ -35,8 +35,13 @@ unsetopt nomatch
 setopt appendhistory autocd extendedglob notify
 bindkey -e
 
+_cli_fg() {
+  fg 2>/dev/null || true
+}
+zle -N _cli_fg
+bindkey '^Z' _cli_fg
+
 autoload completeinword
-zstyle :compinstall filename "/home/aatiis/.zshrc"
 zstyle ":completion:*" matcher-list "m:{a-zA-Z}={A-Za-z}"
 zstyle ":completion:*:killall:*" command "ps -u $USER -o cmd"
 
@@ -67,11 +72,14 @@ alias gp="git push"
 alias gr="git remote -v"
 alias ungit="find . -name '.git*' -exec rm -rf {} \;"
 alias unbranch="git remote prune origin && git branch --merged | grep -v \"\*\" | xargs -n 1 git branch -d"
+
+disable -a gl
+alias gl="git log --graph --pretty=format:'%C(bold red)%h%C(reset)%C(yellow)%d%C(reset) %C(red)(%cr)%C(reset) %s — %C(blue)%ae%C(reset)' --abbrev-commit"
+
 disable -a gg
 function gg() {
-    git commit -m "$*"
+  git commit -m "$*"
 }
-alias gl="git log --graph --pretty=format:'%C(bold red)%h%C(reset)%C(yellow)%d%C(reset) %C(red)(%cr)%C(reset) %s — %C(blue)%ae%C(reset)' --abbrev-commit"
 
 # More aliases
 if [[ -x "`whence -p dircolors`" ]]; then
