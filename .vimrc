@@ -4,6 +4,8 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
+" curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+"     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 call plug#begin('~/.vim/plug')
 
 Plug 'Lokaltog/powerline'
@@ -46,7 +48,7 @@ call plug#end()
 " To default to Python3 syntax
 "let g:pymode_python = 'python3'
 
-" XXX TODO: apparently there is some bug in vim-go, so force this:
+" NOTE: apparently there is some bug in vim-go, so force this:
 autocmd BufWritePre *.go call go#fmt#Format(1)
 
 highlight LineNr       cterm=NONE ctermfg=black ctermbg=NONE
