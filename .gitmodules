@@ -1,6 +1,0 @@
-[submodule "bundle/literate-coffeescript"]
-	path = .vim/bundle/literate-coffeescript
-	url = git@github.com:mintplant/vim-literate-coffeescript
-[submodule "bundle/jedi"]
-	path = .vim/bundle/jedi
-	url = git@github.com:davidhalter/jedi-vim
