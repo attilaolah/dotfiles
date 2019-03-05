@@ -26,7 +26,7 @@ COMPLETION_WAITING_DOTS="true"
 DISABLE_UNTRACKED_FILES_DIRTY="true"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-plugins=(cp go git gitignore python)
+plugins=(cp git gitignore go hg python)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -63,8 +63,7 @@ setopt interactivecomments # pound sign in interactive prompt
 
 # Git aliases
 alias g="git status"
-alias ga="git add"
-alias gaa="git add -p ."
+alias ga="git add -p ."
 alias gb="git branch -avv"
 alias gc="git commit -v"
 alias gd="git diff"
