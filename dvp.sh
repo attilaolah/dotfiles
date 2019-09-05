@@ -1,12 +1,5 @@
 #!/bin/bash
 
-# ThinkPad X200 Tablet ICC profile
-xcalib -d :0 ~/.color/icc/TPLCD.ICM
-
-# Fast & nice cursor
-xset m 2/1 0
-xsetroot -cursor_name left_ptr
-
 # DVP layout
 setxkbmap -layout us \
     -variant dvp \
@@ -25,7 +18,3 @@ fi
 
 # Key repeat rate
 xset r rate 200 25
-
-# Move stalonetray
-killall stalonetray
-stalonetray &
