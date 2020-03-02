@@ -1,3 +1,7 @@
 [user]
 	name = Attila Oláh
 	email = atl@google.com
+[core]
+	editor = nvim
+[alias]
+	ci = commit
