@@ -49,7 +49,7 @@ call plug#end()
 " To default to Python3 syntax
 "let g:pymode_python = 'python3'
 
-" NOTE: apparently there is some bug in vim-go, so force this:
+" NOTE: apparently there is some bug in vim-go, so force this
 autocmd BufWritePre *.go call go#fmt#Format(1)
 
 highlight LineNr       cterm=NONE ctermfg=black ctermbg=NONE
@@ -72,10 +72,35 @@ set shiftwidth=4
 set number
 set colorcolumn=120
 
+set hlsearch
+set ignorecase
+set smartcase
+
 match ColorColumn /\%120v./
 
 " Enable wild menu
 set wildmenu
+
+" Leader stuff
+let mapleader = ","
+
+nnoremap <leader>oe :e <C-R>=expand("%:p:h") . "/" <cr>
+nnoremap <leader>os :sp <C-R>=expand("%:p:h") . "/" <cr>
+nnoremap <leader>ov :vs <C-R>=expand("%:p:h") . "/" <cr>
+
+vnoremap <leader>oe y:e <C-R>"<cr>
+vnoremap <leader>os y:sp <C-R>"<cr>
+vnoremap <leader>ov y:vs <C-R>"<cr>
+vnoremap <leader>. :normal .<cr>
+
+vnoremap <leader>c y:call system('echo -n ' . shellescape(getreg('"')) . ' \| xclip -selection clipboard')<cr>
+
+vnoremap <leader>s :sort<cr>
+nnoremap <leader>e :lopen<cr>
+nnoremap <leader><space> :nohl<cr>:lclose<cr>
+
+nnoremap <leader>sp <C-w>t<C-w>K
+nnoremap <leader>vs <C-w>t<C-w>H
 
 " +, -: Incremen/decrement numbers using +/-
 nnoremap + <C-a>
@@ -92,11 +117,11 @@ nmap <C-t> :TagbarToggle<CR>
 " Ctrl+C: Cursor line and column
 nmap <C-c> :set cursorline! cursorcolumn!<CR>
 
-" Swap j/k, easier to navigate in dvp layout:
-nnoremap j k
-vnoremap j k
-nnoremap k j
-vnoremap k j
+" Change j/k to h/t
+nnoremap h j
+vnoremap h j
+nnoremap t k
+vnoremap t k
 
 " A, a: Alignment
 vnoremap A :EasyAlign<Return>
@@ -105,7 +130,7 @@ vnoremap a :EasyAlign<Return><Space><Return>
 " Ruby: autocomplete for minitest
 set completefunc=syntaxcomplete#Complete
 
-" Airline: Smart, 'straight' tabs:
+" Airline: Smart, 'straight' tabs
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_sep = " "
 let g:airline#extensions#tabline#left_alt_sep = "|"
@@ -117,12 +142,4 @@ let chomped_project_root = project_root[:-2]
 let project_vimrc = chomped_project_root."/.vimrc"
 if filereadable(project_vimrc)
   execute "source" project_vimrc
-endif
-
-" ,g: Grep (using ag)
-nnoremap <silent> ,g :<C-u>Unite grep:. -buffer-name=search-buffer<CR>
-if executable('ag')
-  let g:unite_source_grep_command = 'ag'
-  let g:unite_source_grep_default_opts = '--nogroup --nocolor'
-  let g:unite_source_grep_recursive_opt = ''
 endif
