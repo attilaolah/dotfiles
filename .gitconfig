@@ -1,6 +1,7 @@
 [user]
 	name = Attila Oláh
 	email = atl@google.com
+	signingkey = 07E6C0643FD142C3
 [core]
 	editor = nvim
 [alias]
