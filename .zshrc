@@ -1,5 +1,5 @@
 unsetopt nomatch
-setopt appendhistory histignorealldups autocd notify
+setopt autocd notify
 bindkey -e
 
 _cli_fg() {
@@ -17,10 +17,6 @@ select-word-style shell
 
 autoload -Uz compinit
 compinit
-
-setopt incappendhistory
-setopt sharehistory
-setopt extendedhistory
 
 # Enable superglobs:
 setopt extendedglob
@@ -64,7 +60,7 @@ alias c="curl -s --dump-header /dev/stderr"
 alias gf="gofmt -w ."
 
 # Fancy Ctrl+Z plugin from oh-my-zsh:
-# https://github.com/robbyrussell/oh-my-zsh/tree/master/plugins/fancy-ctrl-z
+# https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/fancy-ctrl-z
 fancy-ctrl-z () {
   if [[ $#BUFFER -eq 0 ]]; then
     BUFFER="fg"
@@ -76,6 +72,22 @@ fancy-ctrl-z () {
 }
 zle -N fancy-ctrl-z
 bindkey '^Z' fancy-ctrl-z
+
+# History
+# https://github.com/ohmyzsh/ohmyzsh/blob/master/lib/history.zsh
+
+HISTSIZE=50000
+SAVEHIST=10000
+[ -z "${HISTFILE}" ] && HISTFILE="${HOME}/.zsh_history"
+
+## History command configuration
+setopt extended_history       # record timestamp of command in HISTFILE
+setopt hist_expire_dups_first # delete duplicates first when HISTFILE size exceeds HISTSIZE
+setopt hist_ignore_dups       # ignore duplicated commands history list
+setopt hist_ignore_space      # ignore commands that start with space
+setopt hist_verify            # show command with history expansion to user before running it
+setopt inc_append_history     # add commands to HISTFILE in order of execution
+setopt share_history          # share command history data
 
 # Prompt
 
