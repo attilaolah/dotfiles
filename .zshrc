@@ -101,5 +101,5 @@ local return_status="%{$fg[red]%}%(?..=)%{$reset_color%}"
 PROMPT="${prompt_jobs}${prompt_host} %~ ${prompt_root} "
 RPROMPT="${return_status}%*"
 
-source $HOME/.zshrc_work
+[ -f "${HOME}/.zshrc_work" ] && source "${HOME}/.zshrc_work"
 source $HOME/.profile
