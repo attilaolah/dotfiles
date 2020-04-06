@@ -8,3 +8,5 @@
 	ci = commit
 [commit]
 	gpgsign = true
+[pull]
+	rebase = true
