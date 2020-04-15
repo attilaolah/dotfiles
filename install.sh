@@ -19,6 +19,9 @@ cd .config/nvim
 ln -s ../../third_party/github.com/attilaolah/dotfiles/.config/nvim/init.vim
 cd
 
+echo "Installing locales..."
+sudo locale-gen
+
 echo "Checking for zsh..."
 zsh --version 2>/dev/null \
   || sudo pacman -Syu --noconfirm zsh 2>/dev/null \
