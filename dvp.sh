@@ -3,10 +3,9 @@
 # DVP layout
 setxkbmap -layout us \
     -variant dvp \
+    -option altwin:meta_win \
     -option caps:ctrl_modifier \
-    -option model:thinkpad \
     -option compose:ralt \
     -option keypad:atm \
-    -option numpad:shift3 \
-    -option altwin:meta_win \
-    -option kpdl:semi
+    -option kpdl:semi \
+    -option numpad:shift3
