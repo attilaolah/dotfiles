@@ -4,7 +4,7 @@
 setxkbmap -layout us \
     -variant dvp \
     -option altwin:meta_win \
-    -option caps:ctrl_modifier \
+    -option caps:escape \
     -option compose:ralt \
     -option keypad:atm \
     -option kpdl:semi \

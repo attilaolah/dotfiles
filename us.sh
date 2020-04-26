@@ -2,7 +2,7 @@
 
 # US layout
 setxkbmap -layout us \
-    -option caps:ctrl_modifier
+    -option caps:escape
 
 # Key repeat rate
 xset r rate 200 25
