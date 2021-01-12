@@ -26,7 +26,7 @@ echo "\n"
 
 echo "Installing locales..."
 sudo truncate --size=0 /etc/locale.gen
-cat etc/locale.gen | sudo tee /etc/locale.gen
+cat third_party/github.com/attilaolah/dotfiles/etc/locale.gen | sudo tee /etc/locale.gen
 sudo locale-gen
 echo "\n"
 
