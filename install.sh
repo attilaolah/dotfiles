@@ -20,6 +20,8 @@ ln -s ../../third_party/github.com/attilaolah/dotfiles/.config/nvim/init.vim
 cd
 
 echo "Installing locales..."
+sudo truncate --size=0 /etc/locale.gen
+cat etc/locale.gen | sudo tee /etc/locale.gen
 sudo locale-gen
 
 echo "Checking for zsh..."
