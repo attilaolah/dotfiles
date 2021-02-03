@@ -14,7 +14,7 @@ cd
 echo "\n"
 
 echo "Linking files..."
-for file in .gitconfig .hgrc .profile .tmux.conf .vimrc .zshrc; do
+for file in .gitconfig .gitignore .hgrc .profile .tmux.conf .vimrc .zshrc; do
   rm -f "${file}"
   ln -s "third_party/github.com/attilaolah/dotfiles/${file}"
 done
