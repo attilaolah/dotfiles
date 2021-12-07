@@ -8,6 +8,7 @@ filetype off                  " required
 "     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 call plug#begin('~/.vim/plug')
 
+Plug 'DingDean/wgsl.vim'
 Plug 'Lokaltog/powerline'
 Plug 'Shougo/unite.vim'
 Plug 'Shougo/vimproc.vim'
