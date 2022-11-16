@@ -10,3 +10,5 @@
 	gpgsign = true
 [pull]
 	rebase = true
+[push]
+	autosetupremote = true
