@@ -20,9 +20,15 @@ for file in .gitconfig .gitignore .hgrc .profile .tmux.conf .vimrc .zshrc; do
   rm -f "${file}"
   ln -s "third_party/github.com/attilaolah/dotfiles/${file}"
 done
-mkdir -p .config/nvim
-cd .config/nvim
+mkdir -p .config
+cd .config
+mkdir -p fish nvim
+pushd fish
+ln -s ../../third_party/github.com/attilaolah/dotfiles/.config/fish/config.fish
+popd
+pushd nvim
 ln -s ../../third_party/github.com/attilaolah/dotfiles/.config/nvim/init.vim
+popd
 cd
 echo -e "\n"
 
