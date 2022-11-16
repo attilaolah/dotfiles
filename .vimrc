@@ -5,7 +5,7 @@ set nocompatible              " be iMproved, required
 filetype off                  " required
 
 " curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-"     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+"   https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 call plug#begin('~/.vim/plug')
 
 Plug 'DingDean/wgsl.vim'
@@ -16,6 +16,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'altercation/vim-colors-solarized'
 Plug 'bling/vim-airline'
 Plug 'bronson/vim-visual-star-search'
+Plug 'dag/vim-fish'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 Plug 'groenewege/vim-less'
