@@ -10,6 +10,8 @@ mkdir -p "${HOME}/third_party/github.com/attilaolah"
 cd "${HOME}/third_party/github.com/attilaolah"
 rm -rf dotfiles
 git clone https://github.com/attilaolah/dotfiles
+cd dotfiles
+git remote set-url origin git@github.com:attilaolah/dotfiles
 cd
 echo "\n"
 
