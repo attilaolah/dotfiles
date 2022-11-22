@@ -38,20 +38,20 @@ cat third_party/github.com/attilaolah/dotfiles/etc/locale.gen | sudo tee /etc/lo
 sudo locale-gen
 echo -e "\n"
 
-echo "Checking for fish..."
-fish --version 2>/dev/null \
-  || sudo pacman -Syu --noconfirm fish 2>/dev/null \
-  || sudo apt install --yes fish 2>/dev/null \
-  || fish --version
-rehash 2>/dev/null || true
-sudo chsh -s "$(which fish)" "${USER}"
-echo -e "\n"
-
 echo "Checking for zsh..."
 zsh --version 2>/dev/null \
   || sudo pacman -Syu --noconfirm zsh 2>/dev/null \
   || sudo apt install --yes zsh 2>/dev/null \
   || zsh --version
+rehash 2>/dev/null || true
+sudo chsh -s "$(which zsh)" "${USER}"
+echo -e "\n"
+
+echo "Checking for fish..."
+fish --version 2>/dev/null \
+  || sudo pacman -Syu --noconfirm fish 2>/dev/null \
+  || sudo apt install --yes fish 2>/dev/null \
+  || fish --version
 rehash 2>/dev/null || true
 echo -e "\n"
 
