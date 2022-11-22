@@ -1,7 +1,3 @@
-unsetopt nomatch
-setopt autocd notify
-bindkey -e
-
 # Start fish.
 WHICH_FISH="$(which fish)"
 if [[ "$-" =~ i && -x "${WHICH_FISH}" && ! "${SHELL}" -ef "${WHICH_FISH}" ]]; then
@@ -14,6 +10,13 @@ if [[ "$-" =~ i && -x "${WHICH_FISH}" && ! "${SHELL}" -ef "${WHICH_FISH}" ]]; th
   # console and wants zsh, so we skip this.
   exec env SHELL="${WHICH_FISH}" "${WHICH_FISH}" -i
 fi
+
+## ZSH config.
+## This is only used when staying in 'zsh' instead of 'fish'.
+
+unsetopt nomatch
+setopt autocd notify
+bindkey -e
 
 _cli_fg() {
   fg 2>/dev/null || true
