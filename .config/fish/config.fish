@@ -1,6 +1,9 @@
 source ~/.profile
 
 if status is-interactive
+    ## Disable welcome
+    set --universal fish_greeting
+
     ## Abbreviations:
     abbr --add o xdg-open
 
