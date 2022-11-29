@@ -8,28 +8,29 @@ filetype off                  " required
 "   https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 call plug#begin('~/.vim/plug')
 
-Plug 'DingDean/wgsl.vim'
-Plug 'Lokaltog/powerline'
-Plug 'Shougo/unite.vim'
-Plug 'Shougo/vimproc.vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'altercation/vim-colors-solarized'
 Plug 'bling/vim-airline'
 Plug 'bronson/vim-visual-star-search'
 Plug 'dag/vim-fish'
+Plug 'DingDean/wgsl.vim'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 Plug 'groenewege/vim-less'
 Plug 'hail2u/vim-css3-syntax'
 Plug 'jstemmer/gotags'
+Plug 'junegunn/fzf'
 Plug 'junegunn/vim-easy-align'
 Plug 'kchmck/vim-coffee-script'
 Plug 'leafgarland/typescript-vim'
+Plug 'Lokaltog/powerline'
 Plug 'majutsushi/tagbar'
 Plug 'nelstrom/vim-markdown-folding'
 Plug 'ngmy/vim-rubocop'
 Plug 'python-mode/python-mode', { 'branch': 'develop' }
 Plug 'scrooloose/syntastic'
+Plug 'Shougo/unite.vim'
+Plug 'Shougo/vimproc.vim'
 Plug 'slim-template/vim-slim'
 Plug 'sunaku/vim-ruby-minitest'
 Plug 'terryma/vim-multiple-cursors'
@@ -146,3 +147,5 @@ let project_vimrc = chomped_project_root."/.vimrc"
 if filereadable(project_vimrc)
   execute "source" project_vimrc
 endif
+
+source /usr/share/doc/fzf/examples/fzf.vim
