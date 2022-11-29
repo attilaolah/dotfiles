@@ -24,7 +24,6 @@ if status is-interactive
     abbr --add ga git add -p .
     abbr --add gb git branch -avv
     abbr --add gc git commit -v
-    abbr --add gd git diff
     abbr --add gp git push
     abbr --add gr git remote -v
     abbr --add gl git log --graph --abbrev-commit --pretty=\"format:(set_color -o -u brred)%h(set_color normal)(set_color yellow)%d(set_color normal) (set_color red)\(%cr\)(set_color normal) %s — (set_color blue)%ae(set_color normal)\"
@@ -32,4 +31,11 @@ if status is-interactive
     function gg
         git commit -m "$argv"
     end
+
+    abbr --add h hg status
+end
+
+# Work stuff goes here.
+if test -e  ~/.config/fish/google.fish
+    source ~/.config/fish/google.fish
 end
