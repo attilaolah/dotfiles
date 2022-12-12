@@ -5,39 +5,47 @@ git --version 2>/dev/null \
   || git --version
 echo -e "\n"
 
+echo "Creating repos dir..."
+REPOS="${HOME}/repos"
+cd "${REPOS}"
+mkdir -p github.com/attilaolah
+rm -f my
+ln -s github.com/attilaolah my
+echo -e "\n"
+
 echo "Cloning attilaolah/dotfiles..."
-mkdir -p "${HOME}/repos/github.com/attilaolah"
-cd "${HOME}/repos/github.com/attilaolah"
-rm -rf dotfiles
-git clone https://github.com/attilaolah/dotfiles
+mkdir -p "${REPOS}/github.com/attilaolah"
+cd "${REPOS}/my"
+[[ -d dotfiles ]] || git clone https://github.com/attilaolah/dotfiles
 cd dotfiles
 git remote set-url origin git@github.com:attilaolah/dotfiles
-cd
+DOTFILES="$(pwd)"
 echo -e "\n"
 
 echo "Linking files..."
-for file in .gitconfig .gitignore .hgrc .profile .tmux.conf .vimrc .zshrc; do
-  rm -f "${file}"
-  ln -s "repos/github.com/attilaolah/dotfiles/${file}"
+files=(\
+  .config/fish/config.fish \
+  .config/fish/functions/fish_prompt.fish \
+  .config/nvim/init.vim \
+  .gitconfig \
+  .gitignore \
+  .hgrc \
+  .profile \
+  .tmux.conf \
+  .vimrc \
+  .zshrc \
+)
+for f in ${files[@]}; do
+  hf="${HOME}/${f}"
+  rm -f "${hf}"
+  mkdir -p "$(dirname "${hf}")"
+  ln -s "${DOTFILES}/${f}" "${hf}"
 done
-mkdir -p .config
-cd .config
-mkdir -p fish/functions nvim
-pushd fish
-ln -s ../../repos/github.com/attilaolah/dotfiles/.config/fish/config.fish
-pushd functions
-ln -s ../../../repos/github.com/attilaolah/dotfiles/.config/fish/fish_prompt.fish
-popd
-popd
-pushd nvim
-ln -s ../../repos/github.com/attilaolah/dotfiles/.config/nvim/init.vim
-popd
-cd
 echo -e "\n"
 
 echo "Installing locales..."
 sudo truncate --size=0 /etc/locale.gen
-cat repos/github.com/attilaolah/dotfiles/etc/locale.gen | sudo tee /etc/locale.gen
+cat "${DOTFILES}/etc/locale.gen" | sudo tee /etc/locale.gen
 sudo locale-gen
 echo -e "\n"
 
@@ -57,7 +65,6 @@ fish --version 2>/dev/null \
   || fish --version
 rehash 2>/dev/null || true
 echo -e "\n"
-
 
 echo "Downloading https://github.com/junegunn/vim-plug..."
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
