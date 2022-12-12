@@ -6,8 +6,8 @@ git --version 2>/dev/null \
 echo -e "\n"
 
 echo "Cloning attilaolah/dotfiles..."
-mkdir -p "${HOME}/third_party/github.com/attilaolah"
-cd "${HOME}/third_party/github.com/attilaolah"
+mkdir -p "${HOME}/repos/github.com/attilaolah"
+cd "${HOME}/repos/github.com/attilaolah"
 rm -rf dotfiles
 git clone https://github.com/attilaolah/dotfiles
 cd dotfiles
@@ -18,23 +18,23 @@ echo -e "\n"
 echo "Linking files..."
 for file in .gitconfig .gitignore .hgrc .profile .tmux.conf .vimrc .zshrc; do
   rm -f "${file}"
-  ln -s "third_party/github.com/attilaolah/dotfiles/${file}"
+  ln -s "repos/github.com/attilaolah/dotfiles/${file}"
 done
 mkdir -p .config
 cd .config
 mkdir -p fish nvim
 pushd fish
-ln -s ../../third_party/github.com/attilaolah/dotfiles/.config/fish/config.fish
+ln -s ../../repos/github.com/attilaolah/dotfiles/.config/fish/config.fish
 popd
 pushd nvim
-ln -s ../../third_party/github.com/attilaolah/dotfiles/.config/nvim/init.vim
+ln -s ../../repos/github.com/attilaolah/dotfiles/.config/nvim/init.vim
 popd
 cd
 echo -e "\n"
 
 echo "Installing locales..."
 sudo truncate --size=0 /etc/locale.gen
-cat third_party/github.com/attilaolah/dotfiles/etc/locale.gen | sudo tee /etc/locale.gen
+cat repos/github.com/attilaolah/dotfiles/etc/locale.gen | sudo tee /etc/locale.gen
 sudo locale-gen
 echo -e "\n"
 
