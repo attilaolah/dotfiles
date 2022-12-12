@@ -22,9 +22,12 @@ for file in .gitconfig .gitignore .hgrc .profile .tmux.conf .vimrc .zshrc; do
 done
 mkdir -p .config
 cd .config
-mkdir -p fish nvim
+mkdir -p fish/functions nvim
 pushd fish
 ln -s ../../repos/github.com/attilaolah/dotfiles/.config/fish/config.fish
+pushd functions
+ln -s ../../../repos/github.com/attilaolah/dotfiles/.config/fish/fish_prompt.fish
+popd
 popd
 pushd nvim
 ln -s ../../repos/github.com/attilaolah/dotfiles/.config/nvim/init.vim

@@ -147,5 +147,3 @@ let project_vimrc = chomped_project_root."/.vimrc"
 if filereadable(project_vimrc)
   execute "source" project_vimrc
 endif
-
-source /usr/share/doc/fzf/examples/fzf.vim
