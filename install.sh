@@ -6,8 +6,8 @@ git --version 2>/dev/null \
 
 echo "Creating repos dir..."
 REPOS="${HOME}/repos"
+mkdir -p "${REPOS}/github.com/attilaolah"
 cd "${REPOS}"
-mkdir -p github.com/attilaolah
 rm -f my
 ln -s github.com/attilaolah my
 
