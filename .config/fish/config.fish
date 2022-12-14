@@ -35,6 +35,14 @@ if status is-interactive
     abbr --add h hg status
 end
 
+if test -e "$GOHOME/bin"
+    fish_add_path "$GOHOME/bin"
+end
+
+if test -e "$CARGO_HOME/bin"
+    fish_add_path "$CARGO_HOME/bin"
+end
+
 # Work stuff goes here.
 if test -e  ~/.config/fish/google.fish
     source ~/.config/fish/google.fish
