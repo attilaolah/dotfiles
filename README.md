@@ -3,5 +3,5 @@
 Somewhat rudimentary setup script:
 
 ```shell
-$ curl https://raw.githubusercontent.com/attilaolah/dotfiles/master/install.sh | sh
+$ curl https://raw.githubusercontent.com/attilaolah/dotfiles/main/install.sh | bash
 ```
