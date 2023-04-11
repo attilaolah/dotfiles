@@ -26,8 +26,8 @@ sudo usermod --groups nix-users --append $USER
 ```
 
 Then logout & log back in again for the group membership to take effect. On
-Crostini, it might be necessary to "shut down" the Linux container and start
-it again.
+Crostini, it might be necessary to "shut down" the Linux container and start it
+again.
 
 Once that's done, run the home-manager setup. Nothing below should require
 superuser permissions any more.
@@ -40,19 +40,34 @@ nix-channel --update
 nix-shell '<home-manager>' --attr install
 ```
 
-NOTE: If this fails with a complaint about `/nix/var/nix/gcroots`,
-re-running the `nix-shell` command should solve the issue.
+NOTE: If this fails with a complaint about `/nix/var/nix/gcroots`, re-running
+the `nix-shell` command should solve the issue.
 
-Once home-manager is done, logging out and back in should activate the
-right shell and the environment should be ready to use. The `home.nix` file install per-user,
-nix-managed versions of most binaries needed for day-to-day life. Additional
-packages can be installed (or removed) as needed using `nix-env`, for example:
+Once home-manager is done, logging out and back in should activate the right
+shell and the environment should be ready to use. The `home.nix` file install
+per-user, nix-managed versions of most binaries needed for day-to-day life.
+Additional packages can be installed (or removed) as needed using `nix-env`,
+for example:
 
-```
-$ nix-env --install rawtherapee
+```sh
+nix-env --install rawtherapee
 ```
 
 To clean up, run `nix-env --uninstall pkgname` and run `nix-collect-garbage`.
+
+## Persistent modifications
+
+To make changes to the system config files, replace the home-manager directory
+with a Git repo. This can be done once the environment has an SSH key
+configured.
+
+```sh
+rm -rf ~/.config/home-manager
+git clone git@github.com:attilaolah/dotfiles ~/.config/home-manager
+```
+
+After making changes to the files in `~/.config/home-manager`, activate them by
+running `home-manager switch`.
 
 ## DuckDNS template
 
