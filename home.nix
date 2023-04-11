@@ -10,6 +10,7 @@
     fish
     tmux
     tree
+    silver-searcher
     fzf
 
     # Editor:
@@ -18,6 +19,7 @@
     # Utilities:
     curl
     wget
+    rsync
 
     # Development environment:
     git
