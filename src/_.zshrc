@@ -1,3 +1,7 @@
+# Load the user profile.
+# This will set up the $PATH to be managed by home-manager.
+source $HOME/.profile
+
 # Start fish.
 WHICH_FISH="$(which fish)"
 if [[ "$-" =~ i && -x "${WHICH_FISH}" && ! "${SHELL}" -ef "${WHICH_FISH}" ]]; then
@@ -5,7 +9,7 @@ if [[ "$-" =~ i && -x "${WHICH_FISH}" && ! "${SHELL}" -ef "${WHICH_FISH}" ]]; th
   # shell is present and executable. Verify that this is a new session by
   # checking if ${SHELL} is set to the path to fish. If it is not, we set
   # ${SHELL} and start fish.
-  #
+
   # If this is not a new session, the user probably typed 'zsh' into their
   # console and wants zsh, so we skip this.
   exec env SHELL="${WHICH_FISH}" "${WHICH_FISH}" -i
@@ -116,9 +120,6 @@ local return_status="%{$fg[red]%}%(?..=)%{$reset_color%}"
 
 PROMPT="${prompt_jobs}${prompt_host} %~ ${prompt_root} "
 RPROMPT="${return_status}%*"
-
-[ -f "${HOME}/.zshrc_work" ] && source "${HOME}/.zshrc_work"
-source $HOME/.profile
 
 # Create a zkbd compatible hash.
 # To add other keys to this hash, see: man 5 terminfo.
