@@ -33,8 +33,29 @@ $ nix-env --install rawtherapee
 
 To clean up, run `nix-env --uninstall pkgname` and run `nix-collect-garbage`.
 
-## Legacy setup script (to be removed):
+## DuckDNS template
 
-```shell
-$ curl https://raw.githubusercontent.com/attilaolah/dotfiles/main/install.sh | bash
+The DuckDNS template is not managed since it is only running in a single
+container on one host at the moment.
+
+```sh
+#!/usr/bin/env bash
+
+LOGFILE="/tmp/duckdns.log"
+
+echo -n "$(date --rfc-3339=seconds) " > "${LOGFILE}"
+echo url="https://www.duckdns.org/update?domains=home-attilaolah-eu&token={{token}}&ip=" \
+    | curl -k -o - -K - \
+    >> "${LOGFILE}"
+echo >> "${LOGFILE}"
+```
+
+## System locale
+
+To install system locales on the host, run the following:
+
+```sh
+echo en_US.UTF-8 UTF-8 | sudo tee /etc/locale.gen
+echo en_GB.UTF-8 UTF-8 | sudo tee -a /etc/locale.gen
+sudo locale-gen
 ```
