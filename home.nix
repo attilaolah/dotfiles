@@ -45,6 +45,8 @@
     # ~/.config:
     ".config/fish/functions/fish_prompt.fish".source = ./src/_.config/fish/functions/fish_prompt.fish;
     # ~/.*:
+    ".bash_profile".source = ./src/_.bash_profile;
+    ".bashrc".source = ./src/_.bashrc;
     ".gitconfig".source = ./src/_.gitconfig;
     ".hgrc".source = ./src/_.hgrc;
     ".profile".source = ./src/_.profile;

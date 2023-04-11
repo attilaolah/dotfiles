@@ -1,6 +1,6 @@
 # Load the user profile.
 # This will set up the $PATH to be managed by home-manager.
-source $HOME/.profile
+source "${HOME}/.profile"
 
 # Start fish.
 WHICH_FISH="$(which fish)"
