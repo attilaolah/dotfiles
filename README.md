@@ -7,23 +7,44 @@ using [home-manager].
 
 ## One-time setup
 
-On a fresh system, the first step is to install the Nix package manager and
-home-manager. On Debian, this can be done by running:
+On a fresh system, the first step is to grab a copy of the repository:
 
-```
-$ sudo apt install nix-setup-systemd
-```
-
-The contents of this repo need to be cloned to `~/.config/home-manager`, so
-that the `home.nix` file ends up being located at
-`~/.config/home-manager/home.nix`. Once that's done, run the home-manager
-setup:
-
-```
-$ nix-shell '<home-manager>' --attr install
+```sh
+wget https://github.com/attilaolah/dotfiles/archive/refs/heads/main.zip \
+  --output-document ~/dotfiles.zip
+unzip ~/dotfiles.zip
+mv dotfiles-main .config/home-manager
+rm dotfiles.zip
 ```
 
-This will use the `home.nix` config from the repo and install per-user,
+The next step is to install the Nix package manager. On a Debian system, this
+can be done by running:
+
+```sh
+sudo apt install nix-setup-systemd
+sudo usermod --groups nix-users --append $USER
+```
+
+Then logout & log back in again for the group membership to take effect. On
+Crostini, it might be necessary to "shut down" the Linux container and start
+it again.
+
+Once that's done, run the home-manager setup. Nothing below should require
+superuser permissions any more.
+
+```sh
+rm -f .profile .bashrc .bash_profile .zshrc
+nix-channel --add https://nixos.org/channels/nixpkgs-unstable
+nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager
+nix-channel --update
+nix-shell '<home-manager>' --attr install
+```
+
+NOTE: If this fails with a complaint about `/nix/var/nix/gcroots`,
+re-running the `nix-shell` command should solve the issue.
+
+Once home-manager is done, logging out and back in should activate the
+right shell and the environment should be ready to use. The `home.nix` file install per-user,
 nix-managed versions of most binaries needed for day-to-day life. Additional
 packages can be installed (or removed) as needed using `nix-env`, for example:
 
