@@ -6,8 +6,12 @@
   home.stateVersion = "22.11";
 
   home.packages = with pkgs; [
-    # Use NeoVim as the editor.
+    # Shell:
+    tmux
+    # Editor:
     neovim
+    # Development environment:
+    git
   ];
 
   home.file = {
