@@ -25,6 +25,12 @@
     VISUAL = "nvim";
   };
 
+  services.gpg-agent = {
+    enable = true;
+    defaultCacheTtl = 1800;
+    enableSshSupport = true;
+  };
+
   programs.fish = {
     enable = true;
     # You can add additional fish configurations here. For example:
