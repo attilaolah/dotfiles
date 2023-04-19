@@ -20,6 +20,8 @@
     curl
     wget
     rsync
+    gnupg
+    pinentry
 
     # Development environment:
     git
@@ -49,7 +51,6 @@
     # ~/.*:
     ".bash_profile".source = ./src/_.bash_profile;
     ".bashrc".source = ./src/_.bashrc;
-    ".gitconfig".source = ./src/_.gitconfig;
     ".hgrc".source = ./src/_.hgrc;
     ".profile".source = ./src/_.profile;
     ".tmux.conf".source = ./src/_.tmux.conf;
@@ -71,8 +72,9 @@
 
   services.gpg-agent = {
     enable = true;
-    defaultCacheTtl = 1800;  # 30m
     enableSshSupport = true;
+    defaultCacheTtl = 1800;  # 30m
+    pinentryFlavor = "curses";
   };
 
   programs.fish = {
@@ -108,6 +110,31 @@
       source ${pkgs.fzf}/share/fish/vendor_functions.d/fzf_key_bindings.fish
       source ${pkgs.fzf}/share/fish/vendor_conf.d/load-fzf-key-bindings.fish
     '';
+  };
+
+  programs.gpg = {
+    enable = true;
+    settings = {
+      default-key = "07E6C0643FD142C3";
+    };
+  };
+
+  programs.git = {
+    enable = true;
+    userName = "Attila Oláh";
+    userEmail = "attilaolah@gmail.com";
+    signing = {
+      signByDefault = true;
+      key = "07E6C0643FD142C3";
+    };
+    aliases = {
+      ci = "commit";
+      co = "checkout";
+    };
+    extraConfig = {
+      pull = { rebase = true; };
+      push = { autoSetupRemote = true; };
+    };
   };
 
   # Let Home Manager install and manage itself.
