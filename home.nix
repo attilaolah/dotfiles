@@ -5,7 +5,11 @@
   home.homeDirectory = "/home/atl";
   home.stateVersion = "22.11";
 
+  nix.package = pkgs.nix;
   home.packages = with pkgs; [
+    # Nix (configured above):
+    config.nix.package
+
     # Shell & tools:
     fish
     tmux
