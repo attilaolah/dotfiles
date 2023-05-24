@@ -3,7 +3,7 @@
 {
   home.username = "atl";
   home.homeDirectory = "/home/atl";
-  home.stateVersion = "22.11";
+  home.stateVersion = "23.05";
 
   nix.package = pkgs.nix;
   home.packages = with pkgs; [
