@@ -38,8 +38,8 @@
     rustfmt
     go
     nodejs
-    python3
-    python3Packages.ipython
+    python311Full
+    python311Packages.ipython
     ruby
   ];
 
