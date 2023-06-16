@@ -17,8 +17,9 @@
     silver-searcher
     fzf
 
-    # Editor:
+    # Editors:
     neovim
+    vscode
 
     # Utilities:
     curl
@@ -42,6 +43,9 @@
     python311Packages.ipython
     ruby
   ];
+
+  # VSCode is unfree :(
+  nixpkgs.config.allowUnfree = true;
 
   home.sessionPath = [
     "${config.home.homeDirectory}/dev/bin"
