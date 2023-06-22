@@ -34,9 +34,7 @@
     bazel-watcher
     clang
     clang-tools
-    rustc
-    cargo
-    rustfmt
+    rustup
     go
     nodejs
     python311Full
@@ -74,8 +72,8 @@
     EDITOR = "nvim";
     VISUAL = "nvim";
     # Development environment:
-    CARGO_HOME = "${config.home.homeDirectory}/dev/cargo";
-    GOHOME = "${config.home.homeDirectory}/dev/go";
+    GOPATH = "${config.home.homeDirectory}/dev/go";
+    RUSTUP_HOME = "${config.home.homeDirectory}/dev/rustup";
   };
 
   services.gpg-agent = {
