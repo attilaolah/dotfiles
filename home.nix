@@ -27,6 +27,7 @@
     rsync
     gnupg
     pinentry
+    dig
 
     # Development environment:
     git
