@@ -41,6 +41,7 @@
     python311Full
     python311Packages.ipython
     ruby
+    android-tools
   ];
 
   # VSCode is unfree :(
