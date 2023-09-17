@@ -112,6 +112,8 @@
 
       kb-us = "setxkbmap -layout us -option caps:escape";
       kb-dvp = "setxkbmap -layout us -variant dvp -option altwin:meta_win -option caps:escape -option compose:ralt -option keypad:atm -option kpdl:semi -option numpad:shift3";
+
+      nix-try = "nix-shell --run $SHELL --packages";
     };
     interactiveShellInit = ''
       set --universal fish_greeting
