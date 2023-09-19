@@ -28,6 +28,7 @@
     gnupg
     pinentry
     dig
+    ipfs
 
     # Development environment:
     git
@@ -35,6 +36,7 @@
     bazel-watcher
     clang
     clang-tools
+    pkg-config
     rustup
     go
     nodejs
