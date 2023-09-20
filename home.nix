@@ -32,7 +32,7 @@
 
     # Development environment:
     git
-    bazel
+    bazelisk
     bazel-watcher
     clang
     clang-tools
@@ -100,6 +100,8 @@
       vi = "nvim";
       vim = "nvim";
       nv = "nvim";
+
+      bazel = "bazelisk";
 
       g = "git status";
       ga = "git add -p .";
