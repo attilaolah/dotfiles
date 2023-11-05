@@ -40,6 +40,7 @@
     rustup
     go
     nodejs
+    nodePackages.pnpm
     python311Full
     python311Packages.ipython
     ruby
