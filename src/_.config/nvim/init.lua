@@ -53,7 +53,7 @@ lazy.setup({
 })
 
 vim.opt.termguicolors = true
-vim.cmd.colorscheme('tokyonight')
+vim.cmd.colorscheme('slate')
 
 require('lualine').setup({
   options = {
