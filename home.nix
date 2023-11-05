@@ -59,6 +59,7 @@
     # ~/.config:
     ".config/fish/functions/fish_prompt.fish".source = ./src/_.config/fish/functions/fish_prompt.fish;
     # ~/.*:
+    ".config/nvim/init.lua".source = ./src/_.config/nvim/init.lua;
     ".bash_profile".source = ./src/_.bash_profile;
     ".bashrc".source = ./src/_.bashrc;
     ".hgrc".source = ./src/_.hgrc;
