@@ -150,6 +150,7 @@
     extraConfig = {
       pull = { rebase = true; };
       push = { autoSetupRemote = true; };
+      init = { defaultBranch = "main"; };
     };
   };
 
