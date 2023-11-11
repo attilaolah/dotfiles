@@ -29,6 +29,7 @@
     rsync
     gnupg
     pinentry
+    mktemp
     dig
 
     # UI + Wayland tools:
