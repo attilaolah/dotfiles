@@ -10,6 +10,9 @@
     # Nix (configured above):
     config.nix.package
 
+    # Browser:
+    google-chrome
+
     # Shell & tools:
     fish
     tmux
@@ -19,7 +22,6 @@
 
     # Editors:
     neovim
-    vscode
 
     # Utilities:
     curl
@@ -28,7 +30,10 @@
     gnupg
     pinentry
     dig
-    ipfs
+
+    # UI + Wayland tools:
+    bemenu
+    rawtherapee
 
     # Development environment:
     git
@@ -47,7 +52,6 @@
     android-tools
   ];
 
-  # VSCode is unfree :(
   nixpkgs.config.allowUnfree = true;
 
   home.sessionPath = [
@@ -59,8 +63,9 @@
   home.file = {
     # ~/.config:
     ".config/fish/functions/fish_prompt.fish".source = ./src/_.config/fish/functions/fish_prompt.fish;
-    # ~/.*:
     ".config/nvim/init.lua".source = ./src/_.config/nvim/init.lua;
+    ".config/sway/config".source = ./src/_.config/sway/config;
+    # ~/.*:
     ".bash_profile".source = ./src/_.bash_profile;
     ".bashrc".source = ./src/_.bashrc;
     ".hgrc".source = ./src/_.hgrc;
