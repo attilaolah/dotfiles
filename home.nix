@@ -42,7 +42,10 @@
     bazel-watcher
     clang
     clang-tools
+    clangStdenv
     pkg-config
+    gnumake
+    cmake
     rustup
     go
     nodejs
