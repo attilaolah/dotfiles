@@ -105,6 +105,10 @@ input "type:keyboard" {
     bindsym $mod+Shift+Down move down
     bindsym $mod+Shift+Up move up
     bindsym $mod+Shift+Right move right
+
+    # With Alt+Tab
+    bindsym Alt+Tab focus right
+    bindsym Alt+Shift+Tab focus left
 #
 # Workspaces:
 #
