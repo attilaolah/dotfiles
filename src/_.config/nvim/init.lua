@@ -1,4 +1,4 @@
-vim.opt.mouse = 'a'
+vim.opt.mouse = 'v'
 vim.opt.number = true
 
 vim.opt.hlsearch = true
