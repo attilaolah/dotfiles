@@ -40,6 +40,8 @@
     git
     bazelisk
     bazel-watcher
+    buildifier
+    buildozer
     clang
     clang-tools
     clangStdenv
