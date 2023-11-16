@@ -50,6 +50,7 @@ lazy.setup({
   {'airblade/vim-gitgutter'},
   {'folke/tokyonight.nvim'},
   {'nvim-lualine/lualine.nvim'},
+  {'tpope/vim-abolish'},
 })
 
 vim.opt.termguicolors = true
