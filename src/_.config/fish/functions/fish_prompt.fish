@@ -18,15 +18,16 @@ end
 
 ## Function to show current status
 function show_status -d "Function to show the current status"
-  if [ $RETVAL -ne 0 ]
-    prompt_segment red white "^"
-    set pad " "
-  end
+  set -l colour green
   if [ -n "$SSH_CLIENT" ]
-    prompt_segment blue white "SSH:"
-    prompt_segment normal white " "
-    set pad " "
+    prompt_segment blue white "SSH"
   end
+  if [ $RETVAL -ne 0 ]
+    set colour red
+  end
+  prompt_segment normal white "L"
+  prompt_segment normal $colour "$SHLVL"
+  prompt_segment normal white " "
 end
 
 function show_virtualenv -d "Show active python virtual environments"
