@@ -56,6 +56,7 @@
     python311Full
     python311Packages.ipython
     ruby
+    elan
     android-tools
   ];
 
