@@ -51,6 +51,24 @@ lazy.setup({
   {'folke/tokyonight.nvim'},
   {'nvim-lualine/lualine.nvim'},
   {'tpope/vim-abolish'},
+  {
+    'Julian/lean.nvim',
+    event = { 'BufReadPre *.lean', 'BufNewFile *.lean' },
+
+    dependencies = {
+      'neovim/nvim-lspconfig',
+      'nvim-lua/plenary.nvim',
+      'hrsh7th/nvim-cmp',
+    },
+
+    -- see details below for full configuration options
+    opts = {
+      lsp = {
+        on_attach = on_attach,
+      },
+      mappings = true,
+    }
+  },
 })
 
 vim.opt.termguicolors = true
