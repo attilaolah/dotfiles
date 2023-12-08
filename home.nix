@@ -11,7 +11,7 @@
     config.nix.package
 
     # Browser:
-    google-chrome
+    #google-chrome
 
     # Shell & tools:
     fish
@@ -31,11 +31,6 @@
     pinentry
     mktemp
     dig
-
-    # UI + Wayland tools:
-    bemenu
-    nerdfonts
-    rawtherapee
 
     # Development environment:
     git
