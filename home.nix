@@ -35,7 +35,6 @@
     # UI + Wayland tools:
     bemenu
     nerdfonts
-    rawtherapee
 
     # Development environment:
     git
