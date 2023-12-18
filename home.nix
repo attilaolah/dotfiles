@@ -32,10 +32,6 @@
     mktemp
     dig
 
-    # UI + Wayland tools:
-    bemenu
-    nerdfonts
-
     # Development environment:
     git
     bazelisk
