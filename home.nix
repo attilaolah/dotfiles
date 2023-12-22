@@ -67,6 +67,7 @@
     # ~/.config:
     ".config/fish/functions/fish_prompt.fish".source = ./src/_.config/fish/functions/fish_prompt.fish;
     ".config/foot/foot.ini".source = ./src/_.config/foot/foot.ini;
+    ".config/hypr/hyprland.conf".source = ./src/_.config/hypr/hyprland.conf;
     ".config/nvim/init.lua".source = ./src/_.config/nvim/init.lua;
     ".config/sway/config".source = ./src/_.config/sway/config;
     # ~/.*:
@@ -129,6 +130,8 @@
       kb-dvp = "setxkbmap -layout us -variant dvp -option altwin:meta_win -option caps:escape -option compose:ralt -option keypad:atm -option kpdl:semi -option numpad:shift3";
 
       nix-try = "nix-shell --run $SHELL --packages";
+
+      hypr = "Hyprland";
     };
     interactiveShellInit = ''
       set --universal fish_greeting
