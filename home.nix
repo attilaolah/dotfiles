@@ -35,7 +35,6 @@
     # Development environment:
     git
     bazelisk
-    bazel-watcher
     buildifier
     buildozer
     clang
