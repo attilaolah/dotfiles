@@ -10,9 +10,6 @@
     # Nix (configured above):
     config.nix.package
 
-    # Browser:
-    google-chrome
-
     # Shell & tools:
     fish
     tmux
@@ -31,6 +28,7 @@
     pinentry
     mktemp
     dig
+    screenfetch
 
     # Development environment:
     git
