@@ -55,9 +55,7 @@
   nixpkgs.config.allowUnfree = true;
 
   home.sessionPath = [
-    "${config.home.homeDirectory}/dev/bin"
-    "${config.home.homeDirectory}/dev/cargo/bin"
-    "${config.home.homeDirectory}/dev/go/bin"
+    "${config.home.homeDirectory}/local/bin"
   ];
 
   home.file = {
