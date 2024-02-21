@@ -47,9 +47,11 @@ lazy.path = vim.fn.stdpath('data') .. '/lazy/lazy.nvim'
 lazy.opts = {}
 
 lazy.setup({
-  {'Cian911/vim-cadence'},
   {'airblade/vim-gitgutter'},
+  {'Cian911/vim-cadence'},
   {'folke/tokyonight.nvim'},
+  {'junegunn/fzf'},
+  {'nanotee/zoxide.vim'},
   {'nvim-lualine/lualine.nvim'},
   {'tpope/vim-abolish'},
   {

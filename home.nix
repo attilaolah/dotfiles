@@ -14,6 +14,7 @@
     fish
     tmux
     tree
+    zoxide
     silver-searcher
     fzf
 
@@ -134,6 +135,7 @@
       set --universal fish_greeting
       source ${pkgs.fzf}/share/fish/vendor_functions.d/fzf_key_bindings.fish
       source ${pkgs.fzf}/share/fish/vendor_conf.d/load-fzf-key-bindings.fish
+      ${pkgs.zoxide}/bin/zoxide init --cmd cd fish | source
     '';
   };
 
