@@ -1,5 +1,3 @@
-set -g pad " "
-
 ## Function to show a segment
 function prompt_segment -d "Function to show a segment"
   # Get colors
@@ -17,11 +15,15 @@ function prompt_segment -d "Function to show a segment"
 end
 
 ## Function to show current status
-function show_status -d "Function to show the current status"
-  set -l colour green
+function show_ssh -d "Function to show the current status"
   if [ -n "$SSH_CLIENT" ]
     prompt_segment blue white "SSH"
   end
+end
+
+## Function to show current shell level
+function show_shlvl -d "Function to show the current shell level"
+  set -l colour green
   if [ $RETVAL -ne 0 ]
     set colour red
   end
@@ -30,10 +32,10 @@ function show_status -d "Function to show the current status"
   prompt_segment normal white " "
 end
 
-function show_virtualenv -d "Show active python virtual environments"
+function show_virtualenv -d "Show active Python virtual environments"
   if set -q VIRTUAL_ENV
     set -l venvname (basename "$VIRTUAL_ENV")
-    prompt_segment normal white " ($venvname) "
+    prompt_segment normal white " [$venvname]"
   end
 end
 
@@ -66,7 +68,7 @@ function show_pwd -d "Show the current directory"
   else
     set pwd (prompt_pwd)
   end
-  prompt_segment normal blue "$pad$pwd "
+  prompt_segment normal blue " $pwd "
 end
 
 # Show prompt w/ privilege cue
@@ -86,9 +88,11 @@ end
 ## SHOW PROMPT
 function fish_prompt
   set -g RETVAL $status
-  show_status
-  show_virtualenv
+  show_ssh
+  show_shlvl
   show_user
+  # No need, since `source bin/activate.fish` already shows this.
+  #show_virtualenv
   show_pwd
   show_prompt
 end
