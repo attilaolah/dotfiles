@@ -51,6 +51,7 @@
     ruby
     elan
     android-tools
+    virtualenv
   ];
 
   nixpkgs.config.allowUnfree = true;
