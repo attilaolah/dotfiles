@@ -30,6 +30,7 @@
     mktemp
     dig
     screenfetch
+    age
 
     # Development environment:
     git
