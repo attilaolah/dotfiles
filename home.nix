@@ -130,7 +130,7 @@
 
       nix-try = "nix-shell --run $SHELL --packages";
 
-      hypr = "Hyprland";
+      h = "Hyprland";
     };
     interactiveShellInit = ''
       set --universal fish_greeting
