@@ -32,6 +32,7 @@
     screenfetch
     age
     any-nix-shell
+    direnv
 
     # Development environment:
     git
@@ -140,6 +141,7 @@
       source ${pkgs.fzf}/share/fish/vendor_conf.d/load-fzf-key-bindings.fish
       ${pkgs.zoxide}/bin/zoxide init --cmd cd fish | source
       ${pkgs.any-nix-shell}/bin/any-nix-shell fish | source
+      ${pkgs.direnv}/bin/direnv hook fish | source
     '';
   };
 
