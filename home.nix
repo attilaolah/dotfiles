@@ -112,6 +112,8 @@
       l = "ls -lh";
       ll = "ls -la";
 
+      f = "fd"
+
       v = "nvim";
       vi = "nvim";
       vim = "nvim";
@@ -135,6 +137,8 @@
 
       nix-try = "nix-shell --run $SHELL --packages";
 
+      # Hyprland is so cool it starts with a capital letter.
+      # Nevertheless, nobody likes excessive pinky usage, so let's fix that.
       h = "Hyprland";
     };
     interactiveShellInit = ''
