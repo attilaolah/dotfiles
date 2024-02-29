@@ -33,6 +33,8 @@
     age
     any-nix-shell
     direnv
+    ripgrep
+    fd
 
     # Development environment:
     git
