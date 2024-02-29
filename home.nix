@@ -112,7 +112,7 @@
       l = "ls -lh";
       ll = "ls -la";
 
-      f = "fd"
+      f = "fd";
 
       v = "nvim";
       vi = "nvim";
