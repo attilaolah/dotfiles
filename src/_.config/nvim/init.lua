@@ -53,7 +53,26 @@ lazy.setup({
   {'junegunn/fzf'},
   {'nanotee/zoxide.vim'},
   {'nvim-lualine/lualine.nvim'},
+  {'stevearc/dressing.nvim'},
+  {
+    'nvim-telescope/telescope.nvim',
+    tag = '0.1.5',
+    dependencies = {
+      'nvim-lua/plenary.nvim',
+      'nvim-treesitter/nvim-treesitter',
+    }
+  },
   {'tpope/vim-abolish'},
+  {
+    "ziontee113/icon-picker.nvim",
+    config = function()
+      require("icon-picker").setup({ disable_legacy_commands = true })
+      vim.keymap.set("n", "<Leader><Leader>i", "<cmd>IconPickerNormal emoji<cr>", {
+        noremap = true,
+        silent = true
+      })
+    end
+  },
   {
     'Julian/lean.nvim',
     event = { 'BufReadPre *.lean', 'BufNewFile *.lean' },
