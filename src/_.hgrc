@@ -1,5 +1,0 @@
-[ui]
-paginate = never
-
-[trainingwheels]
-prevent-push-dirty = false
