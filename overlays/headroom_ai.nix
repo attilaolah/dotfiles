@@ -2,9 +2,9 @@ final: prev: let
   inherit (builtins) elemAt;
   fetchFromGitHubTuple = import ./lib/fetch_from_github_tuple.nix prev;
   py = prev.python3Packages;
-  github-tags = ["headroomlabs-ai/headroom" "0.38.0"]; # extractVersion=^v(?<version>.*)$
-  hash-src = "sha256-k4xxC+tAiX+pjSj5nK1SBcpbIPQQLKbkQVn5wgzpywY=";
-  hash-cargo-deps = "sha256-ORX8+LTUAgKb0SJLhwh8WLICmtkDR2uvKF9psNjJUhY=";
+  github-tags = ["headroomlabs-ai/headroom" "0.39.0"]; # extractVersion=^v(?<version>.*)$
+  hash-src = "sha256-pnbnzyETxSiHyDpYLypY/eK76Iu2Vn1ueuTrnoqYFd0=";
+  hash-cargo-deps = "sha256-azHjTfjdARzYuDMdH1AOYn0YV9U9lzaoULcSC/a9MuE=";
 
   pname = "headroom-ai";
   version = elemAt github-tags 1;
