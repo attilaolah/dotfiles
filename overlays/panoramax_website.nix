@@ -24,7 +24,12 @@ in {
       fetcherVersion = 4;
       hash = hash-pnpm-deps;
     };
-    nativeBuildInputs = [prev.makeWrapper prev.nodejs_24 prev.pnpm_10 prev.pnpmConfigHook];
+    nativeBuildInputs = with prev; [
+      makeWrapper
+      nodejs_24
+      pnpmConfigHook
+      pnpm_10
+    ];
 
     doCheck = true;
 
