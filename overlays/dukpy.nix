@@ -39,6 +39,7 @@ in {
             description = "Simple JavaScript interpreter for Python";
             homepage = "https://github.com/amol-/dukpy";
             license = prev.lib.licenses.mit;
+            mainProgram = "dukpy";
           };
         };
       })
