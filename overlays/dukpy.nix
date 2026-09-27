@@ -30,7 +30,6 @@ in {
             pytestCheckHook
             webassets
           ];
-          disabledTests = ["test_installer"];
           preCheck = ''
             rm -r dukpy
           '';
