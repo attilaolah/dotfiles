@@ -18,8 +18,12 @@ in {
           build-system = [pyFinal.flit-core];
           dependencies = with pyFinal; [pyexiv2 types-python-dateutil types-pytz python-dateutil pytz rtree timezonefinder typer xmltodict];
           pythonRelaxDeps = ["pyexiv2" "pytz" "timezonefinder" "xmltodict" "types-pytz"];
+          nativeCheckInputs = [pyFinal.pytestCheckHook];
           pythonImportsCheck = ["geopic_tag_reader"];
-          meta = {license = final.lib.licenses.mit;};
+          meta = {
+            license = final.lib.licenses.mit;
+            mainProgram = "geopic-tag-reader";
+          };
         };
       })
     ];

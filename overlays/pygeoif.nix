@@ -17,6 +17,7 @@ in {
           pyproject = true;
           build-system = [pyFinal.setuptools];
           dependencies = [pyFinal.typing-extensions];
+          nativeCheckInputs = with pyFinal; [hypothesis more-itertools pytestCheckHook];
           pythonImportsCheck = ["pygeoif"];
           meta = {license = final.lib.licenses.lgpl3Plus;};
         };

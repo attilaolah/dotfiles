@@ -17,6 +17,7 @@ in {
           pyproject = true;
           build-system = [pyFinal.setuptools];
           dependencies = [pyFinal.dateparser pyFinal.lark pyFinal.pygeoif pyFinal.shapely];
+          nativeCheckInputs = [pyFinal.pytestCheckHook];
           pythonImportsCheck = ["pygeofilter"];
           meta = {license = final.lib.licenses.mit;};
         };

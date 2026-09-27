@@ -2,8 +2,9 @@ final: prev: {
   pythonPackagesExtensions =
     prev.pythonPackagesExtensions
     ++ [
-      (_pyFinal: pyPrev: {
+      (pyFinal: pyPrev: {
         pyexiv2 = pyPrev.pyexiv2.overridePythonAttrs (old: {
+          nativeCheckInputs = (old.nativeCheckInputs or []) ++ [pyFinal.psutil pyFinal.pytestCheckHook];
           # Exiv2's XMP serialization differs from the test fixtures.
           disabledTests =
             (old.disabledTests or [])

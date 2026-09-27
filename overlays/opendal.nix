@@ -9,7 +9,7 @@ in {
     prev.pythonPackagesExtensions
     ++ [
       (pyFinal: pyPrev: {
-        opendal = pyPrev.opendal.overridePythonAttrs (_old: {
+        opendal = pyPrev.opendal.overridePythonAttrs (old: {
           inherit version src;
           cargoDeps = final.rustPlatform.importCargoLock {
             lockFile = "${src}/bindings/python/Cargo.lock";
@@ -18,7 +18,18 @@ in {
           cargoRoot = "bindings/python";
           postPatch = "";
           preInstallCheck = ''export SSL_CERT_FILE=${final.cacert}/etc/ssl/certs/ca-bundle.crt'';
-          preCheck = ''cd bindings/python'';
+          nativeCheckInputs =
+            (old.nativeCheckInputs or [])
+            ++ (with pyFinal; [
+              pytest-asyncio
+              pytestCheckHook
+              python-dotenv
+            ]);
+          preCheck = ''
+            cd bindings/python
+            export OPENDAL_TEST=fs
+            export OPENDAL_FS_ROOT="$TMPDIR"
+          '';
         });
       })
     ];
