@@ -61,11 +61,14 @@ in {
           ];
           # types-cachetools is obsolete for cachetools >=7.1.
           pythonRemoveDeps = ["types-cachetools"];
-          nativeCheckInputs = with pyFinal; [
-            pypac
-            pytest-asyncio
-            pytestCheckHook
-          ];
+          pythonImportsCheck = ["mcp_atlassian"];
+          nativeCheckInputs =
+            (with pyFinal; [
+              pypac
+              pytest-asyncio
+              pytestCheckHook
+            ])
+            ++ [prev.versionCheckHook];
 
           enabledTestPaths = [
             "tests/unit"

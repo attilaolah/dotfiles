@@ -24,6 +24,8 @@ in {
 
           build-system = [pyFinal.setuptools];
 
+          pythonImportsCheck = ["dukpy"];
+
           meta = {
             description = "Simple JavaScript interpreter for Python";
             homepage = "https://github.com/amol-/dukpy";

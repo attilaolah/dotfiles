@@ -35,6 +35,7 @@ in {
           ];
 
           pythonRelaxDeps = ["dukpy"];
+          pythonImportsCheck = ["pypac"];
 
           meta = {
             description = "Proxy auto-config and auto-discovery for Python";

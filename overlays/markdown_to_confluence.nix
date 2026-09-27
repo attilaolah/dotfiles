@@ -34,6 +34,8 @@ in {
             truststore
           ];
 
+          pythonImportsCheck = ["md2conf"];
+
           doCheck = false;
 
           meta = {
