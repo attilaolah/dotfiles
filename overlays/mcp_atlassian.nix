@@ -38,7 +38,7 @@ in {
             httpx
             keyring
             markdown
-            markdown-to-confluence
+            md2conf
             markdownify
             mcp
             pydantic
