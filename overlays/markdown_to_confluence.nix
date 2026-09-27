@@ -29,10 +29,6 @@ in {
       truststore
     ];
 
-    pythonRelaxDeps = [
-      "cattrs" # https://github.com/NixOS/nixpkgs/pull/534685
-      "lxml"
-    ];
     doCheck = false;
 
     meta = {
