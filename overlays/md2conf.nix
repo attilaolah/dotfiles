@@ -41,8 +41,11 @@ in {
             "orjson"
             "pymdown-extensions"
           ];
-
-          doCheck = false;
+          nativeCheckInputs = [pyFinal.pytestCheckHook];
+          disabledTestPaths = [
+            # Requires credentials and a live Confluence instance.
+            "integration_tests"
+          ];
 
           meta = {
             description = "Publish Markdown files to Confluence wiki";
