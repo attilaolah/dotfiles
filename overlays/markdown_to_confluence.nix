@@ -4,7 +4,7 @@ final: prev: let
   py = prev.python3Packages;
 
   github-tags = ["hunyadi/md2conf" "0.6.4"];
-  hash-src = "sha256-DFGFDJYpadcRZ6gJ4yjYHS7d+oJtu4L/fwKIyJDNneA=";
+  hash-src = "sha256-+jbCJKOivJWuxfgLT7sUEJWunfG2S0i6qaC04MQojik=";
 
   version = elemAt github-tags 1;
 in {
