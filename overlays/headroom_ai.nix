@@ -12,6 +12,8 @@ final: prev: let
     rev = "v${version}";
   };
 in {
+  inherit (final.python3Packages) headroom-ai;
+
   pythonPackagesExtensions =
     prev.pythonPackagesExtensions
     ++ [
@@ -96,6 +98,4 @@ in {
         });
       })
     ];
-
-  headroom-ai = final.python3Packages.headroom-ai;
 }

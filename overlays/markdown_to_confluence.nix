@@ -7,6 +7,8 @@ final: prev: let
 
   version = elemAt github-tags 1;
 in {
+  inherit (final.python3Packages) markdown-to-confluence;
+
   pythonPackagesExtensions =
     prev.pythonPackagesExtensions
     ++ [
@@ -42,6 +44,4 @@ in {
         };
       })
     ];
-
-  markdown-to-confluence = final.python3Packages.markdown-to-confluence;
 }

@@ -7,6 +7,8 @@ final: prev: let
 
   version = elemAt github-tags 1;
 in {
+  inherit (final.python3Packages) mcp-atlassian;
+
   pythonPackagesExtensions =
     prev.pythonPackagesExtensions
     ++ [
@@ -73,6 +75,4 @@ in {
         };
       })
     ];
-
-  mcp-atlassian = final.python3Packages.mcp-atlassian;
 }
