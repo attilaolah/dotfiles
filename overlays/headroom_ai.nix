@@ -69,12 +69,15 @@ in {
             inherit pname version src;
             hash = hash-cargo-deps;
           };
-          build-system = [
-            final.cargo
-            final.rustPlatform.cargoSetupHook
-            final.rustPlatform.maturinBuildHook
-            final.rustc
-          ];
+          build-system = with final;
+            [
+              cargo
+              rustc
+            ]
+            ++ (with rustPlatform; [
+              cargoSetupHook
+              maturinBuildHook
+            ]);
 
           # The upstream [all] extra covers every supported runtime feature.
           inherit dependencies;
