@@ -41,7 +41,10 @@ in {
             "orjson"
             "pymdown-extensions"
           ];
-          nativeCheckInputs = [pyFinal.pytestCheckHook];
+          nativeCheckInputs = [
+            pyFinal.pytestCheckHook
+            prev.versionCheckHook
+          ];
           disabledTestPaths = [
             # Requires credentials and a live Confluence instance.
             "integration_tests"
