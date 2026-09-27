@@ -12,10 +12,12 @@ final: prev: let
     hash = hash-src;
   };
 in {
+  inherit (final.python3Packages) geovisio;
+
   pythonPackagesExtensions =
     prev.pythonPackagesExtensions
     ++ [
-      (pyFinal: _pyPrev: {
+      (pyFinal: _: {
         geovisio = pyFinal.buildPythonPackage {
           pname = "geovisio";
           inherit version src;
@@ -86,6 +88,4 @@ in {
         };
       })
     ];
-
-  geovisio = final.python3Packages.geovisio;
 }
