@@ -10,7 +10,7 @@ in {
   pythonPackagesExtensions =
     prev.pythonPackagesExtensions
     ++ [
-      (pyFinal: _pyPrev: {
+      (pyFinal: _: {
         markdown-to-confluence = pyFinal.buildPythonPackage {
           pname = "markdown_to_confluence";
           inherit version;

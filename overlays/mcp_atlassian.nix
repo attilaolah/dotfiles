@@ -10,7 +10,7 @@ in {
   pythonPackagesExtensions =
     prev.pythonPackagesExtensions
     ++ [
-      (pyFinal: _pyPrev: {
+      (pyFinal: _: {
         mcp-atlassian = pyFinal.buildPythonApplication {
           pname = "mcp-atlassian";
           inherit version;

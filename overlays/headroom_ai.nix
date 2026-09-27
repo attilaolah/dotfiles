@@ -15,7 +15,7 @@ in {
   pythonPackagesExtensions =
     prev.pythonPackagesExtensions
     ++ [
-      (pyFinal: _pyPrev: {
+      (pyFinal: _: {
         headroom-ai = pyFinal.buildPythonPackage (let
           dependencies = with pyFinal; [
             ast-grep-cli
