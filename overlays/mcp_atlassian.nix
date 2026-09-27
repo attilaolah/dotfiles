@@ -57,7 +57,6 @@ in {
 
           pythonRelaxDeps = [
             "fakeredis"
-            "markdown-to-confluence"
           ];
           pythonRemoveDeps = [
             "types-cachetools"
