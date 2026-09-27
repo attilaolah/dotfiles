@@ -49,7 +49,6 @@ in {
             thefuzz
             trio
             truststore
-            types-cachetools
             types-python-dateutil
             tzdata
             unidecode
@@ -60,6 +59,8 @@ in {
           pythonRelaxDeps = [
             "fakeredis"
           ];
+          # types-cachetools is obsolete for cachetools >=7.1.
+          pythonRemoveDeps = ["types-cachetools"];
           nativeCheckInputs = with pyFinal; [
             pypac
             pytest-asyncio

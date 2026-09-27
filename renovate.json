@@ -54,18 +54,6 @@
       "versioningTemplate": "{{#if (equals datasource 'github-commits')}}git{{else}}semver-coerced{{/if}}"
     },
     {
-      "description": "Update tuple-style PyPI dependencies under overlays/",
-      "customType": "regex",
-      "managerFilePatterns": [
-        "/^overlays/.*\\.nix$/"
-      ],
-      "matchStrings": [
-        "pypi-releases\\s*=\\s*\\[\\s*\\\"(?<depName>[^\\\"]+)\\\"\\s+\\\"(?<currentValue>[^\\\"]+)\\\"\\s*\\]\\s*;"
-      ],
-      "datasourceTemplate": "pypi",
-      "versioningTemplate": "pep440"
-    },
-    {
       "description": "Update GitHub flake inputs pinned to tags",
       "customType": "regex",
       "managerFilePatterns": [
