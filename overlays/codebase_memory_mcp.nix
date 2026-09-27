@@ -14,14 +14,6 @@ final: prev: let
 in {
   codebase-memory-mcp = prev.codebase-memory-mcp.overrideAttrs (old: {
     inherit src version;
-    patches =
-      prev.lib.filter (patch: builtins.baseNameOf patch != "remove-install-update.diff")
-      (old.patches or [])
-      ++ [./codebase_memory_mcp/remove-install-update.diff];
-    postPatch = ''
-      substituteInPlace Makefile.cbm --replace-fail "npm ci &&" ""
-      patchShebangs scripts/embed-frontend.sh
-    '';
     npmDeps = prev.fetchNpmDeps {
       src = "${src}/graph-ui";
       hash = hash-npm-deps;
