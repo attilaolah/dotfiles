@@ -49,6 +49,7 @@ in {
             thefuzz
             trio
             truststore
+            types-cachetools
             types-python-dateutil
             tzdata
             unidecode
@@ -59,11 +60,22 @@ in {
           pythonRelaxDeps = [
             "fakeredis"
           ];
-          pythonRemoveDeps = [
-            "types-cachetools"
+          nativeCheckInputs = with pyFinal; [
+            pypac
+            pytest-asyncio
+            pytestCheckHook
           ];
 
-          doCheck = false;
+          enabledTestPaths = [
+            "tests/unit"
+          ];
+          preCheck = ''
+            export HOME="$TMPDIR"
+          '';
+          disabledTestPaths = [
+            # This invokes uv to manage a separate development environment.
+            "tests/unit/test_stdio_lifecycle.py"
+          ];
 
           meta = {
             description = "MCP server for Atlassian products";
