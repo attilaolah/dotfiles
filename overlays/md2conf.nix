@@ -51,6 +51,7 @@ in {
             description = "Publish Markdown files to Confluence wiki";
             homepage = "https://github.com/hunyadi/md2conf";
             license = prev.lib.licenses.mit;
+            mainProgram = "md2conf";
           };
         };
       })
