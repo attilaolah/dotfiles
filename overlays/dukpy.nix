@@ -25,6 +25,15 @@ in {
           build-system = [pyFinal.setuptools];
 
           pythonImportsCheck = ["dukpy"];
+          nativeCheckInputs = with pyFinal; [
+            mock
+            pytestCheckHook
+            webassets
+          ];
+          disabledTests = ["test_installer"];
+          preCheck = ''
+            rm -r dukpy
+          '';
 
           meta = {
             description = "Simple JavaScript interpreter for Python";
