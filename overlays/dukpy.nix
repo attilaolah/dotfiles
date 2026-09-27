@@ -1,11 +1,11 @@
 final: prev: let
   inherit (builtins) elemAt;
+  fetchFromGitHubTuple = import ./lib/fetch_from_github_tuple.nix prev;
 
-  pypi-releases = ["dukpy" "0.6.0"];
-  hash-src = "sha256-+LHR91xqW+m1JdyA8FtshppnFIG+aJ2hRrLGk3s0UO4=";
+  github-tags = ["amol-/dukpy" "0.6.0"];
+  hash-src = "sha256-BSgKu5sjWMGJt2zH2vHnWXGTRLxlX/+Dz2/lBTDJuWM=";
 
-  pname = elemAt pypi-releases 0;
-  version = elemAt pypi-releases 1;
+  version = elemAt github-tags 1;
 in {
   inherit (final.python3Packages) dukpy;
 
@@ -14,12 +14,12 @@ in {
     ++ [
       (pyFinal: _: {
         dukpy = pyFinal.buildPythonPackage {
-          inherit pname version;
+          pname = "dukpy";
+          inherit version;
           pyproject = true;
 
-          src = prev.fetchPypi {
-            inherit pname version;
-            hash = hash-src;
+          src = fetchFromGitHubTuple {
+            inherit github-tags hash-src;
           };
 
           build-system = [pyFinal.setuptools];
