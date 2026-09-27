@@ -49,6 +49,7 @@ in {
             thefuzz
             trio
             truststore
+            types-python-dateutil
             tzdata
             unidecode
             urllib3
@@ -60,7 +61,6 @@ in {
           ];
           pythonRemoveDeps = [
             "types-cachetools"
-            "types-python-dateutil"
           ];
 
           doCheck = false;
