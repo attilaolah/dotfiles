@@ -237,7 +237,8 @@
             // (lib.optionalAttrs (pkg ? src && lib.isDerivation pkg.src) {"${name}-src" = pkg.src;})
             // (lib.optionalAttrs (pkg ? cargoDeps) {"${name}-cargo-deps" = pkg.cargoDeps;})
             // (lib.optionalAttrs (pkg ? goModules) {"${name}-vendor" = pkg.goModules;})
-            // (lib.optionalAttrs (pkg ? npmDeps) {"${name}-npm-deps" = pkg.npmDeps;});
+            // (lib.optionalAttrs (pkg ? npmDeps) {"${name}-npm-deps" = pkg.npmDeps;})
+            // (lib.optionalAttrs (pkg ? pnpmDeps) {"${name}-pnpm-deps" = pkg.pnpmDeps;});
           exportedHashOutputs = lib.foldl' lib.recursiveUpdate {} (map hashOutputsFor packageNames);
         in
           exportedPackages
