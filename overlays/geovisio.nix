@@ -37,7 +37,7 @@ in {
             gunicorn
             joserfc
             multipart
-            opendal-panoramax-fork
+            opendal
             pillow
             psycopg
             psycopg-pool
@@ -60,7 +60,8 @@ in {
 
           postPatch = ''
             substituteInPlace pyproject.toml \
-              --replace-fail '"psycopg-binary ~= 3.3"' '"psycopg ~= 3.3"'
+              --replace-fail '"psycopg-binary ~= 3.3"' '"psycopg ~= 3.3"' \
+              --replace-fail '"opendal_panoramax_fork ~= 0.47.3"' '"opendal ~= 0.47.3"'
           '';
           # Nixpkgs provides newer compatible releases of these dependencies.
           pythonRelaxDeps = [
