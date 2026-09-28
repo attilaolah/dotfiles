@@ -7,14 +7,14 @@ final: prev: let
 
   version = elemAt github-tags 1;
 in {
-  inherit (final.python3Packages) md2conf;
+  inherit (final.python3Packages) markdown-to-confluence;
 
   pythonPackagesExtensions =
     prev.pythonPackagesExtensions
     ++ [
       (pyFinal: _: {
-        md2conf = pyFinal.buildPythonPackage {
-          pname = "markdown_to_confluence";
+        markdown-to-confluence = pyFinal.buildPythonPackage {
+          pname = "markdown-to-confluence";
           inherit version;
           pyproject = true;
 
