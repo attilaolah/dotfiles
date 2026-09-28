@@ -32,15 +32,15 @@ _final: prev: {
       node_modules = oldAttrs.node_modules.overrideAttrs (nodeModulesAttrs: let
         brokenHash =
           if prev.stdenv.hostPlatform.isLinux
-          then "sha256-+Clo0VPDdruHSoBNvV/wKAM8iR6HJPtB00oa8yl9ujU="
+          then "sha256-aQQQhaUlAhpfqzH0vNi0IJ1cg7FQHIKYzxeq5d8PZoU="
           else if prev.stdenv.hostPlatform.isDarwin
-          then "sha256-pThjoD6baddQ6biy7k1ByXwGwLAeWe/+w0tcYmt1uWs="
+          then "sha256-B0m41LelD7d61vPHGIZZSO/cU7gbjHDJHt6oxNRRM8Q="
           else nodeModulesAttrs.outputHash;
         outputHash =
           if prev.stdenv.hostPlatform.isLinux
-          then "sha256-6kLoI+VJH6KmerTjDG9pWsWs4ARr2czAb+C4y+VmKe8="
+          then "sha256-q9F04B8xHQWDw+0HF0UeAJ7JX5xBHl3b2VdrUdwDl5I="
           else if prev.stdenv.hostPlatform.isDarwin
-          then "sha256-WD6HCFDLprNn6oq6qcdD5DOIzsTgKIgr33OzaiuQdxE="
+          then "sha256-e/SZjrMOh6jxjUmrCBrUXZURqWrs3crFIrzWoqKojUw="
           else nodeModulesAttrs.outputHash;
       in
         assert nodeModulesAttrs.outputHash == brokenHash;
