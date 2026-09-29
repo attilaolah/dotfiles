@@ -64,7 +64,7 @@
           export USE_CCACHE=1
 
           export CCACHE_DIR="${config.programs.ccache.cacheDir}"
-          export CCACHE_BASEDIR="$NIX_BUILD_TOP"
+          export CCACHE_BASEDIR="''${NIX_BUILD_TOP:-$PWD}"
           export CCACHE_UMASK=007
 
           export CCACHE_COMPRESS=1
