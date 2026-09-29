@@ -145,7 +145,6 @@
       glib
 
       # Browsers:
-      firefox
       google-chrome
 
       # Other GUI apps:
