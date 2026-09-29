@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  config,
+  pkgs,
+  ...
+}: {
   imports = [
     ./boot.nix
     ./file_systems.nix
@@ -74,26 +78,66 @@
           enableCuda = false;
         };
       })
-      (final: prev: {
+    ];
+
+    # Overlays to be enabled once the system is re-configured with the proper ccache setup.
+    TODO = [
+      # CCache:
+      (final: prev: let
+        setup = ''
+          export CCACHE_DIR="${config.programs.ccache.cacheDir}"
+
+          if [ ! -d "$CCACHE_DIR" ]; then
+            echo "Directory '$CCACHE_DIR' does not exist, create it with:"
+            echo "  sudo mkdir -m0770 '$CCACHE_DIR'"
+            echo "  sudo chown root:nixbld '$CCACHE_DIR'"
+            exit 1
+          fi
+
+          if [ ! -w "$CCACHE_DIR" ]; then
+            echo "Directory '$CCACHE_DIR' is not accessible for user $(whoami), verify its access permissions"
+            exit 1
+          fi
+        '';
+      in {
         ccacheWrapper = prev.ccacheWrapper.override {
           extraConfig = ''
-            export CCACHE_UMASK=007
+            ${setup}
+
             export CCACHE_COMPRESS=1
-            export CCACHE_COMPRESSLEVEL=1
-            export CCACHE_DIR="/var/cache/ccache"
-
-            # Ignore build-dir paths and timestamps:
+            export CCACHE_UMASK=007
             export CCACHE_BASEDIR="/build"
-            export CCACHE_SLOPPINESS=random_seed,file_macro,time_macros,include_file_mtime
-
-            # Safety check inside the sandbox.
-            # TODO: Remove once it turns out to be functional.
-            if [ ! -w "$CCACHE_DIR" ]; then
-              echo "ccache: $CCACHE_DIR is not writable by $(whoami)"
-              exit 1
-            fi
+            export CCACHE_SLOPPINESS="${builtins.concatStringsSep "," [
+              "file_macro"
+              "include_file_mtime"
+              "random_seed"
+              "time_macros"
+            ]}"
           '';
         };
+
+        pythonPackagesExtensions =
+          prev.pythonPackagesExtensions
+          ++ [
+            (_: pythonPrev: {
+              torch = (pythonPrev.torch.override {stdenv = final.ccacheStdenv;}).overridePythonAttrs (oldAttrs: {
+                # Tell CMake and setup.py to route CUDA and C++ builds through ccache
+                preConfigure = let
+                  ccache = final.lib.getExe final.ccache;
+                in
+                  (oldAttrs.preConfigure or "")
+                  + ''
+                    ${setup}
+
+                    export USE_CCACHE=1
+                    export CMAKE_C_COMPILER_LAUNCHER="${ccache}"
+                    export CMAKE_CXX_COMPILER_LAUNCHER="${ccache}"
+                    export CMAKE_CUDA_COMPILER_LAUNCHER="${ccache}"
+                    export CUDA_NVCC_EXECUTABLE="${ccache} nvcc"
+                  '';
+              });
+            })
+          ];
       })
     ];
   };

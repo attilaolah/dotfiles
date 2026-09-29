@@ -1,14 +1,12 @@
-{user, ...}: {
+{config, ...}: {
   nix.settings = {
     experimental-features = [
       "flakes"
       "nix-command"
     ];
 
-    trusted-users = [user.username];
-    extra-sandbox-paths = [
-      "/var/cache/ccache"
-    ];
+    trusted-users = ["root" "@wheel"];
+    extra-sandbox-paths = [config.programs.ccache.cacheDir];
     extra-substituters = [
       "https://devenv.cachix.org" # devenv.sh
       "https://nixpkgs-python.cachix.org" # devenv.sh python
