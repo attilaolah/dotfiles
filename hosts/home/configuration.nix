@@ -60,7 +60,7 @@
 
   nixpkgs = {
     config = {
-      allowUnfree = true;
+      cudaSupport = true;
       cudaCapabilities = ["8.6"];
       cudaForwardCompat = false;
     };

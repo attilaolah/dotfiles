@@ -75,14 +75,12 @@
             system = "x86_64-linux";
             username = "ao";
             ncores = 20;
-            gpu.cudaSupport = true;
           };
           work = {
             hostname = "nb1635";
             system = "aarch64-darwin";
             username = "olaa";
             ncores = 10;
-            gpu.metalSupport = true;
           };
         };
 
@@ -95,19 +93,17 @@
           system,
           username,
           ncores,
-          gpu,
           ...
         }:
           inputs
           // {
-            inherit system ncores gpu;
+            inherit system ncores;
             user = {
               inherit username;
               fullname = "Attila Oláh";
             };
             platform = platform system;
           };
-        nixpkgsConfig = host: unfree // (host.gpu or {});
 
         mkConfigs = generator: os: platform:
           lib.mapAttrs' (
@@ -119,7 +115,7 @@
                   {
                     nixpkgs = {
                       inherit overlays;
-                      config = nixpkgsConfig value;
+                      config = unfree;
                     };
                   }
                   ./hosts/${name}/configuration.nix
@@ -160,7 +156,7 @@
               pkgs = import nixpkgs {
                 inherit overlays;
                 inherit (host) system;
-                config = nixpkgsConfig host;
+                config = unfree;
               };
               modules = [
                 inputs.sops-nix.homeManagerModules.sops

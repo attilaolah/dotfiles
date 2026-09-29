@@ -62,10 +62,7 @@
     shell = pkgs.fish;
   };
 
-  nixpkgs = {
-    hostPlatform = system;
-    config.allowUnfree = true;
-  };
+  nixpkgs.hostPlatform = system;
 
   environment = {
     # Keep fish in /etc/shells so login-shell changes don't get blocked.
