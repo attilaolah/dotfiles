@@ -53,5 +53,10 @@
       };
       services.lvm.enable = true;
     };
+    tmp = {
+      useTmpfs = true;
+      cleanOnBoot = true;
+      tmpfsSize = "80G";
+    };
   };
 }
