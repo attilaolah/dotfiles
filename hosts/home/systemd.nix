@@ -19,6 +19,10 @@
       })
       nodes;
 
+    tmpfiles.rules = [
+      "d /var/cache/ccache 0770 root nixbld - -"
+    ];
+
     # Fix nixos-rebuild hanging, until this issue is resolved:
     # https://github.com/NixOS/nixpkgs/issues/180175#issuecomment-1658731959
     services.NetworkManager-wait-online.serviceConfig.ExecStart = ["" "${pkgs.networkmanager}/bin/nm-online -q"];

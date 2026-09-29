@@ -74,6 +74,27 @@
           enableCuda = false;
         };
       })
+      (final: prev: {
+        ccacheWrapper = prev.ccacheWrapper.override {
+          extraConfig = ''
+            export CCACHE_UMASK=007
+            export CCACHE_COMPRESS=1
+            export CCACHE_COMPRESSLEVEL=1
+            export CCACHE_DIR="/var/cache/ccache"
+
+            # Ignore build-dir paths and timestamps:
+            export CCACHE_BASEDIR="/build"
+            export CCACHE_SLOPPINESS=random_seed,file_macro,time_macros,include_file_mtime
+
+            # Safety check inside the sandbox.
+            # TODO: Remove once it turns out to be functional.
+            if [ ! -w "$CCACHE_DIR" ]; then
+              echo "ccache: $CCACHE_DIR is not writable by $(whoami)"
+              exit 1
+            fi
+          '';
+        };
+      })
     ];
   };
 

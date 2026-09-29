@@ -6,6 +6,9 @@
     ];
 
     trusted-users = [user.username];
+    extra-sandbox-paths = [
+      "/var/cache/ccache"
+    ];
     extra-substituters = [
       "https://devenv.cachix.org" # devenv.sh
       "https://nixpkgs-python.cachix.org" # devenv.sh python
