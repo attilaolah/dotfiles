@@ -62,6 +62,7 @@
         ccache = final.lib.getExe final.ccache;
         extraConfig = ''
           export USE_CCACHE=1
+
           export CCACHE_DIR="${config.programs.ccache.cacheDir}"
           export CCACHE_BASEDIR="$NIX_BUILD_TOP"
           export CCACHE_UMASK=007
@@ -75,8 +76,6 @@
             "random_seed"
             "time_macros"
           ]}"
-
-          export CUDA_NVCC_EXECUTABLE="${ccache} nvcc"
 
           if [ ! -d "$CCACHE_DIR" ]; then
             echo "Directory '$CCACHE_DIR' does not exist, create it with:"
@@ -95,7 +94,6 @@
 
           export CMAKE_C_COMPILER_LAUNCHER="${ccache}"
           export CMAKE_CXX_COMPILER_LAUNCHER="${ccache}"
-          export CMAKE_CUDA_COMPILER_LAUNCHER="${ccache}"
           export CMAKE_CUDA_COMPILER_LAUNCHER="${ccache}"
         '';
       in {
