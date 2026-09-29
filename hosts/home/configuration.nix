@@ -66,86 +66,71 @@
     config = {
       cudaSupport = true;
       cudaCapabilities = ["8.6"];
-      # TODO: re-enable once ccache is enabled.
-      # cudaForwardCompat = false;
+      cudaForwardCompat = false;
     };
-    overlays =
-      [
-        (_: prev: {
-          cudaPackages = prev.lib.recurseIntoAttrs prev.cudaPackages_13_2;
-          suitesparse = prev.suitesparse.override {
-            # SuiteSparse 5.13.0..7.10.0 are not compatible with the CUDA 13 stdenv, but it is pulled into the desktop
-            # closure through GEGL/GIMP. Drop this when nixpkgs updates SuiteSparse, likely via:
-            # https://github.com/NixOS/nixpkgs/pull/486083
-            enableCuda = false;
-          };
-        })
-      ]
-      ++ (
-        if true
-        then []
-        else
-          # Overlays to be enabled once the system is re-configured with the proper ccache setup.
-          [
-            # CCache:
-            (final: prev: let
-              setup = ''
-                export CCACHE_DIR="${config.programs.ccache.cacheDir}"
+    overlays = [
+      (_: prev: {
+        cudaPackages = prev.lib.recurseIntoAttrs prev.cudaPackages_13_2;
+        suitesparse = prev.suitesparse.override {
+          # SuiteSparse 5.13.0..7.10.0 are not compatible with the CUDA 13 stdenv, but it is pulled into the desktop
+          # closure through GEGL/GIMP. Drop this when nixpkgs updates SuiteSparse, likely via:
+          # https://github.com/NixOS/nixpkgs/pull/486083
+          enableCuda = false;
+        };
+      })
 
-                if [ ! -d "$CCACHE_DIR" ]; then
-                  echo "Directory '$CCACHE_DIR' does not exist, create it with:"
-                  echo "  sudo mkdir -m0770 '$CCACHE_DIR'"
-                  echo "  sudo chown root:nixbld '$CCACHE_DIR'"
-                  exit 1
-                fi
+      # CCache:
+      (final: prev: let
+        ccache = final.lib.getExe final.ccache;
+        extraConfig = ''
+          export USE_CCACHE=1
+          export CCACHE_DIR="${config.programs.ccache.cacheDir}"
+          export CCACHE_BASEDIR="$NIX_BUILD_TOP"
+          export CCACHE_UMASK=007
+          export CCACHE_COMPRESS=1
+          export CCACHE_NOHASHDIR="1"
+          export CCACHE_SLOPPINESS="${builtins.concatStringsSep "," [
+            "pch_defines"
+            "random_seed"
+            "time_macros"
+          ]}"
 
-                if [ ! -w "$CCACHE_DIR" ]; then
-                  echo "Directory '$CCACHE_DIR' is not accessible for user $(whoami), verify its access permissions"
-                  exit 1
-                fi
-              '';
-            in {
-              ccacheWrapper = prev.ccacheWrapper.override {
-                extraConfig = ''
-                  ${setup}
+          export CUDA_NVCC_EXECUTABLE="${ccache} nvcc"
 
-                  export CCACHE_COMPRESS=1
-                  export CCACHE_UMASK=007
-                  export CCACHE_BASEDIR="/build"
-                  export CCACHE_SLOPPINESS="${builtins.concatStringsSep "," [
-                    "file_macro"
-                    "include_file_mtime"
-                    "random_seed"
-                    "time_macros"
-                  ]}"
-                '';
-              };
+          if [ ! -d "$CCACHE_DIR" ]; then
+            echo "Directory '$CCACHE_DIR' does not exist, create it with:"
+            echo "  sudo mkdir -m0770 '$CCACHE_DIR'"
+            echo "  sudo chown root:nixbld '$CCACHE_DIR'"
+            exit 1
+          fi
 
-              pythonPackagesExtensions =
-                prev.pythonPackagesExtensions
-                ++ [
-                  (_: pythonPrev: {
-                    torch = (pythonPrev.torch.override {stdenv = final.ccacheStdenv;}).overridePythonAttrs (oldAttrs: {
-                      # Tell CMake and setup.py to route CUDA and C++ builds through ccache
-                      preConfigure = let
-                        ccache = final.lib.getExe final.ccache;
-                      in
-                        (oldAttrs.preConfigure or "")
-                        + ''
-                          ${setup}
+          if [ ! -w "$CCACHE_DIR" ]; then
+            echo "Directory '$CCACHE_DIR' is not accessible for user $(whoami), verify its access permissions"
+            exit 1
+          fi
+        '';
+        cmakeConfig = ''
+          ${extraConfig}
 
-                          export USE_CCACHE=1
-                          export CMAKE_C_COMPILER_LAUNCHER="${ccache}"
-                          export CMAKE_CXX_COMPILER_LAUNCHER="${ccache}"
-                          export CMAKE_CUDA_COMPILER_LAUNCHER="${ccache}"
-                          export CUDA_NVCC_EXECUTABLE="${ccache} nvcc"
-                        '';
-                    });
-                  })
-                ];
+          export CMAKE_C_COMPILER_LAUNCHER="${ccache}"
+          export CMAKE_CXX_COMPILER_LAUNCHER="${ccache}"
+          export CMAKE_CUDA_COMPILER_LAUNCHER="${ccache}"
+          export CMAKE_CUDA_COMPILER_LAUNCHER="${ccache}"
+        '';
+      in {
+        ccacheWrapper = prev.ccacheWrapper.override {inherit extraConfig;};
+
+        pythonPackagesExtensions =
+          prev.pythonPackagesExtensions
+          ++ [
+            (_: pythonPrev: {
+              torch = (pythonPrev.torch.override {stdenv = final.ccacheStdenv;}).overridePythonAttrs (oldAttrs: {
+                preConfigure = (oldAttrs.preConfigure or "") + cmakeConfig;
+              });
             })
-          ]
-      );
+          ];
+      })
+    ];
   };
 
   environment = {
