@@ -102,11 +102,15 @@
         pythonPackagesExtensions =
           prev.pythonPackagesExtensions
           ++ [
-            (_: pythonPrev: {
-              torch = (pythonPrev.torch.override {stdenv = final.ccacheStdenv;}).overridePythonAttrs (oldAttrs: {
-                preConfigure = (oldAttrs.preConfigure or "") + cmakeConfig;
-              });
-            })
+            (_: pythonPrev: let
+              inherit (builtins) filter listToAttrs map;
+            in
+              listToAttrs (map (name: {
+                inherit name;
+                value = (pythonPrev.${name}.override {stdenv = final.ccacheStdenv;}).overridePythonAttrs (oldAttrs: {
+                  preConfigure = (oldAttrs.preConfigure or "") + cmakeConfig;
+                });
+              }) (filter (name: pythonPrev ? ${name}) (import ./ccache/python_packages.nix))))
           ];
       })
     ];
