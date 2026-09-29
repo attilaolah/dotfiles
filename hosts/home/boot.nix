@@ -29,8 +29,6 @@
         useOSProber = false;
         extraEntries = ''
           menuentry 'UEFI Firmware Settings' { fwsetup }
-          menuentry 'Power off' { halt }
-          menuentry 'Reboot' { reboot }
         '';
       };
     };
