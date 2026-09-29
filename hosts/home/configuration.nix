@@ -87,7 +87,10 @@
           export CCACHE_DIR="${config.programs.ccache.cacheDir}"
           export CCACHE_BASEDIR="$NIX_BUILD_TOP"
           export CCACHE_UMASK=007
+
           export CCACHE_COMPRESS=1
+          export CCACHE_MAXSIZE="24G"
+
           export CCACHE_NOHASHDIR="1"
           export CCACHE_SLOPPINESS="${builtins.concatStringsSep "," [
             "pch_defines"
