@@ -62,6 +62,7 @@
     config = {
       allowUnfree = true;
       cudaCapabilities = ["8.6"];
+      cudaForwardCompat = false;
     };
     overlays = [
       (_final: prev: {
