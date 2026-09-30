@@ -11,15 +11,15 @@ final: prev: let
   hash-src-aarch64-darwin = "sha256-YJHQMWS0cZC027IN6XMS95veA/w1tLfCcF+PTTuoBn4=";
   hash-src-x86_64-linux = "sha256-pjREhRU8WInJG65x2RcsDS19OSSkVmEXMDDihXC7e7I=";
 
-  sources = prev.lib.mapAttrs (_: source: prev.fetchurl source) {
-    aarch64-darwin = {
-      url = "https://cli.coderabbit.ai/releases/${version}/coderabbit-darwin-arm64.zip";
-      hash = hash-src-aarch64-darwin;
-    };
-    x86_64-linux = {
-      url = "https://cli.coderabbit.ai/releases/${version}/coderabbit-linux-x64.zip";
-      hash = hash-src-x86_64-linux;
-    };
+  sources = prev.lib.mapAttrs (system: source:
+    prev.fetchurl (source
+      // {
+        url = let
+          platform = import ./lib/platform.nix system;
+        in "https://cli.coderabbit.ai/releases/${version}/coderabbit-${platform.os}-${platform.arch}.zip";
+      })) {
+    aarch64-darwin.hash = hash-src-aarch64-darwin;
+    x86_64-linux.hash = hash-src-x86_64-linux;
   };
 in {
   coderabbit = prev.stdenvNoCC.mkDerivation {
