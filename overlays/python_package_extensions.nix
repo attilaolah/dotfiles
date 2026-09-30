@@ -6,7 +6,7 @@ else {
     prev.pythonPackagesExtensions
     ++ [
       (_: pythonPrev: let
-        inherit (builtins) filter listToAttrs map;
+        inherit (builtins) listToAttrs map;
         ccache = prev.lib.getExe prev.ccache;
       in
         listToAttrs (map (name: {
@@ -27,20 +27,19 @@ else {
                     export CMAKE_CUDA_COMPILER_LAUNCHER="${ccache}"
                   '';
               });
-          }) (
-            filter (name: pythonPrev ? ${name})
+          }) [
             # CUDA-sensitive dependencies.
             # Covers most packages imported by this flake that are sensitive to the nixpkgs.config.cudaSupport flag.
-            [
-              "fastembed"
-              "magika"
-              "onnxruntime"
-              "rapidocr"
-              "safetensors"
-              "sentence-transformers"
-              "torch"
-              "transformers"
-            ]
-          )))
+            "fastembed"
+            "magika"
+            "onnxruntime"
+            "rapidocr"
+            "safetensors"
+            "sentence-transformers"
+            "torch"
+            "torchaudio"
+            "torchcodec"
+            "transformers"
+          ]))
     ];
 }
