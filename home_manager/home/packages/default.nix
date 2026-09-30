@@ -105,6 +105,7 @@
       # AI stuff:
       agent-deck
       bosun
+      coderabbit
       headroom-ai
       qwen-code
 
