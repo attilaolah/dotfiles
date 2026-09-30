@@ -33,11 +33,14 @@ in {
     # Bun stores CodeRabbit's compiled application in ELF sections.
     # Stripping them turns the executable into the bare Bun runtime.
     dontStrip = true;
-    nativeBuildInputs = with prev; [
-      autoPatchelfHook
-      unzip
+    nativeBuildInputs =
+      [prev.unzip]
+      ++ prev.lib.optionals prev.stdenv.hostPlatform.isLinux [
+        prev.autoPatchelfHook
+      ];
+    buildInputs = prev.lib.optionals prev.stdenv.hostPlatform.isLinux [
+      prev.glibc
     ];
-    buildInputs = [prev.glibc];
 
     installPhase = ''
       runHook preInstall
