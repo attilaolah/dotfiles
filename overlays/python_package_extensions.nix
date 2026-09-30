@@ -39,6 +39,7 @@ else {
             "torch"
             "torchaudio"
             "torchcodec"
+            "torchvision"
             "transformers"
           ]))
     ];
