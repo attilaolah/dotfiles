@@ -34,7 +34,7 @@
     services.NetworkManager-wait-online.serviceConfig.ExecStart = ["" "${pkgs.networkmanager}/bin/nm-online -q"];
 
     tmpfiles.rules = [
-      "d ${config.programs.ccache.cacheDir} 0770 root nixbld - -"
+      "d ${config.programs.ccache.cacheDir} 2770 root nixbld - -"
     ];
   };
 }
