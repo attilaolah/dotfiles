@@ -5,6 +5,11 @@ else {
   pythonPackagesExtensions =
     prev.pythonPackagesExtensions
     ++ [
+      (_: pythonPrev: {
+        # Prevent opencv-python from pulling in the non-ccache openvc derivation.
+        opencv-python = pythonPrev.opencv-python.override {opencv4 = final.opencv;};
+      })
+
       (_: pythonPrev: let
         inherit (builtins) listToAttrs map;
         ccache = prev.lib.getExe prev.ccache;
