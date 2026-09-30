@@ -51,69 +51,12 @@
     ];
   };
 
-  nixpkgs = {
-    config = {
-      cudaSupport = true;
-      cudaCapabilities = ["8.6"];
-      cudaForwardCompat = false;
-    };
-    overlays = [
-      (final: prev: let
-        ccache = final.lib.getExe final.ccache;
-        extraConfig = ''
-          export USE_CCACHE=1
-
-          export CCACHE_DIR="${config.programs.ccache.cacheDir}"
-          export CCACHE_BASEDIR="''${NIX_BUILD_TOP:-$PWD}"
-          export CCACHE_UMASK=007
-
-          export CCACHE_COMPRESS=1
-          export CCACHE_MAXSIZE="24G"
-
-          export CCACHE_NOHASHDIR="1"
-          export CCACHE_SLOPPINESS="${builtins.concatStringsSep "," [
-            "pch_defines"
-            "random_seed"
-            "time_macros"
-          ]}"
-
-          if [ ! -d "$CCACHE_DIR" ]; then
-            echo "Directory '$CCACHE_DIR' does not exist, create it with:"
-            echo "  sudo mkdir -m0770 '$CCACHE_DIR'"
-            echo "  sudo chown root:nixbld '$CCACHE_DIR'"
-            exit 1
-          fi
-
-          if [ ! -w "$CCACHE_DIR" ]; then
-            echo "Directory '$CCACHE_DIR' is not accessible for user $(whoami), verify its access permissions"
-            exit 1
-          fi
-        '';
-        cmakeConfig = ''
-          ${extraConfig}
-
-          export CMAKE_C_COMPILER_LAUNCHER="${ccache}"
-          export CMAKE_CXX_COMPILER_LAUNCHER="${ccache}"
-          export CMAKE_CUDA_COMPILER_LAUNCHER="${ccache}"
-        '';
-      in {
-        ccacheWrapper = prev.ccacheWrapper.override {inherit extraConfig;};
-
-        pythonPackagesExtensions =
-          prev.pythonPackagesExtensions
-          ++ [
-            (_: pythonPrev: let
-              inherit (builtins) filter listToAttrs map;
-            in
-              listToAttrs (map (name: {
-                inherit name;
-                value = (pythonPrev.${name}.override {stdenv = final.ccacheStdenv;}).overridePythonAttrs (oldAttrs: {
-                  preConfigure = (oldAttrs.preConfigure or "") + cmakeConfig;
-                });
-              }) (filter (name: pythonPrev ? ${name}) (import ./ccache/python_packages.nix))))
-          ];
-      })
-    ];
+  nixpkgs.config = {
+    cudaSupport = true;
+    # To get the supported capabilities:
+    # nvidia-smi --query-gpu=compute_cap --format=csv,noheader
+    cudaCapabilities = ["8.6"]; # RTX 3070
+    cudaForwardCompat = false;
   };
 
   environment = {
