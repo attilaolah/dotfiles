@@ -8,19 +8,6 @@ else {
     prev.pythonPackagesExtensions
     ++ [
       (_: pythonPrev: let
-        # OpenCV-Python requires OpenCV's Python distribution metadata,
-        # which the ordinary top-level `opencv` package does not provide.
-        opencv4 = pythonPrev.toPythonModule (final.callPackage (final.path + "/pkgs/development/libraries/opencv/4.x.nix") {
-            enablePython = true;
-            pythonPackages = pythonPrev;
-          }
-          // override);
-      in {
-        inherit opencv4;
-        opencv-python = pythonPrev.opencv-python.override {inherit opencv4;};
-      })
-
-      (_: pythonPrev: let
         inherit (builtins) listToAttrs map;
         ccache = prev.lib.getExe prev.ccache;
       in

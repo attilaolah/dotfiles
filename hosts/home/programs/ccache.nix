@@ -5,7 +5,6 @@
     packageNames = [
       "darktable"
       "magma"
-      "opencv"
       "openmpi"
       "openvino"
       "ucx"

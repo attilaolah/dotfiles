@@ -1,5 +1,6 @@
-final: prev: {
-  opencv4 = prev.opencv4.overrideAttrs (oldAttrs: {
+final: prev: let
+  mkOpenCV = args:
+    (prev.opencv4.override args).overrideAttrs (oldAttrs: {
     patches =
       (oldAttrs.patches or [])
       ++ [
@@ -11,6 +12,21 @@ final: prev: {
           stripLen = 2;
         })
       ];
-  });
+    });
+in {
+  opencv4 = mkOpenCV {stdenv = final.ccacheStdenv;};
   opencv = final.opencv4;
+
+  pythonPackagesExtensions = prev.pythonPackagesExtensions ++ [
+    (pythonFinal: pythonPrev: let
+      opencv4 = pythonPrev.toPythonModule (mkOpenCV {
+        stdenv = final.ccacheStdenv;
+        enablePython = true;
+        pythonPackages = pythonFinal;
+      });
+    in {
+      inherit opencv4;
+      opencv-python = pythonPrev.opencv-python.override {inherit opencv4;};
+    })
+  ];
 }
