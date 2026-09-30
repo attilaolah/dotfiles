@@ -7,38 +7,26 @@ else {
     ++ [
       (_: pythonPrev: let
         inherit (builtins) filter listToAttrs map;
+        ccache = prev.lib.getExe prev.ccache;
       in
         listToAttrs (map (name: {
             inherit name;
-            value = let
-              ccache = prev.lib.getExe prev.ccache;
-              withCcacheStdenv = pythonPrev.${name}.override {
-                buildPythonPackage = pythonPrev.buildPythonPackage.override {stdenv = final.ccacheStdenv;};
-              };
-            in
-              if name == "triton"
-              then let
-                cudaPackages = pythonPrev.${name}.passthru.cudaPackages;
-                ccacheBackendStdenv = final.ccacheStdenv.override {
-                  stdenv = cudaPackages.backendStdenv;
-                  extraConfig = final.ccacheExtraConfig;
-                };
-              in
+            value =
+              (
                 pythonPrev.${name}.override {
-                  cudaPackages = cudaPackages // {backendStdenv = ccacheBackendStdenv;};
+                  buildPythonPackage = pythonPrev.buildPythonPackage.override {stdenv = final.ccacheStdenv;};
                 }
-              else
-                withCcacheStdenv.overridePythonAttrs (oldAttrs: {
-                  preConfigure =
-                    (oldAttrs.preConfigure or "")
-                    + ''
-                      ${final.ccacheExtraConfig}
+              ).overridePythonAttrs (oldAttrs: {
+                preConfigure =
+                  (oldAttrs.preConfigure or "")
+                  + ''
+                    ${final.ccacheExtraConfig}
 
-                      export CMAKE_C_COMPILER_LAUNCHER="${ccache}"
-                      export CMAKE_CXX_COMPILER_LAUNCHER="${ccache}"
-                      export CMAKE_CUDA_COMPILER_LAUNCHER="${ccache}"
-                    '';
-                });
+                    export CMAKE_C_COMPILER_LAUNCHER="${ccache}"
+                    export CMAKE_CXX_COMPILER_LAUNCHER="${ccache}"
+                    export CMAKE_CUDA_COMPILER_LAUNCHER="${ccache}"
+                  '';
+              });
           }) (
             filter (name: pythonPrev ? ${name})
             # CUDA-sensitive dependencies.
@@ -52,7 +40,6 @@ else {
               "sentence-transformers"
               "torch"
               "transformers"
-              "triton"
             ]
           )))
     ];
