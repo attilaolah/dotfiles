@@ -51,14 +51,6 @@
     ];
   };
 
-  nixpkgs.config = {
-    cudaSupport = true;
-    # To get the supported capabilities:
-    # nvidia-smi --query-gpu=compute_cap --format=csv,noheader
-    cudaCapabilities = ["8.6"]; # RTX 3070
-    cudaForwardCompat = false;
-  };
-
   environment = {
     sessionVariables = {
       XDG_CURRENT_DESKTOP = "Hyprland";

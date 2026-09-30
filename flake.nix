@@ -75,6 +75,13 @@
             system = "x86_64-linux";
             username = "ao";
             ncores = 20;
+            nixpkgs.config = {
+              cudaSupport = true;
+              # To get the supported capabilities:
+              # nvidia-smi --query-gpu=compute_cap --format=csv,noheader
+              cudaCapabilities = ["8.6"]; # RTX 3070
+              cudaForwardCompat = false;
+            };
           };
           work = {
             hostname = "nb1635";
@@ -115,7 +122,7 @@
                   {
                     nixpkgs = {
                       inherit overlays;
-                      config = unfree;
+                      config = (value.nixpkgs.config or {}) // unfree;
                     };
                   }
                   ./hosts/${name}/configuration.nix
@@ -156,7 +163,7 @@
               pkgs = import nixpkgs {
                 inherit overlays;
                 inherit (host) system;
-                config = unfree;
+                config = (host.nixpkgs.config or {}) // unfree;
               };
               modules = [
                 inputs.sops-nix.homeManagerModules.sops
