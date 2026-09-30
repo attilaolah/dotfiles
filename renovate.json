@@ -54,6 +54,18 @@
       "versioningTemplate": "{{#if (equals datasource 'github-commits')}}git{{else}}semver-coerced{{/if}}"
     },
     {
+      "description": "Update CodeRabbit CLI from its release channel",
+      "customType": "regex",
+      "managerFilePatterns": [
+        "/^overlays/coderabbit\\.nix$/"
+      ],
+      "matchStrings": [
+        "coderabbit-cli\\s*=\\s*\\[\\s*\\\"coderabbit-cli\\\"\\s+\\\"(?<currentValue>[^\\\"]+)\\\"\\s*\\]\\s*;"
+      ],
+      "datasourceTemplate": "custom.coderabbit-cli",
+      "depNameTemplate": "CodeRabbit CLI"
+    },
+    {
       "description": "Update GitHub flake inputs pinned to tags",
       "customType": "regex",
       "managerFilePatterns": [
@@ -79,6 +91,10 @@
     }
   ],
   "customDatasources": {
+    "coderabbit-cli": {
+      "defaultRegistryUrlTemplate": "https://cli.coderabbit.ai/releases/latest/VERSION",
+      "format": "plain"
+    },
     "nixpkgs-cuda-packages": {
       "defaultRegistryUrlTemplate": "https://raw.githubusercontent.com/NixOS/nixpkgs/nixos-unstable/pkgs/top-level/all-packages.nix",
       "format": "plain"
