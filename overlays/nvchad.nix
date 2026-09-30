@@ -30,7 +30,7 @@ final: prev: let
       nvchad-ui
     ];
     patches = [
-      ./nvchad/treesitter-autostart.patch
+      ./nvchad/treesitter_autostart.patch
     ];
   };
 in {
