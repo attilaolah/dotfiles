@@ -1,3 +1,3 @@
 final: prev: {
-  cudaPackages = prev.lib.recurseIntoAttrs prev.cudaPackages_13_2;
+  cudaPackages = prev.lib.recurseIntoAttrs prev.cudaPackages_13_4;
 }
