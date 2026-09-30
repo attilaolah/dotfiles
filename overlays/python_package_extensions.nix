@@ -2,12 +2,22 @@ final: prev:
 if !(prev.config.cudaSupport or false)
 then {}
 else {
-  pythonPackagesExtensions =
+  pythonPackagesExtensions = let
+    override.stdenv = final.ccacheStdenv;
+  in
     prev.pythonPackagesExtensions
     ++ [
-      (_: pythonPrev: {
-        # Prevent opencv-python from pulling in the non-ccache openvc derivation.
-        opencv-python = pythonPrev.opencv-python.override {opencv4 = final.opencv;};
+      (_: pythonPrev: let
+        # OpenCV-Python requires OpenCV's Python distribution metadata,
+        # which the ordinary top-level `opencv` package does not provide.
+        opencv4 = pythonPrev.toPythonModule (final.callPackage (final.path + "/pkgs/development/libraries/opencv/4.x.nix") {
+            enablePython = true;
+            pythonPackages = pythonPrev;
+          }
+          // override);
+      in {
+        inherit opencv4;
+        opencv-python = pythonPrev.opencv-python.override {inherit opencv4;};
       })
 
       (_: pythonPrev: let
@@ -19,7 +29,7 @@ else {
             value =
               (
                 pythonPrev.${name}.override {
-                  buildPythonPackage = pythonPrev.buildPythonPackage.override {stdenv = final.ccacheStdenv;};
+                  buildPythonPackage = pythonPrev.buildPythonPackage.override override;
                 }
               ).overridePythonAttrs (oldAttrs: {
                 preConfigure =
