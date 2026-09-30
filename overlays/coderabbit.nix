@@ -30,6 +30,9 @@ in {
       sources.${prev.stdenv.hostPlatform.system}
       or (throw "Unsupported system: ${prev.stdenv.hostPlatform.system}");
     dontUnpack = true;
+    # Bun stores CodeRabbit's compiled application in ELF sections.
+    # Stripping them turns the executable into the bare Bun runtime.
+    dontStrip = true;
     nativeBuildInputs = with prev; [
       autoPatchelfHook
       unzip
