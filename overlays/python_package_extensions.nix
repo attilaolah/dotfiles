@@ -32,6 +32,7 @@ else {
             # Covers most packages imported by this flake that are sensitive to the nixpkgs.config.cudaSupport flag.
             "fastembed"
             "magika"
+            "numba"
             "onnxruntime"
             "rapidocr"
             "safetensors"
@@ -39,6 +40,7 @@ else {
             "torch"
             "torchaudio"
             "torchcodec"
+            "torchmetrics"
             "torchvision"
             "transformers"
           ]))
