@@ -56,7 +56,7 @@
     tmp = {
       useTmpfs = true;
       cleanOnBoot = true;
-      tmpfsSize = "80G";
+      tmpfsSize = "24G";
     };
   };
 }
