@@ -17,7 +17,16 @@ else {
               };
             in
               if name == "triton"
-              then withCcacheStdenv
+              then let
+                cudaPackages = pythonPrev.${name}.passthru.cudaPackages;
+                ccacheBackendStdenv = final.ccacheStdenv.override {
+                  stdenv = cudaPackages.backendStdenv;
+                  extraConfig = final.ccacheExtraConfig;
+                };
+              in
+                pythonPrev.${name}.override {
+                  cudaPackages = cudaPackages // {backendStdenv = ccacheBackendStdenv;};
+                }
               else
                 withCcacheStdenv.overridePythonAttrs (oldAttrs: {
                   preConfigure =
