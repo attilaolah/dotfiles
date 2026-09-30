@@ -29,8 +29,6 @@
         useOSProber = false;
         extraEntries = ''
           menuentry 'UEFI Firmware Settings' { fwsetup }
-          menuentry 'Power off' { halt }
-          menuentry 'Reboot' { reboot }
         '';
       };
     };
@@ -54,6 +52,11 @@
         cryptb = luksDev 1; # 2T
       };
       services.lvm.enable = true;
+    };
+    tmp = {
+      useTmpfs = true;
+      cleanOnBoot = true;
+      tmpfsSize = "24G";
     };
   };
 }

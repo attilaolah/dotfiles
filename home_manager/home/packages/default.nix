@@ -1,5 +1,4 @@
 {
-  gpu,
   lib,
   pkgs,
   ...
@@ -126,7 +125,10 @@
       prettier
       typescript-language-server
 
-      (llama-cpp.override gpu)
+      (llama-cpp.override {
+        cudaSupport = pkgs.config.cudaSupport or false;
+        metalSupport = pkgs.stdenv.hostPlatform.isDarwin;
+      })
       (import ./restart_sops.nix {inherit lib pkgs;})
     ]
     ++ lib.lists.optionals pkgs.stdenv.hostPlatform.isLinux [
@@ -143,7 +145,6 @@
       glib
 
       # Browsers:
-      firefox
       google-chrome
 
       # Other GUI apps:

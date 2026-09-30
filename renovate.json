@@ -65,16 +65,16 @@
       "datasourceTemplate": "github-tags"
     },
     {
-      "description": "Update pinned nixpkgs CUDA package set",
+      "description": "Update pinned nixpkgs CUDA packages",
       "customType": "regex",
       "managerFilePatterns": [
-        "/^hosts/home/configuration\\.nix$/"
+        "/^overlays/cuda_packages\\.nix$/"
       ],
       "matchStrings": [
         "cudaPackages\\s*=\\s*prev\\.lib\\.recurseIntoAttrs\\s+prev\\.cudaPackages_(?<currentValue>\\d+_\\d+);"
       ],
       "datasourceTemplate": "custom.nixpkgs-cuda-packages",
-      "depNameTemplate": "nixpkgs CUDA package set",
+      "depNameTemplate": "nixpkgs CUDA packages",
       "versioningTemplate": "regex:^(?<major>\\d+)_(?<minor>\\d+)$"
     }
   ],
@@ -100,12 +100,12 @@
       "branchTopic": "llama-cpp"
     },
     {
-      "description": "Extract nixpkgs CUDA package set versions",
-      "matchDepNames": ["nixpkgs CUDA package set"],
+      "description": "Extract nixpkgs CUDA packages versions",
+      "matchDepNames": ["nixpkgs CUDA packages"],
       "matchDatasources": ["custom.nixpkgs-cuda-packages"],
       "extractVersion": "^cudaPackages_(?<version>\\d+_\\d+)$",
-      "groupName": "CUDA package set",
-      "branchTopic": "cuda-package-set"
+      "groupName": "CUDA packages",
+      "branchTopic": "cuda-packages"
     },
     {
       "description": "Major only",
