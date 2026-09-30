@@ -10,8 +10,8 @@ final: prev: let
   nvchad = prev.vimUtils.buildVimPlugin {
     pname = "nvchad";
     version = "${prev.lib.removePrefix "v" (elemAt github-commits 1)}-unstable+rev=${builtins.substring 0 7 rev}";
-    # NvChad requires its user-supplied `chadrc` during module loading, so the
-    # generic isolated Neovim require check cannot exercise this plugin.
+    # NvChad requires its user-supplied `chadrc` during module loading, so the generic isolated Neovim require check
+    # cannot exercise this plugin.
     doCheck = false;
     src = prev.fetchFromGitHub {
       inherit rev;
