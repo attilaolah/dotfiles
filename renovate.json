@@ -52,9 +52,9 @@
       ],
       "matchStrings": [
         "(?<datasource>github-tags)\\s*=\\s*\\[\\s*\\\"(?<depName>[^\\\"]+)\\\"\\s+\\\"(?<currentValue>[^\\\"]+)\\\"\\s*\\]\\s*;(?:\\s*#\\s*extractVersion=(?<extractVersion>\\S+))?",
-        "(?<datasource>github-commits)\\s*=\\s*\\[\\s*\\\"(?<depName>[^\\\"]+)\\\"\\s+\\\"(?<currentValue>[^\\\"]+)\\\"\\s+\\\"(?<currentDigest>[0-9a-f]{40})\\\"\\s*\\];"
+        "(?<datasource>git-refs)\\s*=\\s*\\[\\s*\\\"(?<depName>[^\\\"]+)\\\"\\s+\\\"(?<currentValue>[^\\\"]+)\\\"\\s+\\\"(?<currentDigest>[0-9a-f]{40})\\\"\\s*\\];"
       ],
-      "versioningTemplate": "{{#if (equals datasource 'github-commits')}}git{{else}}semver-coerced{{/if}}"
+      "versioningTemplate": "semver-coerced"
     },
     {
       "description": "Update CodeRabbit CLI from its release channel",
