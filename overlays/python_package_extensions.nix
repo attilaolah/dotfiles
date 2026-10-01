@@ -2,9 +2,7 @@ final: prev:
 if !(prev.config.cudaSupport or false)
 then {}
 else {
-  pythonPackagesExtensions = let
-    override.stdenv = final.ccacheStdenv;
-  in
+  pythonPackagesExtensions =
     prev.pythonPackagesExtensions
     ++ [
       (_: pythonPrev: let
@@ -16,7 +14,7 @@ else {
             value =
               (
                 pythonPrev.${name}.override {
-                  buildPythonPackage = pythonPrev.buildPythonPackage.override override;
+                  buildPythonPackage = pythonPrev.buildPythonPackage.override {stdenv = final.ccacheStdenv;};
                 }
               ).overridePythonAttrs (oldAttrs: {
                 preConfigure =
