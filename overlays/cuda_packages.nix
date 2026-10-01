@@ -1,6 +1,6 @@
 final: prev: let
   # Renovate will keep this updated.
-  cudaPackages = prev.cudaPackages_13_2;
+  cudaPackages = prev.cudaPackages_13_4;
 in {
   cudaPackages = prev.lib.recurseIntoAttrs (
     cudaPackages.overrideScope (cudaFinal: cudaPrev: {
