@@ -11,7 +11,6 @@ else {
       (pythonFinal: pythonPrev: let
         opencv4 = pythonPrev.toPythonModule (
           (prev.opencv4.override {
-            stdenv = final.ccacheStdenv;
             enablePython = true;
             pythonPackages = pythonFinal;
           }).overrideAttrs (oldAttrs: {
