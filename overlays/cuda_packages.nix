@@ -1,6 +1,9 @@
-final: prev: {
+final: prev: let
+  # Renovate will keep this updated.
+  cudaPackages = prev.cudaPackages_13_2;
+in {
   cudaPackages = prev.lib.recurseIntoAttrs (
-    prev.cudaPackages_13_2.overrideScope (cudaFinal: cudaPrev: {
+    cudaPackages.overrideScope (cudaFinal: cudaPrev: {
       backendStdenv = final.ccacheStdenv.override {
         stdenv = cudaPrev.backendStdenv;
       };
