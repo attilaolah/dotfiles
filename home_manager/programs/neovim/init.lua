@@ -11,9 +11,23 @@ end
 
 vim.opt.rtp:prepend(lazypath)
 
+-- Home Manager replaces these generated files with symlinks into a new Nix store path on every switch.
+-- Neovim's Lua bytecode cache keys the stable symlink path, which can otherwise retain a previous generation's store
+-- paths. Load these tiny data modules from source to avoid stale plugin and grammar paths after an update.
+local function load_nix_generated_module(name)
+  local path = vim.fn.stdpath "config" .. "/lua/" .. name .. ".lua"
+  local file = assert(io.open(path, "r"))
+  local source = file:read "*a"
+  file:close()
+  return assert(loadstring(source, "@" .. path))()
+end
+
+local nix_plugins = load_nix_generated_module "nix-plugins"
+local nix_treesitter_grammars = load_nix_generated_module "nix-treesitter-grammars"
+
 -- Lazy may execute NvChad's Tree-sitter config before it loads the matching declarative plugin spec.
 -- Nix packages Tree-sitter's Lua module at the package root and its queries below `runtime`; both are runtime roots.
-local treesitter = require("nix-plugins")["nvim-treesitter"]
+local treesitter = nix_plugins["nvim-treesitter"]
 vim.opt.rtp:prepend(treesitter .. "/runtime")
 vim.opt.rtp:prepend(treesitter)
 
@@ -35,7 +49,7 @@ require("lazy").setup({
 -- Add the declarative Tree-sitter package and grammar roots afterwards so parsers and queries remain discoverable.
 vim.opt.rtp:append(treesitter)
 vim.opt.rtp:append(treesitter .. "/runtime")
-for _, grammar in ipairs(require "nix-treesitter-grammars") do
+for _, grammar in ipairs(nix_treesitter_grammars) do
   vim.opt.rtp:append(grammar)
 end
 
