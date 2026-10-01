@@ -1,5 +1,6 @@
 {
   imports = [
+    ./ccache.nix
     ./fish.nix
     ./neovim.nix
   ];

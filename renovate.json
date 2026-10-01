@@ -83,7 +83,7 @@
         "/^overlays/cuda_packages\\.nix$/"
       ],
       "matchStrings": [
-        "cudaPackages\\s*=\\s*prev\\.lib\\.recurseIntoAttrs\\s+prev\\.cudaPackages_(?<currentValue>\\d+_\\d+);"
+        "\\s+cudaPackages\\s*=\\s*prev\\.cudaPackages_(?<currentValue>\\d+_\\d+)\\;"
       ],
       "datasourceTemplate": "custom.nixpkgs-cuda-packages",
       "depNameTemplate": "nixpkgs CUDA packages",
