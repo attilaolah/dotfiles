@@ -113,7 +113,7 @@
         cudaSupport = pkgs.config.cudaSupport or false;
         metalSupport = pkgs.stdenv.hostPlatform.isDarwin;
       })
-      (import ./restart_sops.nix {inherit lib pkgs;})
+      (import ./sops_restart.nix {inherit lib pkgs;})
     ]
     ++ lib.lists.optionals pkgs.stdenv.hostPlatform.isLinux [
       # Not supported on darwin:

@@ -4,7 +4,7 @@
   ...
 }:
 pkgs.writeShellApplication {
-  name = "restart-sops";
+  name = "sops-restart";
   runtimeInputs = with pkgs;
     [coreutils gnupg gnused]
     ++ lib.optionals (!stdenv.hostPlatform.isDarwin) [systemd];
@@ -18,7 +18,7 @@ pkgs.writeShellApplication {
     )"
 
     if [ -n "$key" ]; then
-      printf '%s\n' restart-sops |
+      printf '%s\n' sops-restart |
         gpg --local-user "$key" --armor --sign --output /dev/null >/dev/null 2>/dev/null
     fi
 
