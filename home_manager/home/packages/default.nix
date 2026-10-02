@@ -75,7 +75,7 @@
       cargo
       clang_22
       cue
-      go
+      go_latest
       pyright
       ruff
       rustc
