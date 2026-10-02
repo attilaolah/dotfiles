@@ -31,7 +31,6 @@ local servers = {
   "ts_ls",
   "yamlls",
   "zls",
-  -- "ansiblels", -- unmaintained
 }
 
 vim.lsp.config("*", {
