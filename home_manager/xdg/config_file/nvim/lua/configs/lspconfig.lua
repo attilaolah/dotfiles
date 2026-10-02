@@ -43,7 +43,6 @@ local servers = {
     },
   },
   zls = { cmd = { "@zls@" } },
-  -- ansiblels = {}, -- unmaintained
 }
 
 vim.lsp.config("*", {
