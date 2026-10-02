@@ -1,6 +1,7 @@
 local options = {
   formatters_by_ft = {
     css = { "prettier" },
+    go = { "gofumpt" },
     html = { "prettier" },
     kotlin = { "ktfmt" },
     lua = { "stylua" },
@@ -28,7 +29,7 @@ local options = {
     }, vim.bo[bufnr].filetype)
     return {
       timeout_ms = slow and 2000 or 500,
-      lsp_fallback = "fallback",
+      lsp_format = "fallback",
     }
   end,
 }
