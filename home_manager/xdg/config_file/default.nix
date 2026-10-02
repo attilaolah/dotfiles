@@ -32,7 +32,7 @@ in {
       "nvim/lua/configs/lazy.lua".source = ./nvim/lua/configs/lazy.lua;
       "nvim/lua/configs/lspconfig.lua".source = pkgs.replaceVars ./nvim/lua/configs/lspconfig.lua {
         gopls = lib.getExe pkgs.gopls;
-        helm_ls = lib.getExe pkgs.helm-ls;
+        helm-ls = lib.getExe pkgs.helm-ls;
         kotlin-language-server = lib.getExe pkgs.kotlin-language-server;
         lua-language-server = lib.getExe pkgs.lua-language-server;
         nil = lib.getExe pkgs.nil;
