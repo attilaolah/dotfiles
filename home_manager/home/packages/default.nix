@@ -18,7 +18,10 @@
       any-nix-shell
       bat
       bitbucket-cli
+      cargo
+      clang_22
       colordiff
+      cue
       curl
       devenv
       dig
@@ -33,6 +36,7 @@
       gnumake
       gnupg
       go-task
+      go_latest
       gotop
       htop
       jira-cli-go
@@ -50,11 +54,14 @@
       pinentry-tty
       pv
       pwgen
+      pyright
       rar
       rclone
       renovate
       ripgrep
       rsync
+      ruff
+      rustc
       shellcheck
       sops
       subversion
@@ -66,21 +73,12 @@
       usbutils
       wget
       xkcdpass
+      yaml-language-server
       yamllint
       yq-go
+      zig
       zip
       zoxide
-
-      # NeoVim language servers and runtimes:
-      cargo
-      clang_22
-      cue
-      go_latest
-      pyright
-      ruff
-      rustc
-      yaml-language-server
-      zig
 
       # Virtualisation:
       crane
