@@ -31,15 +31,11 @@ _final: prev: {
           oldPostInstall;
       node_modules = oldAttrs.node_modules.overrideAttrs (nodeModulesAttrs: let
         brokenHash =
-          if prev.stdenv.hostPlatform.isLinux
-          then "sha256-aQQQhaUlAhpfqzH0vNi0IJ1cg7FQHIKYzxeq5d8PZoU="
-          else if prev.stdenv.hostPlatform.isDarwin
+          if prev.stdenv.hostPlatform.isDarwin
           then "sha256-B0m41LelD7d61vPHGIZZSO/cU7gbjHDJHt6oxNRRM8Q="
           else nodeModulesAttrs.outputHash;
         outputHash =
-          if prev.stdenv.hostPlatform.isLinux
-          then "sha256-q9F04B8xHQWDw+0HF0UeAJ7JX5xBHl3b2VdrUdwDl5I="
-          else if prev.stdenv.hostPlatform.isDarwin
+          if prev.stdenv.hostPlatform.isDarwin
           then "sha256-e/SZjrMOh6jxjUmrCBrUXZURqWrs3crFIrzWoqKojUw="
           else nodeModulesAttrs.outputHash;
       in
