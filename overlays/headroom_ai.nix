@@ -106,6 +106,7 @@ in {
               xlwt
             ]
             ++ [
+              final.ast-grep
               final.unzip
               prev.versionCheckHook
             ];
@@ -117,6 +118,8 @@ in {
           # filename is not stable across targets.
           preCheck = ''
             unzip -o "$dist"/*.whl -d .
+            export HOME="$TMPDIR/home"
+            mkdir -p "$HOME"
           '';
 
           meta = {
