@@ -155,8 +155,11 @@ in {
             export HOME="$TMPDIR/home"
             mkdir -p "$HOME"
 
+            # Fail fast for optional Hugging Face models, which cannot be downloaded in the test sandbox.
+            export HF_HUB_OFFLINE=1
+
             # Use LiteLLM's bundled price map; the test sandbox has no network access.
-             export LITELLM_LOCAL_MODEL_COST_MAP=True
+            export LITELLM_LOCAL_MODEL_COST_MAP=True
 
             # Pytest imports the source tree first, so expose maturin's built extension from the wheel.
             # Extract the full wheel because the extension's platform-specific filename is not stable across targets.
