@@ -2,9 +2,9 @@ final: prev: let
   inherit (builtins) elemAt;
   fetchFromGitHubTuple = import ./lib/fetch_from_github_tuple.nix prev;
 
-  github-tags = ["Daghis/teamcity-mcp" "2.12.2"]; # extractVersion=^teamcity-mcp-v(?<version>.*)$
-  hash-src = "sha256-8YprzIX6m8H8N+6BwXfGKN6R4kSHsYXhYl6B1aiHyWk=";
-  hash-npm-deps = "sha256-XJz69LOa4ct7SbklABe7bE6om/ZKjvLIRSwnDpbMOU8=";
+  github-tags = ["Daghis/teamcity-mcp" "2.12.3"]; # extractVersion=^teamcity-mcp-v(?<version>.*)$
+  hash-src = "sha256-K8oktslyLsoFazTI5OT50G7zUIEvYQXG4FWuPRNRjo8=";
+  hash-npm-deps = "sha256-lXWj0rQqtCWDUhtF1rpFFOhtd/iuoNBaBA6ihBbZzws=";
 
   version = elemAt github-tags 1;
 in {
