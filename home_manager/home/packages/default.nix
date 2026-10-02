@@ -82,6 +82,7 @@
       pyright
       rustc
       rust-analyzer
+      zig
       zls
 
       # Used by MCP servers currently
