@@ -92,27 +92,31 @@ in {
           ];
 
           pythonImportsCheck = ["headroom"];
-          nativeCheckInputs = with pyFinal; [
-            cryptography
-            hnswlib
-            langchain-ollama
-            ollama
-            pytest-asyncio
-            pytest-cov
-            pytestCheckHook
-            respx
-            socksio
-            xlwt
-          ] ++ [
-            final.unzip
-            prev.versionCheckHook
-          ];
+          nativeCheckInputs = with pyFinal;
+            [
+              cryptography
+              hnswlib
+              langchain-ollama
+              ollama
+              pytest-asyncio
+              pytest-cov
+              pytestCheckHook
+              respx
+              socksio
+              xlwt
+            ]
+            ++ [
+              final.unzip
+              prev.versionCheckHook
+            ];
 
           versionCheckProgram = "${placeholder "out"}/bin/headroom";
 
-          # pytest imports the source tree first; expose maturin's extension there too.
+          # Expose maturin's built extension there too, because pytest imports the source tree first.
+          # Extract the wheel rather than selecting the extension by name: maturin's platform-specific extension
+          # filename is not stable across targets.
           preCheck = ''
-            unzip -o dist/*.whl 'headroom/_core*' -d .
+            unzip -o "$dist"/*.whl -d .
           '';
 
           meta = {
