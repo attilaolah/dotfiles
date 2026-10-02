@@ -30,7 +30,20 @@ in {
         zig = lib.getExe pkgs.zig;
       };
       "nvim/lua/configs/lazy.lua".source = ./nvim/lua/configs/lazy.lua;
-      "nvim/lua/configs/lspconfig.lua".source = ./nvim/lua/configs/lspconfig.lua;
+      "nvim/lua/configs/lspconfig.lua".source = pkgs.replaceVars ./nvim/lua/configs/lspconfig.lua {
+        gopls = lib.getExe pkgs.gopls;
+        helm_ls = lib.getExe pkgs.helm-ls;
+        kotlin-language-server = lib.getExe pkgs.kotlin-language-server;
+        lua-language-server = lib.getExe pkgs.lua-language-server;
+        nil = lib.getExe pkgs.nil;
+        pyright-langserver = lib.getExe' pkgs.pyright "pyright-langserver";
+        rust-analyzer = lib.getExe pkgs.rust-analyzer;
+        typescript-language-server = lib.getExe pkgs.typescript-language-server;
+        vscode-css-language-server = lib.getExe' pkgs.vscode-langservers-extracted "vscode-css-language-server";
+        vscode-html-language-server = lib.getExe' pkgs.vscode-langservers-extracted "vscode-html-language-server";
+        yaml-language-server = lib.getExe pkgs.yaml-language-server;
+        zls = lib.getExe pkgs.zls;
+      };
       "nvim/lua/mappings.lua".source = ./nvim/lua/mappings.lua;
       "nvim/lua/options.lua".source = ./nvim/lua/options.lua;
     }

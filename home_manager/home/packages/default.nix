@@ -76,16 +76,10 @@
       clang_22
       cue
       go
-      gopls
-      helm-ls
-      nil
-      pyright
       ruff
-      rust-analyzer
       rustc
       yaml-language-server
       zig
-      zls
 
       # Virtualisation:
       crane
@@ -115,7 +109,6 @@
       bun
       nodejs_26
       pnpm
-      typescript-language-server
 
       (llama-cpp.override {
         cudaSupport = pkgs.config.cudaSupport or false;
