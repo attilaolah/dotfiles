@@ -21,6 +21,8 @@ final: prev: let
     aarch64-darwin.hash = hash-src-aarch64-darwin;
     x86_64-linux.hash = hash-src-x86_64-linux;
   };
+
+  onLinux = prev.lib.optionals prev.stdenv.hostPlatform.isLinux;
 in {
   coderabbit = prev.stdenvNoCC.mkDerivation {
     pname = "coderabbit";
@@ -33,12 +35,12 @@ in {
     # Bun stores CodeRabbit's compiled application in ELF sections.
     # Stripping them turns the executable into the bare Bun runtime.
     dontStrip = true;
-    nativeBuildInputs =
-      [prev.unzip]
-      ++ prev.lib.optionals prev.stdenv.hostPlatform.isLinux [
-        prev.autoPatchelfHook
+    nativeBuildInputs = with prev;
+      [unzip]
+      ++ onLinux [
+        autoPatchelfHook
       ];
-    buildInputs = prev.lib.optionals prev.stdenv.hostPlatform.isLinux [
+    buildInputs = onLinux [
       prev.glibc
     ];
 
