@@ -21,6 +21,7 @@ in {
         headroom-ai = pyFinal.buildPythonPackage (let
           dependencies = with pyFinal; [
             ast-grep-cli
+            anthropic
             click
             datasets
             fastapi
@@ -90,7 +91,29 @@ in {
             "$out/${pyFinal.python.sitePackages}:${pyFinal.makePythonPath dependencies}"
           ];
 
-          doCheck = false;
+          pythonImportsCheck = ["headroom"];
+          nativeCheckInputs = with pyFinal; [
+            cryptography
+            hnswlib
+            langchain-ollama
+            ollama
+            pytest-asyncio
+            pytest-cov
+            pytestCheckHook
+            respx
+            socksio
+            xlwt
+          ] ++ [
+            final.unzip
+            prev.versionCheckHook
+          ];
+
+          versionCheckProgram = "${placeholder "out"}/bin/headroom";
+
+          # pytest imports the source tree first; expose maturin's extension there too.
+          preCheck = ''
+            unzip -o dist/*.whl 'headroom/_core*' -d .
+          '';
 
           meta = {
             description = "Context optimization layer for LLM applications";
