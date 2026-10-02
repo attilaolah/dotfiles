@@ -18,7 +18,17 @@ in {
       "agent-deck/config.toml".source = tomlFormat.generate "agent-deck-config.toml" (import ./agent_deck/config.toml.nix {inherit lib pkgs;});
       "nvim/lua/autocmds.lua".source = ./nvim/lua/autocmds.lua;
       "nvim/lua/chadrc.lua".source = ./nvim/lua/chadrc.lua;
-      "nvim/lua/configs/conform.lua".source = ./nvim/lua/configs/conform.lua;
+      "nvim/lua/configs/conform.lua".source = pkgs.replaceVars ./nvim/lua/configs/conform.lua {
+        alejandra = lib.getExe pkgs.alejandra;
+        black = lib.getExe pkgs.black;
+        gofumpt = lib.getExe pkgs.gofumpt;
+        ktfmt = lib.getExe pkgs.ktfmt;
+        prettier = lib.getExe pkgs.prettier;
+        rustfmt = lib.getExe pkgs.rustfmt;
+        stylua = lib.getExe pkgs.stylua;
+        usort = lib.getExe pkgs.usort;
+        zig = lib.getExe pkgs.zig;
+      };
       "nvim/lua/configs/lazy.lua".source = ./nvim/lua/configs/lazy.lua;
       "nvim/lua/configs/lspconfig.lua".source = ./nvim/lua/configs/lspconfig.lua;
       "nvim/lua/mappings.lua".source = ./nvim/lua/mappings.lua;

@@ -71,25 +71,17 @@
       zip
       zoxide
 
-      # NeoVim dependencies:
-      alejandra
-      black
+      # NeoVim language servers and runtimes:
       cargo
       clang_22
       cue
       go
-      gofumpt
       gopls
       helm-ls
-      ktfmt
       nil
       pyright
       rustc
       rust-analyzer
-      rustfmt
-      stylua
-      usort
-      zig
       zls
 
       # Used by MCP servers currently
@@ -123,7 +115,6 @@
       bun
       nodejs_26
       pnpm
-      prettier
       typescript-language-server
 
       (llama-cpp.override {
