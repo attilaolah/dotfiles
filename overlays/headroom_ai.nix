@@ -114,6 +114,12 @@ in {
             "test_runtime_start_lock_blocks_another_process"
             "test_sighup_on_launch_tool_reaps_the_proxy"
             "test_verbatim_read_never_cache_written_before_maturation"
+            # These tests download a SentenceTransformer model from Hugging Face, which is unavailable in the sandbox.
+            "test_cpu_embed_workers_are_thread_capped"
+            "test_cpu_uses_dedicated_thread_capped_executor"
+            "test_embed_single"
+            "test_embed_batch"
+            "test_similar_texts_have_high_similarity"
           ];
           nativeCheckInputs = with pyFinal;
             [
@@ -136,13 +142,16 @@ in {
 
           versionCheckProgram = "${placeholder "out"}/bin/headroom";
 
-          # Expose maturin's built extension there too, because pytest imports the source tree first.
-          # Extract the wheel rather than selecting the extension by name: maturin's platform-specific extension
-          # filename is not stable across targets.
           preCheck = ''
-            unzip -o "$dist"/*.whl -d .
             export HOME="$TMPDIR/home"
             mkdir -p "$HOME"
+
+            # Use LiteLLM's bundled price map; the test sandbox has no network access.
+             export LITELLM_LOCAL_MODEL_COST_MAP=True
+
+            # Pytest imports the source tree first, so expose maturin's built extension from the wheel.
+            # Extract the full wheel because the extension's platform-specific filename is not stable across targets.
+            unzip -o "$dist"/*.whl -d .
           '';
 
           meta = {
