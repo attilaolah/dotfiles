@@ -76,6 +76,7 @@
       clang_22
       cue
       go
+      pyright
       ruff
       rustc
       yaml-language-server
