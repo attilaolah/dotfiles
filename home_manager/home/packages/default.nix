@@ -80,13 +80,12 @@
       helm-ls
       nil
       pyright
-      rustc
+      ruff
       rust-analyzer
+      rustc
+      yaml-language-server
       zig
       zls
-
-      # Used by MCP servers currently
-      yaml-language-server
 
       # Virtualisation:
       crane
