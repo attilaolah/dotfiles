@@ -92,15 +92,8 @@ in {
   programs.neovim = {
     vimdiffAlias = true;
     extraPackages = with pkgs; [
-      # Language servers:
-      kotlin-language-server
-      lua-language-server
+      # Required by the Nix-packaged Neovim runtime:
       tree-sitter
-      vscode-langservers-extracted
-      yaml-language-server
-
-      # Unmaintained, maybe pick it up.
-      # ansible-language-server
     ];
     initLua = builtins.readFile ./init.lua;
     plugins = builtins.attrValues plugins;

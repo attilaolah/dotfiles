@@ -18,7 +18,10 @@
       any-nix-shell
       bat
       bitbucket-cli
+      cargo
+      clang_22
       colordiff
+      cue
       curl
       devenv
       dig
@@ -33,6 +36,7 @@
       gnumake
       gnupg
       go-task
+      go_latest
       gotop
       htop
       jira-cli-go
@@ -50,11 +54,14 @@
       pinentry-tty
       pv
       pwgen
+      pyright
       rar
       rclone
       renovate
       ripgrep
       rsync
+      ruff
+      rustc
       shellcheck
       sops
       subversion
@@ -66,34 +73,12 @@
       usbutils
       wget
       xkcdpass
+      yaml-language-server
       yamllint
       yq-go
+      zig
       zip
       zoxide
-
-      # NeoVim dependencies:
-      alejandra
-      black
-      cargo
-      clang_22
-      cue
-      go
-      gofumpt
-      gopls
-      helm-ls
-      ktfmt
-      nil
-      pyright
-      rustc
-      rust-analyzer
-      rustfmt
-      stylua
-      usort
-      zig
-      zls
-
-      # Used by MCP servers currently
-      yaml-language-server
 
       # Virtualisation:
       crane
@@ -123,14 +108,12 @@
       bun
       nodejs_26
       pnpm
-      prettier
-      typescript-language-server
 
       (llama-cpp.override {
         cudaSupport = pkgs.config.cudaSupport or false;
         metalSupport = pkgs.stdenv.hostPlatform.isDarwin;
       })
-      (import ./restart_sops.nix {inherit lib pkgs;})
+      (import ./sops_restart.nix {inherit lib pkgs;})
     ]
     ++ lib.lists.optionals pkgs.stdenv.hostPlatform.isLinux [
       # Not supported on darwin:

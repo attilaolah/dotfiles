@@ -18,9 +18,32 @@ in {
       "agent-deck/config.toml".source = tomlFormat.generate "agent-deck-config.toml" (import ./agent_deck/config.toml.nix {inherit lib pkgs;});
       "nvim/lua/autocmds.lua".source = ./nvim/lua/autocmds.lua;
       "nvim/lua/chadrc.lua".source = ./nvim/lua/chadrc.lua;
-      "nvim/lua/configs/conform.lua".source = ./nvim/lua/configs/conform.lua;
+      "nvim/lua/configs/conform.lua".source = pkgs.replaceVars ./nvim/lua/configs/conform.lua {
+        alejandra = lib.getExe pkgs.alejandra;
+        black = lib.getExe pkgs.black;
+        gofumpt = lib.getExe pkgs.gofumpt;
+        ktfmt = lib.getExe pkgs.ktfmt;
+        prettier = lib.getExe pkgs.prettier;
+        rustfmt = lib.getExe pkgs.rustfmt;
+        stylua = lib.getExe pkgs.stylua;
+        usort = lib.getExe pkgs.usort;
+        zig = lib.getExe pkgs.zig;
+      };
       "nvim/lua/configs/lazy.lua".source = ./nvim/lua/configs/lazy.lua;
-      "nvim/lua/configs/lspconfig.lua".source = ./nvim/lua/configs/lspconfig.lua;
+      "nvim/lua/configs/lspconfig.lua".source = pkgs.replaceVars ./nvim/lua/configs/lspconfig.lua {
+        gopls = lib.getExe pkgs.gopls;
+        helm-ls = lib.getExe pkgs.helm-ls;
+        kotlin-language-server = lib.getExe pkgs.kotlin-language-server;
+        lua-language-server = lib.getExe pkgs.lua-language-server;
+        nil = lib.getExe pkgs.nil;
+        pyright-langserver = lib.getExe' pkgs.pyright "pyright-langserver";
+        rust-analyzer = lib.getExe pkgs.rust-analyzer;
+        typescript-language-server = lib.getExe pkgs.typescript-language-server;
+        vscode-css-language-server = lib.getExe' pkgs.vscode-langservers-extracted "vscode-css-language-server";
+        vscode-html-language-server = lib.getExe' pkgs.vscode-langservers-extracted "vscode-html-language-server";
+        yaml-language-server = lib.getExe pkgs.yaml-language-server;
+        zls = lib.getExe pkgs.zls;
+      };
       "nvim/lua/mappings.lua".source = ./nvim/lua/mappings.lua;
       "nvim/lua/options.lua".source = ./nvim/lua/options.lua;
     }

@@ -1,6 +1,7 @@
 local options = {
   formatters_by_ft = {
     css = { "prettier" },
+    go = { "gofumpt" },
     html = { "prettier" },
     kotlin = { "ktfmt" },
     lua = { "stylua" },
@@ -12,11 +13,19 @@ local options = {
   },
 
   formatters = {
+    alejandra = { command = "@alejandra@" },
+    black = { command = "@black@" },
+    gofumpt = { command = "@gofumpt@" },
     ktfmt = {
+      command = "@ktfmt@",
       prepend_args = { "--google-style" },
     },
+    prettier = { command = "@prettier@" },
+    rustfmt = { command = "@rustfmt@" },
+    stylua = { command = "@stylua@" },
+    usort = { command = "@usort@" },
     zigfmt = {
-      command = "zig",
+      command = "@zig@",
       args = { "fmt", "--stdin" },
     },
   },
@@ -28,7 +37,7 @@ local options = {
     }, vim.bo[bufnr].filetype)
     return {
       timeout_ms = slow and 2000 or 500,
-      lsp_fallback = "fallback",
+      lsp_format = "fallback",
     }
   end,
 }
