@@ -1,6 +1,4 @@
 {
-  config,
-  lib,
   ...
 }: {
   nix.settings = {
@@ -10,7 +8,6 @@
     ];
 
     trusted-users = ["root" "@wheel"];
-    extra-sandbox-paths = lib.optional (config.programs ? ccache) config.programs.ccache.cacheDir;
     extra-substituters = [
       "https://devenv.cachix.org" # devenv.sh
       "https://nixpkgs-python.cachix.org" # devenv.sh python
