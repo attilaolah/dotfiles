@@ -62,6 +62,11 @@ in {
             xlrd
             zstandard
           ];
+          bundledTools = with final; [
+            ast-grep
+            difftastic
+            scc
+          ];
         in {
           inherit pname version src;
           pyproject = true;
@@ -89,6 +94,10 @@ in {
             "PYTHONPATH"
             ":"
             "$out/${pyFinal.python.sitePackages}:${pyFinal.makePythonPath dependencies}"
+            "--prefix"
+            "PATH"
+            ":"
+            (final.lib.makeBinPath bundledTools)
           ];
 
           pythonImportsCheck = ["headroom"];
@@ -134,8 +143,8 @@ in {
               socksio
               xlwt
             ]
+            ++ bundledTools
             ++ [
-              final.ast-grep
               final.unzip
               prev.versionCheckHook
             ];
