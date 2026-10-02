@@ -6,10 +6,10 @@ final: prev: let
 
   # Keep these as top-level `hash-*` variables (not inlined in `sources`):
   # `.github/workflows/renovate_overlay_hashes.yaml` parses and rewrites them.
-  hash-src-aarch64-darwin = "sha256-Ro7cxFS2uxwyHY1CWRoWrOTRodYopPHOla0jbJ7kzBk=";
-  hash-src-aarch64-linux = "sha256-O0DDuqskW0OkEAfB22TfUfXxYrYFn8xKRQRzHyaJ0wE=";
-  hash-src-x86_64-darwin = "sha256-OTZMwk57KwWkoBOMYNXV2jnfn7dt7cnj9LdKFoUS/NY=";
-  hash-src-x86_64-linux = "sha256-aM9NIhy2LgKJJFQ509N/WZvcjgxOHj2uA/MmRjoMJtw=";
+  hash-src-aarch64-darwin = "sha256-Zvfp6HUKUG6KLKrtqt9HnwI4IPcSAVycVc+5GiiRUhs=";
+  hash-src-aarch64-linux = "sha256-hRvavaOy62edDUa0aWKbkXUtHx10lxhRB0CLYMWMLjI=";
+  hash-src-x86_64-darwin = "sha256-VgLXGjr8Fu4H/NC9gGhCNCRk947V/J/qaa3/0anipk0=";
+  hash-src-x86_64-linux = "sha256-u9Sksp8On+H8LhNFtdRPoIVA5DAU2ka8LEv3DPBXRdg=";
 in {
   antigravity-cli = prev.antigravity-cli.overrideAttrs (old: let
     sources = prev.lib.mapAttrs (system: source:
