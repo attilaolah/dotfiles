@@ -2,7 +2,7 @@ final: prev: let
   inherit (builtins) elemAt;
   fetchFromGitHubTuple = import ./lib/fetch_from_github_tuple.nix prev;
 
-  github-tags = ["Daghis/teamcity-mcp" "2.12.3"]; # extractVersion=^teamcity-mcp-v(?<version>.*)$
+  github-tags = ["Daghis/teamcity-mcp" "2.12.5"]; # extractVersion=^teamcity-mcp-v(?<version>.*)$
   hash-src = "sha256-K8oktslyLsoFazTI5OT50G7zUIEvYQXG4FWuPRNRjo8=";
   hash-npm-deps = "sha256-lXWj0rQqtCWDUhtF1rpFFOhtd/iuoNBaBA6ihBbZzws=";
 
