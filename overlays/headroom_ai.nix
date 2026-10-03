@@ -119,17 +119,19 @@ in {
           inherit dependencies;
 
           makeWrapperArgs = [
-            "--prefix"
-            "PATH"
-            ":"
-            (final.lib.makeBinPath bundledTools)
-
             # Proxy startup re-execs `python -m headroom.cli`; preserve its package closure for that child interpreter.
             "--prefix"
             "PYTHONPATH"
             ":"
             "$out/${pyFinal.python.sitePackages}:${pyFinal.makePythonPath dependencies}"
 
+            # Make the bundled tools available.
+            "--prefix"
+            "PATH"
+            ":"
+            (final.lib.makeBinPath bundledTools)
+
+            # Use bundled Tiktoken encodings instead of lazily downloading them.
             "--set"
             "TIKTOKEN_CACHE_DIR"
             tiktokenEncodings
@@ -210,7 +212,7 @@ in {
             export HF_HUB_OFFLINE=1
             export TRANSFORMERS_OFFLINE=1
 
-            # Tiktoken lazily downloads its OpenAI encoding files; use Nix-fetched copies in the test sandbox.
+            # Tiktoken lazily downloads its OpenAI encoding files. Use Nix-fetched copies in the test sandbox.
             export TIKTOKEN_CACHE_DIR=${tiktokenEncodings}
 
             # Use LiteLLM's bundled price map; the test sandbox has no network access.
