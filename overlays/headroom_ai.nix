@@ -179,7 +179,8 @@ in {
             "test_semantic_match"
             # The route is claimed by the generic proxy when the optional gateway contract is disabled.
             "test_contract_disabled_by_env"
-            # The event-filter expectation does not match the current upstream watcher implementation.
+            # Nix creates tmp_path below /build, which the watcher treats as an ignored directory.
+            # Its main.py event never reaches _schedule_reindex(), so `scheduled == ["reindex"]` fails.
             "test_code_graph_watcher_init_start_stop_and_event_filtering"
           ];
           # LiteLLM 1.81.12 does not contain this upstream test's expected Groq model price.
