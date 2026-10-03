@@ -9,4 +9,9 @@
     url = "https://github.com/NixOS/nixpkgs/commit/c4e5b4dab2130965b3cc5dc87fa74321c2c39b1a.patch";
     hash = "sha256-1jZ1utWjG9YBIGuk9nRpVFtSYq/6f1ir6P7O0EBemTs=";
   })
+  (fetchpatch {
+    # https://github.com/NixOS/nixpkgs/pull/569784
+    url = "https://github.com/NixOS/nixpkgs/commit/76603f69f4afe027f84592bf44a377515972b4d3.patch";
+    hash = "sha256-vj72iqaeHsRervb4crW6J8HrYKoJqIJX+ed0lD/n4WY=";
+  })
 ]

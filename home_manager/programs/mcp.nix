@@ -40,7 +40,7 @@
         };
         headroom = {
           description = "Headroom";
-          package = pkgs.headroom-ai;
+          package = pkgs.headroom;
           args = ["mcp" "serve"];
           # Necessary as the proxy is also on by default.
           enabled = lib.mkDefault true;
