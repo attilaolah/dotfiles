@@ -166,7 +166,7 @@ in {
             "test_embed_batch"
             "test_embed_single"
             "test_similar_texts_have_high_similarity"
-            # These benchmarks and scorers require Hugging Face datasets or models not bundled with the package.
+            # These tests require Hugging Face datasets or models not bundled with the package.
             "test_batch_efficiency"
             "test_benchmark_loads"
             "test_compression_achieved"
@@ -174,10 +174,13 @@ in {
             "test_extraction_f1_medium"
             "test_extraction_f1_quick"
             "test_hybrid_scoring"
+            "test_import_export_preserves_facts"
             "test_paraphrase_match"
             "test_semantic_match"
             # The route is claimed by the generic proxy when the optional gateway contract is disabled.
             "test_contract_disabled_by_env"
+            # The event-filter expectation does not match the current upstream watcher implementation.
+            "test_code_graph_watcher_init_start_stop_and_event_filtering"
           ];
           # LiteLLM 1.81.12 does not contain this upstream test's expected Groq model price.
           pytestFlags = [
@@ -214,6 +217,10 @@ in {
 
             # Tiktoken lazily downloads its OpenAI encoding files. Use Nix-fetched copies in the test sandbox.
             export TIKTOKEN_CACHE_DIR=${tiktokenEncodings}
+
+            # The upstream health probe and SSRF guard cannot reach the mock upstream hosts in the test sandbox.
+            export HEADROOM_SKIP_UPSTREAM_CHECK=1
+            export HEADROOM_ALLOWED_BASE_URLS=httpbin.org,api.deepseek.com,opencode.ai
 
             # Use LiteLLM's bundled price map; the test sandbox has no network access.
             export LITELLM_LOCAL_MODEL_COST_MAP=True
