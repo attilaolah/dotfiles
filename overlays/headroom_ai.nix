@@ -67,6 +67,36 @@ in {
             difftastic
             scc
           ];
+          tiktokenEncodings = final.linkFarm "tiktoken-encodings" [
+            {
+              name = "0ea1e91bbb3a60f729a8dc8f777fd2fc07cd8df4";
+              path = final.fetchurl {
+                url = "https://openaipublic.blob.core.windows.net/encodings/r50k_base.tiktoken";
+                hash = "sha256-MGzSfwPBpxTspxCOA9ZrfcBCq+jCWLRMGZp+2YON2TA=";
+              };
+            }
+            {
+              name = "ec7223a39ce59f226a68acc30dc1af2788490e15";
+              path = final.fetchurl {
+                url = "https://openaipublic.blob.core.windows.net/encodings/p50k_base.tiktoken";
+                hash = "sha256-lLXKff9NAHZ7wlb90bJ+Wxc2HXuKX5aFR/nyPrcNIGk=";
+              };
+            }
+            {
+              name = "9b5ad71b2ce5302211f9c61530b329a4922fc6a4";
+              path = final.fetchurl {
+                url = "https://openaipublic.blob.core.windows.net/encodings/cl100k_base.tiktoken";
+                hash = "sha256-Ijkht27pm96ZW3/3OFE+7xAPtR0YyTWXoRO8/+hlsqc=";
+              };
+            }
+            {
+              name = "fb374d419588a4632f3f557e76b4b70aebbca790";
+              path = final.fetchurl {
+                url = "https://openaipublic.blob.core.windows.net/encodings/o200k_base.tiktoken";
+                hash = "sha256-RGqVOMtsNI41FhINfAiwn1fDZJXirP/+WaW/iwz7Gi0=";
+              };
+            }
+          ];
         in {
           inherit pname version src;
           pyproject = true;
@@ -88,16 +118,21 @@ in {
           # The upstream [all] extra covers every supported runtime feature.
           inherit dependencies;
 
-          # Proxy startup re-execs `python -m headroom.cli`; preserve its package closure for that child interpreter.
           makeWrapperArgs = [
-            "--prefix"
-            "PYTHONPATH"
-            ":"
-            "$out/${pyFinal.python.sitePackages}:${pyFinal.makePythonPath dependencies}"
             "--prefix"
             "PATH"
             ":"
             (final.lib.makeBinPath bundledTools)
+
+            # Proxy startup re-execs `python -m headroom.cli`; preserve its package closure for that child interpreter.
+            "--prefix"
+            "PYTHONPATH"
+            ":"
+            "$out/${pyFinal.python.sitePackages}:${pyFinal.makePythonPath dependencies}"
+
+            "--set"
+            "TIKTOKEN_CACHE_DIR"
+            tiktokenEncodings
           ];
 
           pythonImportsCheck = ["headroom"];
@@ -126,9 +161,25 @@ in {
             # These tests download a SentenceTransformer model from Hugging Face, which is unavailable in the sandbox.
             "test_cpu_embed_workers_are_thread_capped"
             "test_cpu_uses_dedicated_thread_capped_executor"
-            "test_embed_single"
             "test_embed_batch"
+            "test_embed_single"
             "test_similar_texts_have_high_similarity"
+            # These benchmarks and scorers require Hugging Face datasets or models not bundled with the package.
+            "test_batch_efficiency"
+            "test_benchmark_loads"
+            "test_compression_achieved"
+            "test_extraction_f1_full"
+            "test_extraction_f1_medium"
+            "test_extraction_f1_quick"
+            "test_hybrid_scoring"
+            "test_paraphrase_match"
+            "test_semantic_match"
+            # The route is claimed by the generic proxy when the optional gateway contract is disabled.
+            "test_contract_disabled_by_env"
+          ];
+          # LiteLLM 1.81.12 does not contain this upstream test's expected Groq model price.
+          pytestFlags = [
+            "--deselect=tests/test_pricing_from_litellm.py::test_provider_prices_models_its_table_never_covered[groq/llama-guard-3-8b-0.2-0.2]"
           ];
           nativeCheckInputs = with pyFinal;
             [
@@ -157,6 +208,10 @@ in {
 
             # Fail fast for optional Hugging Face models, which cannot be downloaded in the test sandbox.
             export HF_HUB_OFFLINE=1
+            export TRANSFORMERS_OFFLINE=1
+
+            # Tiktoken lazily downloads its OpenAI encoding files; use Nix-fetched copies in the test sandbox.
+            export TIKTOKEN_CACHE_DIR=${tiktokenEncodings}
 
             # Use LiteLLM's bundled price map; the test sandbox has no network access.
             export LITELLM_LOCAL_MODEL_COST_MAP=True
