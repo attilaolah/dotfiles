@@ -228,6 +228,29 @@ in {
             # Pytest imports the source tree first, so expose maturin's built extension from the wheel.
             # Extract the full wheel because the extension's platform-specific filename is not stable across targets.
             unzip -o "$dist"/*.whl -d .
+
+            ${final.lib.optionalString final.stdenv.isLinux ''
+              # The global fixture scrubs HEADROOM_* settings; retain only these sandbox values for their affected tests.
+              substituteInPlace tests/conftest.py --replace-fail '
+              def _scrub_developer_headroom_env(monkeypatch, tmp_path):
+                  for key in list(os.environ):
+                      if key.startswith("HEADROOM_"):
+              ' '
+              def _scrub_developer_headroom_env(request, monkeypatch, tmp_path):
+                  sandbox_proxy_tests = (
+                      "tests/test_hermes_passthrough_compression.py",
+                      "tests/test_proxy/test_anthropic_upstream_header.py",
+                      "tests/test_proxy/test_openai_transport_path_prefix.py",
+                      "tests/test_proxy_ccr.py",
+                  )
+                  preserve_sandbox_proxy_env = str(request.node.path).endswith(sandbox_proxy_tests)
+                  for key in list(os.environ):
+                      if key.startswith("HEADROOM_") and not (
+                          preserve_sandbox_proxy_env
+                          and key in {"HEADROOM_ALLOWED_BASE_URLS", "HEADROOM_SKIP_UPSTREAM_CHECK"}
+                      ):
+              '
+            ''}
           '';
 
           meta = {
