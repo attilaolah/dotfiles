@@ -230,7 +230,7 @@ in {
             # Extract the full wheel because the extension's platform-specific filename is not stable across targets.
             unzip -o "$dist"/*.whl -d .
 
-            ${final.lib.optionalString final.stdenv.isLinux ''
+            ${final.lib.optionalString final.stdenv.hostPlatform.isLinux ''
               # The global fixture scrubs HEADROOM_* settings; retain only these sandbox values for their affected tests.
               substituteInPlace tests/conftest.py --replace-fail '
               def _scrub_developer_headroom_env(monkeypatch, tmp_path):
