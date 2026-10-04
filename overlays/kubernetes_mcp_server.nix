@@ -19,8 +19,7 @@ in {
 
     vendorHash = hash-vendor;
     subPackages = ["cmd/kubernetes-mcp-server"];
-
-    doCheck = false;
+    doCheck = true;
 
     meta = {
       description = "MCP server for Kubernetes";
