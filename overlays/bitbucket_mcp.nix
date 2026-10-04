@@ -18,8 +18,8 @@ in {
     };
 
     npmDepsHash = hash-npm-deps;
-    doCheck = false;
-
+    doCheck = true;
+    checkPhase = "npm run test";
     meta = {
       description = "MCP server for Bitbucket";
       homepage = "https://github.com/MatanYemini/bitbucket-mcp";
