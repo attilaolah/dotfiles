@@ -18,8 +18,11 @@ in {
     };
 
     npmDepsHash = hash-npm-deps;
-    doCheck = false;
+    doCheck = true;
+    checkPhase = "npm run test -- --runInBand";
 
+    nativeInstallCheckInputs = [prev.versionCheckHook];
+    versionCheckProgram = "${placeholder "out"}/bin/teamcity-mcp";
     meta = {
       description = "MCP server for TeamCity";
       homepage = "https://github.com/Daghis/teamcity-mcp";
