@@ -19,8 +19,15 @@ in {
 
     vendorHash = hash-vendor;
     subPackages = ["cmd/kubernetes-mcp-server"];
-
-    doCheck = false;
+    doCheck = true;
+    checkPhase = ''
+      runHook preCheck
+      export GOFLAGS=''${GOFLAGS//-trimpath/}
+      export HOME="$TMPDIR/home"
+      mkdir -p "$HOME"
+      go test $checkFlags $(go list ./... | grep -Ev '/(pkg/api|pkg/mcp)$')
+      runHook postCheck
+    '';
 
     meta = {
       description = "MCP server for Kubernetes";
