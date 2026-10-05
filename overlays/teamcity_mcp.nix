@@ -19,6 +19,7 @@ in {
 
     npmDepsHash = hash-npm-deps;
     doCheck = true;
+    doInstallCheck = true;
     checkPhase = "npm run test -- --runInBand";
 
     nativeInstallCheckInputs = [prev.versionCheckHook];
