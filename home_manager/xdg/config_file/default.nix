@@ -46,6 +46,7 @@ in {
       };
       "nvim/lua/mappings.lua".source = ./nvim/lua/mappings.lua;
       "nvim/lua/options.lua".source = ./nvim/lua/options.lua;
+      "opencode/opencode-model-router.overrides.jsonc".text = toJSON (import ./opencode/opencode-model-router.overrides.json.nix);
     }
     // lib.attrsets.optionalAttrs pkgs.stdenv.hostPlatform.isDarwin {
       "ghostty/config".text = import ./ghostty {inherit fontFamily fontSize;};
