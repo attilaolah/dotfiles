@@ -17,11 +17,12 @@ in {
       rev = "v${version}";
     };
 
-    patches = [./agent_deck_tests.patch];
+    patches = [./agent_deck/tests.patch];
 
     vendorHash = hash-vendor;
     subPackages = ["cmd/agent-deck"];
     doCheck = true;
+    doInstallCheck = true;
 
     # The upstream suite marks subprocess and external-service tests as short.
     checkFlags = ["-short"];
