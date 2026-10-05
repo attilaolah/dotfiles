@@ -17,11 +17,16 @@ in {
       rev = "v${version}";
     };
 
-    patches = [./opencode_model_router/tests.patch];
+    # This test coordinates wall-clock time across fresh processes, which is not reliable in the Nix build sandbox.
+    patches = [./opencode_model_router/slot_qa_1_4_21.patch];
 
     npmDepsHash = hash-npm-deps;
     dontNpmBuild = true;
     doCheck = true;
+    preCheck = ''
+      export npm_config_cache="$TMPDIR/npm-cache"
+      mkdir -p "$npm_config_cache"
+    '';
     checkPhase = ''
       runHook preCheck
       npm run test -- --exclude test/unit/exec-branches.test.ts
