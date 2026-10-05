@@ -17,22 +17,7 @@ in {
       rev = "v${version}";
     };
 
-    postPatch = ''
-      # These tests require capabilities unavailable in a sandboxed Nix build: a writable npm cache, wall-clock
-      # coordination across fresh processes, or terminating the test runner's POSIX process group.
-      substituteInPlace test/unit/packaging.test.ts \
-        --replace-fail \
-        'it("npm pack --dry-run ships only the allowlisted files", () => {'\
-        'it.skip("npm pack --dry-run ships only the allowlisted files", () => {'
-      substituteInPlace test/unit/slot.test.ts \
-        --replace-fail \
-        'it("fresh processes that each look once with waitMs 0 reclaim a lock whose owner is not provably dead, once unchanged for staleMs", async () => {' \
-        'it.skip("fresh processes that each look once with waitMs 0 reclaim a lock whose owner is not provably dead, once unchanged for staleMs", async () => {'
-      substituteInPlace test/integration/batch-wiring.test.ts \
-        --replace-fail \
-        'it("QA-2.2-25: a pooled batch that waits for the slot longer than its schedule allows runs its members alone", async () => {' \
-        'it.skip("QA-2.2-25: a pooled batch that waits for the slot longer than its schedule allows runs its members alone", async () => {'
-    '';
+    patches = [./opencode_model_router/tests.patch];
 
     npmDepsHash = hash-npm-deps;
     dontNpmBuild = true;
