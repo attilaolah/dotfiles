@@ -16,7 +16,7 @@ in {
     settings = {
       autoshare = false;
       autoupdate = false;
-      plugin = [pkgs.opencode-model-router.plugin];
+      plugins = [pkgs.opencode-model-router.plugin];
       lsp = {
         css = {
           command = (vsls "css") ++ stdio;

@@ -2,9 +2,9 @@ final: prev: let
   inherit (builtins) elemAt;
   fetchFromGithubTuple = import ./lib/fetch_from_github_tuple.nix prev;
 
-  github-tags = ["marco-jardim/opencode-model-router" "1.15.0"]; # extractVersion=^v(?<version>.*)$
-  hash-src = "sha256-M7yGPLCzz/WwgzrlrDNR9tAoVPYdymjnGIFyOE0biTI=";
-  hash-npm-deps = "sha256-HyWwG45IMhnUPxY6IauR1z0c8sdUZx+VKW0lbHlGHWk=";
+  github-tags = ["marco-jardim/opencode-model-router" "2.1.0"]; # extractVersion=^v(?<version>.*)$
+  hash-src = "sha256-vx1Eo8i+2e/rihJodwe/+mV9NPqAxlVaCDhv5Gfe0js=";
+  hash-npm-deps = "sha256-QheKoY5fu7+eZsnQm41RAEYwLGejwyoPNpfddwYbtwg=";
 
   version = elemAt github-tags 1;
 in {
@@ -36,7 +36,7 @@ in {
       git
       procps
     ];
-    passthru.plugin = "${final.opencode-model-router}/lib/node_modules/opencode-model-router/src/index.ts";
+    passthru.plugin = "${final.opencode-model-router}/lib/node_modules/opencode-model-router";
 
     meta = {
       description = "OpenCode plugin that routes tasks to tiered subagents based on complexity";
