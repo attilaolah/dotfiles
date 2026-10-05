@@ -213,6 +213,16 @@
           exportedPackages
           // exportedHashOutputs;
 
+        checks = let
+          pkgs = import nixpkgs {
+            inherit system overlays;
+            config = unfree;
+          };
+        in
+          lib.optionalAttrs pkgs.stdenv.hostPlatform.isLinux {
+            nvchad = pkgs.callPackage ./tests/nvchad.nix {};
+          };
+
         devShells.default = pkgs.mkShell {
           buildInputs = with pkgs; [
             go-task
