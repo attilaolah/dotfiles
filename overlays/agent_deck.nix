@@ -29,7 +29,13 @@ in {
     checkPhase = ''
       runHook preCheck
       export GOFLAGS=''${GOFLAGS//-trimpath/}
-      export TMPDIR=/tmp
+      # On Darwin /tmp is a symlink to /private/tmp. The recall readers canonicalize discovered paths, while these
+      # tests retain their t.TempDir paths for database lookups; use the canonical location.
+      export TMPDIR=${
+        if prev.stdenv.hostPlatform.isDarwin
+        then "/private/tmp"
+        else "/tmp"
+      }
       export HOME="$(mktemp -d)"
       export XDG_CACHE_HOME="$HOME/.cache"
       export XDG_CONFIG_HOME="$HOME/.config"
