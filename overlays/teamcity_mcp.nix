@@ -3,8 +3,8 @@ final: prev: let
   fetchFromGitHubTuple = import ./lib/fetch_from_github_tuple.nix prev;
 
   github-tags = ["Daghis/teamcity-mcp" "2.12.8"]; # extractVersion=^teamcity-mcp-v(?<version>.*)$
-  hash-src = "sha256-aLOyZQksasOP2pRSWM7SMoyDHOzSKcdhAAp7MQUTXzU=";
-  hash-npm-deps = "sha256-7o0yzSONESBfXXLEg5XIsTEjcRu+7lBG6jTx1UHhObE=";
+  hash-src = "sha256-2a2jEuvB/yNcqq2ck2BdJE5wqCbfqU3xteCau6Wr7jM=";
+  hash-npm-deps = "sha256-tYwAYp0YjSCaN/52Z6fHgjhHhxJuJY9CGhH6vmHfaq4=";
 
   version = elemAt github-tags 1;
 in {
