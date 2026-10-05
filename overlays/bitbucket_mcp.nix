@@ -18,8 +18,12 @@ in {
     };
 
     npmDepsHash = hash-npm-deps;
-    doCheck = false;
-
+    doCheck = true;
+    checkPhase = ''
+      runHook preCheck
+      npm run test
+      runHook postCheck
+    '';
     meta = {
       description = "MCP server for Bitbucket";
       homepage = "https://github.com/MatanYemini/bitbucket-mcp";
