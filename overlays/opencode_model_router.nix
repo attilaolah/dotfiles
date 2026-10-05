@@ -36,7 +36,7 @@ in {
       git
       procps
     ];
-    passthru.plugin = "${final.opencode-model-router}/lib/node_modules/opencode-model-router/src/index.ts";
+    passthru.plugin = "${final.opencode-model-router}/lib/node_modules/opencode-model-router";
 
     meta = {
       description = "OpenCode plugin that routes tasks to tiered subagents based on complexity";
