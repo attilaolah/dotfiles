@@ -1,7 +1,7 @@
 final: prev: let
   inherit (builtins) elemAt;
 
-  github-tags = ["google-antigravity/antigravity-cli" "1.2.16"];
+  github-tags = ["google-antigravity/antigravity-cli" "1.2.17"];
   version = elemAt github-tags 1;
 
   # Keep these as top-level `hash-*` variables (not inlined in `sources`):
