@@ -20,7 +20,11 @@ in {
     npmDepsHash = hash-npm-deps;
     doCheck = true;
     doInstallCheck = true;
-    checkPhase = "npm run test -- --runInBand";
+    checkPhase = ''
+      runHook preCheck
+      npm run test -- --runInBand
+      runHook postCheck
+    '';
 
     nativeInstallCheckInputs = [prev.versionCheckHook];
     versionCheckProgram = "${placeholder "out"}/bin/teamcity-mcp";
