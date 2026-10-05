@@ -11,6 +11,6 @@ final: prev: {
       ];
 
     # The upstream patch's proxy.cpp hunk has context from post-v3 refactors.
-    patchFlags = (oldAttrs.patchFlags or [ "-p1" ]) ++ [ "--fuzz=2" ];
+    patchFlags = (oldAttrs.patchFlags or ["-p1"]) ++ ["--fuzz=2"];
   });
 }
