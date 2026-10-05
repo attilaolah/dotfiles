@@ -37,7 +37,11 @@ in {
     npmDepsHash = hash-npm-deps;
     dontNpmBuild = true;
     doCheck = true;
-    checkPhase = "npm run test -- --exclude test/unit/exec-branches.test.ts";
+    checkPhase = ''
+      runHook preCheck
+      npm run test -- --exclude test/unit/exec-branches.test.ts
+      runHook postCheck
+    '';
     nativeCheckInputs = with prev; [
       git
       procps
