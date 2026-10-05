@@ -1,6 +1,5 @@
 {
   config,
-  lib,
   pkgs,
   ...
 }: let
@@ -19,9 +18,11 @@ in {
     };
     settings = {
       theme = "dark";
-      packages = [
-        "${pkgs.pi-mcp-adapter}/lib/node_modules/pi-mcp-adapter"
+      extensions = [
+        "+builtin:mcp"
+        "+builtin:codemode"
       ];
+      defaultTools = ["+codemode"];
       defaultModel = qwen;
       defaultProvider = "openai";
       enabledModels = [
@@ -32,9 +33,5 @@ in {
     };
   };
 
-  home.file.".pi/agent/mcp.json".text = builtins.toJSON {
-    mcpServers = lib.mapAttrs (_: _: {disabled = true;}) (
-      lib.filterAttrs (_: server: !server.enabled) config.programs.mcp.servers
-    );
-  };
+  home.file.".pi/agent/mcp.json".source = config.xdg.configFile."mcp/mcp.json".source;
 }
