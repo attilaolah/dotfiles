@@ -1,6 +1,4 @@
-{
-  ...
-}: {
+{...}: {
   nix.settings = {
     experimental-features = [
       "flakes"

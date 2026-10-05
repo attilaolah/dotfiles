@@ -1,0 +1,28 @@
+diff --git a/cmd/agent-deck/native_tui_ssh_test.go b/cmd/agent-deck/native_tui_ssh_test.go
+index 2ee5913..4c9122d 100644
+--- a/cmd/agent-deck/native_tui_ssh_test.go
++++ b/cmd/agent-deck/native_tui_ssh_test.go
+@@ -22,6 +22,9 @@ import (
+ // This starts the full TUI, not the separate session-attach command. An outer
+ // private tmux supplies both a real terminal and a current rendered cell grid.
+ func TestNativeSSHTUIRegistryLifecycle(t *testing.T) {
++	if testing.Short() {
++		t.Skip("requires an interactive terminal")
++	}
+ 	for _, tool := range []string{"ssh", "tmux"} {
+ 		if _, err := exec.LookPath(tool); err != nil {
+ 			nativeSSHMissingTool(t, tool)
+diff --git a/cmd/agent-deck/recall_phase4_test.go b/cmd/agent-deck/recall_phase4_test.go
+index 921f5e7..37b0ee9 100644
+--- a/cmd/agent-deck/recall_phase4_test.go
++++ b/cmd/agent-deck/recall_phase4_test.go
+@@ -290,6 +290,9 @@ func TestRemoteRecall_OlderRemoteDegrades_Phase4Verbs(t *testing.T) {
+ // hits printed under its name, labelled, with the forwarded filters, and
+ // the exit is 0.
+ func TestRecallSearch_FederatedMergesAndLabels(t *testing.T) {
++	if testing.Short() {
++		t.Skip("requires a live remote peer")
++	}
+ 	home := remoteHome(t)
+ 	callLog := fakeRemoteSSH(t, "new")
+ 	stdout, stderr, code := runAgentDeck(t, home, "recall", "search", "retry budget", "--all-remotes", "--harness", "codex", "--since", "30d", "--limit", "3", "--json")
