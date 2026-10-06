@@ -54,22 +54,6 @@
         ++ lib.mapAttrsToList
         (name: _: import (./overlays + "/${name}"))
         overlayFileNames;
-      mkNixpkgs = {
-        system,
-        config ? {},
-        overlays ? [],
-      }: let
-        bootstrap = import nixpkgs {inherit system;};
-      in
-        import (
-          bootstrap.applyPatches {
-            name = "nixpkgs-patched";
-            src = nixpkgs;
-            patches = import ./nixpkgs-patches.nix {inherit (bootstrap) fetchpatch2;};
-          }
-        ) {
-          inherit system config overlays;
-        };
       overlayFileNames =
         lib.filterAttrs
         (name: type: type == "regular" && lib.hasSuffix ".nix" name)
@@ -137,8 +121,8 @@
                 modules = [
                   {
                     nixpkgs = {
-                      pkgs = mkNixpkgs {
-                        inherit overlays;
+                      pkgs = import ./nixpkgs {
+                        inherit lib nixpkgs overlays;
                         inherit (value) system;
                         config = (value.nixpkgs.config or {}) // unfree;
                       };
@@ -179,8 +163,8 @@
           lib.mapAttrs' (name: host: {
             name = host.hostName or host.hostname or name;
             value = home-manager.lib.homeManagerConfiguration {
-              pkgs = mkNixpkgs {
-                inherit overlays;
+              pkgs = import ./nixpkgs {
+                inherit lib nixpkgs overlays;
                 inherit (host) system;
                 config = (host.nixpkgs.config or {}) // unfree;
               };
@@ -203,8 +187,8 @@
         formatter = pkgs.alejandra;
 
         packages = let
-          pkgs = mkNixpkgs {
-            inherit system overlays;
+          pkgs = import ./nixpkgs {
+            inherit lib nixpkgs system overlays;
             config = unfree;
           };
           packageNames = lib.unique (["opencode"]
