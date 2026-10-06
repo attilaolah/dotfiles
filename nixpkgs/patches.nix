@@ -29,6 +29,14 @@
       hash = "sha256-EhMIneMPahLncZ9W83woTVs6n+53zWu+C0fPkZxwUmc=";
     }
   ];
+  # darktable: fix build warnings
+  pr-568773.commits = [
+    {
+      # darktable: fix build warnings
+      commit = "f6d284448c9029c0197e79cdf65f31398a0d7995";
+      hash = "sha256-R5ZUZqh48rSdWzWOrfVi0qh+lEweXd1opkurhlwx4OM=";
+    }
+  ];
   # headroom-ai: init at 0.40.0
   pr-569784.commits = [
     {
