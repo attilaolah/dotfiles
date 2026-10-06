@@ -33,13 +33,13 @@
   pr-569784.commits = [
     {
       # headroom-ai: init at 0.39.1
-      commit = "87f0f8a52ac52c7c7cc99c82e6c139dc76b544fb";
+      commit = "ac81d0fe87cccad92faddc4b908d009b412b2874";
       hash = "sha256-wkceQ21FqWoZfUettG17Vc1w69HCfjRAdHto2Z1/Mrw=";
     }
     {
       # python3Packages.headroom-ai: 0.39.1 -> 0.40.0
-      commit = "0afe62f78410d2f8631056a2ef53579382923534";
-      hash = "sha256-FLBtVyuQfSL9sRBT6vFWGUCL09IJv4mrhJWz4IcKveo=";
+      commit = "c720063e2145997e7b339ce6316a67635d80e1c1";
+      hash = "sha256-TdoVXeaAFthKJy0yJGe73dSY5o1dNFdTuHrYFU1L46Y=";
     }
   ];
 }
