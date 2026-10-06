@@ -29,6 +29,14 @@
       hash = "sha256-EhMIneMPahLncZ9W83woTVs6n+53zWu+C0fPkZxwUmc=";
     }
   ];
+  # opencv: fix build against CUDA 13.3+
+  pr-568676.commits = [
+    {
+      # opencv: fix build against CUDA 13.3+
+      commit = "7ae6d7ed6941bdecce2989d392818dfdd42ac7aa";
+      hash = "sha256-Aqk7iVtoei+kITPoWu80u/GnZHRBfawvlENcw7x2alI=";
+    }
+  ];
   # darktable: fix build warnings
   pr-568773.commits = [
     {
