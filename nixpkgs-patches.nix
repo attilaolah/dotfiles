@@ -1,17 +1,12 @@
-{fetchpatch}: [
-  (fetchpatch {
-    # https://github.com/NixOS/nixpkgs/pull/569341
-    url = "https://github.com/NixOS/nixpkgs/commit/6665b0d383bdd363d0e3f2009c20d129a0501e52.patch";
-    hash = "sha256-D23yUFW6CCtrSUzS9fgsJmywrazVBXg7N+LN4YjJKpk=";
+{fetchpatch2}: [
+  (fetchpatch2 {
+    # gdbuspp,openvpn3: fix build with C++20
+    url = "https://patch-diff.githubusercontent.com/raw/NixOS/nixpkgs/pull/569341.patch?full_index=1";
+    hash = "sha256-RbFTpuZtHmM4gda5RGCL5zQ5MyR+bSzIioLLpM3ncHU=";
   })
-  (fetchpatch {
-    # https://github.com/NixOS/nixpkgs/pull/569341
-    url = "https://github.com/NixOS/nixpkgs/commit/c4e5b4dab2130965b3cc5dc87fa74321c2c39b1a.patch";
-    hash = "sha256-1jZ1utWjG9YBIGuk9nRpVFtSYq/6f1ir6P7O0EBemTs=";
-  })
-  (fetchpatch {
-    # https://github.com/NixOS/nixpkgs/pull/569784
-    url = "https://github.com/NixOS/nixpkgs/commit/76603f69f4afe027f84592bf44a377515972b4d3.patch";
-    hash = "sha256-vj72iqaeHsRervb4crW6J8HrYKoJqIJX+ed0lD/n4WY=";
+  (fetchpatch2 {
+    # headroom-ai: init at 0.39.1
+    url = "https://patch-diff.githubusercontent.com/raw/NixOS/nixpkgs/pull/569784/changes/d8a1143951791b077d0d998220b8c7e5642094e8.patch?full_index=1";
+    hash = "sha256-mv/xSckno53poINDtpBPc9402ugm4P5k7XTEj9XVuGQ=";
   })
 ]

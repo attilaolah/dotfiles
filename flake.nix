@@ -59,14 +59,15 @@
         config ? {},
         overlays ? [],
       }: let
-        bootstrapPkgs = import nixpkgs {inherit system;};
-        patchedNixpkgs = bootstrapPkgs.applyPatches {
-          name = "nixpkgs-patched";
-          src = nixpkgs;
-          patches = import ./nixpkgs-patches.nix {inherit (bootstrapPkgs) fetchpatch;};
-        };
+        bootstrap = import nixpkgs {inherit system;};
       in
-        import patchedNixpkgs {
+        import (
+          bootstrap.applyPatches {
+            name = "nixpkgs-patched";
+            src = nixpkgs;
+            patches = import ./nixpkgs-patches.nix {inherit (bootstrap) fetchpatch2;};
+          }
+        ) {
           inherit system config overlays;
         };
       overlayFileNames =
