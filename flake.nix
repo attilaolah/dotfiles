@@ -91,7 +91,7 @@
           };
         };
 
-        platform = system: builtins.elemAt (lib.splitString "-" system) 1;
+        platform = system: (import ./overlays/lib/platform.nix system).platform;
         platformHosts = p:
           lib.filterAttrs
           (_: value: (platform value.system) == p)
