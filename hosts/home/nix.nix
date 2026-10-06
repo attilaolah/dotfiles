@@ -1,6 +1,7 @@
 {...}: {
   nix.settings = {
     experimental-features = [
+      "blake3-hashes"
       "flakes"
       "nix-command"
     ];
