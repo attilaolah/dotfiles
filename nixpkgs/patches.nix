@@ -1,6 +1,12 @@
 {
-  # gdbuspp,openvpn3: fix build with C++20
-  pr-569341.hash = "sha256-RbFTpuZtHmM4gda5RGCL5zQ5MyR+bSzIioLLpM3ncHU=";
+  # python3Packages.opendal: 0.46.0 -> 0.47.10
+  pr-567447.commits = [
+    {
+      # python3Packages.opendal: 0.46.0 -> 0.47.10
+      commit = "49ad14a096e9ab4a21cece147e53d3efdc06848c";
+      hash = "sha256-TNl5dMp61zb9YTMNxM7b8ZdN+p37AuIV2pfqKvjVMbo=";
+    }
+  ];
   # mcp-atlassian: init at 0.23.1
   pr-567590.commits = [
     {
@@ -45,6 +51,8 @@
       hash = "sha256-R5ZUZqh48rSdWzWOrfVi0qh+lEweXd1opkurhlwx4OM=";
     }
   ];
+  # gdbuspp,openvpn3: fix build with C++20
+  pr-569341.hash = "sha256-RbFTpuZtHmM4gda5RGCL5zQ5MyR+bSzIioLLpM3ncHU=";
   # headroom-ai: init at 0.40.0
   pr-569784.commits = [
     {
