@@ -19,15 +19,16 @@ collect_hash_keys() {
   grep -E "^[[:space:]]*hash-[A-Za-z0-9._-]+[[:space:]]*=[[:space:]]*\"sha256-[A-Za-z0-9+/]{43}=\"" "${overlay}" |
     sed -E "s/^[[:space:]]*(hash-[A-Za-z0-9._-]+)[[:space:]]*=.*/\\1/" |
     awk '
-      !seen[$0]++ {
+      {
         keys[++n] = $0;
+        occurrences[n] = ++seen[$0];
       }
       END {
         for (pass = 1; pass >= 0; pass--) {
           for (i = 1; i <= n; i++) {
             source_first = keys[i] ~ /^hash-src($|-)/;
             if (source_first == pass) {
-              print keys[i];
+              print keys[i] "@" occurrences[i];
             }
           }
         }
@@ -37,12 +38,14 @@ collect_hash_keys() {
 
 mapping_for_hash_key() {
   local package_name="$1"
-  local key="$2"
+  local key_spec="$2"
+  local key
   local suffix
 
+  key="${key_spec%@*}"
   suffix="${key#hash-}"
 
-  echo "${key}=${package_name}-${suffix}"
+  echo "${key_spec}=${package_name}-${suffix}"
 }
 
 updated_any='false'

@@ -8,7 +8,7 @@ fi
 
 message='chore(renovate): refresh overlay hashes and flake lock'
 
-expected_head_oid="$(gh api "repos/${REPO}/git/ref/heads/${BRANCH}" --jq '.object.sha')"
+expected_head_oid="$(git rev-parse HEAD)"
 
 additions_json="$(
   git diff --name-only -z -- overlays flake.lock |
