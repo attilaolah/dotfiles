@@ -21,9 +21,6 @@ jobs:
         fetch-depth: 0
         persist-credentials: false
 
-    - name: Install GNU awk
-      run: sudo apt-get update && sudo apt-get install --yes gawk
-
     - name: Install Nix
       uses: cachix/install-nix-action@13d8dd58da0234aa297dedd986986ccb8e7f3e24 # v31
       with:
