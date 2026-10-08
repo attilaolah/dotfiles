@@ -35,13 +35,12 @@ jobs:
       run: |
         set -euo pipefail
 
-        base_ref="${BASE_REF}"
         git fetch --no-tags --depth=1 origin \
-          "+refs/heads/${base_ref}:refs/remotes/origin/${base_ref}"
+          "+refs/heads/${BASE_REF}:refs/remotes/origin/${BASE_REF}"
 
         changed_overlays=()
         mapfile -d '' -t changed_overlays < <(
-          git diff --name-only -z "origin/${base_ref}...HEAD" -- 'overlays/*.nix'
+          git diff --name-only -z "origin/${BASE_REF}...HEAD" -- 'overlays/*.nix'
         )
 
         if [[ "${#changed_overlays[@]}" -eq 0 ]]; then
@@ -119,11 +118,9 @@ jobs:
           exit 0
         fi
 
-        branch="${BRANCH}"
-        repo="${REPO}"
         message='chore(renovate): refresh overlay hashes and flake lock'
 
-        expected_head_oid="$(gh api "repos/${repo}/git/ref/heads/${branch}" --jq '.object.sha')"
+        expected_head_oid="$(gh api "repos/${REPO}/git/ref/heads/${BRANCH}" --jq '.object.sha')"
 
         additions_json="$(
           git diff --name-only -z -- overlays flake.lock |
@@ -148,8 +145,8 @@ jobs:
         commit_oid="$(
           jq -n \
             --arg query "${mutation}" \
-            --arg repo "${repo}" \
-            --arg branch "${branch}" \
+            --arg repo "${REPO}" \
+            --arg branch "${BRANCH}" \
             --arg expected_head_oid "${expected_head_oid}" \
             --arg message "${message}" \
             --argjson additions "${additions_json}" \
@@ -175,7 +172,7 @@ jobs:
         )"
 
         verification="$(
-          gh api "repos/${repo}/commits/${commit_oid}" \
+          gh api "repos/${REPO}/commits/${commit_oid}" \
             --jq '.commit.verification.reason'
         )"
 
