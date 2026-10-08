@@ -1,4 +1,17 @@
 {
+  # python3Packages.types-lxml: 2026.01.01 -> 2026.02.16, add dependency
+  pr-507572.commits = [
+    {
+      # python3Packages.pytest-revealtype-injector: init at 0.9.0
+      commit = "98d827349f25bd542de1169fe23bbd22145c33e1";
+      hash = "sha256-x1MBFwgiBWkKgfKLV8Smwy5R+Ahudnj79d6GwoD3Wfw=";
+    }
+    {
+      # python3Packages.types-lxml: 2026.01.01 -> 2026.02.16
+      commit = "1bb11db1c8a138de6fd66394d03ebd6c52fd3faa";
+      hash = "sha256-Ptl0pVtD594sq5/y5yjHd2VsyKTcNxK/Y0qmkK7dcLA=";
+    }
+  ];
   # python3Packages.opendal: 0.46.0 -> 0.47.10
   pr-567447.commits = [
     {
