@@ -12,7 +12,7 @@ jobs:
     if: >-
       github.event.pull_request.user.login == 'renovate[bot]' &&
       github.event.pull_request.head.repo.full_name == github.repository
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-slim
     steps:
     - name: Checkout PR branch
       uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
