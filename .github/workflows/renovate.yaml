@@ -1,0 +1,42 @@
+name: Renovate overlay hash refresh
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+permissions:
+  contents: write
+
+jobs:
+  refresh-overlay-hashes:
+    if: >-
+      github.actor == 'renovate[bot]' &&
+      github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout PR branch
+      uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+      with:
+        ref: ${{ github.event.pull_request.head.ref }}
+        fetch-depth: 0
+
+    - name: Install Nix
+      uses: cachix/install-nix-action@13d8dd58da0234aa297dedd986986ccb8e7f3e24 # v31
+      with:
+        github_access_token: ${{ secrets.GITHUB_TOKEN }}
+        extra_nix_config: |
+          auto-optimise-store = true
+          experimental-features = nix-command flakes
+
+    - name: Refresh hashes and flake lock
+      env:
+        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        BASE_REF: ${{ github.event.pull_request.base.ref }}
+      run: bash .github/scripts/refresh_hashes.sh
+
+    - name: Commit hash updates via GitHub API (GitHub-signed)
+      env:
+        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        REPO: ${{ github.repository }}
+        BRANCH: ${{ github.event.pull_request.head.ref }}
+      run: bash .github/scripts/commit_updates.sh
