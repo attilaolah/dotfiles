@@ -139,5 +139,9 @@ done
 
 for mapping in "${MAPPINGS[@]}"; do
   flake_output="${mapping#*=}"
-  build_output "${flake_output}" "${LOG_DIR}/verify-${flake_output}.log"
+  log_file="${LOG_DIR}/verify-${flake_output}.log"
+  if ! build_output "${flake_output}" "${log_file}"; then
+    cat "${log_file}" >&2
+    exit 1
+  fi
 done
