@@ -10,6 +10,10 @@
       lib.mapAttrs
       (_: server:
         {
+          # Product-specific MCP servers are disabled by default.
+          # Only enable MCPs that are useful or necessary in most sessions.
+          enabled = lib.mkDefault false;
+
           command = lib.getExe pkgs.gcf-proxy;
           args = [(lib.getExe server.package)] ++ server.args or [];
         }
@@ -26,6 +30,8 @@
         codebase_memory = {
           description = "Codebase Memory";
           package = pkgs.codebase-memory-mcp;
+          # Relatively cheap and starts quickly.
+          enabled = lib.mkDefault true;
         };
         flux_operator = {
           description = "Flux Operator";
@@ -36,6 +42,8 @@
           description = "Headroom";
           package = pkgs.headroom-ai;
           args = ["mcp" "serve"];
+          # Necessary as the proxy is also on by default.
+          enabled = lib.mkDefault true;
         };
         kubernetes = {
           description = "Kubernetes";
