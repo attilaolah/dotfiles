@@ -10,7 +10,10 @@
       lib.mapAttrs
       (_: server:
         {
+          # Product-specific MCP servers are disabled by default.
+          # Only enable MCPs that are useful or necessary in most sessions.
           enabled = lib.mkDefault false;
+
           command = lib.getExe pkgs.gcf-proxy;
           args = [(lib.getExe server.package)] ++ server.args or [];
         }
