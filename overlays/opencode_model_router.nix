@@ -2,7 +2,7 @@ final: prev: let
   inherit (builtins) elemAt;
   fetchFromGithubTuple = import ./lib/fetch_from_github_tuple.nix prev;
 
-  github-tags = ["marco-jardim/opencode-model-router" "2.2.0"]; # extractVersion=^v(?<version>.*)$
+  github-tags = ["marco-jardim/opencode-model-router" "2.3.0"]; # extractVersion=^v(?<version>.*)$
   hash-src = "sha256-DmBu41Ct4E909jSehBfYigPieiIyOSdnV0wnsuG2kbc=";
   hash-npm-deps = "sha256-3MF8CZMp1hrwa9UMXGtTKJgMFvglz3hAhrbJYIV+fsY=";
 
