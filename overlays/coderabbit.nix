@@ -3,13 +3,13 @@ final: prev: let
 
   # The CLI is distributed only as release binaries.
   # Renovate reads this tuple and updates the version from the release channel.
-  coderabbit-cli = ["coderabbit-cli" "0.8.2"];
+  coderabbit-cli = ["coderabbit-cli" "0.9.0"];
   version = elemAt coderabbit-cli 1;
 
   # Keep these as top-level `hash-*` variables (not inlined in `sources`):
   # `.github/workflows/renovate_overlay_hashes.yaml` parses and rewrites them.
-  hash-src-aarch64-darwin = "sha256-YJHQMWS0cZC027IN6XMS95veA/w1tLfCcF+PTTuoBn4=";
-  hash-src-x86_64-linux = "sha256-pjREhRU8WInJG65x2RcsDS19OSSkVmEXMDDihXC7e7I=";
+  hash-src-aarch64-darwin = "sha256-9fIPtzGKyZtv/fMGq+PIK4DtI4IRblAWNgWlabWVg98=";
+  hash-src-x86_64-linux = "sha256-VuTJnenREQbD5r8xA0hk2490bLl8nq+UcK3PpkYdpm8=";
 
   sources = prev.lib.mapAttrs (system: source:
     prev.fetchurl (source
