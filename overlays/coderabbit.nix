@@ -3,7 +3,7 @@ final: prev: let
 
   # The CLI is distributed only as release binaries.
   # Renovate reads this tuple and updates the version from the release channel.
-  coderabbit-cli = ["coderabbit-cli" "0.8.2"];
+  coderabbit-cli = ["coderabbit-cli" "0.9.0"];
   version = elemAt coderabbit-cli 1;
 
   # Keep these as top-level `hash-*` variables (not inlined in `sources`):
