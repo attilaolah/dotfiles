@@ -54,7 +54,7 @@ jobs:
                   print input
                   next
                 }
-                /^\+[[:space:]]*(inputs\.)?[A-Za-z_][A-Za-z0-9_-]*[[:space:]]*=[[:space:]]*\{[[:space:]]*url[[:space:]]*=/ {
+                /^\+[[:space:]]*(inputs\.)?[A-Za-z_][A-Za-z0-9_-]*[[:space:]]*=[[:space:]]*\{[[:space:]]*([^}]*;[[:space:]]*)?url[[:space:]]*=/ {
                   input = $0
                   sub(/^\+[[:space:]]*(inputs\.)?/, "", input)
                   sub(/[[:space:]]*=.*/, "", input)
