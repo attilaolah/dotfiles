@@ -28,7 +28,7 @@ jobs:
           auto-optimise-store = true
           experimental-features = nix-command flakes
 
-    - name: Refresh hashes and lock changed flake inputs
+    - name: Refresh hashes and flake lock
       env:
         GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
@@ -43,40 +43,8 @@ jobs:
           git diff --name-only -z "origin/${base_ref}...HEAD" -- 'overlays/*.nix'
         )
 
-        changed_flake_inputs=()
-        mapfile -t changed_flake_inputs < <(
-          git diff --unified=1000 "origin/${base_ref}...HEAD" -- flake.nix |
-            awk '
-                /^\+[[:space:]]*(inputs\.)?[A-Za-z_][A-Za-z0-9_-]*\.url[[:space:]]*=/ {
-                  input = $0
-                  sub(/^\+[[:space:]]*(inputs\.)?/, "", input)
-                  sub(/\.url[[:space:]]*=.*/, "", input)
-                  print input
-                  next
-                }
-                /^\+[[:space:]]*(inputs\.)?[A-Za-z_][A-Za-z0-9_-]*[[:space:]]*=[[:space:]]*\{[[:space:]]*([^}]*;[[:space:]]*)?url[[:space:]]*=/ {
-                  input = $0
-                  sub(/^\+[[:space:]]*(inputs\.)?/, "", input)
-                  sub(/[[:space:]]*=.*/, "", input)
-                  print input
-                  next
-                }
-                /^[ +][[:space:]]*[A-Za-z_][A-Za-z0-9_-]*[[:space:]]*=[[:space:]]*\{/ {
-                  input = $0
-                  sub(/^[ +][[:space:]]*/, "", input)
-                  sub(/[[:space:]]*=.*/, "", input)
-                  next
-                }
-                /^\+[[:space:]]*url[[:space:]]*=/ && input != "" {
-                  print input
-                }
-              ' |
-            sort -u
-        )
-
-        if [[ "${#changed_overlays[@]}" -eq 0 && "${#changed_flake_inputs[@]}" -eq 0 ]]; then
-          echo 'No overlay or flake input changes detected.'
-          exit 0
+        if [[ "${#changed_overlays[@]}" -eq 0 ]]; then
+          echo 'No overlay changes detected.'
         fi
 
         collect_hash_keys() {
@@ -135,10 +103,7 @@ jobs:
           echo 'No mapped overlay hash updates required.'
         fi
 
-        for input in "${changed_flake_inputs[@]}"; do
-          echo "Updating flake lock input: ${input}"
-          nix flake lock --update-input "${input}"
-        done
+        nix flake lock
 
     - name: Commit hash updates via GitHub API (GitHub-signed)
       env:
