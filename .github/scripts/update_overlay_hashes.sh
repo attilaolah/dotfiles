@@ -41,11 +41,28 @@ set_hash_value() {
       found = 0;
     }
     {
-      if (match($0, /^[[:space:]]*([A-Za-z0-9._-]+)[[:space:]]*=[[:space:]]*"sha256-[A-Za-z0-9+/]{43}="/, m) && m[1] == key) {
-        count++;
-        if (count == occurrence) {
-          sub(/"sha256-[A-Za-z0-9+/]{43}="/, "\"" value "\"");
-          found = 1;
+      line = $0;
+      if (line ~ /^[[:space:]]*[A-Za-z0-9._-]+[[:space:]]*=[[:space:]]*"sha256-/) {
+        hash_value = line;
+        sub(/^[^=]*=[[:space:]]*"/, "", hash_value);
+        hash = substr(hash_value, 1, 51);
+
+        if (length(hash) == 51 &&
+            hash ~ /^sha256-[A-Za-z0-9+\/]+=$/ &&
+            substr(hash_value, 52, 1) == "\"") {
+          line_key = line;
+          sub(/^[[:space:]]*/, "", line_key);
+          sub(/[[:space:]]*=.*/, "", line_key);
+
+          if (line_key == key) {
+            count++;
+            if (count == occurrence) {
+              if (sub(/sha256-[A-Za-z0-9+\/]+=/, value, line) == 1) {
+                $0 = line;
+                found = 1;
+              }
+            }
+          }
         }
       }
       print;
@@ -78,7 +95,7 @@ build_output() {
     --no-link \
     --print-build-logs \
     ".#${flake_output}" \
-    2>&1 | tee "${log_file}"
+    > "${log_file}" 2>&1
 }
 
 for mapping in "${MAPPINGS[@]}"; do
@@ -122,5 +139,9 @@ done
 
 for mapping in "${MAPPINGS[@]}"; do
   flake_output="${mapping#*=}"
-  build_output "${flake_output}" "${LOG_DIR}/verify-${flake_output}.log"
+  log_file="${LOG_DIR}/verify-${flake_output}.log"
+  if ! build_output "${flake_output}" "${log_file}"; then
+    cat "${log_file}" >&2
+    exit 1
+  fi
 done
