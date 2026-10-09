@@ -5,7 +5,8 @@
 }: {
   home.packages = with pkgs;
     [
-      # GNU tools
+      # GNU tools.
+      # Already part of NixOS, but explicitly listed so that Darwin systems would have them too.
       coreutils # cp, mv, rm, etc.
       findutils # find
       gawk # awk
@@ -17,6 +18,7 @@
       age
       any-nix-shell
       bat
+      betterleaks
       bitbucket-cli
       cargo
       clang_22
@@ -24,6 +26,7 @@
       cue
       curl
       devenv
+      difftastic
       dig
       exiftool
       expect
@@ -52,6 +55,7 @@
       p7zip
       pciutils
       pinentry-tty
+      prettier
       pv
       pwgen
       pyright
@@ -78,6 +82,7 @@
       yq-go
       zig
       zip
+      zizmor
       zoxide
 
       # Virtualisation:
@@ -103,11 +108,15 @@
           polars
         ]))
 
-      # NPM packages:
-      # NodeJS runtimes & packages
+      # NodeJS
       bun
+      deno
       nodejs_26
       pnpm
+
+      # GUI apps available on both Linux and Darwin.
+      darktable
+      google-chrome
 
       (llama-cpp.override {
         cudaSupport = pkgs.config.cudaSupport or false;
@@ -128,11 +137,7 @@
       dconf-editor
       glib
 
-      # Browsers:
-      google-chrome
-
       # Other GUI apps:
-      darktable
       discord
       foot
       gimp
