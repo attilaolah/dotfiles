@@ -4,6 +4,40 @@
   inputs = {
     # Nix packages
     nixpkgs.url = "nixpkgs/nixos-unstable";
+    nixpkgs-patcher.url = "github:gepbird/nixpkgs-patcher";
+
+    nixpkgs-patch-pr-567447 = {
+      url = "https://github.com/NixOS/nixpkgs/commit/49ad14a096e9ab4a21cece147e53d3efdc06848c.patch";
+      flake = false;
+    };
+    nixpkgs-patch-pr-567590 = {
+      url = "https://github.com/NixOS/nixpkgs/commit/f08a2c8a1c948d795e4e9aefcd20147fbbc18e11.patch";
+      flake = false;
+    };
+    nixpkgs-patch-pr-567590-2 = {
+      url = "https://github.com/NixOS/nixpkgs/commit/dd1df322014c5a15c6c494a2d42816aab0637652.patch";
+      flake = false;
+    };
+    nixpkgs-patch-pr-567590-3 = {
+      url = "https://github.com/NixOS/nixpkgs/commit/345623679c07a68cc35c18f1d67437503b0c872c.patch";
+      flake = false;
+    };
+    nixpkgs-patch-pr-567590-4 = {
+      url = "https://github.com/NixOS/nixpkgs/commit/28fb71b8d9b9f763719c8e18fbd0248dcc506f52.patch";
+      flake = false;
+    };
+    nixpkgs-patch-pr-567590-5 = {
+      url = "https://github.com/NixOS/nixpkgs/commit/bbed8a2ad57a3b243dee22cde4938722da00e660.patch";
+      flake = false;
+    };
+    nixpkgs-patch-pr-568773 = {
+      url = "https://github.com/NixOS/nixpkgs/commit/f6d284448c9029c0197e79cdf65f31398a0d7995.patch";
+      flake = false;
+    };
+    nixpkgs-patch-pr-569784 = {
+      url = "https://github.com/NixOS/nixpkgs/commit/fc8c84a279555a6ce7f4f916bd4a17ffed224c9a.patch";
+      flake = false;
+    };
 
     # Nix-Darwin
     nix-darwin = {
@@ -47,7 +81,7 @@
     flake-parts,
     ...
   } @ inputs:
-    flake-parts.lib.mkFlake {inherit inputs;} ({...}: let
+    flake-parts.lib.mkFlake {inherit inputs;} ({withSystem, ...}: let
       inherit (nixpkgs) lib;
       overlays =
         [inputs.opencode.overlays.default]
@@ -66,6 +100,7 @@
       ];
 
       imports = [
+        (import ./nixpkgs.nix {inherit inputs overlays unfree;})
         inputs.home-manager.flakeModules.home-manager
       ];
 
@@ -112,49 +147,47 @@
             platform = platform system;
           };
 
-        mkConfigs = generator: os: platform:
+        mkConfigs = os: platform:
           lib.mapAttrs' (
             name: value: {
               name = value.hostname or name;
-              value = generator.lib."${os}System" {
-                inherit (value) system;
-                modules = [
-                  {
-                    nixpkgs = {
-                      pkgs = import ./nixpkgs {
-                        inherit lib nixpkgs overlays;
-                        inherit (value) system;
+              value = withSystem value.system (_:
+                inputs.nixpkgs-patcher.lib."${os}System" {
+                  inherit (value) system;
+                  modules = [
+                    {
+                      nixpkgs = {
                         config = (value.nixpkgs.config or {}) // unfree;
+                        inherit overlays;
                       };
-                    };
-                  }
-                  ./hosts/${name}/configuration.nix
-                  (lib.optionalAttrs (os == "darwin") {
-                    imports = [
-                      inputs.programmer-dvorak-compose.darwinModules.default
-                    ];
-                  })
-                  home-manager."${os}Modules".home-manager
-                  {
-                    home-manager = {
-                      backupFileExtension = "bkp";
-                      extraSpecialArgs = specialArgs value;
-                      sharedModules = [
-                        inputs.sops-nix.homeManagerModules.sops
+                    }
+                    ./hosts/${name}/configuration.nix
+                    (lib.optionalAttrs (os == "darwin") {
+                      imports = [
+                        inputs.programmer-dvorak-compose.darwinModules.default
                       ];
-                      users.${value.username} = import ./home_manager/home.nix;
-                      useGlobalPkgs = true;
-                      useUserPackages = true;
-                    };
-                  }
-                ];
-                specialArgs = specialArgs value;
-              };
+                    })
+                    home-manager."${os}Modules".home-manager
+                    {
+                      home-manager = {
+                        backupFileExtension = "bkp";
+                        extraSpecialArgs = specialArgs value;
+                        sharedModules = [
+                          inputs.sops-nix.homeManagerModules.sops
+                        ];
+                        users.${value.username} = import ./home_manager/home.nix;
+                        useGlobalPkgs = true;
+                        useUserPackages = true;
+                      };
+                    }
+                  ];
+                  specialArgs = specialArgs value;
+                });
             }
           ) (platformHosts platform);
       in {
-        nixosConfigurations = mkConfigs nixpkgs "nixos" "linux";
-        darwinConfigurations = mkConfigs nix-darwin "darwin" "darwin";
+        nixosConfigurations = mkConfigs "nixos" "linux";
+        darwinConfigurations = mkConfigs "darwin" "darwin";
 
         # Expose the home-manager configurations directly.
         # This allows one to apply only the home-manager config without switching the system config by running:
@@ -162,18 +195,15 @@
         homeConfigurations =
           lib.mapAttrs' (name: host: {
             name = host.hostName or host.hostname or name;
-            value = home-manager.lib.homeManagerConfiguration {
-              pkgs = import ./nixpkgs {
-                inherit lib nixpkgs overlays;
-                inherit (host) system;
-                config = (host.nixpkgs.config or {}) // unfree;
-              };
-              modules = [
-                inputs.sops-nix.homeManagerModules.sops
-                ./home_manager/home.nix
-              ];
-              extraSpecialArgs = specialArgs host;
-            };
+            value = withSystem host.system ({config, ...}:
+              home-manager.lib.homeManagerConfiguration {
+                pkgs = config._module.args.mkPatchedPkgs (host.nixpkgs.config or {});
+                modules = [
+                  inputs.sops-nix.homeManagerModules.sops
+                  ./home_manager/home.nix
+                ];
+                extraSpecialArgs = specialArgs host;
+              });
           })
           hosts;
       };
@@ -187,10 +217,6 @@
         formatter = pkgs.alejandra;
 
         packages = let
-          pkgs = import ./nixpkgs {
-            inherit lib nixpkgs system overlays;
-            config = unfree;
-          };
           packageNames = lib.unique (["opencode"]
             ++ lib.pipe (lib.attrNames overlayFileNames) [
               (map (name: lib.removeSuffix ".nix" name))
