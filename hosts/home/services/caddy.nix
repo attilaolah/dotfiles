@@ -4,7 +4,7 @@
 
     virtualHosts =
       lib.mapAttrs' (host: port: {
-        name = "${host}.proxy.localhost";
+        name = "${host}.app.localhost";
         value.extraConfig = let
           dst = "localhost:${toString port}";
         in ''
