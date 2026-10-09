@@ -2,6 +2,7 @@
   imports = [
     ./avahi.nix
     ./blueman.nix
+    ./caddy.nix
     ./davfs2.nix
     ./dbus.nix
     ./gvfs.nix

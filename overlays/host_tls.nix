@@ -42,7 +42,7 @@ final: prev: {
           --kty EC \
           --curve P-256 \
           --not-after 19800h \
-          --san '*.localhost' \
+          --san '*.proxy.localhost' \
           --san localhost \
           --san 127.0.0.1 \
           --san ::1
