@@ -2,8 +2,8 @@ final: prev: let
   inherit (builtins) elemAt;
   fetchFromGitHubTuple = import ./lib/fetch_from_github_tuple.nix prev;
   github-tags = ["headroomlabs-ai/headroom" "0.40.0"]; # extractVersion=^v(?<version>.*)$
-  hash-src = "sha256-pcsKKq27cKyB7uWskbnWP8VI/UU9RdrE89QClLisvcU=";
-  hash-cargo-deps = "sha256-azHjTfjdARzYuDMdH1AOYn0YV9U9lzaoULcSC/a9MuE=";
+  hash-src = "sha256-5tNeUVybEXufNiQ0Qa28U1mY5nil6sYFy5/UKb/BACQ=";
+  hash-cargo-deps = "sha256-CBTx7+vGtbY8Z0qGjDs6g00DHqNWO1Wwnl5ksafn2Bc=";
 
   pname = "headroom-ai";
   version = elemAt github-tags 1;
