@@ -146,8 +146,8 @@
                   modules = [
                     {
                       nixpkgs = {
-                        config = (value.nixpkgs.config or {}) // unfree;
                         inherit overlays;
+                        config = (value.nixpkgs.config or {}) // unfree;
                       };
                     }
                     ./hosts/${name}/configuration.nix
