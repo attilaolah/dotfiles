@@ -30,19 +30,21 @@
 
       certificate_fingerprint="$(step certificate fingerprint --sha1 --insecure ${certificate})"
 
-      # Delete only the previous fingerprint that this activation recorded and the exact current leaf.
+      # Delete only the previous fingerprint that this activation recorded.
       # Never select certificates by common name: a System keychain can contain unrelated certificates.
+      previous_fingerprint=""
       if [ -r ${keychainFingerprint} ]; then
         previous_fingerprint="$(cat ${keychainFingerprint})"
-        if [ "$previous_fingerprint" != "$certificate_fingerprint" ]; then
+      fi
+
+      if security add-trusted-cert -d -r trustRoot -k ${systemKeychain} ${certificate}; then
+        if [ -n "$previous_fingerprint" ] && [ "$previous_fingerprint" != "$certificate_fingerprint" ]; then
           security delete-certificate -Z "$previous_fingerprint" ${systemKeychain} 2>/dev/null || true
         fi
+      else
+        status=$?
+        exit "$status"
       fi
-      security delete-certificate -Z "$certificate_fingerprint" ${systemKeychain} 2>/dev/null || true
-
-      # Reinstalling the exact leaf ensures a matching but untrusted keychain entry cannot prevent the
-      # System trust setting from being applied.
-      security add-trusted-cert -d -r trustRoot -k ${systemKeychain} ${certificate}
       temporary_fingerprint="$(mktemp ${tlsDirectory}/.system-keychain-cert.XXXXXX)"
       printf '%s\n' "$certificate_fingerprint" > "$temporary_fingerprint"
       install -m 0600 -o root -g wheel "$temporary_fingerprint" ${keychainFingerprint}
