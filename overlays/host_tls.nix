@@ -1,13 +1,13 @@
 final: prev: {
-  host-tls-certificate = prev.writeShellApplication {
-    name = "host-tls-certificate";
+  host-tls = prev.writeShellApplication {
+    name = "host-tls";
     runtimeInputs = with prev; [
       coreutils
       step-cli
     ];
     text = ''
       if [ "$#" -ne 2 ]; then
-        echo "usage: host-tls-certificate TLS_DIRECTORY GROUP" >&2
+        echo "usage: host-tls tls_directory group" >&2
         exit 64
       fi
 
