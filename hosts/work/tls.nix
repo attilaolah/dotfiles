@@ -11,11 +11,11 @@
   systemKeychain = "/Library/Keychains/System.keychain";
 
   tlsCertificate = pkgs.writeShellApplication {
-    name = "generate-host-tls-certificate";
+    name = "generate-host-tls";
     runtimeInputs = with pkgs; [
       coreutils
       gnugrep
-      host-tls-certificate
+      host-tls
       step-cli
     ];
     text = ''
@@ -26,7 +26,7 @@
         /usr/sbin/dseditgroup -o edit -d ${lib.escapeShellArg user.username} -t user tls 2>/dev/null || true
       fi
 
-      host-tls-certificate ${lib.escapeShellArg tlsDirectory} ${lib.escapeShellArg "tls"}
+      host-tls ${lib.escapeShellArg tlsDirectory} ${lib.escapeShellArg "tls"}
 
       certificate_fingerprint="$(step certificate fingerprint ${certificate} --format hex)"
 

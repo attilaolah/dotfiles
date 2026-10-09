@@ -18,13 +18,13 @@
   };
 
   tlsCertificate = pkgs.writeShellApplication {
-    name = "generate-host-tls-certificate";
+    name = "generate-host-tls";
     runtimeInputs = with pkgs; [
       coreutils
-      host-tls-certificate
+      host-tls
     ];
     text = ''
-      host-tls-certificate ${lib.escapeShellArg tlsDirectory} ${lib.escapeShellArg "tls"}
+      host-tls ${lib.escapeShellArg tlsDirectory} ${lib.escapeShellArg "tls"}
 
       temporary_bundle="$(mktemp ${tlsDirectory}/.ca-certificates.XXXXXX)"
       cat ${config.security.pki.caBundle} ${certificate} > "$temporary_bundle"
