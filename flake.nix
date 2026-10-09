@@ -149,10 +149,16 @@
                   inherit (value) system;
                   modules = [
                     {
-                      nixpkgs = {
-                        inherit overlays;
-                        config = (value.nixpkgs.config or {}) // unfree;
-                      };
+                      nixpkgs.config =
+                        (value.nixpkgs.config or {})
+                        // unfree
+                        // {
+                          packageOverrides = pkgs: let
+                            composed = lib.composeManyExtensions overlays;
+                            final = pkgs // composed final pkgs;
+                          in
+                            composed final pkgs;
+                        };
                     }
                     ./hosts/${name}/configuration.nix
                     (lib.optionalAttrs (os == "darwin") {
