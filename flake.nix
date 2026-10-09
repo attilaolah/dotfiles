@@ -35,23 +35,23 @@
     };
     # mcp-atlassian: init at 0.23.1
     nixpkgs-patch-pr-567590-1 = {
-      url = "https://github.com/NixOS/nixpkgs/commit/f08a2c8a1c948d795e4e9aefcd20147fbbc18e11.patch?full_index=1";
+      url = "https://github.com/NixOS/nixpkgs/commit/38730f55bf47268285acccde96000564e8c5a4c5.patch?full_index=1";
       flake = false;
     };
     nixpkgs-patch-pr-567590-2 = {
-      url = "https://github.com/NixOS/nixpkgs/commit/dd1df322014c5a15c6c494a2d42816aab0637652.patch?full_index=1";
+      url = "https://github.com/NixOS/nixpkgs/commit/8d8d5a19621f6cd4df1ee371a89a2bf254ac00b1.patch?full_index=1";
       flake = false;
     };
     nixpkgs-patch-pr-567590-3 = {
-      url = "https://github.com/NixOS/nixpkgs/commit/345623679c07a68cc35c18f1d67437503b0c872c.patch?full_index=1";
+      url = "https://github.com/NixOS/nixpkgs/commit/56bb84860a82674161c9b84749c44ef2e0408530.patch?full_index=1";
       flake = false;
     };
     nixpkgs-patch-pr-567590-4 = {
-      url = "https://github.com/NixOS/nixpkgs/commit/28fb71b8d9b9f763719c8e18fbd0248dcc506f52.patch?full_index=1";
+      url = "https://github.com/NixOS/nixpkgs/commit/644d274e0904bf236f22c2e7cd1438986641a982.patch?full_index=1";
       flake = false;
     };
     nixpkgs-patch-pr-567590-5 = {
-      url = "https://github.com/NixOS/nixpkgs/commit/bbed8a2ad57a3b243dee22cde4938722da00e660.patch?full_index=1";
+      url = "https://github.com/NixOS/nixpkgs/commit/b83bff25de76cf5c272b15ffee56ac5e1b9bc5d1.patch?full_index=1";
       flake = false;
     };
     # darktable: fix build warnings
