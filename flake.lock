@@ -89,6 +89,117 @@
         "type": "github"
       }
     },
+    "nixpkgs-patch-pr-567447": {
+      "flake": false,
+      "locked": {
+        "narHash": "sha256-UkpOS9KgdFDuET0UsLzdZ+baVjYaUobuNixO9LIDBr8=",
+        "type": "file",
+        "url": "https://github.com/NixOS/nixpkgs/commit/49ad14a096e9ab4a21cece147e53d3efdc06848c.patch?full_index=1"
+      },
+      "original": {
+        "type": "file",
+        "url": "https://github.com/NixOS/nixpkgs/commit/49ad14a096e9ab4a21cece147e53d3efdc06848c.patch?full_index=1"
+      }
+    },
+    "nixpkgs-patch-pr-567590-1": {
+      "flake": false,
+      "locked": {
+        "narHash": "sha256-aQmpkJVQMoHc7YpEk2MVLXnJf1VomLvF5rFceyTSS6Y=",
+        "type": "file",
+        "url": "https://github.com/NixOS/nixpkgs/commit/38730f55bf47268285acccde96000564e8c5a4c5.patch?full_index=1"
+      },
+      "original": {
+        "type": "file",
+        "url": "https://github.com/NixOS/nixpkgs/commit/38730f55bf47268285acccde96000564e8c5a4c5.patch?full_index=1"
+      }
+    },
+    "nixpkgs-patch-pr-567590-2": {
+      "flake": false,
+      "locked": {
+        "narHash": "sha256-75zs6vfK1IUpHGQBjKaLIMlhk9+30xBf3dZsMyoNxgY=",
+        "type": "file",
+        "url": "https://github.com/NixOS/nixpkgs/commit/8d8d5a19621f6cd4df1ee371a89a2bf254ac00b1.patch?full_index=1"
+      },
+      "original": {
+        "type": "file",
+        "url": "https://github.com/NixOS/nixpkgs/commit/8d8d5a19621f6cd4df1ee371a89a2bf254ac00b1.patch?full_index=1"
+      }
+    },
+    "nixpkgs-patch-pr-567590-3": {
+      "flake": false,
+      "locked": {
+        "narHash": "sha256-/K9o95phM2NYSCk4fxBx9g66Y+wYDLxWG7mey0bl2JE=",
+        "type": "file",
+        "url": "https://github.com/NixOS/nixpkgs/commit/56bb84860a82674161c9b84749c44ef2e0408530.patch?full_index=1"
+      },
+      "original": {
+        "type": "file",
+        "url": "https://github.com/NixOS/nixpkgs/commit/56bb84860a82674161c9b84749c44ef2e0408530.patch?full_index=1"
+      }
+    },
+    "nixpkgs-patch-pr-567590-4": {
+      "flake": false,
+      "locked": {
+        "narHash": "sha256-2M3SL+N9cosqLTiWt1/a1ngvZkSJs/B/aTcsQDV8DhU=",
+        "type": "file",
+        "url": "https://github.com/NixOS/nixpkgs/commit/644d274e0904bf236f22c2e7cd1438986641a982.patch?full_index=1"
+      },
+      "original": {
+        "type": "file",
+        "url": "https://github.com/NixOS/nixpkgs/commit/644d274e0904bf236f22c2e7cd1438986641a982.patch?full_index=1"
+      }
+    },
+    "nixpkgs-patch-pr-567590-5": {
+      "flake": false,
+      "locked": {
+        "narHash": "sha256-JzaHstCAX5JANmE1LjkBdTG+uBpXTdbkh/oVjhkZzlg=",
+        "type": "file",
+        "url": "https://github.com/NixOS/nixpkgs/commit/b83bff25de76cf5c272b15ffee56ac5e1b9bc5d1.patch?full_index=1"
+      },
+      "original": {
+        "type": "file",
+        "url": "https://github.com/NixOS/nixpkgs/commit/b83bff25de76cf5c272b15ffee56ac5e1b9bc5d1.patch?full_index=1"
+      }
+    },
+    "nixpkgs-patch-pr-568773": {
+      "flake": false,
+      "locked": {
+        "narHash": "sha256-1ohKfB6a8VsNIS/7sQWY+wk+Zt/teaxf2Xulb4vIGeA=",
+        "type": "file",
+        "url": "https://github.com/NixOS/nixpkgs/commit/f6d284448c9029c0197e79cdf65f31398a0d7995.patch?full_index=1"
+      },
+      "original": {
+        "type": "file",
+        "url": "https://github.com/NixOS/nixpkgs/commit/f6d284448c9029c0197e79cdf65f31398a0d7995.patch?full_index=1"
+      }
+    },
+    "nixpkgs-patch-pr-569784": {
+      "flake": false,
+      "locked": {
+        "narHash": "sha256-R/+pW8/iNkoMBq/SH03M1MIBEG5/YaAkwpoSFpGwyeQ=",
+        "type": "file",
+        "url": "https://github.com/NixOS/nixpkgs/commit/fc8c84a279555a6ce7f4f916bd4a17ffed224c9a.patch?full_index=1"
+      },
+      "original": {
+        "type": "file",
+        "url": "https://github.com/NixOS/nixpkgs/commit/fc8c84a279555a6ce7f4f916bd4a17ffed224c9a.patch?full_index=1"
+      }
+    },
+    "nixpkgs-patcher": {
+      "locked": {
+        "lastModified": 1789143781,
+        "narHash": "sha256-WFr3wYdhSEJd/nQyJuETd6dcS08Exc+qoZWJ2tHM/gg=",
+        "owner": "gepbird",
+        "repo": "nixpkgs-patcher",
+        "rev": "da7c09e478f552c3a9ebb78b2f68426c1855fd81",
+        "type": "github"
+      },
+      "original": {
+        "owner": "gepbird",
+        "repo": "nixpkgs-patcher",
+        "type": "github"
+      }
+    },
     "opencode": {
       "inputs": {
         "nixpkgs": [
@@ -137,6 +248,15 @@
         "home-manager": "home-manager",
         "nix-darwin": "nix-darwin",
         "nixpkgs": "nixpkgs",
+        "nixpkgs-patch-pr-567447": "nixpkgs-patch-pr-567447",
+        "nixpkgs-patch-pr-567590-1": "nixpkgs-patch-pr-567590-1",
+        "nixpkgs-patch-pr-567590-2": "nixpkgs-patch-pr-567590-2",
+        "nixpkgs-patch-pr-567590-3": "nixpkgs-patch-pr-567590-3",
+        "nixpkgs-patch-pr-567590-4": "nixpkgs-patch-pr-567590-4",
+        "nixpkgs-patch-pr-567590-5": "nixpkgs-patch-pr-567590-5",
+        "nixpkgs-patch-pr-568773": "nixpkgs-patch-pr-568773",
+        "nixpkgs-patch-pr-569784": "nixpkgs-patch-pr-569784",
+        "nixpkgs-patcher": "nixpkgs-patcher",
         "opencode": "opencode",
         "programmer-dvorak-compose": "programmer-dvorak-compose",
         "sops-nix": "sops-nix"
