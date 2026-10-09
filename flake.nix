@@ -29,35 +29,35 @@
     };
 
     nixpkgs-patch-pr-567447 = {
-      url = "https://github.com/NixOS/nixpkgs/commit/49ad14a096e9ab4a21cece147e53d3efdc06848c.patch";
+      url = "https://github.com/NixOS/nixpkgs/commit/49ad14a096e9ab4a21cece147e53d3efdc06848c.patch?full_index=1";
       flake = false;
     };
     nixpkgs-patch-pr-567590-1 = {
-      url = "https://github.com/NixOS/nixpkgs/commit/f08a2c8a1c948d795e4e9aefcd20147fbbc18e11.patch";
+      url = "https://github.com/NixOS/nixpkgs/commit/f08a2c8a1c948d795e4e9aefcd20147fbbc18e11.patch?full_index=1";
       flake = false;
     };
     nixpkgs-patch-pr-567590-2 = {
-      url = "https://github.com/NixOS/nixpkgs/commit/dd1df322014c5a15c6c494a2d42816aab0637652.patch";
+      url = "https://github.com/NixOS/nixpkgs/commit/dd1df322014c5a15c6c494a2d42816aab0637652.patch?full_index=1";
       flake = false;
     };
     nixpkgs-patch-pr-567590-3 = {
-      url = "https://github.com/NixOS/nixpkgs/commit/345623679c07a68cc35c18f1d67437503b0c872c.patch";
+      url = "https://github.com/NixOS/nixpkgs/commit/345623679c07a68cc35c18f1d67437503b0c872c.patch?full_index=1";
       flake = false;
     };
     nixpkgs-patch-pr-567590-4 = {
-      url = "https://github.com/NixOS/nixpkgs/commit/28fb71b8d9b9f763719c8e18fbd0248dcc506f52.patch";
+      url = "https://github.com/NixOS/nixpkgs/commit/28fb71b8d9b9f763719c8e18fbd0248dcc506f52.patch?full_index=1";
       flake = false;
     };
     nixpkgs-patch-pr-567590-5 = {
-      url = "https://github.com/NixOS/nixpkgs/commit/bbed8a2ad57a3b243dee22cde4938722da00e660.patch";
+      url = "https://github.com/NixOS/nixpkgs/commit/bbed8a2ad57a3b243dee22cde4938722da00e660.patch?full_index=1";
       flake = false;
     };
     nixpkgs-patch-pr-568773 = {
-      url = "https://github.com/NixOS/nixpkgs/commit/f6d284448c9029c0197e79cdf65f31398a0d7995.patch";
+      url = "https://github.com/NixOS/nixpkgs/commit/f6d284448c9029c0197e79cdf65f31398a0d7995.patch?full_index=1";
       flake = false;
     };
     nixpkgs-patch-pr-569784 = {
-      url = "https://github.com/NixOS/nixpkgs/commit/fc8c84a279555a6ce7f4f916bd4a17ffed224c9a.patch";
+      url = "https://github.com/NixOS/nixpkgs/commit/fc8c84a279555a6ce7f4f916bd4a17ffed224c9a.patch?full_index=1";
       flake = false;
     };
   };
