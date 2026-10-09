@@ -22,7 +22,7 @@ final: prev: {
       certificate_matches_key() {
         printf '%s' 'certificate key match' |
           step crypto jws sign --key "$private_key" --alg ES256 |
-          step crypto jws verify --key "$certificate" >/dev/null
+          step crypto jws verify --alg ES256 --key "$certificate" >/dev/null
       }
 
       if [ ! -s "$private_key" ] || [ ! -s "$certificate" ] \
