@@ -1,17 +1,4 @@
 {
-  # python3Packages.types-lxml: 2026.01.01 -> 2026.02.16, add dependency
-  pr-507572.commits = [
-    {
-      # python3Packages.pytest-revealtype-injector: init at 0.9.0
-      commit = "98d827349f25bd542de1169fe23bbd22145c33e1";
-      hash = "sha256-x1MBFwgiBWkKgfKLV8Smwy5R+Ahudnj79d6GwoD3Wfw=";
-    }
-    {
-      # python3Packages.types-lxml: 2026.01.01 -> 2026.02.16
-      commit = "1bb11db1c8a138de6fd66394d03ebd6c52fd3faa";
-      hash = "sha256-Ptl0pVtD594sq5/y5yjHd2VsyKTcNxK/Y0qmkK7dcLA=";
-    }
-  ];
   # python3Packages.opendal: 0.46.0 -> 0.47.10
   pr-567447.commits = [
     {
@@ -48,14 +35,6 @@
       hash = "sha256-EhMIneMPahLncZ9W83woTVs6n+53zWu+C0fPkZxwUmc=";
     }
   ];
-  # opencv: fix build against CUDA 13.3+
-  pr-568676.commits = [
-    {
-      # opencv: fix build against CUDA 13.3+
-      commit = "7ae6d7ed6941bdecce2989d392818dfdd42ac7aa";
-      hash = "sha256-Aqk7iVtoei+kITPoWu80u/GnZHRBfawvlENcw7x2alI=";
-    }
-  ];
   # darktable: fix build warnings
   pr-568773.commits = [
     {
@@ -64,19 +43,12 @@
       hash = "sha256-R5ZUZqh48rSdWzWOrfVi0qh+lEweXd1opkurhlwx4OM=";
     }
   ];
-  # gdbuspp,openvpn3: fix build with C++20
-  pr-569341.hash = "sha256-RbFTpuZtHmM4gda5RGCL5zQ5MyR+bSzIioLLpM3ncHU=";
   # headroom-ai: init at 0.40.0
   pr-569784.commits = [
     {
-      # headroom-ai: init at 0.39.1
-      commit = "ac81d0fe87cccad92faddc4b908d009b412b2874";
-      hash = "sha256-wkceQ21FqWoZfUettG17Vc1w69HCfjRAdHto2Z1/Mrw=";
-    }
-    {
-      # python3Packages.headroom-ai: 0.39.1 -> 0.40.0
-      commit = "c720063e2145997e7b339ce6316a67635d80e1c1";
-      hash = "sha256-TdoVXeaAFthKJy0yJGe73dSY5o1dNFdTuHrYFU1L46Y=";
+      # headroom-ai: init at 0.40.0
+      commit = "fc8c84a279555a6ce7f4f916bd4a17ffed224c9a";
+      hash = "sha256-ni2zpTk+mzAA3rbDa2qI9/ADA7T20b3nnsho2lVa1AI=";
     }
   ];
 }
