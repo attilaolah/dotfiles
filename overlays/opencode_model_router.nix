@@ -3,8 +3,8 @@ final: prev: let
   fetchFromGithubTuple = import ./lib/fetch_from_github_tuple.nix prev;
 
   github-tags = ["marco-jardim/opencode-model-router" "2.6.0"]; # extractVersion=^v(?<version>.*)$
-  hash-src = "sha256-+LoyMfogZHpzgKLCseYSekpDQVnqWos5Twg4ZE+6ClE=";
-  hash-npm-deps = "sha256-afJzd3THqlH8AbnyneemKL6ZNbEQ85e5Lxa2FNS+DBA=";
+  hash-src = "sha256-37M8xyoKH9+gQqhRVFl2B/rElj7ZXh2X53gLOF14JBU=";
+  hash-npm-deps = "sha256-OgB5+AOGhlG7md7qfUoI/CnOq1PqRmxm7QwGmk2kImM=";
 
   version = elemAt github-tags 1;
 
