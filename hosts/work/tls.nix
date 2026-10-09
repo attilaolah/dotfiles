@@ -7,7 +7,7 @@
 }: let
   tlsDirectory = "/var/db/tls";
   certificate = "${tlsDirectory}/crt.pem";
-  keychainFingerprint = "${tlsDirectory}/system-keychain-cert.sha256";
+  keychainFingerprint = "${tlsDirectory}/system-keychain-cert.sha1";
   systemKeychain = "/Library/Keychains/System.keychain";
 
   tlsCertificate = pkgs.writeShellApplication {
@@ -28,7 +28,7 @@
 
       host-tls ${lib.escapeShellArg tlsDirectory} ${lib.escapeShellArg "tls"}
 
-      certificate_fingerprint="$(step certificate fingerprint ${certificate} --format hex)"
+        certificate_fingerprint="$(step certificate fingerprint --sha1 --insecure ${certificate})"
 
       # Delete only the previous fingerprint that this activation recorded and the exact current leaf.
       # Never select certificates by common name: a System keychain can contain unrelated certificates.
