@@ -43,10 +43,10 @@
       hash = "sha256-R5ZUZqh48rSdWzWOrfVi0qh+lEweXd1opkurhlwx4OM=";
     }
   ];
-  # headroom-ai: init at 0.40.0
+  # headroom: init at 0.40.0
   pr-569784.commits = [
     {
-      # headroom-ai: init at 0.40.0
+      # headroom: init at 0.40.0
       commit = "fc8c84a279555a6ce7f4f916bd4a17ffed224c9a";
       hash = "sha256-ni2zpTk+mzAA3rbDa2qI9/ADA7T20b3nnsho2lVa1AI=";
     }
