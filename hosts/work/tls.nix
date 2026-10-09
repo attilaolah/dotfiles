@@ -6,7 +6,7 @@
   ...
 }: let
   tlsDirectory = "/var/db/tls";
-  certificate = "${tlsDirectory}/cert.pem";
+  certificate = "${tlsDirectory}/crt.pem";
   privateKey = "${tlsDirectory}/key.pem";
   keychainFingerprint = "${tlsDirectory}/system-keychain-cert.sha256";
   hostname = config.networking.hostName;
@@ -43,7 +43,7 @@
         temporary_directory="$(mktemp -d ${tlsDirectory}/.generate.XXXXXX)"
         trap 'rm -rf "$temporary_directory"' EXIT
 
-        step certificate create ${hostname} "$temporary_directory/cert.pem" "$temporary_directory/key.pem" \
+        step certificate create ${hostname} "$temporary_directory/crt.pem" "$temporary_directory/key.pem" \
           --profile self-signed \
           --subtle \
           --no-password \
@@ -58,7 +58,7 @@
           --san ::1
 
         install -m 0640 -o root -g tls "$temporary_directory/key.pem" ${privateKey}
-        install -m 0644 -o root -g tls "$temporary_directory/cert.pem" ${certificate}
+        install -m 0644 -o root -g tls "$temporary_directory/crt.pem" ${certificate}
         rm -rf "$temporary_directory"
         trap - EXIT
       fi
