@@ -28,10 +28,12 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # python3Packages.opendal: 0.46.0 -> 0.47.10
     nixpkgs-patch-pr-567447 = {
       url = "https://github.com/NixOS/nixpkgs/commit/49ad14a096e9ab4a21cece147e53d3efdc06848c.patch?full_index=1";
       flake = false;
     };
+    # mcp-atlassian: init at 0.23.1
     nixpkgs-patch-pr-567590-1 = {
       url = "https://github.com/NixOS/nixpkgs/commit/f08a2c8a1c948d795e4e9aefcd20147fbbc18e11.patch?full_index=1";
       flake = false;
@@ -48,14 +50,17 @@
       url = "https://github.com/NixOS/nixpkgs/commit/28fb71b8d9b9f763719c8e18fbd0248dcc506f52.patch?full_index=1";
       flake = false;
     };
+    # mcp-atlassian: init at 0.23.1
     nixpkgs-patch-pr-567590-5 = {
       url = "https://github.com/NixOS/nixpkgs/commit/bbed8a2ad57a3b243dee22cde4938722da00e660.patch?full_index=1";
       flake = false;
     };
+    # darktable: fix build warnings
     nixpkgs-patch-pr-568773 = {
       url = "https://github.com/NixOS/nixpkgs/commit/f6d284448c9029c0197e79cdf65f31398a0d7995.patch?full_index=1";
       flake = false;
     };
+    # headroom: init at 0.40.0
     nixpkgs-patch-pr-569784 = {
       url = "https://github.com/NixOS/nixpkgs/commit/fc8c84a279555a6ce7f4f916bd4a17ffed224c9a.patch?full_index=1";
       flake = false;
