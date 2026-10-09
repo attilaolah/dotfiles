@@ -54,8 +54,10 @@ in {
   # The empty member list also prevents the managed desktop user reading it.
   users.groups.tls = {
     description = "Readers of host TLS private keys";
+    gid = 2050;
     members = [];
   };
+  users.knownGroups = ["tls"];
 
   assertions = [
     {
@@ -66,8 +68,5 @@ in {
 
   # The key and leaf certificate are generated locally rather than copied from the Nix store.
   # This produces a separate, self-signed leaf for the host.
-  system.activationScripts.tlsCertificate = {
-    deps = ["users"];
-    text = lib.getExe tlsCertificate;
-  };
+  system.activationScripts.postActivation.text = lib.getExe tlsCertificate;
 }
