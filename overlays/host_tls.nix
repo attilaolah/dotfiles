@@ -1,7 +1,7 @@
 final: prev: {
   host-tls = prev.writeShellApplication {
     name = "host-tls";
-    runtimeInputs = with final; [
+    runtimeInputs = with prev; [
       coreutils
       step-cli
     ];
@@ -42,7 +42,7 @@ final: prev: {
           --kty EC \
           --curve P-256 \
           --not-after 19800h \
-          --san '*.localhost' \
+          --san '*.app.localhost' \
           --san localhost \
           --san 127.0.0.1 \
           --san ::1
