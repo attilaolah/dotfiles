@@ -1,13 +1,13 @@
 {
   lib,
-  platform,
+  pkgs,
   ...
 }: {
   imports =
     [
       ./gpg_agent.nix
     ]
-    ++ lib.lists.optionals (platform == "linux") [
+    ++ lib.lists.optionals pkgs.stdenv.hostPlatform.isLinux [
       ./hypridle.nix
       ./hyprpaper
       ./swaync.nix
