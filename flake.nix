@@ -50,7 +50,6 @@
       url = "https://github.com/NixOS/nixpkgs/commit/28fb71b8d9b9f763719c8e18fbd0248dcc506f52.patch?full_index=1";
       flake = false;
     };
-    # mcp-atlassian: init at 0.23.1
     nixpkgs-patch-pr-567590-5 = {
       url = "https://github.com/NixOS/nixpkgs/commit/bbed8a2ad57a3b243dee22cde4938722da00e660.patch?full_index=1";
       flake = false;
