@@ -1,7 +1,7 @@
 final: prev: {
   host-tls = prev.writeShellApplication {
     name = "host-tls";
-    runtimeInputs = with prev; [
+    runtimeInputs = with final; [
       coreutils
       step-cli
     ];
