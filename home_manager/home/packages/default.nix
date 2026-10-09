@@ -111,7 +111,7 @@
       # NodeJS
       bun
       deno
-      nodejs_26
+      nodejs_latest
       pnpm
 
       # GUI apps available on both Linux and Darwin.
