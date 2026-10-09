@@ -193,7 +193,7 @@
         # home-manager switch --flake .#hostname (e.g. --flake .#home)
         homeConfigurations =
           lib.mapAttrs' (name: host: {
-            name = host.hostName or host.hostname or name;
+            name = host.hostname or name;
             value = withSystem host.system ({config, ...}: let
               pkgs = config._module.args.build (host.nixpkgs.config or {});
             in
