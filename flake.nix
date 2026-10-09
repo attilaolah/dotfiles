@@ -151,14 +151,14 @@
                     {
                       nixpkgs.config =
                         (value.nixpkgs.config or {})
-                        // unfree
                         // {
                           packageOverrides = pkgs: let
                             composed = lib.composeManyExtensions overlays;
                             final = pkgs // composed final pkgs;
                           in
                             composed final pkgs;
-                        };
+                        }
+                        // unfree;
                     }
                     ./hosts/${name}/configuration.nix
                     (lib.optionalAttrs (os == "darwin") {
@@ -167,10 +167,10 @@
                       ];
                     })
                     home-manager."${os}Modules".home-manager
-                    {
+                    ({pkgs, ...}: {
                       home-manager = {
                         backupFileExtension = "bkp";
-                        extraSpecialArgs = specialArgs value;
+                        extraSpecialArgs = specialArgs value // {inherit pkgs;};
                         sharedModules = [
                           inputs.sops-nix.homeManagerModules.sops
                         ];
@@ -178,7 +178,7 @@
                         useGlobalPkgs = true;
                         useUserPackages = true;
                       };
-                    }
+                    })
                   ];
                   specialArgs = specialArgs value;
                 });
@@ -194,14 +194,16 @@
         homeConfigurations =
           lib.mapAttrs' (name: host: {
             name = host.hostName or host.hostname or name;
-            value = withSystem host.system ({config, ...}:
+            value = withSystem host.system ({config, ...}: let
+              pkgs = config._module.args.build (host.nixpkgs.config or {});
+            in
               home-manager.lib.homeManagerConfiguration {
-                pkgs = config._module.args.build (host.nixpkgs.config or {});
+                inherit pkgs;
                 modules = [
                   inputs.sops-nix.homeManagerModules.sops
                   ./home_manager/home.nix
                 ];
-                extraSpecialArgs = specialArgs host;
+                extraSpecialArgs = specialArgs host // {inherit pkgs;};
               });
           })
           hosts;

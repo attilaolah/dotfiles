@@ -1,6 +1,6 @@
 {
   lib,
-  platform,
+  pkgs,
   ...
 }: {
   imports =
@@ -26,10 +26,10 @@
       ./tmux.nix
       ./uv.nix
     ]
-    ++ lib.lists.optionals (platform == "mac") [
+    ++ lib.lists.optionals pkgs.stdenv.hostPlatform.isDarwin [
       ./zsh.nix
     ]
-    ++ lib.lists.optionals (platform == "linux") [
+    ++ lib.lists.optionals pkgs.stdenv.hostPlatform.isLinux [
       ./hyprlock
       ./waybar
     ];

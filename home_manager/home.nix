@@ -2,7 +2,6 @@
   config,
   lib,
   pkgs,
-  platform,
   user,
   ...
 }: {
@@ -15,7 +14,7 @@
       ./services
       ./xdg/config_file
     ]
-    ++ lib.lists.optionals (platform == "linux") [
+    ++ lib.lists.optionals pkgs.stdenv.hostPlatform.isLinux [
       ./gtk.nix
       ./home/files/terminfo.nix
       ./qt.nix
