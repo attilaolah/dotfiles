@@ -28,7 +28,7 @@
 
       host-tls ${lib.escapeShellArg tlsDirectory} ${lib.escapeShellArg "tls"}
 
-        certificate_fingerprint="$(step certificate fingerprint --sha1 --insecure ${certificate})"
+      certificate_fingerprint="$(step certificate fingerprint --sha1 --insecure ${certificate})"
 
       # Delete only the previous fingerprint that this activation recorded and the exact current leaf.
       # Never select certificates by common name: a System keychain can contain unrelated certificates.
