@@ -26,7 +26,7 @@
       ./tmux.nix
       ./uv.nix
     ]
-    ++ lib.lists.optionals (platform == "darwin") [
+    ++ lib.lists.optionals (platform == "mac") [
       ./zsh.nix
     ]
     ++ lib.lists.optionals (platform == "linux") [
