@@ -78,6 +78,7 @@
       yq-go
       zig
       zip
+      zizmor
       zoxide
 
       # Virtualisation:
