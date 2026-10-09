@@ -14,6 +14,7 @@
     ./rpcbind.nix
     ./samba.nix
     ./tailscale.nix
+    ./tls.nix
     ./xserver.nix
   ];
 }

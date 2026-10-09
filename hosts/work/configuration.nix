@@ -2,6 +2,7 @@
   self,
   pkgs,
   system,
+  hostname,
   user,
   ...
 }: {
@@ -10,7 +11,10 @@
     ../home/programs/fish.nix
     ../home/users/authorized_keys.nix
     ./homebrew.nix
+    ./tls.nix
   ];
+
+  networking.hostName = hostname;
 
   system = {
     configurationRevision = self.rev or self.dirtyRev or null;

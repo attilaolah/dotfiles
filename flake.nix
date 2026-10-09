@@ -128,11 +128,12 @@
           system,
           username,
           ncores,
+          hostname ? null,
           ...
         }:
           inputs
           // {
-            inherit system ncores;
+            inherit system ncores hostname;
             user = {
               inherit username;
               fullname = "Attila Oláh";
