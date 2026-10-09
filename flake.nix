@@ -180,7 +180,7 @@
           ) (platformHosts platform);
       in {
         nixosConfigurations = mkConfigs "nixos" "linux";
-        darwinConfigurations = mkConfigs "darwin" "darwin";
+        darwinConfigurations = mkConfigs "darwin" "mac";
 
         # Expose the home-manager configurations directly.
         # This allows one to apply only the home-manager config without switching the system config by running:
