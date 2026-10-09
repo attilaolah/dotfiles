@@ -2,7 +2,6 @@
   self,
   pkgs,
   system,
-  hostname,
   user,
   ...
 }: {
@@ -13,8 +12,6 @@
     ./homebrew.nix
     ./tls.nix
   ];
-
-  networking.hostName = hostname;
 
   system = {
     configurationRevision = self.rev or self.dirtyRev or null;

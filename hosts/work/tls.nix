@@ -9,7 +9,6 @@
   certificate = "${tlsDirectory}/crt.pem";
   privateKey = "${tlsDirectory}/key.pem";
   keychainFingerprint = "${tlsDirectory}/system-keychain-cert.sha256";
-  hostname = config.networking.hostName;
   systemKeychain = "/Library/Keychains/System.keychain";
 
   tlsCertificate = pkgs.writeShellApplication {
@@ -37,13 +36,15 @@
       }
 
       if [ ! -s ${privateKey} ] || [ ! -s ${certificate} ] \
-        || ! step certificate verify ${certificate} --host ${hostname} --roots ${certificate} >/dev/null 2>&1 \
         || step certificate needs-renewal ${certificate} --expires-in 720h >/dev/null 2>&1 \
+        || ! step certificate verify ${certificate} --host localhost --roots ${certificate} >/dev/null 2>&1 \
         || ! certificate_matches_key; then
         temporary_directory="$(mktemp -d ${tlsDirectory}/.generate.XXXXXX)"
         trap 'rm -rf "$temporary_directory"' EXIT
 
-        step certificate create ${hostname} "$temporary_directory/crt.pem" "$temporary_directory/key.pem" \
+        step certificate create localhost \
+          "$temporary_directory/crt.pem" \
+          "$temporary_directory/key.pem" \
           --profile self-signed \
           --subtle \
           --no-password \
@@ -51,8 +52,7 @@
           --kty EC \
           --curve P-256 \
           --not-after 19800h \
-          --san ${hostname} \
-          --san ${hostname}.local \
+          --san '*.localhost' \
           --san localhost \
           --san 127.0.0.1 \
           --san ::1
