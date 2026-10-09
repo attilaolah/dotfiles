@@ -4,19 +4,18 @@
   unfree,
 }: {
   perSystem = {system, ...}: let
-    nixpkgs-patched = inputs.nixpkgs-patcher.lib.patchNixpkgs {
-      inherit system inputs;
-      inherit (inputs) nixpkgs;
-    };
-    mkPatchedPkgs = config:
-      import nixpkgs-patched {
+    build = config:
+      import (inputs.nixpkgs-patcher.lib.patchNixpkgs {
+        inherit system inputs;
+        inherit (inputs) nixpkgs;
+      }) {
         inherit system overlays;
         config = config // unfree;
       };
   in {
     _module.args = {
-      pkgs = mkPatchedPkgs {};
-      inherit mkPatchedPkgs;
+      pkgs = build {};
+      inherit build;
     };
   };
 }

@@ -197,7 +197,7 @@
             name = host.hostName or host.hostname or name;
             value = withSystem host.system ({config, ...}:
               home-manager.lib.homeManagerConfiguration {
-                pkgs = config._module.args.mkPatchedPkgs (host.nixpkgs.config or {});
+                pkgs = config._module.args.build (host.nixpkgs.config or {});
                 modules = [
                   inputs.sops-nix.homeManagerModules.sops
                   ./home_manager/home.nix
