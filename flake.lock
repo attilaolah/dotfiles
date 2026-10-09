@@ -101,7 +101,7 @@
         "url": "https://github.com/NixOS/nixpkgs/commit/49ad14a096e9ab4a21cece147e53d3efdc06848c.patch"
       }
     },
-    "nixpkgs-patch-pr-567590": {
+    "nixpkgs-patch-pr-567590-1": {
       "flake": false,
       "locked": {
         "narHash": "sha256-vjbVch0JDhsJ5UkjURRbGOLFQWLRFSxS4UaLSx0Jcxg=",
@@ -249,7 +249,7 @@
         "nix-darwin": "nix-darwin",
         "nixpkgs": "nixpkgs",
         "nixpkgs-patch-pr-567447": "nixpkgs-patch-pr-567447",
-        "nixpkgs-patch-pr-567590": "nixpkgs-patch-pr-567590",
+        "nixpkgs-patch-pr-567590-1": "nixpkgs-patch-pr-567590-1",
         "nixpkgs-patch-pr-567590-2": "nixpkgs-patch-pr-567590-2",
         "nixpkgs-patch-pr-567590-3": "nixpkgs-patch-pr-567590-3",
         "nixpkgs-patch-pr-567590-4": "nixpkgs-patch-pr-567590-4",
