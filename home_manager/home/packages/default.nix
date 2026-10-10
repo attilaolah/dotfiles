@@ -99,14 +99,8 @@
       headroom
       qwen-code
 
-      # Python, the basics:
-      (python314.withPackages (ps:
-        with ps; [
-          huggingface-hub
-          ipython
-          jmespath
-          polars
-        ]))
+      # Python:
+      python315
 
       # NodeJS
       bun
@@ -124,6 +118,12 @@
       })
       (import ./sops_restart.nix {inherit lib pkgs;})
     ]
+    ++ (with python314Packages; [
+      huggingface-hub
+      ipython
+      jmespath
+      polars
+    ])
     ++ lib.lists.optionals pkgs.stdenv.hostPlatform.isLinux [
       # Not supported on darwin:
       bubblewrap
