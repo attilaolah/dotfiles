@@ -25,11 +25,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1791569574,
-        "narHash": "sha256-5sViLmjhTCtBTvhjSXXvd5LDrAFMydFFKZQisjE8Vds=",
+        "lastModified": 1791600313,
+        "narHash": "sha256-/2gb2WTztITD/JU1XUCg63vDsIfJGLr0LDsjSCTTJc8=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "6b88c12cc6d234de4888f5d21076fb11199d0844",
+        "rev": "427c74a88a93cc9f856c8bb99bf6b4a5187a6b33",
         "type": "github"
       },
       "original": {
@@ -165,11 +165,11 @@
       "locked": {
         "narHash": "sha256-1ohKfB6a8VsNIS/7sQWY+wk+Zt/teaxf2Xulb4vIGeA=",
         "type": "file",
-        "url": "https://github.com/NixOS/nixpkgs/commit/f6d284448c9029c0197e79cdf65f31398a0d7995.patch?full_index=1"
+        "url": "https://github.com/NixOS/nixpkgs/pull/568773.patch?full_index=1"
       },
       "original": {
         "type": "file",
-        "url": "https://github.com/NixOS/nixpkgs/commit/f6d284448c9029c0197e79cdf65f31398a0d7995.patch?full_index=1"
+        "url": "https://github.com/NixOS/nixpkgs/pull/568773.patch?full_index=1"
       }
     },
     "nixpkgs-patch-pr-569784": {
@@ -182,6 +182,18 @@
       "original": {
         "type": "file",
         "url": "https://github.com/NixOS/nixpkgs/commit/fc8c84a279555a6ce7f4f916bd4a17ffed224c9a.patch?full_index=1"
+      }
+    },
+    "nixpkgs-patch-pr-572238": {
+      "flake": false,
+      "locked": {
+        "narHash": "sha256-/vUZ7TBURlv6XzjC+EFgdiIB0vAteZ0lI2DB/FM9YfY=",
+        "type": "file",
+        "url": "https://github.com/NixOS/nixpkgs/pull/572238.patch?full_index=1"
+      },
+      "original": {
+        "type": "file",
+        "url": "https://github.com/NixOS/nixpkgs/pull/572238.patch?full_index=1"
       }
     },
     "nixpkgs-patcher": {
@@ -255,6 +267,7 @@
         "nixpkgs-patch-pr-567590-5": "nixpkgs-patch-pr-567590-5",
         "nixpkgs-patch-pr-568773": "nixpkgs-patch-pr-568773",
         "nixpkgs-patch-pr-569784": "nixpkgs-patch-pr-569784",
+        "nixpkgs-patch-pr-572238": "nixpkgs-patch-pr-572238",
         "nixpkgs-patcher": "nixpkgs-patcher",
         "opencode": "opencode",
         "programmer-dvorak-compose": "programmer-dvorak-compose",

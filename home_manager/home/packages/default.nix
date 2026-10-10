@@ -99,15 +99,6 @@
       headroom
       qwen-code
 
-      # Python, the basics:
-      (python314.withPackages (ps:
-        with ps; [
-          huggingface-hub
-          ipython
-          jmespath
-          polars
-        ]))
-
       # NodeJS
       bun
       deno
@@ -123,7 +114,16 @@
         metalSupport = pkgs.stdenv.hostPlatform.isDarwin;
       })
       (import ./sops_restart.nix {inherit lib pkgs;})
+
+      # Python + packages.
+      # Keep the latest Python version with commonly used packages.
+      # Keep an extra list of packages used only for their binaries.
+      python315
     ]
+    ++ (with python314Packages; [
+      huggingface-hub
+      ipython
+    ])
     ++ lib.lists.optionals pkgs.stdenv.hostPlatform.isLinux [
       # Not supported on darwin:
       bubblewrap
