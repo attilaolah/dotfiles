@@ -64,6 +64,11 @@
       url = "https://github.com/NixOS/nixpkgs/commit/fc8c84a279555a6ce7f4f916bd4a17ffed224c9a.patch?full_index=1";
       flake = false;
     };
+    # python315: 3.15.0rc2 -> 3.15.0
+    nixpkgs-patch-pr-572238 = {
+      url = "https://github.com/NixOS/nixpkgs/pull/572238.patch?full_index=1";
+      flake = false;
+    };
   };
 
   outputs = {
