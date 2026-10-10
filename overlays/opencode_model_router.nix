@@ -53,36 +53,9 @@ in {
       runHook postCheck
     '';
     nativeCheckInputs = with prev; [
+      git
       nodejs
       procps
-
-      (
-        # https://github.com/marco-jardim/opencode-model-router/issues/92
-        # The macOS default filesystem is case-insensitive, while this upstream POSIX-only test constructs Repo and
-        # repo as distinct fixtures. Let its second fixture commit even though those names resolve to one checkout.
-        if prev.stdenv.hostPlatform.isDarwin
-        then
-          prev.writeShellScriptBin "git" ''
-            args=("$@")
-            index=0
-            while (( index < ''${#args[@]} )); do
-              case "''${args[index]}" in
-                -c|--config-env|-C|--git-dir|--work-tree|--namespace|--exec-path) ((index += 2));;
-                --git-dir=*|--work-tree=*|--namespace=*|--exec-path=*|-C*) ((index += 1));;
-                --) ((index += 1)); break;;
-                -*) ((index += 1));;
-                *) break;;
-              esac
-            done
-            if [[ "''${args[index]:-}" == "commit" ]]; then
-              before=("''${args[@]:0:$((index + 1))}")
-              after=("''${args[@]:$((index + 1))}")
-              args=("''${before[@]}" --allow-empty "''${after[@]}")
-            fi
-            exec ${prev.lib.getExe prev.git} -c user.name="nix builder" -c user.email="nix-builder@example.invalid" "''${args[@]}"
-          ''
-        else prev.git
-      )
     ];
     passthru.plugin = "${final.opencode-model-router}/lib/node_modules/opencode-model-router";
 
