@@ -2,9 +2,9 @@ final: prev: let
   inherit (builtins) elemAt;
   fetchFromGithubTuple = import ./lib/fetch_from_github_tuple.nix prev;
 
-  github-tags = ["marco-jardim/opencode-model-router" "2.6.0"]; # extractVersion=^v(?<version>.*)$
-  hash-src = "sha256-37M8xyoKH9+gQqhRVFl2B/rElj7ZXh2X53gLOF14JBU=";
-  hash-npm-deps = "sha256-OgB5+AOGhlG7md7qfUoI/CnOq1PqRmxm7QwGmk2kImM=";
+  github-tags = ["marco-jardim/opencode-model-router" "2.7.0"]; # extractVersion=^v(?<version>.*)$
+  hash-src = "sha256-V5kIOyDvqVE6HcXfVE9ef+G8KIEwz4N+dWzod/vL9Cw=";
+  hash-npm-deps = "sha256-jdjxlJGVomL/4g2JtHb3z1J/vuWFt1vNKLB4B+4OQsI=";
 
   version = elemAt github-tags 1;
 
@@ -53,36 +53,9 @@ in {
       runHook postCheck
     '';
     nativeCheckInputs = with prev; [
+      git
       nodejs
       procps
-
-      (
-        # https://github.com/marco-jardim/opencode-model-router/issues/92
-        # The macOS default filesystem is case-insensitive, while this upstream POSIX-only test constructs Repo and
-        # repo as distinct fixtures. Let its second fixture commit even though those names resolve to one checkout.
-        if prev.stdenv.hostPlatform.isDarwin
-        then
-          prev.writeShellScriptBin "git" ''
-            args=("$@")
-            index=0
-            while (( index < ''${#args[@]} )); do
-              case "''${args[index]}" in
-                -c|--config-env|-C|--git-dir|--work-tree|--namespace|--exec-path) ((index += 2));;
-                --git-dir=*|--work-tree=*|--namespace=*|--exec-path=*|-C*) ((index += 1));;
-                --) ((index += 1)); break;;
-                -*) ((index += 1));;
-                *) break;;
-              esac
-            done
-            if [[ "''${args[index]:-}" == "commit" ]]; then
-              before=("''${args[@]:0:$((index + 1))}")
-              after=("''${args[@]:$((index + 1))}")
-              args=("''${before[@]}" --allow-empty "''${after[@]}")
-            fi
-            exec ${prev.lib.getExe prev.git} -c user.name="nix builder" -c user.email="nix-builder@example.invalid" "''${args[@]}"
-          ''
-        else prev.git
-      )
     ];
     passthru.plugin = "${final.opencode-model-router}/lib/node_modules/opencode-model-router";
 
