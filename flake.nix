@@ -56,7 +56,7 @@
     };
     # darktable: fix build warnings
     nixpkgs-patch-pr-568773 = {
-      url = "https://github.com/NixOS/nixpkgs/commit/f6d284448c9029c0197e79cdf65f31398a0d7995.patch?full_index=1";
+      url = "https://github.com/NixOS/nixpkgs/pull/568773.patch?full_index=1";
       flake = false;
     };
     # headroom: init at 0.40.0
