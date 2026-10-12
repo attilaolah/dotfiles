@@ -120,7 +120,7 @@
       # Keep an extra list of packages used only for their binaries.
       (python315.withPackages (ps:
         with ps; [
-          black
+          # black # does not build yet
           pytest
           pyupgrade
         ]))
