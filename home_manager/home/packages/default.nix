@@ -118,14 +118,14 @@
       # Python + packages.
       # Keep the latest Python version with commonly used packages.
       # Keep an extra list of packages used only for their binaries.
-      (python315.withPackages (ps:
-        with ps; [
-          # black # does not build yet
-          pytest
-          pyupgrade
-        ]))
+      python315
     ]
+    ++ (with python315Packages; [
+      pytest
+      pyupgrade
+    ])
     ++ (with python314Packages; [
+      black
       huggingface-hub
       ipython
     ])
