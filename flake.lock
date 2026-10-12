@@ -25,11 +25,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1791600313,
-        "narHash": "sha256-/2gb2WTztITD/JU1XUCg63vDsIfJGLr0LDsjSCTTJc8=",
+        "lastModified": 1791642191,
+        "narHash": "sha256-0bK0A59rVUn1SRZzo4cNi4VSqAe7vR1gL2/MZl53Frw=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "427c74a88a93cc9f856c8bb99bf6b4a5187a6b33",
+        "rev": "c58f54c733a7894d84fa2fdff26cc12088c4b78c",
         "type": "github"
       },
       "original": {
@@ -61,11 +61,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1791456040,
-        "narHash": "sha256-gRZ/s8WQJ2CsXdhcDVQH34qxuL0MuMCOs3aBiK1Prsw=",
-        "rev": "e7439b6b14ad3cc35d05608ebca9bce01a25f5f8",
+        "lastModified": 1791594108,
+        "narHash": "sha256-V0WmebqwEeAVZMqxfv7Dq7hpKkPPM19W50xQf3D1Kf4=",
+        "rev": "6510408d147d8c5e6d76043e899e9251756f6a75",
         "type": "tarball",
-        "url": "https://releases.nixos.org/nixos/unstable/nixos-26.11pre1087755.e7439b6b14ad/nixexprs.tar.zst"
+        "url": "https://releases.nixos.org/nixos/unstable/nixos-26.11pre1089111.6510408d147d/nixexprs.tar.zst"
       },
       "original": {
         "id": "nixpkgs",
@@ -160,40 +160,16 @@
         "url": "https://github.com/NixOS/nixpkgs/commit/b83bff25de76cf5c272b15ffee56ac5e1b9bc5d1.patch?full_index=1"
       }
     },
-    "nixpkgs-patch-pr-568773": {
-      "flake": false,
-      "locked": {
-        "narHash": "sha256-1ohKfB6a8VsNIS/7sQWY+wk+Zt/teaxf2Xulb4vIGeA=",
-        "type": "file",
-        "url": "https://github.com/NixOS/nixpkgs/pull/568773.patch?full_index=1"
-      },
-      "original": {
-        "type": "file",
-        "url": "https://github.com/NixOS/nixpkgs/pull/568773.patch?full_index=1"
-      }
-    },
     "nixpkgs-patch-pr-569784": {
       "flake": false,
       "locked": {
-        "narHash": "sha256-R/+pW8/iNkoMBq/SH03M1MIBEG5/YaAkwpoSFpGwyeQ=",
+        "narHash": "sha256-6kIIOooumqJleGzWJHNWUnz7HuijGGXAqmZH8wBX0rw=",
         "type": "file",
-        "url": "https://github.com/NixOS/nixpkgs/commit/fc8c84a279555a6ce7f4f916bd4a17ffed224c9a.patch?full_index=1"
+        "url": "https://github.com/NixOS/nixpkgs/commit/b3dc24cdfe55cd5eb9fae726c3a55d660f876159.patch?full_index=1"
       },
       "original": {
         "type": "file",
-        "url": "https://github.com/NixOS/nixpkgs/commit/fc8c84a279555a6ce7f4f916bd4a17ffed224c9a.patch?full_index=1"
-      }
-    },
-    "nixpkgs-patch-pr-572238": {
-      "flake": false,
-      "locked": {
-        "narHash": "sha256-/vUZ7TBURlv6XzjC+EFgdiIB0vAteZ0lI2DB/FM9YfY=",
-        "type": "file",
-        "url": "https://github.com/NixOS/nixpkgs/pull/572238.patch?full_index=1"
-      },
-      "original": {
-        "type": "file",
-        "url": "https://github.com/NixOS/nixpkgs/pull/572238.patch?full_index=1"
+        "url": "https://github.com/NixOS/nixpkgs/commit/b3dc24cdfe55cd5eb9fae726c3a55d660f876159.patch?full_index=1"
       }
     },
     "nixpkgs-patcher": {
@@ -265,9 +241,7 @@
         "nixpkgs-patch-pr-567590-3": "nixpkgs-patch-pr-567590-3",
         "nixpkgs-patch-pr-567590-4": "nixpkgs-patch-pr-567590-4",
         "nixpkgs-patch-pr-567590-5": "nixpkgs-patch-pr-567590-5",
-        "nixpkgs-patch-pr-568773": "nixpkgs-patch-pr-568773",
         "nixpkgs-patch-pr-569784": "nixpkgs-patch-pr-569784",
-        "nixpkgs-patch-pr-572238": "nixpkgs-patch-pr-572238",
         "nixpkgs-patcher": "nixpkgs-patcher",
         "opencode": "opencode",
         "programmer-dvorak-compose": "programmer-dvorak-compose",
@@ -281,11 +255,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1791103873,
-        "narHash": "sha256-nFxM+pKoZ8LJAEnUXARyCaOAloWgaW9kZQOSjWzKcTE=",
+        "lastModified": 1791710405,
+        "narHash": "sha256-mVD4XIc5JkqMW2K04IkFUzHgHmyJZlzw5ktfgMDCbKU=",
         "owner": "Mic92",
         "repo": "sops-nix",
-        "rev": "dcd241ba97088c22569d1573286e1b9daad340c0",
+        "rev": "ee48786c6f9160d2c1a084aac841f68195b8420c",
         "type": "github"
       },
       "original": {
