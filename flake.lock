@@ -172,6 +172,18 @@
         "url": "https://github.com/NixOS/nixpkgs/commit/b3dc24cdfe55cd5eb9fae726c3a55d660f876159.patch?full_index=1"
       }
     },
+    "nixpkgs-patch-pr-572951": {
+      "flake": false,
+      "locked": {
+        "narHash": "sha256-03KHRtBq4Etsm3YIlu5H7WBOPrld4toklwcx/jsBgVA=",
+        "type": "file",
+        "url": "https://github.com/NixOS/nixpkgs/pull/572951.patch?full_index=1"
+      },
+      "original": {
+        "type": "file",
+        "url": "https://github.com/NixOS/nixpkgs/pull/572951.patch?full_index=1"
+      }
+    },
     "nixpkgs-patcher": {
       "locked": {
         "lastModified": 1789143781,
@@ -242,6 +254,7 @@
         "nixpkgs-patch-pr-567590-4": "nixpkgs-patch-pr-567590-4",
         "nixpkgs-patch-pr-567590-5": "nixpkgs-patch-pr-567590-5",
         "nixpkgs-patch-pr-569784": "nixpkgs-patch-pr-569784",
+        "nixpkgs-patch-pr-572951": "nixpkgs-patch-pr-572951",
         "nixpkgs-patcher": "nixpkgs-patcher",
         "opencode": "opencode",
         "programmer-dvorak-compose": "programmer-dvorak-compose",
