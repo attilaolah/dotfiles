@@ -59,6 +59,11 @@
       url = "https://github.com/NixOS/nixpkgs/commit/b3dc24cdfe55cd5eb9fae726c3a55d660f876159.patch?full_index=1";
       flake = false;
     };
+    # go, buildGoModule: default to 1.27
+    nixpkgs-patch-pr-570062 = {
+      url = "https://github.com/NixOS/nixpkgs/commit/20e75b6b4f8ac2575b9d0da79d993cfff845099c.patch?full_index=1";
+      flake = false;
+    };
     # typescript-language-server: fix pnpm hash
     nixpkgs-patch-pr-572951 = {
       url = "https://github.com/NixOS/nixpkgs/pull/572951.patch?full_index=1";

@@ -172,6 +172,18 @@
         "url": "https://github.com/NixOS/nixpkgs/commit/b3dc24cdfe55cd5eb9fae726c3a55d660f876159.patch?full_index=1"
       }
     },
+    "nixpkgs-patch-pr-570062": {
+      "flake": false,
+      "locked": {
+        "narHash": "sha256-DetVchILBnwJDDIZWeUKk+UssIgZIAmUHbXO3lUSdVQ=",
+        "type": "file",
+        "url": "https://github.com/NixOS/nixpkgs/commit/20e75b6b4f8ac2575b9d0da79d993cfff845099c.patch?full_index=1"
+      },
+      "original": {
+        "type": "file",
+        "url": "https://github.com/NixOS/nixpkgs/commit/20e75b6b4f8ac2575b9d0da79d993cfff845099c.patch?full_index=1"
+      }
+    },
     "nixpkgs-patch-pr-572951": {
       "flake": false,
       "locked": {
@@ -254,6 +266,7 @@
         "nixpkgs-patch-pr-567590-4": "nixpkgs-patch-pr-567590-4",
         "nixpkgs-patch-pr-567590-5": "nixpkgs-patch-pr-567590-5",
         "nixpkgs-patch-pr-569784": "nixpkgs-patch-pr-569784",
+        "nixpkgs-patch-pr-570062": "nixpkgs-patch-pr-570062",
         "nixpkgs-patch-pr-572951": "nixpkgs-patch-pr-572951",
         "nixpkgs-patcher": "nixpkgs-patcher",
         "opencode": "opencode",
