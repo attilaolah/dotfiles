@@ -177,11 +177,11 @@
       "locked": {
         "narHash": "sha256-DetVchILBnwJDDIZWeUKk+UssIgZIAmUHbXO3lUSdVQ=",
         "type": "file",
-        "url": "https://github.com/NixOS/nixpkgs/commit/20e75b6b4f8ac2575b9d0da79d993cfff845099c.patch?full_index=1"
+        "url": "https://github.com/NixOS/nixpkgs/pull/570062.patch?full_index=1"
       },
       "original": {
         "type": "file",
-        "url": "https://github.com/NixOS/nixpkgs/commit/20e75b6b4f8ac2575b9d0da79d993cfff845099c.patch?full_index=1"
+        "url": "https://github.com/NixOS/nixpkgs/pull/570062.patch?full_index=1"
       }
     },
     "nixpkgs-patch-pr-572951": {
