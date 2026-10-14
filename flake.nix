@@ -79,7 +79,12 @@
       overlays =
         [inputs.opencode.overlays.default]
         ++ lib.mapAttrsToList
-        (name: _: import (./overlays + "/${name}"))
+        (name: _: let
+          overlay = import (./overlays + "/${name}");
+        in
+          if builtins.hasAttr "inputs" (builtins.functionArgs overlay)
+          then overlay {inherit inputs;}
+          else overlay)
         overlayFileNames;
       overlayFileNames =
         lib.filterAttrs
