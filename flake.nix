@@ -20,7 +20,7 @@
     };
 
     opencode = {
-      url = "github:anomalyco/opencode/v2.0.27";
+      url = "github:anomalyco/opencode/v2.0.31";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     programmer-dvorak-compose = {
@@ -77,12 +77,18 @@
     nix-darwin,
     home-manager,
     flake-parts,
+    opencode,
     ...
   } @ inputs:
     flake-parts.lib.mkFlake {inherit inputs;} ({withSystem, ...}: let
       inherit (nixpkgs) lib;
       overlays =
-        [inputs.opencode.overlays.default]
+        [
+          opencode.overlays.default
+          # Fix OpenCode build error:
+          # Cannot find module '../../../script/native-arch' from '/build/source/packages/cli/script/build.ts'
+          (final: prev: {opencode = prev.opencode.overrideAttrs (_: {src = opencode;});})
+        ]
         ++ lib.mapAttrsToList
         (name: _: import (./overlays + "/${name}"))
         overlayFileNames;
