@@ -4,8 +4,8 @@ final: prev: let
   git-refs = ["https://github.com/NvChad/NvChad.git" "v2.5" "add44b952d631981614bbb8cfc6f7002f296dfe6"];
   hash-src = "sha256-EuP+/HWJgqwG5LR2rNvtq7mhFkUDs0oyeG6xbbPogC4=";
 
-  githubRepo = prev.lib.splitString "/" (prev.lib.removeSuffix ".git" (prev.lib.removePrefix "https://github.com/" (elemAt git-refs 0)));
   rev = elemAt git-refs 2;
+  gitHubRepo = prev.lib.splitString "/" (prev.lib.removeSuffix ".git" (prev.lib.removePrefix "https://github.com/" (elemAt git-refs 0)));
 
   nvchad = prev.vimUtils.buildVimPlugin {
     pname = "nvchad";
@@ -15,8 +15,8 @@ final: prev: let
     doCheck = false;
     src = prev.fetchFromGitHub {
       inherit rev;
-      owner = elemAt githubRepo 0;
-      repo = elemAt githubRepo 1;
+      owner = elemAt gitHubRepo 0;
+      repo = elemAt gitHubRepo 1;
       hash = hash-src;
     };
     dependencies = with prev.vimPlugins; [

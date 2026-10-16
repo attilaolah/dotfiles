@@ -1,18 +1,14 @@
 final: prev: let
-  inherit (builtins) elemAt;
-  fetchFromGitHubTuple = import ./lib/fetch_from_github_tuple.nix prev;
-
   github-tags = ["Daghis/teamcity-mcp" "2.12.8"]; # extractVersion=^teamcity-mcp-v(?<version>.*)$
   hash-src = "sha256-2a2jEuvB/yNcqq2ck2BdJE5wqCbfqU3xteCau6Wr7jM=";
   hash-npm-deps = "sha256-tYwAYp0YjSCaN/52Z6fHgjhHhxJuJY9CGhH6vmHfaq4=";
-
-  version = elemAt github-tags 1;
+  version = builtins.elemAt github-tags 1;
 in {
   teamcity-mcp = prev.buildNpmPackage {
     pname = "teamcity-mcp";
     inherit version;
 
-    src = fetchFromGitHubTuple {
+    src = import ./lib/fetch_from_github_tuple.nix prev {
       inherit github-tags hash-src;
       rev = "teamcity-mcp-v${version}";
     };

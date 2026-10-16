@@ -1,15 +1,10 @@
 final: prev: let
-  inherit (builtins) elemAt;
-
   github-tags = ["google-antigravity/antigravity-cli" "1.4.0"];
-  version = elemAt github-tags 1;
-
-  # Keep these as top-level `hash-*` variables (not inlined in `sources`):
-  # `.github/workflows/renovate_overlay_hashes.yaml` parses and rewrites them.
   hash-src-aarch64-darwin = "sha256-krS/tbUee0T/Pc2xoxecssMbeYp5GF4Z3zpRrp/xIcc=";
   hash-src-aarch64-linux = "sha256-z5U63Mafh9ANcfl8PzXccjqGaaNQrM+aGZ33gfBSP1Y=";
   hash-src-x86_64-darwin = "sha256-YPGHtycstnhS0M8hQ9czERYlf4YkepLsvc/2pH6Z1JA=";
   hash-src-x86_64-linux = "sha256-/ZaWdYPB7tlHM8A5Y4+lm3HdvYI8devI3Q5ndGNWWq0=";
+  version = builtins.elemAt github-tags 1;
 in {
   antigravity-cli = prev.antigravity-cli.overrideAttrs (old: let
     sources = prev.lib.mapAttrs (system: source:

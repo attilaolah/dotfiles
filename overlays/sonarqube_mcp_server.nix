@@ -1,10 +1,7 @@
 final: prev: let
-  inherit (builtins) elemAt;
-
   github-tags = ["SonarSource/sonarqube-mcp-server" "1.18.1.2664"];
   hash-src = "sha256-IfNnxJWjumoyzQfOnemKK7S49nZZwNlH3qkoZkEMHbM=";
-
-  version = elemAt github-tags 1;
+  version = builtins.elemAt github-tags 1;
 in {
   sonarqube-mcp-server = prev.stdenvNoCC.mkDerivation {
     pname = "sonarqube-mcp-server";
