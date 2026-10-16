@@ -61,7 +61,7 @@
     };
     # atuin: fix e2e tests in unsandboxed darwin builds
     nixpkgs-patch-pr-574509 = {
-      url = "https://github.com/NixOS/nixpkgs/commit/0affddeb02bbfaa90f1b80a003128d3726e1dbca.patch?full_index=1";
+      url = "https://github.com/NixOS/nixpkgs/pull/574509.patch?full_index=1";
       flake = false;
     };
   };
