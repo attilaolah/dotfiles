@@ -1,12 +1,8 @@
 final: prev: let
-  inherit (builtins) elemAt;
-  fetchFromGithubTuple = import ./lib/fetch_from_github_tuple.nix prev;
-
   github-tags = ["marco-jardim/opencode-model-router" "2.8.0"]; # extractVersion=^v(?<version>.*)$
   hash-src = "sha256-3zlx0j92LFBeNDSjUwc+oFgshrbc0Y3O3KnZo2nbJFU=";
   hash-npm-deps = "sha256-bDxA+YxE0ESLzPoEv4oTJmlPVtDS15UWfGEpn3AbR6Q=";
-
-  version = elemAt github-tags 1;
+  version = builtins.elemAt github-tags 1;
 
   # Nixpkgs' full Node package links bin/node to nodejs-slim.
   # Copy the executable into the package that carries npm so process.execPath and npm have the same prefix.
@@ -21,7 +17,7 @@ in {
     pname = "opencode-model-router";
     inherit nodejs version;
 
-    src = fetchFromGithubTuple {
+    src = import ./lib/fetch_from_github_tuple.nix prev {
       inherit github-tags hash-src;
       rev = "v${version}";
     };
