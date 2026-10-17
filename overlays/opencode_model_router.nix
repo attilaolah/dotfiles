@@ -45,6 +45,8 @@ in {
     checkPhase = ''
       runHook preCheck
       ${prev.lib.getExe nodejs} ${nodejs}/lib/node_modules/npm/bin/npm-cli.js run test -- \
+        --maxWorkers=1 \
+        --no-file-parallelism \
         --exclude test/unit/exec-branches.test.ts
       runHook postCheck
     '';
