@@ -10,36 +10,24 @@
   "customManagers": [
     {
       "customType": "regex",
-      "managerFilePatterns": [
-        "/.*\\.nix$/"
-      ],
-      "matchStrings": [
-        "\\bpython(?<major>\\d)(?<minor>\\d+)"
-      ],
+      "managerFilePatterns": ["/.*\\.nix$/"],
+      "matchStrings": ["\\bpython(?<major>\\d)(?<minor>\\d+)"],
       "datasourceTemplate": "github-tags",
       "depNameTemplate": "python/cpython",
       "currentValueTemplate": "{{major}}.{{minor}}"
     },
     {
       "customType": "regex",
-      "managerFilePatterns": [
-        "/.*\\.nix$/"
-      ],
-      "matchStrings": [
-        "\\bnodejs_(?<major>\\d+)"
-      ],
+      "managerFilePatterns": ["/.*\\.nix$/"],
+      "matchStrings": ["\\bnodejs_(?<major>\\d+)"],
       "datasourceTemplate": "github-tags",
       "depNameTemplate": "nodejs/node",
       "currentValueTemplate": "{{major}}"
     },
     {
       "customType": "regex",
-      "managerFilePatterns": [
-        "/.*\\.nix$/"
-      ],
-      "matchStrings": [
-        "\\bclang_(?<major>\\d+)"
-      ],
+      "managerFilePatterns": ["/.*\\.nix$/"],
+      "matchStrings": ["\\bclang_(?<major>\\d+)"],
       "datasourceTemplate": "github-tags",
       "depNameTemplate": "llvm/llvm-project",
       "currentValueTemplate": "{{major}}"
@@ -47,12 +35,11 @@
     {
       "description": "Update tuple-style GitHub dependencies under overlays/",
       "customType": "regex",
-      "managerFilePatterns": [
-        "/^overlays/.*\\.nix$/"
-      ],
+      "managerFilePatterns": ["/^overlays/.*\\.nix$/"],
       "matchStrings": [
+        "(?<datasource>git-refs)\\s*=\\s*\\[\\s*\\\"(?<depName>[^\\\"]+)\\\"\\s+\\\"(?<currentValue>[^\\\"]+)\\\"\\s+\\\"(?<currentDigest>[0-9a-f]{40})\\\"\\s*\\];",
         "(?<datasource>github-tags)\\s*=\\s*\\[\\s*\\\"(?<depName>[^\\\"]+)\\\"\\s+\\\"(?<currentValue>[^\\\"]+)\\\"\\s*\\]\\s*;(?:\\s*#\\s*extractVersion=(?<extractVersion>\\S+))?",
-        "(?<datasource>git-refs)\\s*=\\s*\\[\\s*\\\"(?<depName>[^\\\"]+)\\\"\\s+\\\"(?<currentValue>[^\\\"]+)\\\"\\s+\\\"(?<currentDigest>[0-9a-f]{40})\\\"\\s*\\];"
+        "(?<datasource>gitlab-tags)\\s*=\\s*\\[\\s*\"(?<depName>[^\"]+)\"\\s+\"(?<currentValue>[^\"]+)\"\\s*\\]\\s*;"
       ],
       "versioningTemplate": "semver-coerced"
     },
@@ -71,9 +58,7 @@
     {
       "description": "Update GitHub flake inputs pinned to tags",
       "customType": "regex",
-      "managerFilePatterns": [
-        "/^flake\\.nix$/"
-      ],
+      "managerFilePatterns": ["/^flake\\.nix$/"],
       "matchStrings": [
         "url\\s*=\\s*\\\"github:(?<depName>[^\\\"\\/]+\\/[^\\\"\\/]+)\\/(?<currentValue>v?\\d[^\\\"]*)\\\";"
       ],
