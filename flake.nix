@@ -64,9 +64,9 @@
       url = "https://github.com/NixOS/nixpkgs/pull/574509.patch?full_index=1";
       flake = false;
     };
-    # codebase-memory-mcp: 0.11.0 -> 0.12.0
+    # codebase-memory-mcp: 0.11.0 -> 0.12.1
     nixpkgs-patch-pr-574836 = {
-      url = "https://github.com/NixOS/nixpkgs/commit/244d5ee48d642cbb2a3af85906754fb9b32a2070.patch?full_index=1";
+      url = "https://github.com/NixOS/nixpkgs/commit/af5ba05b472365262e19f9f3e6b938cf53fecfbe.patch?full_index=1";
       flake = false;
     };
   };
