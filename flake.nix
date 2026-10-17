@@ -54,9 +54,9 @@
       url = "https://github.com/NixOS/nixpkgs/commit/b83bff25de76cf5c272b15ffee56ac5e1b9bc5d1.patch?full_index=1";
       flake = false;
     };
-    # headroom: init at 0.40.0
+    # headroom: init at 0.41.0
     nixpkgs-patch-pr-569784 = {
-      url = "https://github.com/NixOS/nixpkgs/commit/b3dc24cdfe55cd5eb9fae726c3a55d660f876159.patch?full_index=1";
+      url = "https://github.com/NixOS/nixpkgs/commit/bbf61c790b44abe65be9c60665cfb0fa28f25767.patch?full_index=1";
       flake = false;
     };
     # atuin: fix e2e tests in unsandboxed darwin builds
