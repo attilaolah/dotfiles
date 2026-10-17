@@ -1,6 +1,9 @@
-{
+{pkgs, ...}: {
   boot = {
     plymouth.enable = true;
+
+    # Follow the latest stable kernel.
+    kernelPackages = pkgs.linuxPackages_latest;
     kernelModules = ["kvm-intel"];
     kernelParams = [
       "copytoram"
@@ -9,7 +12,9 @@
       # Allow GPU profiling for non-root users.
       "nvidia.NVreg_RestrictProfilingToAdminUsers=0"
     ];
+
     supportedFilesystems = ["nfs"];
+
     loader = {
       grub = {
         enable = true;
@@ -32,6 +37,7 @@
         '';
       };
     };
+
     initrd = {
       kernelModules = ["nvidia"];
       availableKernelModules = [
