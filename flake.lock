@@ -61,11 +61,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1791956154,
-        "narHash": "sha256-gJX2+xcImvxBCI3bp7zXKLUX2AwsdTxMgJ1UX/5Hm/o=",
-        "rev": "55bfb4d7437bd4e09ab7cba58a43bd68eb310044",
+        "lastModified": 1792094642,
+        "narHash": "sha256-LPFRbrCWWyNsdQLO3SX1B/5UMkFK0hfe7bZR6lENvpc=",
+        "rev": "fe13242281a67641c0102cdb1087f0ebe586c7df",
         "type": "tarball",
-        "url": "https://releases.nixos.org/nixos/unstable/nixos-26.11pre1092090.55bfb4d7437b/nixexprs.tar.zst"
+        "url": "https://releases.nixos.org/nixos/unstable/nixos-26.11pre1093333.fe13242281a6/nixexprs.tar.zst"
       },
       "original": {
         "id": "nixpkgs",
@@ -103,61 +103,61 @@
     "nixpkgs-patch-pr-567590-1": {
       "flake": false,
       "locked": {
-        "narHash": "sha256-aQmpkJVQMoHc7YpEk2MVLXnJf1VomLvF5rFceyTSS6Y=",
+        "narHash": "sha256-tVhTAO2wOlCvbFuHGTR4UP2Lg5rnPo24OK3T+7WHVv0=",
         "type": "file",
-        "url": "https://github.com/NixOS/nixpkgs/commit/38730f55bf47268285acccde96000564e8c5a4c5.patch?full_index=1"
+        "url": "https://github.com/NixOS/nixpkgs/commit/6c58d6a4b8f6f8b0b26458035c353b5f377af0b2.patch?full_index=1"
       },
       "original": {
         "type": "file",
-        "url": "https://github.com/NixOS/nixpkgs/commit/38730f55bf47268285acccde96000564e8c5a4c5.patch?full_index=1"
+        "url": "https://github.com/NixOS/nixpkgs/commit/6c58d6a4b8f6f8b0b26458035c353b5f377af0b2.patch?full_index=1"
       }
     },
     "nixpkgs-patch-pr-567590-2": {
       "flake": false,
       "locked": {
-        "narHash": "sha256-75zs6vfK1IUpHGQBjKaLIMlhk9+30xBf3dZsMyoNxgY=",
+        "narHash": "sha256-hPJwiCOuYiwLpKLwB2Ptlj6TsZzrAed5492/YNQufOU=",
         "type": "file",
-        "url": "https://github.com/NixOS/nixpkgs/commit/8d8d5a19621f6cd4df1ee371a89a2bf254ac00b1.patch?full_index=1"
+        "url": "https://github.com/NixOS/nixpkgs/commit/e8c68437d73df443b72afd9220d707b258b8a45c.patch?full_index=1"
       },
       "original": {
         "type": "file",
-        "url": "https://github.com/NixOS/nixpkgs/commit/8d8d5a19621f6cd4df1ee371a89a2bf254ac00b1.patch?full_index=1"
+        "url": "https://github.com/NixOS/nixpkgs/commit/e8c68437d73df443b72afd9220d707b258b8a45c.patch?full_index=1"
       }
     },
     "nixpkgs-patch-pr-567590-3": {
       "flake": false,
       "locked": {
-        "narHash": "sha256-/K9o95phM2NYSCk4fxBx9g66Y+wYDLxWG7mey0bl2JE=",
+        "narHash": "sha256-t/R83Q4B8Z98XtAPF4h6gUXzBWb2rfsK+NCA8qBD098=",
         "type": "file",
-        "url": "https://github.com/NixOS/nixpkgs/commit/56bb84860a82674161c9b84749c44ef2e0408530.patch?full_index=1"
+        "url": "https://github.com/NixOS/nixpkgs/commit/539fd7b9ece220a59a6a27751a6f37096972dc8a.patch?full_index=1"
       },
       "original": {
         "type": "file",
-        "url": "https://github.com/NixOS/nixpkgs/commit/56bb84860a82674161c9b84749c44ef2e0408530.patch?full_index=1"
+        "url": "https://github.com/NixOS/nixpkgs/commit/539fd7b9ece220a59a6a27751a6f37096972dc8a.patch?full_index=1"
       }
     },
     "nixpkgs-patch-pr-567590-4": {
       "flake": false,
       "locked": {
-        "narHash": "sha256-2M3SL+N9cosqLTiWt1/a1ngvZkSJs/B/aTcsQDV8DhU=",
+        "narHash": "sha256-awr5WJmooGF97SWq9gVunX2Tq7SI4IWC2fPdrxw9dJo=",
         "type": "file",
-        "url": "https://github.com/NixOS/nixpkgs/commit/644d274e0904bf236f22c2e7cd1438986641a982.patch?full_index=1"
+        "url": "https://github.com/NixOS/nixpkgs/commit/3218158c2ba8dacacaf70c4fe1d7371790e374a7.patch?full_index=1"
       },
       "original": {
         "type": "file",
-        "url": "https://github.com/NixOS/nixpkgs/commit/644d274e0904bf236f22c2e7cd1438986641a982.patch?full_index=1"
+        "url": "https://github.com/NixOS/nixpkgs/commit/3218158c2ba8dacacaf70c4fe1d7371790e374a7.patch?full_index=1"
       }
     },
     "nixpkgs-patch-pr-567590-5": {
       "flake": false,
       "locked": {
-        "narHash": "sha256-JzaHstCAX5JANmE1LjkBdTG+uBpXTdbkh/oVjhkZzlg=",
+        "narHash": "sha256-xtzXl5FDECwBOu8bS4oK2Pcq6jax0v+YdFNnRJ1KjyU=",
         "type": "file",
-        "url": "https://github.com/NixOS/nixpkgs/commit/b83bff25de76cf5c272b15ffee56ac5e1b9bc5d1.patch?full_index=1"
+        "url": "https://github.com/NixOS/nixpkgs/commit/9d6ce87ddfb1f4b9f4cd59f0a7aac47927cb43c0.patch?full_index=1"
       },
       "original": {
         "type": "file",
-        "url": "https://github.com/NixOS/nixpkgs/commit/b83bff25de76cf5c272b15ffee56ac5e1b9bc5d1.patch?full_index=1"
+        "url": "https://github.com/NixOS/nixpkgs/commit/9d6ce87ddfb1f4b9f4cd59f0a7aac47927cb43c0.patch?full_index=1"
       }
     },
     "nixpkgs-patch-pr-569784": {
