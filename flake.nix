@@ -64,6 +64,7 @@
       url = "https://github.com/NixOS/nixpkgs/pull/574836.patch?full_index=1";
       flake = false;
     };
+    # cudaPackages: use patched patchelf to fix build failures
     nixpkgs-patch-pr-575979 = {
       url = "https://github.com/NixOS/nixpkgs/pull/575979.patch?full_index=1";
       flake = false;
