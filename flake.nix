@@ -64,6 +64,10 @@
       url = "https://github.com/NixOS/nixpkgs/commit/af5ba05b472365262e19f9f3e6b938cf53fecfbe.patch?full_index=1";
       flake = false;
     };
+    nixpkgs-patch-pr-575979 = {
+      url = "https://github.com/NixOS/nixpkgs/pull/575979.patch?full_index=1";
+      flake = false;
+    };
   };
 
   outputs = {
