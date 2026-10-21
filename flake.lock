@@ -88,6 +88,90 @@
         "type": "github"
       }
     },
+    "nixpkgs-patch-pr-516682-1": {
+      "flake": false,
+      "locked": {
+        "narHash": "sha256-HACPe34uGZ8lNqQM+YGiQCf8fGjqbDNE96jET1arzRI=",
+        "type": "file",
+        "url": "https://github.com/NixOS/nixpkgs/commit/aa8d27ad5826eac495ead67612b4a7d5e7b884ce.patch?full_index=1"
+      },
+      "original": {
+        "type": "file",
+        "url": "https://github.com/NixOS/nixpkgs/commit/aa8d27ad5826eac495ead67612b4a7d5e7b884ce.patch?full_index=1"
+      }
+    },
+    "nixpkgs-patch-pr-516682-2": {
+      "flake": false,
+      "locked": {
+        "narHash": "sha256-cvvL/XTaZZq7786DDbrzv6ep53oXd/mtnXTPETaY844=",
+        "type": "file",
+        "url": "https://github.com/NixOS/nixpkgs/commit/31ddd5ec9c3cda385ee2f8927f42c5b0cc296f06.patch?full_index=1"
+      },
+      "original": {
+        "type": "file",
+        "url": "https://github.com/NixOS/nixpkgs/commit/31ddd5ec9c3cda385ee2f8927f42c5b0cc296f06.patch?full_index=1"
+      }
+    },
+    "nixpkgs-patch-pr-516682-3": {
+      "flake": false,
+      "locked": {
+        "narHash": "sha256-XmfFFTDSE6M0UFxGYHQRYEtVNpxw9KwmA+JMd5D3oEk=",
+        "type": "file",
+        "url": "https://github.com/NixOS/nixpkgs/commit/9cf630b09547b8e15ad82e08e13bb9c06096ce59.patch?full_index=1"
+      },
+      "original": {
+        "type": "file",
+        "url": "https://github.com/NixOS/nixpkgs/commit/9cf630b09547b8e15ad82e08e13bb9c06096ce59.patch?full_index=1"
+      }
+    },
+    "nixpkgs-patch-pr-516682-4": {
+      "flake": false,
+      "locked": {
+        "narHash": "sha256-ASRzbj6ne0DGXe9vVVdUsFZws0llFZ9lgmqMKJ83pR0=",
+        "type": "file",
+        "url": "https://github.com/NixOS/nixpkgs/commit/3c4d88c25f6e3e92f0650777c69419eeef077a3f.patch?full_index=1"
+      },
+      "original": {
+        "type": "file",
+        "url": "https://github.com/NixOS/nixpkgs/commit/3c4d88c25f6e3e92f0650777c69419eeef077a3f.patch?full_index=1"
+      }
+    },
+    "nixpkgs-patch-pr-516682-5": {
+      "flake": false,
+      "locked": {
+        "narHash": "sha256-LoSj4M5LBqaOywnF3EEcv+cARO6O8kRKsM4vaS+xDdM=",
+        "type": "file",
+        "url": "https://github.com/NixOS/nixpkgs/commit/86552ce9da8a5f590a0fce2c2c00e0037ce4ca5a.patch?full_index=1"
+      },
+      "original": {
+        "type": "file",
+        "url": "https://github.com/NixOS/nixpkgs/commit/86552ce9da8a5f590a0fce2c2c00e0037ce4ca5a.patch?full_index=1"
+      }
+    },
+    "nixpkgs-patch-pr-516682-6": {
+      "flake": false,
+      "locked": {
+        "narHash": "sha256-P/+ODaWVxTPnpUubtoJ4vzsLJwXG7rkPSFpFo+CgcQM=",
+        "type": "file",
+        "url": "https://github.com/NixOS/nixpkgs/commit/d1571ea7203279e098f99748ec1e6764f207da47.patch?full_index=1"
+      },
+      "original": {
+        "type": "file",
+        "url": "https://github.com/NixOS/nixpkgs/commit/d1571ea7203279e098f99748ec1e6764f207da47.patch?full_index=1"
+      }
+    },
+    "nixpkgs-patch-pr-516682-7": {
+      "flake": false,
+      "locked": {
+        "narHash": "sha256-TYGCG7kAn/vVbexCpk4Z2DlT2yNk2f9rCGCu3aBh+tQ=",
+        "type": "file",
+        "url": "https://github.com/NixOS/nixpkgs/commit/7aa04bb9323bbc4b95a681dd1b4f3ae01e2e9463.patch?full_index=1"
+      },
+      "original": {
+        "type": "file",
+        "url": "https://github.com/NixOS/nixpkgs/commit/7aa04bb9323bbc4b95a681dd1b4f3ae01e2e9463.patch?full_index=1"
+      }
+    },
     "nixpkgs-patch-pr-567447": {
       "flake": false,
       "locked": {
@@ -247,6 +331,13 @@
         "home-manager": "home-manager",
         "nix-darwin": "nix-darwin",
         "nixpkgs": "nixpkgs",
+        "nixpkgs-patch-pr-516682-1": "nixpkgs-patch-pr-516682-1",
+        "nixpkgs-patch-pr-516682-2": "nixpkgs-patch-pr-516682-2",
+        "nixpkgs-patch-pr-516682-3": "nixpkgs-patch-pr-516682-3",
+        "nixpkgs-patch-pr-516682-4": "nixpkgs-patch-pr-516682-4",
+        "nixpkgs-patch-pr-516682-5": "nixpkgs-patch-pr-516682-5",
+        "nixpkgs-patch-pr-516682-6": "nixpkgs-patch-pr-516682-6",
+        "nixpkgs-patch-pr-516682-7": "nixpkgs-patch-pr-516682-7",
         "nixpkgs-patch-pr-567447": "nixpkgs-patch-pr-567447",
         "nixpkgs-patch-pr-567590-1": "nixpkgs-patch-pr-567590-1",
         "nixpkgs-patch-pr-567590-2": "nixpkgs-patch-pr-567590-2",

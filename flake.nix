@@ -64,6 +64,35 @@
       url = "https://github.com/NixOS/nixpkgs/pull/574836.patch?full_index=1";
       flake = false;
     };
+    # logseq: init at 2.0.1 and follow-up fixes
+    nixpkgs-patch-pr-516682-1 = {
+      url = "https://github.com/NixOS/nixpkgs/commit/aa8d27ad5826eac495ead67612b4a7d5e7b884ce.patch?full_index=1";
+      flake = false;
+    };
+    nixpkgs-patch-pr-516682-2 = {
+      url = "https://github.com/NixOS/nixpkgs/commit/31ddd5ec9c3cda385ee2f8927f42c5b0cc296f06.patch?full_index=1";
+      flake = false;
+    };
+    nixpkgs-patch-pr-516682-3 = {
+      url = "https://github.com/NixOS/nixpkgs/commit/9cf630b09547b8e15ad82e08e13bb9c06096ce59.patch?full_index=1";
+      flake = false;
+    };
+    nixpkgs-patch-pr-516682-4 = {
+      url = "https://github.com/NixOS/nixpkgs/commit/3c4d88c25f6e3e92f0650777c69419eeef077a3f.patch?full_index=1";
+      flake = false;
+    };
+    nixpkgs-patch-pr-516682-5 = {
+      url = "https://github.com/NixOS/nixpkgs/commit/86552ce9da8a5f590a0fce2c2c00e0037ce4ca5a.patch?full_index=1";
+      flake = false;
+    };
+    nixpkgs-patch-pr-516682-6 = {
+      url = "https://github.com/NixOS/nixpkgs/commit/d1571ea7203279e098f99748ec1e6764f207da47.patch?full_index=1";
+      flake = false;
+    };
+    nixpkgs-patch-pr-516682-7 = {
+      url = "https://github.com/NixOS/nixpkgs/commit/7aa04bb9323bbc4b95a681dd1b4f3ae01e2e9463.patch?full_index=1";
+      flake = false;
+    };
   };
 
   outputs = {

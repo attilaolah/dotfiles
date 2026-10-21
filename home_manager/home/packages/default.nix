@@ -110,6 +110,7 @@
       # GUI apps available on both Linux and Darwin.
       darktable
       google-chrome
+      logseq
 
       (llama-cpp.override {
         cudaSupport = pkgs.config.cudaSupport or false;
