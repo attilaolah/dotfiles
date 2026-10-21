@@ -1,7 +1,7 @@
 final: prev: let
   inherit (builtins) elemAt;
 
-  git-refs = ["https://github.com/NvChad/NvChad.git" "v2.5" "add44b952d631981614bbb8cfc6f7002f296dfe6"];
+  git-refs = ["https://github.com/NvChad/NvChad.git" "v2.5" "262f103d3cbe22da7f352c9e01306cf5a34fd8a1"];
   hash-src = "sha256-EuP+/HWJgqwG5LR2rNvtq7mhFkUDs0oyeG6xbbPogC4=";
 
   rev = elemAt git-refs 2;
