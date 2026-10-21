@@ -35,23 +35,23 @@
     };
     # mcp-atlassian: init at 0.23.1
     nixpkgs-patch-pr-567590-1 = {
-      url = "https://github.com/NixOS/nixpkgs/commit/38730f55bf47268285acccde96000564e8c5a4c5.patch?full_index=1";
+      url = "https://github.com/NixOS/nixpkgs/commit/6c58d6a4b8f6f8b0b26458035c353b5f377af0b2.patch?full_index=1";
       flake = false;
     };
     nixpkgs-patch-pr-567590-2 = {
-      url = "https://github.com/NixOS/nixpkgs/commit/8d8d5a19621f6cd4df1ee371a89a2bf254ac00b1.patch?full_index=1";
+      url = "https://github.com/NixOS/nixpkgs/commit/e8c68437d73df443b72afd9220d707b258b8a45c.patch?full_index=1";
       flake = false;
     };
     nixpkgs-patch-pr-567590-3 = {
-      url = "https://github.com/NixOS/nixpkgs/commit/56bb84860a82674161c9b84749c44ef2e0408530.patch?full_index=1";
+      url = "https://github.com/NixOS/nixpkgs/commit/539fd7b9ece220a59a6a27751a6f37096972dc8a.patch?full_index=1";
       flake = false;
     };
     nixpkgs-patch-pr-567590-4 = {
-      url = "https://github.com/NixOS/nixpkgs/commit/644d274e0904bf236f22c2e7cd1438986641a982.patch?full_index=1";
+      url = "https://github.com/NixOS/nixpkgs/commit/3218158c2ba8dacacaf70c4fe1d7371790e374a7.patch?full_index=1";
       flake = false;
     };
     nixpkgs-patch-pr-567590-5 = {
-      url = "https://github.com/NixOS/nixpkgs/commit/b83bff25de76cf5c272b15ffee56ac5e1b9bc5d1.patch?full_index=1";
+      url = "https://github.com/NixOS/nixpkgs/commit/9d6ce87ddfb1f4b9f4cd59f0a7aac47927cb43c0.patch?full_index=1";
       flake = false;
     };
     # headroom: init at 0.41.0
@@ -59,14 +59,9 @@
       url = "https://github.com/NixOS/nixpkgs/commit/bbf61c790b44abe65be9c60665cfb0fa28f25767.patch?full_index=1";
       flake = false;
     };
-    # atuin: fix e2e tests in unsandboxed darwin builds
-    nixpkgs-patch-pr-574509 = {
-      url = "https://github.com/NixOS/nixpkgs/pull/574509.patch?full_index=1";
-      flake = false;
-    };
     # codebase-memory-mcp: 0.11.0 -> 0.12.1
     nixpkgs-patch-pr-574836 = {
-      url = "https://github.com/NixOS/nixpkgs/commit/af5ba05b472365262e19f9f3e6b938cf53fecfbe.patch?full_index=1";
+      url = "https://github.com/NixOS/nixpkgs/pull/574836.patch?full_index=1";
       flake = false;
     };
   };

@@ -16,6 +16,7 @@
 
       # CLI utilities:
       age
+      alejandra
       any-nix-shell
       bat
       betterleaks
@@ -40,6 +41,7 @@
       gnupg
       go-task
       go_latest
+      gofumpt
       gotop
       htop
       jira-cli-go
