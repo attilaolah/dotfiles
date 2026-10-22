@@ -1,5 +1,11 @@
 require "nvchad.mappings"
 
+for _, mode in ipairs { "n", "t" } do
+  for _, lhs in ipairs { "<M-h>", "<M-v>", "<M-i>" } do
+    pcall(vim.keymap.del, mode, lhs)
+  end
+end
+
 local map = vim.keymap.set
 local opts = { silent = true, noremap = true }
 
