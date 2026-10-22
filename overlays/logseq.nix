@@ -31,7 +31,7 @@ in {
     };
 
     postConfigure = ''
-      pnpmDeps=$pnpmDeps pnpmRoot=. pnpmConfigHook
+      CI=true pnpmDeps=$pnpmDeps pnpmRoot=. pnpmConfigHook
       pnpmDeps=$cliPnpmDeps pnpmRoot=cli pnpmInstallFlags="--ignore-workspace" pnpmConfigHook
       pnpmDeps=$resourcesPnpmDeps pnpmRoot=resources pnpmInstallFlags="--ignore-workspace" pnpmConfigHook
 
