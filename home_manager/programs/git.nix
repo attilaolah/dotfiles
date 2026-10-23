@@ -18,6 +18,25 @@
         name = user.fullname;
       };
       alias = let
+        bc = pkgs.writeShellApplication {
+          name = "git-branch-cleanup";
+          runtimeInputs = [pkgs.git];
+          text = ''
+            flag=-d
+            for option in "$@"; do
+              if [ "$option" = "-f" ]; then
+                flag=-D
+              fi
+            done
+            current=$(git symbolic-ref --quiet --short HEAD || :)
+            git for-each-ref --format="%(refname:short) %(upstream:track)" refs/heads |
+              while IFS=" " read -r branch tracking; do
+                if [ "$tracking" = "[gone]" ] && [ "$branch" != "$current" ]; then
+                  git branch "$flag" -- "$branch"
+                fi
+              done
+          '';
+        };
         difft = lib.getExe pkgs.difftastic;
         col = colour: content: "%C(${colour})${content}%C(reset)";
         fmtl = lib.concatStringsSep " " [
@@ -35,25 +54,8 @@
           (col "dim white" "- %an [%aL]")
         ];
       in {
-        bc = "branch-clean";
-        branch-clean = ''
-          !f() {
-            flag=-d
-            for option in "$@"; do
-              if [ "$option" = '-f' ]; then
-                flag=-D
-              fi
-            done
-            current=$(git symbolic-ref --quiet --short HEAD || :)
-            git for-each-ref --format='%(refname:short) %(upstream:track)' refs/heads |
-              while IFS=' ' read -r branch tracking; do
-                if [ "$tracking" = '[gone]' ] && [ "$branch" != "$current" ]; then
-                  git branch "$flag" -- "$branch"
-                fi
-              done
-          }
-          f
-        '';
+        bc = "branch-cleanup";
+        branch-cleanup = "!${lib.getExe bc}";
         ci = "commit";
         co = "checkout";
         d = "-c diff.external=${difft} diff";
