@@ -4,7 +4,7 @@ final: prev: let
   hash-vendor = "sha256-v3vhZiTTktjmWuv4FTWAEiHaeSUXyVRVTOL02UeZZrw=";
   version = builtins.elemAt github-tags 1;
 in {
-  agent-deck = prev.buildGo127Module {
+  agent-deck = prev.buildGoLatestModule {
     pname = "agent-deck";
     inherit version;
 

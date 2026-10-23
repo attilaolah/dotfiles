@@ -4,7 +4,7 @@ final: prev: let
   hash-vendor = "sha256-qfhhmjcsNuSeDCXyHBgz4bWc0aJvlgkPATm1+T7nHJg=";
   version = builtins.elemAt github-tags 1;
 in {
-  gcf-proxy = prev.buildGoModule {
+  gcf-proxy = prev.buildGoLatestModule {
     pname = "gcf-proxy";
     inherit version;
 
