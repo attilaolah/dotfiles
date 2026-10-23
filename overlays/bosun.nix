@@ -16,8 +16,6 @@ in {
     cargoHash = hash-cargo-deps;
     nativeCheckInputs = [prev.git];
 
-    patches = [./bosun/encode-escape-as-csi-u.patch];
-
     meta = {
       description = "Tmux-native orchestrator for AI agent sessions";
       homepage = "https://github.com/yetidevworks/bosun";
