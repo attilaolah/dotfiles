@@ -4,7 +4,7 @@ final: prev: let
   hash-vendor = "sha256-TSB2jAWh2PlDHpvzA/rrBbjaR8sgyjivDO0vsbcuvgg=";
   version = builtins.elemAt github-tags 1;
 in {
-  kubernetes-mcp-server = prev.buildGoModule {
+  kubernetes-mcp-server = prev.buildGoLatestModule {
     pname = "kubernetes-mcp-server";
     inherit version;
 
