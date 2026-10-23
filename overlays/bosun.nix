@@ -1,7 +1,7 @@
 final: prev: let
-  github-tags = ["yetidevworks/bosun" "2.2.8"]; # extractVersion=^v(?<version>.*)$
-  hash-src = "sha256-phhAwKtDzFrG1m9Jcc51RPLYW3xz3EqeUM1zYes9M6c=";
-  hash-cargo-deps = "sha256-lniEIp22CJjnBBBw/YOp4csQt5fCJjAPTUDEGIh9OlI=";
+  github-tags = ["yetidevworks/bosun" "2.2.9"]; # extractVersion=^v(?<version>.*)$
+  hash-src = "sha256-O8XtCdJTBpWsROzKez4IYIKZpk3N6IJnADqD94YHizU=";
+  hash-cargo-deps = "sha256-Hs6z/t0KWvz0Wyu45siWWhjHeSJTXb6JAE5PZMgS6fM=";
   version = builtins.elemAt github-tags 1;
 in {
   bosun = prev.rustPlatform.buildRustPackage {
@@ -15,8 +15,6 @@ in {
 
     cargoHash = hash-cargo-deps;
     nativeCheckInputs = [prev.git];
-
-    patches = [./bosun/encode-escape-as-csi-u.patch];
 
     meta = {
       description = "Tmux-native orchestrator for AI agent sessions";
