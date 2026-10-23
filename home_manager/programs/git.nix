@@ -35,6 +35,19 @@
           (col "dim white" "- %an [%aL]")
         ];
       in {
+        bc = "branch-clean";
+        branch-clean = ''
+          !f() {
+            current=$(git symbolic-ref --quiet --short HEAD || :)
+            git for-each-ref --format='%(refname:short) %(upstream:track)' refs/heads |
+              while IFS=' ' read -r branch tracking; do
+                if [ "$tracking" = '[gone]' ] && [ "$branch" != "$current" ]; then
+                  git branch -D -- "$branch"
+                fi
+              done
+          }
+          f
+        '';
         ci = "commit";
         co = "checkout";
         d = "-c diff.external=${difft} diff";
