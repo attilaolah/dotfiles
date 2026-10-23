@@ -1,7 +1,7 @@
 final: prev: let
   github-tags = ["containers/kubernetes-mcp-server" "0.0.68"]; # extractVersion=^v(?<version>.*)$
-  hash-src = "sha256-rejF9JsszB3ZirZhoK1VDbCH/P0Xzmh4TJw5j+okj+M=";
-  hash-vendor = "sha256-TSB2jAWh2PlDHpvzA/rrBbjaR8sgyjivDO0vsbcuvgg=";
+  hash-src = "sha256-Sh0ZiBtN2At71qxRTWsaT7IyfcAz6l1t6AcHysDazU8=";
+  hash-vendor = "sha256-iKexsARqV4pvYpjzd2nP79U6pzhEB7Ou5O6ET05iMQ4=";
   version = builtins.elemAt github-tags 1;
 in {
   kubernetes-mcp-server = prev.buildGoLatestModule {
