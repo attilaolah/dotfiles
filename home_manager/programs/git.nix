@@ -38,11 +38,17 @@
         bc = "branch-clean";
         branch-clean = ''
           !f() {
+            flag=-d
+            for option in "$@"; do
+              if [ "$option" = '-f' ]; then
+                flag=-D
+              fi
+            done
             current=$(git symbolic-ref --quiet --short HEAD || :)
             git for-each-ref --format='%(refname:short) %(upstream:track)' refs/heads |
               while IFS=' ' read -r branch tracking; do
                 if [ "$tracking" = '[gone]' ] && [ "$branch" != "$current" ]; then
-                  git branch -D -- "$branch"
+                  git branch "$flag" -- "$branch"
                 fi
               done
           }
