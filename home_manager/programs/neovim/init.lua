@@ -15,7 +15,7 @@ vim.opt.rtp:prepend(lazypath)
 -- Neovim's Lua bytecode cache keys the stable symlink path, which can otherwise retain a previous generation's store
 -- paths. Load these tiny data modules from source to avoid stale plugin and grammar paths after an update.
 local function load_nix_generated_module(name)
-  local path = vim.fn.stdpath "config" .. "/lua/" .. name .. ".lua"
+  local path = vim.fn.stdpath "config" .. "/lua/" .. name:gsub("%.", "/") .. ".lua"
   local file = assert(io.open(path, "r"))
   local source = file:read "*a"
   file:close()
