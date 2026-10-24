@@ -22,6 +22,8 @@ local function load_nix_generated_module(name)
   return assert(loadstring(source, "@" .. path))()
 end
 
+vim.load_nix_generated_module = load_nix_generated_module
+
 local nix_plugins = load_nix_generated_module "nix-plugins"
 local nix_treesitter_grammars = load_nix_generated_module "nix-treesitter-grammars"
 
