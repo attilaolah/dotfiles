@@ -6,12 +6,15 @@ return {
   {
     "stevearc/conform.nvim",
     event = "BufWritePre",
-    opts = require "configs.conform",
+    opts = function()
+      return vim.load_nix_generated_module "configs.conform"
+    end,
   },
   {
     "neovim/nvim-lspconfig",
+    lazy = false,
     config = function()
-      require "configs.lspconfig"
+      vim.load_nix_generated_module "configs.lspconfig"
     end,
   },
 }
