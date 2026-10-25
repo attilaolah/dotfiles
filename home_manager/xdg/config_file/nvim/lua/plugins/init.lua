@@ -12,8 +12,9 @@ return {
   },
   {
     "neovim/nvim-lspconfig",
+    lazy = false,
     config = function()
-      require "configs.lspconfig"
+      vim.load_nix_generated_module "configs.lspconfig"
     end,
   },
 }
