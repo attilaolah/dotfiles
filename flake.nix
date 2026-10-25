@@ -35,33 +35,28 @@
     };
     # mcp-atlassian: init at 0.23.1
     nixpkgs-patch-pr-567590-1 = {
-      url = "https://github.com/NixOS/nixpkgs/commit/6c58d6a4b8f6f8b0b26458035c353b5f377af0b2.patch?full_index=1";
+      url = "https://github.com/NixOS/nixpkgs/commit/81a18399ae642cfb040daff86289f3f65786de69.patch?full_index=1";
       flake = false;
     };
     nixpkgs-patch-pr-567590-2 = {
-      url = "https://github.com/NixOS/nixpkgs/commit/e8c68437d73df443b72afd9220d707b258b8a45c.patch?full_index=1";
+      url = "https://github.com/NixOS/nixpkgs/commit/96e36c2c904cd39b3fe625ba939130c71579f7a6.patch?full_index=1";
       flake = false;
     };
     nixpkgs-patch-pr-567590-3 = {
-      url = "https://github.com/NixOS/nixpkgs/commit/539fd7b9ece220a59a6a27751a6f37096972dc8a.patch?full_index=1";
+      url = "https://github.com/NixOS/nixpkgs/commit/31f4c8d3f0484d28f99351bbbc45a22441dc73b5.patch?full_index=1";
       flake = false;
     };
     nixpkgs-patch-pr-567590-4 = {
-      url = "https://github.com/NixOS/nixpkgs/commit/3218158c2ba8dacacaf70c4fe1d7371790e374a7.patch?full_index=1";
+      url = "https://github.com/NixOS/nixpkgs/commit/89224cbdb785226efce56afab527d415993ae039.patch?full_index=1";
       flake = false;
     };
     nixpkgs-patch-pr-567590-5 = {
-      url = "https://github.com/NixOS/nixpkgs/commit/9d6ce87ddfb1f4b9f4cd59f0a7aac47927cb43c0.patch?full_index=1";
+      url = "https://github.com/NixOS/nixpkgs/commit/e67c1c678c7d23c6dcb34d5a572381f7c15875dc.patch?full_index=1";
       flake = false;
     };
     # headroom: init at 0.41.0
     nixpkgs-patch-pr-569784 = {
-      url = "https://github.com/NixOS/nixpkgs/commit/bbf61c790b44abe65be9c60665cfb0fa28f25767.patch?full_index=1";
-      flake = false;
-    };
-    # codebase-memory-mcp: 0.11.0 -> 0.12.1
-    nixpkgs-patch-pr-574836 = {
-      url = "https://github.com/NixOS/nixpkgs/pull/574836.patch?full_index=1";
+      url = "https://github.com/NixOS/nixpkgs/commit/17532b74898e31f81b09adc0645814569fdaf3c3.patch?full_index=1";
       flake = false;
     };
   };
