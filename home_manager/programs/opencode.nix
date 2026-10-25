@@ -12,7 +12,10 @@ in {
     enable = true;
     enableMcpIntegration = true;
     package = pkgs.opencode;
-    tui.theme = "catppuccin";
+    cli = {
+      tabs.mode = "off";
+      theme.name = "catppuccin";
+    };
     settings = {
       autoshare = false;
       autoupdate = false;
