@@ -51,7 +51,6 @@
         luksDev = ctrl: {
           device = "/dev/nvme${toString ctrl}n1"; # 2T
           allowDiscards = true;
-          preLVM = true;
         };
       in {
         crypta = luksDev 0; # 2T
