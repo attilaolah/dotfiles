@@ -1,7 +1,7 @@
 final: prev: let
-  github-tags = ["marco-jardim/opencode-model-router" "2.8.0"]; # extractVersion=^v(?<version>.*)$
-  hash-src = "sha256-3zlx0j92LFBeNDSjUwc+oFgshrbc0Y3O3KnZo2nbJFU=";
-  hash-npm-deps = "sha256-bDxA+YxE0ESLzPoEv4oTJmlPVtDS15UWfGEpn3AbR6Q=";
+  github-tags = ["marco-jardim/opencode-model-router" "2.9.1"]; # extractVersion=^v(?<version>.*)$
+  hash-src = "sha256-NPqpXI+HLH3AQGkCkX2CDxbJnlbYOyphSUpHaG5LBNE=";
+  hash-npm-deps = "sha256-OH7HUgSJr8acQVX7XIqJYzlAvBSWksLOtJ1chH7Kv/A=";
   version = builtins.elemAt github-tags 1;
 
   # Nixpkgs' full Node package links bin/node to nodejs-slim.
@@ -22,8 +22,14 @@ in {
       rev = "v${version}";
     };
 
-    # Fresh processes cannot coordinate this wall-clock stale-lock assertion reliably under the Nix build sandbox.
-    patches = [./opencode_model_router/slot_qa_1_4_21.patch];
+    patches = [
+      # Fresh processes cannot coordinate this wall-clock stale-lock assertion reliably under the Nix build sandbox.
+      ./opencode_model_router/slot_qa_1_4_21.patch
+      # The extra exclusions are sandbox-specific: Vitest's exec-branches worker exits SIGKILL in the Nix sandbox,
+      # while the restart fixture assumes the fetched source is a Git worktree (Nix fetches a source archive without
+      # .git). They must live in the Vitest project configuration because that overrides CLI --exclude arguments.
+      ./opencode_model_router/nix_sandbox_test_exclusions.patch
+    ];
 
     npmDepsHash = hash-npm-deps;
     dontNpmBuild = true;
@@ -46,8 +52,7 @@ in {
       runHook preCheck
       ${prev.lib.getExe nodejs} ${nodejs}/lib/node_modules/npm/bin/npm-cli.js run test -- \
         --maxWorkers=1 \
-        --no-file-parallelism \
-        --exclude test/unit/exec-branches.test.ts
+        --no-file-parallelism
       runHook postCheck
     '';
     nativeCheckInputs = with prev; [
