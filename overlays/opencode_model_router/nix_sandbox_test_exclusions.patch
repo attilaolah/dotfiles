@@ -1,0 +1,12 @@
+diff --git a/vitest.config.ts b/vitest.config.ts
+index 1b39b2b..32d7de4 100644
+--- a/vitest.config.ts
++++ b/vitest.config.ts
+@@ -66 +66,6 @@
+-          exclude: [...excluded, "test/unit/exec.test.ts", "test/unit/executor-integrate-queue-heartbeat.test.ts"], sequence: { groupOrder: 0 } },
++          exclude: [...excluded,
++            "test/unit/exec.test.ts",
++            "test/unit/exec-branches.test.ts",
++            "test/unit/executor-integrate-queue-heartbeat.test.ts",
++            "test/integration/v2-background-restart.test.ts",
++          ], sequence: { groupOrder: 0 } },
