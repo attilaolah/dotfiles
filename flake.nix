@@ -20,7 +20,7 @@
     };
 
     opencode = {
-      url = "github:anomalyco/opencode/v2.1.4";
+      url = "github:anomalyco/opencode/v2.2.0";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     programmer-dvorak-compose = {
