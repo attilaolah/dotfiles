@@ -1,9 +1,9 @@
 final: prev: let
-  github-tags = ["google-antigravity/antigravity-cli" "1.4.7"];
-  hash-src-aarch64-darwin = "sha256-n+17/pDLFYrAC1stpk3VSvcy98BiJZ5o69BguCf9DYg=";
-  hash-src-aarch64-linux = "sha256-snPHkbdkf2gFmPodvfnICGvcQjdLInb6cOkAv4Eg4dU=";
-  hash-src-x86_64-darwin = "sha256-CslEMfd0ZZ5xkoAZwmxknlcRF5YpuGlo6Wy5GT4uxVc=";
-  hash-src-x86_64-linux = "sha256-Z/1OcL5zmx+LGPkLUR2ozSp67yToiOWDdALgJb9/2/w=";
+  github-tags = ["google-antigravity/antigravity-cli" "1.4.8"];
+  hash-src-aarch64-darwin = "sha256-7NH3s1knvCPtRJYTmusOObmcSxxj1fHzuPwlq1FedjE=";
+  hash-src-aarch64-linux = "sha256-u+NMVr39z9m5pP0k90MPeoB3d7NWsha0GGL7bdlFDIA=";
+  hash-src-x86_64-darwin = "sha256-zoUcma+5ohqMDK3rsbcVWpUf+6dnSQgfD9LAawp7KcM=";
+  hash-src-x86_64-linux = "sha256-ixZfD8WE8Pkt0TGNw6CQcGrhiq3n02sLhiO4Wur4bFI=";
   version = builtins.elemAt github-tags 1;
 in {
   antigravity-cli = prev.antigravity-cli.overrideAttrs (old: let
