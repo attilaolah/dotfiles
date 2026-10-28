@@ -13,9 +13,9 @@
       heavy = gpt "6.1-sol" "xhigh";
     };
     anthropic = {
-      fast = claude "sonnet-5-5";
-      medium = claude "opus-5-5";
-      heavy = claude "fable-5-5";
+      fast = claude "haiku-5-5";
+      medium = claude "sonnet-5-5";
+      heavy = claude "opus-5-5";
     };
   };
   fallback.global = {
