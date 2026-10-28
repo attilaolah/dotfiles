@@ -1,7 +1,7 @@
 final: prev: let
   github-tags = ["Daghis/teamcity-mcp" "2.12.12"]; # extractVersion=^teamcity-mcp-v(?<version>.*)$
-  hash-src = "sha256-nc/nVgy3VovsjduYp3L7Y66pmJJJ8Zh12Sk7S7zOuVQ=";
-  hash-npm-deps = "sha256-rcqyxcpUyvyHdRm+JUvfHlQVYadWSAEo/20dCl4cvrk=";
+  hash-src = "sha256-7vrc5DvhZH7QwcJ9GXE1gejFsCa2iysPWCNhDErWQSk=";
+  hash-npm-deps = "sha256-Tfh3SfJpemodxTGgG5ibcx7RUPFe4gRDFz616It0doA=";
   version = builtins.elemAt github-tags 1;
 in {
   teamcity-mcp = prev.buildNpmPackage {
