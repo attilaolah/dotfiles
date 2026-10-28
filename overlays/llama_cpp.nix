@@ -7,12 +7,6 @@ in {
   llama-cpp = prev.llama-cpp.overrideAttrs (old: {
     inherit version;
     npmDepsHash = hash-npm-deps;
-    disabledTests =
-      (old.disabledTests or [])
-      ++ [
-        "test-recurrent-state-rollback"
-        "test-save-load-state"
-      ];
     src = import ./lib/fetch_from_github_tuple.nix prev {
       inherit github-tags hash-src;
       rev = "v${version}";
