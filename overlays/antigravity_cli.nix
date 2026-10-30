@@ -1,5 +1,5 @@
 final: prev: let
-  github-tags = ["google-antigravity/antigravity-cli" "1.4.9"];
+  github-tags = ["google-antigravity/antigravity-cli" "1.4.12"];
   hash-src-aarch64-darwin = "sha256-ZCBOFJdeYyrn8mkSvtSNSf/he7JxkJPKOMACdrHxNPA=";
   hash-src-aarch64-linux = "sha256-DnUZDVqkiw92I7IBz+9ULNNqEnmz0or6f6CZmDoHNJM=";
   hash-src-x86_64-darwin = "sha256-kwNENtRlCCEwiRooTwsl0M/Ua+V2wJ54we9twv8v/3c=";
