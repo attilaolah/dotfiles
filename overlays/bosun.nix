@@ -1,7 +1,7 @@
 final: prev: let
-  github-tags = ["yetidevworks/bosun" "2.2.10"]; # extractVersion=^v(?<version>.*)$
-  hash-src = "sha256-glEzMR0+8NHV7h7VFGArxAdC7EjBJYwnf2FTG62XCw0=";
-  hash-cargo-deps = "sha256-MhRgMsGihGdJFMUPFhzNV2CkTEMkPfx64/Des91LpMM=";
+  github-tags = ["yetidevworks/bosun" "2.2.12"]; # extractVersion=^v(?<version>.*)$
+  hash-src = "sha256-KUS75FlOK02mtz5nP1YOaO43Qhuu8ZiPhcV9pUkQogA=";
+  hash-cargo-deps = "sha256-Dy6aOMsO5fuSMzPj4ReHCopxdUVMkipdp83zfr/UE7c=";
   version = builtins.elemAt github-tags 1;
 in {
   bosun = prev.rustPlatform.buildRustPackage {
