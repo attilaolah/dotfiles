@@ -59,6 +59,16 @@
       url = "https://github.com/NixOS/nixpkgs/commit/17532b74898e31f81b09adc0645814569fdaf3c3.patch?full_index=1";
       flake = false;
     };
+    # headroom: 0.41.0 -> 0.42.0
+    nixpkgs-patch-pr-569784-1 = {
+      url = "https://github.com/NixOS/nixpkgs/commit/d5cfba3513635608050242728c81bbae3fef8c0e.patch?full_index=1";
+      flake = false;
+    };
+    # python3Packages.litellm: 1.106.4 -> 1.106.6
+    nixpkgs-patch-pr-581105 = {
+      url = "https://github.com/NixOS/nixpkgs/pull/581105.patch?full_index=1";
+      flake = false;
+    };
   };
 
   outputs = {
