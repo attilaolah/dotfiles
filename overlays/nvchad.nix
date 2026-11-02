@@ -1,8 +1,8 @@
 final: prev: let
   inherit (builtins) elemAt;
 
-  git-refs = ["https://github.com/NvChad/NvChad.git" "v2.5" "262f103d3cbe22da7f352c9e01306cf5a34fd8a1"];
-  hash-src = "sha256-HVnS+W4laBFrQV8w99FQx50V1l6NwE9XXuggq6JPo6U=";
+  git-refs = ["https://github.com/NvChad/NvChad.git" "v2.5" "87d6a41ec07ab995de912a892749b6b4805ad2b3"];
+  hash-src = "sha256-QR4qmJLisyIr4I40vTXWfQQZhKrzwNxb0A+u2/GHDbk=";
 
   rev = elemAt git-refs 2;
   gitHubRepo = prev.lib.splitString "/" (prev.lib.removeSuffix ".git" (prev.lib.removePrefix "https://github.com/" (elemAt git-refs 0)));
