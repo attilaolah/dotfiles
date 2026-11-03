@@ -184,6 +184,18 @@
         "url": "https://github.com/NixOS/nixpkgs/commit/d5cfba3513635608050242728c81bbae3fef8c0e.patch?full_index=1"
       }
     },
+    "nixpkgs-patch-pr-582345": {
+      "flake": false,
+      "locked": {
+        "narHash": "sha256-TOy6ORlHnbEgOWGcvf4ZtyT2S3mcQqoCXCX2GPAtLJ4=",
+        "type": "file",
+        "url": "https://github.com/NixOS/nixpkgs/pull/582345.patch?full_index=1"
+      },
+      "original": {
+        "type": "file",
+        "url": "https://github.com/NixOS/nixpkgs/pull/582345.patch?full_index=1"
+      }
+    },
     "nixpkgs-patcher": {
       "locked": {
         "lastModified": 1793529490,
@@ -255,6 +267,7 @@
         "nixpkgs-patch-pr-567590-5": "nixpkgs-patch-pr-567590-5",
         "nixpkgs-patch-pr-569784": "nixpkgs-patch-pr-569784",
         "nixpkgs-patch-pr-569784-1": "nixpkgs-patch-pr-569784-1",
+        "nixpkgs-patch-pr-582345": "nixpkgs-patch-pr-582345",
         "nixpkgs-patcher": "nixpkgs-patcher",
         "opencode": "opencode",
         "programmer-dvorak-compose": "programmer-dvorak-compose",
@@ -268,11 +281,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1793052255,
-        "narHash": "sha256-Y/JIHTnMlOabDfyaSBubWGLDIVGihLEUuoMhFvQKaDo=",
+        "lastModified": 1793657466,
+        "narHash": "sha256-GoOvpdsjO5hqZuO6T6ok9u6sJEjO0iPli2zRr9oNUNw=",
         "owner": "Mic92",
         "repo": "sops-nix",
-        "rev": "60182817ee048ac94b4c68ea76d5ef2e8aac730d",
+        "rev": "b18e01ce148eb3efff5de2f2d3181ca53b2b2a54",
         "type": "github"
       },
       "original": {
