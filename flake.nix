@@ -64,11 +64,6 @@
       url = "https://github.com/NixOS/nixpkgs/commit/d5cfba3513635608050242728c81bbae3fef8c0e.patch?full_index=1";
       flake = false;
     };
-    # python3Packages.litellm: 1.106.4 -> 1.106.6
-    nixpkgs-patch-pr-581105 = {
-      url = "https://github.com/NixOS/nixpkgs/pull/581105.patch?full_index=1";
-      flake = false;
-    };
   };
 
   outputs = {
