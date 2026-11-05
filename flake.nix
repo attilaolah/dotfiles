@@ -64,14 +64,9 @@
       url = "https://github.com/NixOS/nixpkgs/commit/d5cfba3513635608050242728c81bbae3fef8c0e.patch?full_index=1";
       flake = false;
     };
-    # atuin: skip flaky ai session tests on darwin
-    nixpkgs-patch-pr-582345 = {
-      url = "https://github.com/NixOS/nixpkgs/pull/582345.patch?full_index=1";
-      flake = false;
-    };
     # llama-cpp: 0.8.0 -> 0.9.0
     nixpkgs-patch-pr-583290 = {
-      url = "https://github.com/NixOS/nixpkgs/commit/112a861e901ca10e28f83a67a3721b1c0a683273.patch?full_index=1";
+      url = "https://github.com/NixOS/nixpkgs/pull/583290.patch?full_index=1";
       flake = false;
     };
   };
