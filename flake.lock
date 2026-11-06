@@ -61,11 +61,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1793540411,
-        "narHash": "sha256-us2GRWGXbOQpN1blyJGvmdx+g4bv9GoFYq5iiOHRiZ8=",
-        "rev": "0bb2eedc20e4739f29e8045034f2828ad7054f8f",
+        "lastModified": 1793726008,
+        "narHash": "sha256-iNjybNORi/2+shilhMlkNr01UHWKOHRGzQyIyvobs9o=",
+        "rev": "1d060086d60cb76a40cf37109f979d88a5bd6396",
         "type": "tarball",
-        "url": "https://releases.nixos.org/nixos/unstable/nixos-26.11pre1106360.0bb2eedc20e4/nixexprs.tar.zst"
+        "url": "https://releases.nixos.org/nixos/unstable/nixos-26.11pre1107793.1d060086d60c/nixexprs.tar.zst"
       },
       "original": {
         "id": "nixpkgs",
@@ -184,28 +184,16 @@
         "url": "https://github.com/NixOS/nixpkgs/commit/d5cfba3513635608050242728c81bbae3fef8c0e.patch?full_index=1"
       }
     },
-    "nixpkgs-patch-pr-582345": {
-      "flake": false,
-      "locked": {
-        "narHash": "sha256-TOy6ORlHnbEgOWGcvf4ZtyT2S3mcQqoCXCX2GPAtLJ4=",
-        "type": "file",
-        "url": "https://github.com/NixOS/nixpkgs/pull/582345.patch?full_index=1"
-      },
-      "original": {
-        "type": "file",
-        "url": "https://github.com/NixOS/nixpkgs/pull/582345.patch?full_index=1"
-      }
-    },
     "nixpkgs-patch-pr-583290": {
       "flake": false,
       "locked": {
-        "narHash": "sha256-Vfwp4ICLleoi1Uler9YRLcZ0FdLktiucRTt0VG7WuQs=",
+        "narHash": "sha256-l3Q0kWsEQwH0BD17i8+Hwreo5LmkwRSACIVauD7yi/Q=",
         "type": "file",
-        "url": "https://github.com/NixOS/nixpkgs/commit/112a861e901ca10e28f83a67a3721b1c0a683273.patch?full_index=1"
+        "url": "https://github.com/NixOS/nixpkgs/pull/583290.patch?full_index=1"
       },
       "original": {
         "type": "file",
-        "url": "https://github.com/NixOS/nixpkgs/commit/112a861e901ca10e28f83a67a3721b1c0a683273.patch?full_index=1"
+        "url": "https://github.com/NixOS/nixpkgs/pull/583290.patch?full_index=1"
       }
     },
     "nixpkgs-patcher": {
@@ -230,16 +218,16 @@
         ]
       },
       "locked": {
-        "lastModified": 1793088589,
-        "narHash": "sha256-fIko/sSjsKLbGKmOmi9RxLGIyYQWatvo/ZK0jamIS7Y=",
+        "lastModified": 1793398011,
+        "narHash": "sha256-/a1czcXi12KWPXcESqplNdOZcjEs8gWCMO7w4nQYLkw=",
         "owner": "anomalyco",
         "repo": "opencode",
-        "rev": "1097e2668b1e08ad63bdf0b1c4860b9bc01e420c",
+        "rev": "9bbb8ce18c80f099e0e448775f59d965ead40a21",
         "type": "github"
       },
       "original": {
         "owner": "anomalyco",
-        "ref": "v2.2.0",
+        "ref": "v2.2.5",
         "repo": "opencode",
         "type": "github"
       }
@@ -279,7 +267,6 @@
         "nixpkgs-patch-pr-567590-5": "nixpkgs-patch-pr-567590-5",
         "nixpkgs-patch-pr-569784": "nixpkgs-patch-pr-569784",
         "nixpkgs-patch-pr-569784-1": "nixpkgs-patch-pr-569784-1",
-        "nixpkgs-patch-pr-582345": "nixpkgs-patch-pr-582345",
         "nixpkgs-patch-pr-583290": "nixpkgs-patch-pr-583290",
         "nixpkgs-patcher": "nixpkgs-patcher",
         "opencode": "opencode",
