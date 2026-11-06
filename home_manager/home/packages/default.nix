@@ -143,6 +143,7 @@
       gsettings-desktop-schemas
       dconf-editor
       glib
+      papirus-folders
 
       # Other GUI apps:
       discord

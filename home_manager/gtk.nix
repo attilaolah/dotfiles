@@ -17,9 +17,15 @@ in {
 
     enable = true;
 
+    # Papirus icon theme with Catppuccin folder colours.
+    # To repaint the folders, change `flavor` (latte/frappe/macchiato/mocha) or `accent`
+    # (blue/flamingo/green/lavender/maroon/mauve/peach/pink/red/ rosewater/sapphire/sky/teal/yellow) and rebuild.
     iconTheme = {
-      name = "WhiteSur";
-      package = pkgs.whitesur-icon-theme;
+      name = "Papirus-Dark";
+      package = pkgs.catppuccin-papirus-folders.override {
+        flavor = "mocha";
+        accent = "mauve";
+      };
     };
     cursorTheme = with config.home.pointerCursor; {
       inherit name size;
