@@ -25,6 +25,13 @@ in {
     checkPhase = ''
       runHook preCheck
       export GOFLAGS=''${GOFLAGS//-trimpath/}
+      # The fake vault inherits the production vault's deliberately restricted PATH.
+      # Use store paths for its utilities without changing the environment under test.
+      substituteInPlace internal/ask/helpers_test.go \
+        --replace-fail 'env >>' '${prev.lib.getExe' prev.coreutils "env"} >>' \
+        --replace-fail "| tr '/' '_'" "| ${prev.lib.getExe' prev.coreutils "tr"} '/' '_'" \
+        --replace-fail 'then cat >&2' 'then ${prev.lib.getExe' prev.coreutils "cat"} >&2' \
+        --replace-fail 'cat > "$store/$n"' '${prev.lib.getExe' prev.coreutils "cat"} > "$store/$n"'
       # On Darwin /tmp is a symlink to /private/tmp. The recall readers canonicalize discovered paths, while these
       # tests retain their t.TempDir paths for database lookups; use the canonical location.
       export TMPDIR=${
