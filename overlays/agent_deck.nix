@@ -1,7 +1,7 @@
 final: prev: let
-  github-tags = ["asheshgoplani/agent-deck" "1.16.30"]; # extractVersion=^v(?<version>.*)$
-  hash-src = "sha256-3mVmpV5F1LqN/f5pbihR9Lrw/UO4nu2+/cldcE/UoB4=";
-  hash-vendor = "sha256-v3vhZiTTktjmWuv4FTWAEiHaeSUXyVRVTOL02UeZZrw=";
+  github-tags = ["asheshgoplani/agent-deck" "1.16.36"]; # extractVersion=^v(?<version>.*)$
+  hash-src = "sha256-D6PF5KWhiTwI+1M4XiT6KFv0+uO2PrdSWm9cjdSQofg=";
+  hash-vendor = "sha256-yNCm//ZOTAIxUUm4yEPobbNw0dD01huAth6B9xvBaiE=";
   version = builtins.elemAt github-tags 1;
 in {
   agent-deck = prev.buildGoLatestModule {
@@ -25,6 +25,13 @@ in {
     checkPhase = ''
       runHook preCheck
       export GOFLAGS=''${GOFLAGS//-trimpath/}
+      # The fake vault inherits the production vault's deliberately restricted PATH.
+      # Use store paths for its utilities without changing the environment under test.
+      substituteInPlace internal/ask/helpers_test.go \
+        --replace-fail 'env >>' '${prev.lib.getExe' prev.coreutils "env"} >>' \
+        --replace-fail "| tr '/' '_'" "| ${prev.lib.getExe' prev.coreutils "tr"} '/' '_'" \
+        --replace-fail 'then cat >&2' 'then ${prev.lib.getExe' prev.coreutils "cat"} >&2' \
+        --replace-fail 'cat > "$store/$n"' '${prev.lib.getExe' prev.coreutils "cat"} > "$store/$n"'
       # On Darwin /tmp is a symlink to /private/tmp. The recall readers canonicalize discovered paths, while these
       # tests retain their t.TempDir paths for database lookups; use the canonical location.
       export TMPDIR=${
