@@ -2,8 +2,8 @@ final: prev: let
   # The CLI is distributed only as release binaries.
   # Renovate reads this tuple and updates the version from the release channel.
   coderabbit-cli = ["coderabbit-cli" "0.9.3"];
-  hash-src-aarch64-darwin = "sha256-vzypbAjlpXhug3A+KF4w20PdJuDm3Fm4LZB03cqluFQ=";
-  hash-src-x86_64-linux = "sha256-spvvVf1aQaKHKThRas3kb0wMz4/YHA2GgpxDWnWl/Zo=";
+  hash-src-aarch64-darwin = "sha256-mDbOSwPq/NBy6U7lPQj8O2wHGc3q3lRXGEJNYr4gwVg=";
+  hash-src-x86_64-linux = "sha256-2IaQGlv/2dc1m80Q6S4n+h5V6Kf42isd/NQlp/ie3Es=";
   version = builtins.elemAt coderabbit-cli 1;
 
   sources = prev.lib.mapAttrs (system: source:
