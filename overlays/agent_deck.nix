@@ -21,7 +21,18 @@ in {
     doInstallCheck = true;
 
     # The upstream suite marks subprocess and external-service tests as short.
-    checkFlags = ["-short"];
+    checkFlags =
+      ["-short"]
+      ++ prev.lib.optionals prev.stdenv.hostPlatform.isDarwin [
+        # Timing-sensitive wall-clock and XNU race tests on Darwin.
+        "-skip"
+        "^(${prev.lib.concatStringsSep "|" [
+          "TestInstallTickCancellationPreservesNonce"
+          "TestOutputBatchThroughput"
+          "TestPiWakeSocket_WriteFailureAfterDialIsCommittedNeverUnavailable"
+          "TestSpoolAppendMedianUnderOneMillisecond"
+        ]})$"
+      ];
     checkPhase = ''
       runHook preCheck
       export GOFLAGS=''${GOFLAGS//-trimpath/}
@@ -32,6 +43,13 @@ in {
         --replace-fail "| tr '/' '_'" "| ${prev.lib.getExe' prev.coreutils "tr"} '/' '_'" \
         --replace-fail 'then cat >&2' 'then ${prev.lib.getExe' prev.coreutils "cat"} >&2' \
         --replace-fail 'cat > "$store/$n"' '${prev.lib.getExe' prev.coreutils "cat"} > "$store/$n"'
+      # Avoid /bin/sh and /bin/bash in test scripts (e.g. macOS Bash 3.2 or missing /bin/bash in sandbox).
+      patchShebangs internal/provider/testdata examples/providers/docker/sandbox-setup.sh
+      ${prev.lib.optionalString prev.stdenv.hostPlatform.isDarwin ''
+        # Darwin's regcomp(3) enforces RE_DUP_MAX = 255, rejecting {20,4096}.
+        substituteInPlace examples/providers/docker/sandbox-setup.sh \
+          --replace-fail '{20,4096}' '{20,255}'
+      ''}
       # On Darwin /tmp is a symlink to /private/tmp. The recall readers canonicalize discovered paths, while these
       # tests retain their t.TempDir paths for database lookups; use the canonical location.
       export TMPDIR=${
@@ -63,13 +81,19 @@ in {
       ]})$')
       runHook postCheck
     '';
-    nativeCheckInputs = with prev; [
-      git
-      lsof
-      openssh
-      procps
-      tmux
-    ];
+    nativeCheckInputs = with prev;
+      [
+        git
+        lsof
+        openssh
+        procps
+        tmux
+      ]
+      ++ prev.lib.optionals prev.stdenv.hostPlatform.isDarwin [
+        # Unattended update readiness tests run `launchctl print gui/<uid>`,
+        # which cannot reach a user GUI launchd domain inside the Nix sandbox.
+        (writeShellScriptBin "launchctl" "")
+      ];
 
     nativeInstallCheckInputs = [prev.versionCheckHook];
     versionCheckProgram = "${placeholder "out"}/bin/agent-deck";
