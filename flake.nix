@@ -28,11 +28,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # python3Packages.opendal: 0.46.0 -> 0.47.10
-    nixpkgs-patch-pr-567447 = {
-      url = "https://github.com/NixOS/nixpkgs/commit/49ad14a096e9ab4a21cece147e53d3efdc06848c.patch?full_index=1";
-      flake = false;
-    };
     # mcp-atlassian: init at 0.23.1
     nixpkgs-patch-pr-567590-1 = {
       url = "https://github.com/NixOS/nixpkgs/commit/81a18399ae642cfb040daff86289f3f65786de69.patch?full_index=1";
@@ -54,19 +49,24 @@
       url = "https://github.com/NixOS/nixpkgs/commit/e67c1c678c7d23c6dcb34d5a572381f7c15875dc.patch?full_index=1";
       flake = false;
     };
-    # headroom: init at 0.41.0
+    # headroom: init at 0.42.0
     nixpkgs-patch-pr-569784 = {
-      url = "https://github.com/NixOS/nixpkgs/commit/17532b74898e31f81b09adc0645814569fdaf3c3.patch?full_index=1";
+      url = "https://github.com/NixOS/nixpkgs/commit/48ba5fbc69358bcb7335a1f202fe20f224201373.patch?full_index=1";
       flake = false;
     };
-    # headroom: 0.41.0 -> 0.42.0
-    nixpkgs-patch-pr-569784-1 = {
-      url = "https://github.com/NixOS/nixpkgs/commit/d5cfba3513635608050242728c81bbae3fef8c0e.patch?full_index=1";
+    # python3Packages.tree-sitter-language-pack: fix build with sys libs
+    nixpkgs-patch-pr-584300 = {
+      url = "https://github.com/NixOS/nixpkgs/pull/584300.patch?full_index=1";
       flake = false;
     };
-    # llama-cpp: 0.8.0 -> 0.9.0
-    nixpkgs-patch-pr-583290 = {
-      url = "https://github.com/NixOS/nixpkgs/pull/583290.patch?full_index=1";
+    # codex: fix build with sys libs
+    nixpkgs-patch-pr-584667 = {
+      url = "https://github.com/NixOS/nixpkgs/pull/584667.patch?full_index=1";
+      flake = false;
+    };
+    # zizmor: use system aws-lc
+    nixpkgs-patch-pr-584921 = {
+      url = "https://github.com/NixOS/nixpkgs/pull/584921.patch?full_index=1";
       flake = false;
     };
   };

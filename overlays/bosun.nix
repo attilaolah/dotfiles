@@ -14,7 +14,14 @@ in {
     };
 
     cargoHash = hash-cargo-deps;
-    nativeCheckInputs = [prev.git];
+
+    buildInputs = with prev; [
+      sqlite
+      zstd
+    ];
+    nativeBuildInputs = with prev; [pkg-config];
+
+    nativeCheckInputs = with prev; [git];
 
     meta = {
       description = "Tmux-native orchestrator for AI agent sessions";
