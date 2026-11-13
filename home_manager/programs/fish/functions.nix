@@ -1,8 +1,10 @@
 {
+  config,
   lib,
   pkgs,
   ...
 }: let
+  atuin = lib.getExe config.programs.atuin.package;
   grep = lib.getExe pkgs.gnugrep;
   nix = lib.getExe pkgs.nix;
   sed = lib.getExe pkgs.gnused;
@@ -10,6 +12,15 @@
   wc = lib.getExe' pkgs.coreutils "wc";
 in {
   programs.fish.functions = {
+    __atuin_start_pty_proxy = {
+      onEvent = "fish_prompt";
+      body = ''
+        # Command-mode shells exit without displaying a prompt; do not replace them.
+        functions --erase __atuin_start_pty_proxy
+        ${atuin} pty-proxy init fish | source
+      '';
+    };
+
     nixpkg-run = "${nix} run nixpkgs#$argv[1] -- $argv[2..]";
 
     __pad_from_left = ''
