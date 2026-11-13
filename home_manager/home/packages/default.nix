@@ -38,7 +38,6 @@
       gitleaks
       glow
       gnumake
-      gnupg
       go-task
       go_latest
       gofumpt
@@ -85,7 +84,6 @@
       zig
       zip
       zizmor
-      zoxide
 
       # Virtualisation:
       crane
