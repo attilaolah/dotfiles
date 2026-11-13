@@ -10,6 +10,7 @@
       enter_accept = true;
       workspaces = true;
       sync.records = true;
+      output.enabled = true;
       threads.capture = true;
       theme.name = "catppuccin-mocha-mauve";
     };

@@ -1,9 +1,14 @@
 {
+  config,
   lib,
   pkgs,
   ...
 }: {
-  programs.fish.interactiveShellInit = ''
+  programs.fish.interactiveShellInit = lib.mkMerge [
+    (lib.mkOrder 100 ''
+      ${lib.getExe config.programs.atuin.package} pty-proxy init fish | source
+    '')
+    ''
     set fish_greeting
     # TODO: Remove this line once the atuin home-manager module is fixed for fish > 4.3.0
     set -g fish_key_bindings fish_default_key_bindings
@@ -18,5 +23,6 @@
     ${lib.getExe pkgs.direnv} hook fish | source
     ${lib.getExe pkgs.zoxide} init --cmd cd fish | source
     ${lib.getExe pkgs.any-nix-shell} fish | source
-  '';
+    ''
+  ];
 }
