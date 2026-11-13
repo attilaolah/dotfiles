@@ -40,11 +40,6 @@
       };
       threads.capture = true;
       theme.name = "catppuccin-mocha-mauve";
-      tmux = {
-        enabled = true;
-        width = "92%";
-        height = "80%";
-      };
     };
   };
 }
