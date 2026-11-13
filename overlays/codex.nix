@@ -1,5 +1,5 @@
 final: prev: let
-  github-tags = ["openai/codex" "0.167.0"]; # extractVersion=^rust-v(?<version>.*)$
+  github-tags = ["openai/codex" "0.169.0"]; # extractVersion=^rust-v(?<version>.*)$
   hash-src = "sha256-9BVM0mUQ+F9QpqvnG+7x4ZXYaNTclcGLtF5DzEU5Zzg=";
   hash-cargo-deps = "sha256-Dqo9nMfbkTcyT+S79U2JdXpnxwrN0fQjjMlG055jvJE=";
   version = builtins.elemAt github-tags 1;
