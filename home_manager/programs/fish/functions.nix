@@ -12,6 +12,35 @@
   wc = lib.getExe' pkgs.coreutils "wc";
 in {
   programs.fish.functions = {
+    fish_prompt = ''
+      set -g __status $status
+      set -g __minimal_prompt (
+        test -z "$DISPLAY" -a "$TERM" = "linux"
+        and echo 1
+        or echo 0
+      )
+      if test "$__minimal_prompt" -eq 0
+        __show_shlvl_user_host
+        __show_devenv
+        __show_venv
+        __show_git_prompt
+      end
+      __show_pwd
+      __show_prompt
+      set_color normal
+      echo -n " "
+    '';
+
+    fish_right_prompt = ''
+      if test "$__minimal_prompt" -eq 0
+        __show_retval
+        __show_jobs
+      end
+      set_color normal
+    '';
+
+    nixpkg-run = "${nix} run nixpkgs#$argv[1] -- $argv[2..]";
+
     __atuin_start_pty_proxy = {
       onEvent = "fish_prompt";
       body = ''
@@ -20,8 +49,6 @@ in {
         ${atuin} pty-proxy init fish | source
       '';
     };
-
-    nixpkg-run = "${nix} run nixpkgs#$argv[1] -- $argv[2..]";
 
     __pad_from_left = ''
       if test "$__minimal_prompt" -eq 0
@@ -174,33 +201,6 @@ in {
       else
         __prompt_segment normal white '$'
       end
-    '';
-
-    fish_prompt = ''
-      set -g __status $status
-      set -g __minimal_prompt (
-        test -z "$DISPLAY" -a "$TERM" = "linux"
-        and echo 1
-        or echo 0
-      )
-      if test "$__minimal_prompt" -eq 0
-        __show_shlvl_user_host
-        __show_devenv
-        __show_venv
-        __show_git_prompt
-      end
-      __show_pwd
-      __show_prompt
-      set_color normal
-      echo -n " "
-    '';
-
-    fish_right_prompt = ''
-      if test "$__minimal_prompt" -eq 0
-        __show_retval
-        __show_jobs
-      end
-      set_color normal
     '';
   };
 }
