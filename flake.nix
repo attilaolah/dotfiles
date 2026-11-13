@@ -56,7 +56,7 @@
     };
     # llama-cpp: 0.9.0 -> 1.0.0
     nixpkgs-patch-pr-587662 = {
-      url = "https://github.com/NixOS/nixpkgs/commit/d42f21c91198246f6b084427e36c9fd5847362f3.patch?full_index=1";
+      url = "https://github.com/NixOS/nixpkgs/pull/587662.patch?full_index=1";
       flake = false;
     };
   };
