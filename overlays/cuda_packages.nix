@@ -1,4 +1,4 @@
 _: prev: {
   # Renovate will keep this updated.
-  cudaPackages = prev.cudaPackages_13_4;
+  cudaPackages = prev.cudaPackages_13_5;
 }
