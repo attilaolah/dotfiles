@@ -54,21 +54,6 @@
       url = "https://github.com/NixOS/nixpkgs/commit/48ba5fbc69358bcb7335a1f202fe20f224201373.patch?full_index=1";
       flake = false;
     };
-    # python3Packages.tree-sitter-language-pack: fix build with sys libs
-    nixpkgs-patch-pr-584300 = {
-      url = "https://github.com/NixOS/nixpkgs/pull/584300.patch?full_index=1";
-      flake = false;
-    };
-    # codex: fix build with sys libs
-    nixpkgs-patch-pr-584667 = {
-      url = "https://github.com/NixOS/nixpkgs/pull/584667.patch?full_index=1";
-      flake = false;
-    };
-    # zizmor: use system aws-lc
-    nixpkgs-patch-pr-584921 = {
-      url = "https://github.com/NixOS/nixpkgs/pull/584921.patch?full_index=1";
-      flake = false;
-    };
   };
 
   outputs = {

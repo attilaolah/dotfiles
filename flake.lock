@@ -61,11 +61,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1794042290,
-        "narHash": "sha256-VZ8WvA9m3XN36juXyg/GwbDRU2OezOHJlXpJCXkccv0=",
-        "rev": "f4a03c008967841f2a0b3cb7c436fc6fc31671f6",
+        "lastModified": 1794386569,
+        "narHash": "sha256-W60urNAgQVS8bhNWH0bQsYoiagds8m38oTDUjEOM9FE=",
+        "rev": "d4f25a3e562008648d45bcf2d70bcc7422cad84e",
         "type": "tarball",
-        "url": "https://releases.nixos.org/nixos/unstable/nixos-26.11pre1113206.f4a03c008967/nixexprs.tar.zst"
+        "url": "https://releases.nixos.org/nixos/unstable/nixos-26.11pre1117658.d4f25a3e5620/nixexprs.tar.zst"
       },
       "original": {
         "id": "nixpkgs",
@@ -160,42 +160,6 @@
         "url": "https://github.com/NixOS/nixpkgs/commit/48ba5fbc69358bcb7335a1f202fe20f224201373.patch?full_index=1"
       }
     },
-    "nixpkgs-patch-pr-584300": {
-      "flake": false,
-      "locked": {
-        "narHash": "sha256-R4Nz3zyDwqbvRyj4fw+vpyC5AfEu9q0gFXroH7InwhA=",
-        "type": "file",
-        "url": "https://github.com/NixOS/nixpkgs/pull/584300.patch?full_index=1"
-      },
-      "original": {
-        "type": "file",
-        "url": "https://github.com/NixOS/nixpkgs/pull/584300.patch?full_index=1"
-      }
-    },
-    "nixpkgs-patch-pr-584667": {
-      "flake": false,
-      "locked": {
-        "narHash": "sha256-4dp3Pw2kpMfEXw6FtT8hQOoRD0qKExTL0GB9HBWyBhg=",
-        "type": "file",
-        "url": "https://github.com/NixOS/nixpkgs/pull/584667.patch?full_index=1"
-      },
-      "original": {
-        "type": "file",
-        "url": "https://github.com/NixOS/nixpkgs/pull/584667.patch?full_index=1"
-      }
-    },
-    "nixpkgs-patch-pr-584921": {
-      "flake": false,
-      "locked": {
-        "narHash": "sha256-Sjt90SPXz4XT8vjN0NxvBVUr0ThThcEJQc6mQg/2VIQ=",
-        "type": "file",
-        "url": "https://github.com/NixOS/nixpkgs/pull/584921.patch?full_index=1"
-      },
-      "original": {
-        "type": "file",
-        "url": "https://github.com/NixOS/nixpkgs/pull/584921.patch?full_index=1"
-      }
-    },
     "nixpkgs-patcher": {
       "locked": {
         "lastModified": 1793529490,
@@ -265,9 +229,6 @@
         "nixpkgs-patch-pr-567590-4": "nixpkgs-patch-pr-567590-4",
         "nixpkgs-patch-pr-567590-5": "nixpkgs-patch-pr-567590-5",
         "nixpkgs-patch-pr-569784": "nixpkgs-patch-pr-569784",
-        "nixpkgs-patch-pr-584300": "nixpkgs-patch-pr-584300",
-        "nixpkgs-patch-pr-584667": "nixpkgs-patch-pr-584667",
-        "nixpkgs-patch-pr-584921": "nixpkgs-patch-pr-584921",
         "nixpkgs-patcher": "nixpkgs-patcher",
         "opencode": "opencode",
         "programmer-dvorak-compose": "programmer-dvorak-compose",
