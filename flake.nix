@@ -28,25 +28,25 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # mcp-atlassian: init at 0.23.1
+    # mcp-atlassian: init at 0.24.4
     nixpkgs-patch-pr-567590-1 = {
-      url = "https://github.com/NixOS/nixpkgs/commit/81a18399ae642cfb040daff86289f3f65786de69.patch?full_index=1";
+      url = "https://github.com/NixOS/nixpkgs/commit/9bd758744add06f12e446001cfb751c651c19982.patch?full_index=1";
       flake = false;
     };
     nixpkgs-patch-pr-567590-2 = {
-      url = "https://github.com/NixOS/nixpkgs/commit/96e36c2c904cd39b3fe625ba939130c71579f7a6.patch?full_index=1";
+      url = "https://github.com/NixOS/nixpkgs/commit/b8ccd3aa688d3c229df80862ba8d12ab85898083.patch?full_index=1";
       flake = false;
     };
     nixpkgs-patch-pr-567590-3 = {
-      url = "https://github.com/NixOS/nixpkgs/commit/31f4c8d3f0484d28f99351bbbc45a22441dc73b5.patch?full_index=1";
+      url = "https://github.com/NixOS/nixpkgs/commit/82c8dcbba75d2f4aff86d803452e8eb352b2ab4e.patch?full_index=1";
       flake = false;
     };
     nixpkgs-patch-pr-567590-4 = {
-      url = "https://github.com/NixOS/nixpkgs/commit/89224cbdb785226efce56afab527d415993ae039.patch?full_index=1";
+      url = "https://github.com/NixOS/nixpkgs/commit/854b2321133bf181fddb2b1b2f9315f6207f58d2.patch?full_index=1";
       flake = false;
     };
     nixpkgs-patch-pr-567590-5 = {
-      url = "https://github.com/NixOS/nixpkgs/commit/e67c1c678c7d23c6dcb34d5a572381f7c15875dc.patch?full_index=1";
+      url = "https://github.com/NixOS/nixpkgs/commit/a256a4a672eb96d463816e1a305591d117a16b64.patch?full_index=1";
       flake = false;
     };
     # headroom: init at 0.42.0
