@@ -85,7 +85,6 @@
       zig
       zip
       zizmor
-      zoxide
 
       # Virtualisation:
       crane

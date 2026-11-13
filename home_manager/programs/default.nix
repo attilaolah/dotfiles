@@ -25,6 +25,7 @@
       ./tealdeer.nix
       ./tmux.nix
       ./uv.nix
+      ./zoxide.nix
     ]
     ++ lib.lists.optionals pkgs.stdenv.hostPlatform.isDarwin [
       ./zsh.nix

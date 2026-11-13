@@ -21,7 +21,6 @@
     set --export ATUIN_THEME_DIR "${pkgs.catppuccin-atuin}"
 
     ${lib.getExe pkgs.direnv} hook fish | source
-    ${lib.getExe pkgs.zoxide} init --cmd cd fish | source
     ${lib.getExe pkgs.any-nix-shell} fish | source
     ''
   ];
