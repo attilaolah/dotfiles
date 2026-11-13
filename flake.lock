@@ -151,13 +151,13 @@
     "nixpkgs-patch-pr-569784": {
       "flake": false,
       "locked": {
-        "narHash": "sha256-oNOLENkLr1JbhUC28om4wQbf02uSEQhknYjlw9e9sKs=",
+        "narHash": "sha256-KL6DqkLOSqFO4i5H5Bk9Ql1S1NynwNSkb4Rird4QgRI=",
         "type": "file",
-        "url": "https://github.com/NixOS/nixpkgs/commit/48ba5fbc69358bcb7335a1f202fe20f224201373.patch?full_index=1"
+        "url": "https://github.com/NixOS/nixpkgs/commit/3a38a117ab529db9c2f9be605f8a6df4c1c62b16.patch?full_index=1"
       },
       "original": {
         "type": "file",
-        "url": "https://github.com/NixOS/nixpkgs/commit/48ba5fbc69358bcb7335a1f202fe20f224201373.patch?full_index=1"
+        "url": "https://github.com/NixOS/nixpkgs/commit/3a38a117ab529db9c2f9be605f8a6df4c1c62b16.patch?full_index=1"
       }
     },
     "nixpkgs-patcher": {
