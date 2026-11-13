@@ -1,4 +1,5 @@
 {
+  config,
   lib,
   pkgs,
   ...
@@ -22,6 +23,12 @@
         atlassian = {
           description = "Atlassian";
           package = pkgs.mcp-atlassian;
+        };
+        atuin = {
+          description = "Atuin";
+          package = config.programs.atuin.package;
+          args = ["mcp"];
+          enabled = lib.mkDefault true;
         };
         bitbucket = {
           description = "Bitbucket";
