@@ -1,7 +1,7 @@
 final: prev: let
-  github-tags = ["ggml-org/llama.cpp" "0.9.0"]; # extractVersion=^v(?<version>.*)$
-  hash-src = "sha256-6LqtpfqTAbYUr/wPPBAM/dXHv3LDTg+1A81k/cFcAjY=";
-  hash-npm-deps = "sha256-XLtEZsSFdk+2SyfXzBp8HQ2e27PQPpDCn1YjePU1/9w=";
+  github-tags = ["ggml-org/llama.cpp" "1.0.0"]; # extractVersion=^v(?<version>.*)$
+  hash-src = "sha256-aYziwYzK9Zj7sopAEsrANhMGs4BO0F2g0cDCGmYLxDA=";
+  hash-npm-deps = "sha256-0OJIueUN5oD/V2NtVcXTiRW59u2tJIG3OxW8aJ8JDBY=";
   version = builtins.elemAt github-tags 1;
 in {
   llama-cpp = prev.llama-cpp.overrideAttrs (old: {
