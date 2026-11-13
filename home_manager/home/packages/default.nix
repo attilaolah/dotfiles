@@ -38,7 +38,6 @@
       gitleaks
       glow
       gnumake
-      gnupg
       go-task
       go_latest
       gofumpt
