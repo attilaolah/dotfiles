@@ -19,6 +19,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    mcp-nixos = {
+      url = "github:utensils/mcp-nixos/v3.1.0";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     opencode = {
       url = "github:anomalyco/opencode/v2.3.0";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -75,6 +79,17 @@
       overlays =
         [
           opencode.overlays.default
+          # Keep the upstream recursion workaround scoped to mcp-nixos until the fix is released:
+          # https://github.com/utensils/mcp-nixos/commit/a0fb7ab7701d8aff179199536b7c2574ef05507a
+          (final: prev:
+            inputs.mcp-nixos.overlays.default
+            (final
+              // {
+                python3Packages = final.python3Packages.overrideScope (_: pyPrev: {
+                  mcp-types = pyPrev.mcp-types.overridePythonAttrs (_: {version = pyPrev.mcp.version;});
+                });
+              })
+            prev)
           # Fix OpenCode build error:
           # Cannot find module '../../../script/native-arch' from '/build/source/packages/cli/script/build.ts'
           (final: prev: {opencode = prev.opencode.overrideAttrs (_: {src = opencode;});})
