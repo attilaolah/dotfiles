@@ -40,6 +40,11 @@
           # Relatively cheap and starts quickly.
           enabled = lib.mkDefault true;
         };
+        context7 = {
+          description = "Context7";
+          package = pkgs.context7-mcp;
+          enabled = lib.mkDefault true;
+        };
         flux_operator = {
           description = "Flux Operator";
           package = pkgs.fluxcd-operator-mcp;
