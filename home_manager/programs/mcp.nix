@@ -86,8 +86,7 @@
           package = pkgs.rea;
           args = ["mcp"];
           env = {
-            GHIDRA_INSTALL_DIR = "${pkgs.ghidra}/lib/ghidra";
-            JAVA_HOME = pkgs.openjdk25.home;
+            inherit (config.home.sessionVariables) GHIDRA_INSTALL_DIR JAVA_HOME;
           };
         };
         sonarqube = {
