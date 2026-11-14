@@ -56,6 +56,10 @@
           description = "Kubernetes";
           package = pkgs.kubernetes-mcp-server;
         };
+        nixos = {
+          description = "NixOS";
+          package = pkgs.mcp-nixos;
+        };
         playwright = let
           browser = pkgs.google-chrome;
         in {
