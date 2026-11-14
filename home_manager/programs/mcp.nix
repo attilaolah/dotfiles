@@ -14,7 +14,8 @@
           # Product-specific MCP servers are disabled by default.
           # Only enable MCPs that are useful or necessary in most sessions.
           enabled = lib.mkDefault false;
-
+        }
+        // lib.optionalAttrs (server ? package) {
           command = lib.getExe pkgs.gcf-proxy;
           args = [(lib.getExe server.package)] ++ server.args or [];
         }
@@ -48,6 +49,10 @@
           description = "Flux Operator";
           package = pkgs.fluxcd-operator-mcp;
           args = ["serve"];
+        };
+        github = {
+          description = "GitHub";
+          url = "https://api.githubcopilot.com/mcp/";
         };
         headroom = {
           description = "Headroom";
