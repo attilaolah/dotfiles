@@ -40,6 +40,8 @@
           BOSUN_DEFAULT_AGENT = "opencode";
           BOSUN_REMOVE_DEAD_SESSIONS = "true";
           BOSUN_HIDE_SINGLE_TAB_STRIP = "true";
+          GHIDRA_INSTALL_DIR = "${pkgs.ghidra}/lib/ghidra";
+          JAVA_HOME = "${pkgs.openjdk25.home}";
         }
         // lib.attrsets.optionalAttrs pkgs.stdenv.hostPlatform.isDarwin {
           # Use Secretive as the SSH agent on MacOS. It is installed via Homebrew or environment.systemPackages.

@@ -63,6 +63,11 @@
       url = "https://github.com/NixOS/nixpkgs/pull/587662.patch?full_index=1";
       flake = false;
     };
+    # rea: 6.8.0 -> 6.9.0
+    nixpkgs-patch-pr-587921 = {
+      url = "https://github.com/NixOS/nixpkgs/pull/587921.patch?full_index=1";
+      flake = false;
+    };
   };
 
   outputs = {

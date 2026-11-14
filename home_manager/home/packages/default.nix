@@ -98,6 +98,7 @@
       coderabbit
       headroom
       qwen-code
+      rea
 
       # NodeJS
       bun
