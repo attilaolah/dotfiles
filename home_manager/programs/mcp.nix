@@ -81,6 +81,15 @@
             (lib.meta.availableOn pkgs.stdenv.hostPlatform browser)
             {PLAYWRIGHT_MCP_EXECUTABLE_PATH = lib.getExe browser;};
         };
+        rea = {
+          description = "Reverse Engineer Anything";
+          package = pkgs.rea;
+          args = ["mcp"];
+          env = {
+            GHIDRA_INSTALL_DIR = "${pkgs.ghidra}/lib/ghidra";
+            JAVA_HOME = pkgs.openjdk25.home;
+          };
+        };
         sonarqube = {
           description = "SonarQube";
           package = pkgs.sonarqube-mcp-server;
