@@ -15,6 +15,7 @@ in {
 
     vendorHash = hash-vendor;
     subPackages = ["cmd/kubernetes-mcp-server"];
+    ldflags = ["-X github.com/containers/kubernetes-mcp-server/pkg/version.Version=v${version}"];
     checkPhase = ''
       runHook preCheck
       export GOFLAGS=''${GOFLAGS//-trimpath/}
@@ -26,6 +27,9 @@ in {
       )
       runHook postCheck
     '';
+
+    doInstallCheck = true;
+    nativeInstallCheckInputs = [prev.versionCheckHook];
 
     meta = {
       description = "MCP server for Kubernetes";
