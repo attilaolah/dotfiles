@@ -15,8 +15,6 @@ in {
 
     vendorHash = hash-vendor;
     subPackages = ["cmd/kubernetes-mcp-server"];
-    doCheck = true;
-    nativeBuildInputs = [prev.writableTmpDirAsHomeHook];
     checkPhase = ''
       runHook preCheck
       export GOFLAGS=''${GOFLAGS//-trimpath/}
