@@ -113,8 +113,16 @@
         variant = "mocha";
         accent = "mauve";
         themeList =
-          ["bat" "btop"]
-          ++ lib.optionals pkgs.stdenv.hostPlatform.isLinux ["grub" "hyprland" "plymouth" "waybar"];
+          [
+            "bat"
+            "btop"
+          ]
+          ++ lib.optionals pkgs.stdenv.hostPlatform.isLinux [
+            "grub"
+            "hyprland"
+            "plymouth"
+            "waybar"
+          ];
       })
       (llama-cpp.override {
         cudaSupport = pkgs.config.cudaSupport or false;
