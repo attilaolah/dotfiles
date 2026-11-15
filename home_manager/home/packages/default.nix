@@ -21,6 +21,7 @@
       bat
       betterleaks
       bitbucket-cli
+      btop
       cargo
       clang_22
       colordiff
@@ -41,7 +42,6 @@
       go-task
       go_latest
       gofumpt
-      gotop
       htop
       jira-cli-go
       jq
@@ -110,6 +110,21 @@
       darktable
       google-chrome
 
+      (catppuccin.override {
+        variant = "mocha";
+        accent = "mauve";
+        themeList =
+          [
+            "bat"
+            "btop"
+          ]
+          ++ lib.optionals pkgs.stdenv.hostPlatform.isLinux [
+            "grub"
+            "hyprland"
+            "plymouth"
+            "waybar"
+          ];
+      })
       (llama-cpp.override {
         cudaSupport = pkgs.config.cudaSupport or false;
         metalSupport = pkgs.stdenv.hostPlatform.isDarwin;
