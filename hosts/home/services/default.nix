@@ -7,7 +7,6 @@
     ./dbus.nix
     ./gvfs.nix
     ./jellyfin.nix
-    ./kubo.nix
     ./openssh.nix
     ./pipewire.nix
     ./printing.nix
