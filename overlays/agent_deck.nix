@@ -1,7 +1,7 @@
 final: prev: let
-  github-tags = ["asheshgoplani/agent-deck" "1.16.38"]; # extractVersion=^v(?<version>.*)$
-  hash-src = "sha256-fvJaRcWtaFKdFbyPJOYKU95gerpeWL819Ol0e8Y7c8k=";
-  hash-vendor = "sha256-8d56v5csbdGaQku2LR7Twy2fKoXBVPKN9KPHdsithjg=";
+  github-tags = ["asheshgoplani/agent-deck" "1.16.39"]; # extractVersion=^v(?<version>.*)$
+  hash-src = "sha256-WqbT4/4vIIgAvqq9Ikv+2kn1r31m4D8yjYEYzFC5A8U=";
+  hash-vendor = "sha256-cuiMn9Pd4VQD4KpodLe+Sw+6P+Vou7aCm4NlAmR9Jfc=";
   version = builtins.elemAt github-tags 1;
 in {
   agent-deck = prev.buildGoLatestModule {
