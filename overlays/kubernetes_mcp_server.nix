@@ -15,16 +15,21 @@ in {
 
     vendorHash = hash-vendor;
     subPackages = ["cmd/kubernetes-mcp-server"];
-    doCheck = true;
-    nativeBuildInputs = [prev.writableTmpDirAsHomeHook];
+    ldflags = ["-X github.com/containers/kubernetes-mcp-server/pkg/version.Version=v${version}"];
     checkPhase = ''
       runHook preCheck
       export GOFLAGS=''${GOFLAGS//-trimpath/}
-      # pkg/mcp starts an envtest control plane and downloads its binaries.
       # Kiali discovery tests assume DNS failures are not temporary, unlike in the sandbox.
-      go test $checkFlags -skip '^TestHasKiali_DiscoverFromCR$' $(go list ./... | grep -v '/pkg/mcp$')
+      go test $checkFlags -skip '^TestHasKiali_DiscoverFromCR$' $(
+        go list ./... |
+        # Starts an envtest control plane and downloads its binaries.
+        grep -v '/pkg/mcp$'
+      )
       runHook postCheck
     '';
+
+    doInstallCheck = true;
+    nativeInstallCheckInputs = [prev.versionCheckHook];
 
     meta = {
       description = "MCP server for Kubernetes";
