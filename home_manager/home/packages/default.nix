@@ -96,6 +96,7 @@
       agent-deck
       bosun
       coderabbit
+      ctx7
       headroom
       qwen-code
       rea

@@ -37,7 +37,11 @@
         codebase_memory = {
           description = "Codebase Memory";
           package = pkgs.codebase-memory-mcp;
-          # Relatively cheap and starts quickly.
+          enabled = lib.mkDefault true;
+        };
+        context7 = {
+          description = "Context7";
+          package = pkgs.context7-mcp;
           enabled = lib.mkDefault true;
         };
         flux_operator = {
@@ -59,6 +63,7 @@
         nixos = {
           description = "NixOS";
           package = pkgs.mcp-nixos;
+          enabled = lib.mkDefault true;
         };
         playwright = let
           browser = pkgs.google-chrome;
