@@ -55,7 +55,7 @@
     };
     # headroom: init at 0.42.0
     nixpkgs-patch-pr-569784 = {
-      url = "https://github.com/NixOS/nixpkgs/commit/3a38a117ab529db9c2f9be605f8a6df4c1c62b16.patch?full_index=1";
+      url = "https://github.com/NixOS/nixpkgs/pull/569784.patch?full_index=1";
       flake = false;
     };
     # llama-cpp: 0.9.0 -> 1.0.0
