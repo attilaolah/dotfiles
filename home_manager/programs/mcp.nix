@@ -53,6 +53,7 @@
         github = {
           description = "GitHub";
           url = "https://api.githubcopilot.com/mcp/";
+          headers.Authorization = "Bearer {env:GITHUB_COM_TOKEN}";
         };
         headroom = {
           description = "Headroom";
