@@ -68,6 +68,11 @@
       url = "https://github.com/NixOS/nixpkgs/pull/587921.patch?full_index=1";
       flake = false;
     };
+    # headroom: 0.42.0 -> 0.44.0
+    nixpkgs-patch-pr-589524 = {
+      url = "https://github.com/NixOS/nixpkgs/commit/3247921e41d8c0b22d17df70fd765fbf53d03075.patch?full_index=1";
+      flake = false;
+    };
   };
 
   outputs = {
