@@ -1,7 +1,7 @@
 final: prev: let
-  github-tags = ["openai/codex" "0.169.0"]; # extractVersion=^rust-v(?<version>.*)$
-  hash-src = "sha256-p8Vw0Vu8ufPY35k/RkcKE6HOTMJta2J9W33ei/7in+A=";
-  hash-cargo-deps = "sha256-+YSkZwmAP88AOFmNWav4ye4ObbDYAIo0mzeQEzTqDm8=";
+  github-tags = ["openai/codex" "0.171.0"]; # extractVersion=^rust-v(?<version>.*)$
+  hash-src = "sha256-Q0fxlAU4oJZOHJtsVVaJJ28XuupzpCYGO4IKn9TAwl0=";
+  hash-cargo-deps = "sha256-57GGsc4vgmQnnOXOPf2QaqrW8+02cpc/zotb8Y+rRio=";
   version = builtins.elemAt github-tags 1;
 in {
   codex = prev.codex.overrideAttrs (_: let
