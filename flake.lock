@@ -86,16 +86,16 @@
         ]
       },
       "locked": {
-        "lastModified": 1788575406,
-        "narHash": "sha256-EjSyb5FcVnZOW0qFbcvxzor/je02duSe/RhJsL5p+14=",
+        "lastModified": 1794853830,
+        "narHash": "sha256-duzHgajA/CXSwykgeKvwbHjms611IdyDcgJui4i8rmM=",
         "owner": "utensils",
         "repo": "mcp-nixos",
-        "rev": "6a517811658c21f97bd7703b35546085117fc310",
+        "rev": "90922b22366c78f8be0aa6625a567f4eb04b2c1d",
         "type": "github"
       },
       "original": {
         "owner": "utensils",
-        "ref": "v3.1.0",
+        "ref": "v3.1.1",
         "repo": "mcp-nixos",
         "type": "github"
       }
