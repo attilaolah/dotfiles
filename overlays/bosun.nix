@@ -1,5 +1,5 @@
 final: prev: let
-  github-tags = ["yetidevworks/bosun" "2.2.12"]; # extractVersion=^v(?<version>.*)$
+  github-tags = ["yetidevworks/bosun" "2.2.13"]; # extractVersion=^v(?<version>.*)$
   hash-src = "sha256-KUS75FlOK02mtz5nP1YOaO43Qhuu8ZiPhcV9pUkQogA=";
   hash-cargo-deps = "sha256-Dy6aOMsO5fuSMzPj4ReHCopxdUVMkipdp83zfr/UE7c=";
   version = builtins.elemAt github-tags 1;
