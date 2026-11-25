@@ -110,6 +110,7 @@
       # GUI apps available on both Linux and Darwin.
       darktable
       google-chrome
+      logseq
 
       (catppuccin.override {
         variant = "mocha";

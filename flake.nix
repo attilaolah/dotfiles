@@ -32,6 +32,12 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # logseq_2: init (nixpkgs PR #516682)
+    nixpkgs-patch-pr-516682 = {
+      url = "https://github.com/NixOS/nixpkgs/pull/516682.patch?full_index=1";
+      flake = false;
+    };
+
     # mcp-atlassian: init at 0.24.4
     nixpkgs-patch-pr-567590-1 = {
       url = "https://github.com/NixOS/nixpkgs/commit/9bd758744add06f12e446001cfb751c651c19982.patch?full_index=1";
