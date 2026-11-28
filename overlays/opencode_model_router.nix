@@ -1,5 +1,5 @@
 final: prev: let
-  github-tags = ["marco-jardim/opencode-model-router" "2.9.1"]; # extractVersion=^v(?<version>.*)$
+  github-tags = ["marco-jardim/opencode-model-router" "2.10.0"]; # extractVersion=^v(?<version>.*)$
   hash-src = "sha256-NPqpXI+HLH3AQGkCkX2CDxbJnlbYOyphSUpHaG5LBNE=";
   hash-npm-deps = "sha256-OH7HUgSJr8acQVX7XIqJYzlAvBSWksLOtJ1chH7Kv/A=";
   version = builtins.elemAt github-tags 1;
