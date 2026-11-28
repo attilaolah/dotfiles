@@ -1,5 +1,5 @@
 final: prev: let
-  github-tags = ["ggml-org/llama.cpp" "1.0.0"]; # extractVersion=^v(?<version>.*)$
+  github-tags = ["ggml-org/llama.cpp" "1.1.0"]; # extractVersion=^v(?<version>.*)$
   hash-src = "sha256-aYziwYzK9Zj7sopAEsrANhMGs4BO0F2g0cDCGmYLxDA=";
   hash-npm-deps = "sha256-0OJIueUN5oD/V2NtVcXTiRW59u2tJIG3OxW8aJ8JDBY=";
   version = builtins.elemAt github-tags 1;
