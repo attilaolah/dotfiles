@@ -1,5 +1,5 @@
 final: prev: let
-  github-tags = ["asheshgoplani/agent-deck" "1.16.40"]; # extractVersion=^v(?<version>.*)$
+  github-tags = ["asheshgoplani/agent-deck" "1.16.41"]; # extractVersion=^v(?<version>.*)$
   hash-src = "sha256-EvqxC2zUQN2eAek5QmUeNAPF+Jl4l/bAVZGAAzXNVmc=";
   hash-vendor = "sha256-0bftNm4C61irFt1mt9jPlu3xRXZb7WkW2qoFBOy8JDs=";
   version = builtins.elemAt github-tags 1;
