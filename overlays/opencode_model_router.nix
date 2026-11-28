@@ -1,7 +1,7 @@
 final: prev: let
-  github-tags = ["marco-jardim/opencode-model-router" "2.9.1"]; # extractVersion=^v(?<version>.*)$
-  hash-src = "sha256-NPqpXI+HLH3AQGkCkX2CDxbJnlbYOyphSUpHaG5LBNE=";
-  hash-npm-deps = "sha256-OH7HUgSJr8acQVX7XIqJYzlAvBSWksLOtJ1chH7Kv/A=";
+  github-tags = ["marco-jardim/opencode-model-router" "2.10.0"]; # extractVersion=^v(?<version>.*)$
+  hash-src = "sha256-66030havicyIAKhdLgDZMbl9g/SzEf3ZGyH7MCKfW4Q=";
+  hash-npm-deps = "sha256-fnoV+avwZYJ/bB1NweOTrVJp9N5vy/1IC5DqAc75GDA=";
   version = builtins.elemAt github-tags 1;
 
   # Nixpkgs' full Node package links bin/node to nodejs-slim.
